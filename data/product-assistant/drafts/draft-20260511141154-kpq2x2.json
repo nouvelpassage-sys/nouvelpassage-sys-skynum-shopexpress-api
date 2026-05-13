@@ -1,0 +1,42 @@
+{
+  "id": "draft-20260511141154-kpq2x2",
+  "status": "draft",
+  "createdAt": "2026-05-11T14:11:54.987Z",
+  "sourceText": "ніжний букет для преміум подарунка https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg\n\n5566   ккоорралл  сенссеетт",
+  "revisionInstruction": "піівооннііїїї",
+  "visionUsed": true,
+  "sku": "BQ-200944",
+  "price": 5566,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg",
+  "previewUrl": "https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg",
+  "productTypeUk": "букет коралово-рожевих півоній",
+  "productTypeEn": "coral pink peony bouquet",
+  "visibleSummaryUk": "Пишний букет коралово-рожевих півоній з округлою формою та свіжою зеленою подачею.",
+  "nameUk": "Corail Secret",
+  "nameEn": "Corail Secret",
+  "descriptionUk": "Букет Corail Secret виглядає зібрано й дорого завдяки загальному настрою, формі та м'якій подачі Nouvel Amour. Така позиція доречна для привітання, побачення або особистого компліменту, а опис не перераховує склад композиції.",
+  "descriptionEn": "A bouquet of coral-pink peonies with a lush rounded silhouette and fresh green accents feels soft, expressive, and distinctly seasonal. It carries a tender yet polished mood, suited to a premium gesture with a warm personal tone.",
+  "seo": {
+    "titleUk": "Corail Secret - букет коралово-рожевих півоній",
+    "descriptionUk": "Букет коралово-рожевих півоній Corail Secret від Nouvel Amour з пишною формою та ніжним сезонним характером.",
+    "keywordsUk": "букет півоній, коралові півонії, рожеві півонії, букет коралово-рожевих півоній, букет Nouvel Amour, преміум букет півоній",
+    "slug": "corail-secret"
+  },
+  "qualityIssues": [],
+  "updatedAt": "2026-05-11T14:12:18.602Z",
+  "photos": [
+    {
+      "url": "https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg",
+      "previewURL": "https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg",
+      "order": 0,
+      "type": "image",
+      "resourceType": "image"
+    }
+  ]
+}

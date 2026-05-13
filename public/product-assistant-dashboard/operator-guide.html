@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nouvel Product Assistant Guide</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Nouvel Amour</p>
+        <h1>Інструкція Telegram-бота</h1>
+      </div>
+      <a class="secondary-link" href="/">До панелі</a>
+    </header>
+
+    <main class="guide-layout">
+      <section class="guide-panel">
+        <h2>1. Основний сценарій</h2>
+        <ol>
+          <li>Зробіть одне чітке фото реального товару.</li>
+          <li>Надішліть фото в Telegram-бот <strong>Nouvel Product Assistant</strong>.</li>
+          <li>У підписі до фото напишіть ціну й коротку підказку.</li>
+          <li>Перевірте картку, яку повернув бот.</li>
+          <li>Якщо все добре, натисніть <strong>Створити в SalesBox</strong>.</li>
+        </ol>
+
+        <pre>2500 букет у ніжній гамі
+690 іграшка ведмежа
+850 аромасвічка Amber driftwood
+1900 спатифілум у кашпо, 2 шт</pre>
+
+        <h2>2. Що перевірити</h2>
+        <ul>
+          <li>Назва має бути креативною, бажано з легким французьким настроєм.</li>
+          <li>Категорія має бути реальною: букети, квіти в коробках, рослини, арома товари, іграшки, листівки або декор.</li>
+          <li>Ціна й фото мають бути правильними.</li>
+          <li>Опис не має перелічувати склад букета або звучати як технічний райдер.</li>
+          <li>Для кімнатних рослин бажано вказувати кількість, якщо вона відома.</li>
+        </ul>
+
+        <h2>3. Кнопки й команди</h2>
+        <dl class="command-list">
+          <div><dt>Створити в SalesBox</dt><dd>створює товар у SalesBox і додає картку в ShopExpress queue</dd></div>
+          <div><dt>Лише чернетка</dt><dd>залишає картку без публікації</dd></div>
+          <div><dt>/redo</dt><dd>створити картку заново</dd></div>
+          <div><dt>/rewrite</dt><dd>переписати опис</dd></div>
+          <div><dt>/premium</dt><dd>зробити назву й опис преміальнішими</dd></div>
+          <div><dt>/shorter</dt><dd>скоротити опис</dd></div>
+          <div><dt>/fix</dt><dd>виправити слабкі місця</dd></div>
+          <div><dt>/status</dt><dd>перевірити режим SalesBox і сховище фото</dd></div>
+        </dl>
+
+        <h2>4. Що відбувається після публікації</h2>
+        <p>Бот виконує дві дії: створює товар у <strong>SalesBox</strong> через API та додає цю ж картку у <strong>ShopExpress import queue</strong>.</p>
+
+        <pre>SalesBox live write: увімкнено
+ShopExpress live write: вимкнено
+ShopExpress import queue: увімкнено</pre>
+
+        <p>Поточна черга ShopExpress:</p>
+        <pre>data/product-assistant/shopexpress-pending-import.csv</pre>
+
+        <h2>5. SalesBox → ShopExpress</h2>
+        <p>Щоб сформувати повний імпорт із SalesBox у ShopExpress, запустіть:</p>
+        <pre>node scripts/export-salesbox-to-shopexpress-import.mjs</pre>
+        <p>Результат:</p>
+        <pre>data/product-assistant/salesbox-to-shopexpress-import.csv</pre>
+
+        <h2>6. Етап 2</h2>
+        <p>Етап 1 завершено: Telegram → SalesBox працює, ShopExpress отримує чергу імпорту. Етап 2: підтвердити офіційний ShopExpress API endpoint і замінити CSV-чергу на live-синхронізацію.</p>
+      </section>
+    </main>
+  </body>
+</html>

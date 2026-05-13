@@ -1,0 +1,40 @@
+{
+  "id": "draft-20260511145051-7qw5wn",
+  "status": "draft",
+  "createdAt": "2026-05-11T14:50:51.399Z",
+  "sourceText": "1900 тестове локальне фото кімнатна рослина для перевірки Cloudinary",
+  "visionUsed": true,
+  "sku": "PL-168447",
+  "price": 1900,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": false,
+  "stockMode": "counted",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778511052/nouvel-amour/products/draft-20260511145051-7qw5wn.png",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778511052/nouvel-amour/products/draft-20260511145051-7qw5wn.png",
+  "productTypeUk": "кімнатна рослина в горщику",
+  "productTypeEn": "potted indoor plant",
+  "visibleSummaryUk": "Кімнатна рослина в горщику; точний вид з наданого зображення нечитабельний.",
+  "nameUk": "Maison Calme",
+  "nameEn": "Maison Calme",
+  "descriptionUk": "Кімнатна рослина в горщику у лаконічній подачі — стриманий зелений акцент для дому, студії або робочого простору. Така позиція додає інтер’єру доглянутого настрою й залишається поруч надовго як уважний, тихий подарунок.",
+  "descriptionEn": "A potted indoor plant in a clean, understated presentation brings a calm green accent to a home, studio, or workspace. It adds a cared-for atmosphere and stays with the recipient as a lasting, thoughtful gift.",
+  "seo": {
+    "titleUk": "Maison Calme - кімнатна рослина в горщику",
+    "descriptionUk": "Кімнатна рослина в горщику від Nouvel Amour — зелений акцент для дому, офісу або подарунка з тривалим настроєм.",
+    "keywordsUk": "кімнатна рослина в горщику, кімнатні рослини, зелений подарунок, рослина для дому, рослина для офісу, Nouvel Amour",
+    "slug": "maison-calme"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778511052/nouvel-amour/products/draft-20260511145051-7qw5wn.png",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778511052/nouvel-amour/products/draft-20260511145051-7qw5wn.png",
+      "order": 0,
+      "type": "image",
+      "resourceType": "image"
+    }
+  ]
+}

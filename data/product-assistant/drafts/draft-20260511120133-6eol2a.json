@@ -1,0 +1,30 @@
+{
+  "id": "draft-20260511120133-6eol2a",
+  "status": "draft",
+  "createdAt": "2026-05-11T12:01:33.120Z",
+  "sourceText": "330",
+  "photoFileId": "AgACAgIAAxkBAANlagHFFuJZ3oG7ls-ztg4CKc-PqvgAApkVaxsKWAlIXb7Gr6Od74EBAAMCAANtAAM7BA",
+  "visionUsed": true,
+  "sku": "PL-246201",
+  "price": 330,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": false,
+  "stockMode": "counted",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "кімнатна рослина в горщику",
+  "productTypeEn": "indoor potted plant",
+  "visibleSummaryUk": "Жива кімнатна рослина з зеленим листям у теракотовому горщику",
+  "nameUk": "Feuille Éternelle",
+  "nameEn": "Feuille Éternelle",
+  "descriptionUk": "Жива кімнатна рослина у класичному теракотовому горщику має довгі зелені листя із білосніжними вкрапленнями. Вона приносить у дім природний спокій і свіжість, стаючи органічним доповненням до будь-якого інтер’єру.",
+  "descriptionEn": "A living indoor plant in a classic terracotta pot features long green leaves with white accents. It brings natural calm and freshness to the home, serving as an organic complement to any interior.",
+  "seo": {
+    "titleUk": "Feuille Éternelle - кімнатна рослина в горщику",
+    "descriptionUk": "Кімнатна рослина Feuille Éternelle в теракотовому горщику від Nouvel Amour – живий акцент для будь-якого простору та настрою.",
+    "keywordsUk": "кімнатна рослина, зелений горщик, теракота, зелень у будинку, природний декор",
+    "slug": "feuille-eternelle"
+  },
+  "qualityIssues": []
+}

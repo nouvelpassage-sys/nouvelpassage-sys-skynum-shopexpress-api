@@ -1,0 +1,29 @@
+{
+  "id": "draft-20260511065700-p2ybn3",
+  "status": "draft",
+  "createdAt": "2026-05-11T06:57:00.626Z",
+  "sourceText": "Жесть",
+  "photoFileId": null,
+  "visionUsed": false,
+  "sku": "DC-940185",
+  "price": null,
+  "currency": "UAH",
+  "category": "Декор та подарунки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "декоративний подарунок",
+  "productTypeEn": "decorative gift",
+  "visibleSummaryUk": "Декоративний подарунок із металу з лакованим покриттям, сучасний та елегантний.",
+  "nameUk": "Éclat d'Acier - декоративний подарунок з металу",
+  "nameEn": "Éclat d'Acier - metal decorative gift",
+  "descriptionUk": "Цей декоративний подарунок виготовлений із металу з лакованим покриттям, що створює сучасний і вишуканий акцент у будь-якому інтер’єрі. Éclat d'Acier додає елегантного характеру та текстурної гри, підкреслюючи стиль і смак власника.",
+  "descriptionEn": "This decorative gift is crafted from lacquered metal, creating a modern and refined accent for any interior. Éclat d'Acier adds elegant character and textural depth, highlighting the owner’s style and taste.",
+  "seo": {
+    "titleUk": "Éclat d'Acier - декоративний подарунок з металу",
+    "descriptionUk": "Декоративний подарунок Éclat d'Acier від Nouvel Amour: металевий аксесуар для сучасного інтер’єру та стильного подарунка.",
+    "keywordsUk": "декоративний подарунок, металевий декор, стильний аксесуар, сучасний інтер'єр, Nouvel Amour",
+    "slug": "eclat-dacier-dekoratyvnyy-podarunok-z-metalu"
+  }
+}

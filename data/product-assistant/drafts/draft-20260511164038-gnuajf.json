@@ -1,0 +1,39 @@
+{
+  "id": "draft-20260511164038-gnuajf",
+  "status": "draft",
+  "createdAt": "2026-05-11T16:40:38.708Z",
+  "sourceText": "1800",
+  "photoFileId": "AgACAgIAAxkBAAORagIGfmBA12x8ZTSmQAQqxI5So7UAAjAUaxsKWBFIbmpzd7RByHUBAAMCAAN5AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-891445",
+  "price": 1800,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778517639/nouvel-amour/products/draft-20260511164038-gnuajf.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778517639/nouvel-amour/products/draft-20260511164038-gnuajf.jpg",
+  "productTypeUk": "букет у рожево-білій гамі",
+  "productTypeEn": "pink and white bouquet",
+  "visibleSummaryUk": "Ручний букет у рожево-білій палітрі з округлою формою, багатошаровим пакуванням і стрічками.",
+  "nameUk": "Douce Reverie",
+  "nameEn": "Douce Reverie",
+  "descriptionUk": "Повітряний букет у рожево-білій гамі оформлений у багатошаровий папір і перев'язаний стрічками. Він звучить м'яко та романтично, з акуратною округлою формою й делікатним настроєм для ніжного привітання.",
+  "descriptionEn": "An airy bouquet in a pink and white palette, wrapped in layered paper and finished with ribbons. It feels soft and romantic, with a neat rounded silhouette and a delicate mood for a tender gesture.",
+  "seo": {
+    "titleUk": "Douce Reverie - букет у рожево-білій гамі",
+    "descriptionUk": "Повітряний букет Douce Reverie у рожево-білій палітрі з багатошаровим оформленням і стрічками від Nouvel Amour.",
+    "keywordsUk": "букет, рожево-білий букет, ніжний букет, букет у пакуванні, романтичний букет, Nouvel Amour",
+    "slug": "douce-reverie"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778517639/nouvel-amour/products/draft-20260511164038-gnuajf.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778517639/nouvel-amour/products/draft-20260511164038-gnuajf.jpg",
+      "contentType": "image/jpeg"
+    }
+  ]
+}

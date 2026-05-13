@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511084731-kvlbdl",
+  "status": "draft",
+  "createdAt": "2026-05-11T08:47:31.434Z",
+  "sourceText": "",
+  "photoFileId": "AgACAgIAAxkBAANFagGXln-iel1Y_tzK77ZG6A-KjHgAAlETaxu__BFIGl1Zoj6lNjABAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "DC-137418",
+  "price": null,
+  "currency": "UAH",
+  "category": "Декор та подарунки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "ручний букет",
+  "productTypeEn": "hand bouquet",
+  "visibleSummaryUk": "Ручний букет із рожевих гортензій, кремової троянди, бутонів еустоми та зелені евкаліпта, упакований у ніжний пастельний папір із стрічками.",
+  "nameUk": "Belle Histoire",
+  "nameEn": "Belle Histoire",
+  "descriptionUk": "Ручний букет із ніжних рожевих гортензій, кремової троянди, малинових бутонів та білого еустоми. Підкреслений зеленню евкаліпта, він упакований у пастельний папір із тонкими стрічками. Éclat Rosé створює м'який і жіночний настрій для камерного подарунка або особливої події.",
+  "descriptionEn": "Hand-tied bouquet featuring delicate pink hydrangea, creamy rose, raspberry buds, and white lisianthus. Accented by eucalyptus greenery, wrapped in pastel paper with subtle ribbons. Éclat Rosé evokes a soft, feminine mood perfect for an intimate gift or special occasion.",
+  "seo": {
+    "titleUk": "Éclat Rosé - букет рожевих гортензій і троянд",
+    "descriptionUk": "Букет Éclat Rosé від Nouvel Amour зі світло-рожевою гортензією, кремовою трояндою та зеленню евкаліпта, ідеальний для ніжного подарунка.",
+    "keywordsUk": "букет, рожеві гортензії, троянда, еустома, евкаліпт, ручний букет, квіти в подарунок, Nouvel Amour",
+    "slug": "belle-histoire"
+  },
+  "qualityIssues": [
+    "SEO опис містить заборонені шаблонні фрази."
+  ]
+}

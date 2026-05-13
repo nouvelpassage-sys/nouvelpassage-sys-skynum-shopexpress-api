@@ -1,0 +1,30 @@
+{
+  "id": "draft-20260511113421-vokv9x",
+  "status": "draft",
+  "createdAt": "2026-05-11T11:34:21.013Z",
+  "sourceText": "1900",
+  "photoFileId": "AgACAgIAAxkBAANLagG-rOl-FuqemVCdxj_X7Hh7t0UAAiMUaxu__BFIaS6izsJDq5EBAAMCAAN4AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-996136",
+  "price": 1900,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": true,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "міні-букет у пакеті",
+  "productTypeEn": "mini bouquet in a bag",
+  "visibleSummaryUk": "Міні-букет рожевих садових троянд у зеленій обгортці в крафтовому пакет із віконцем",
+  "nameUk": "Lumiere Douce",
+  "nameEn": "Lumiere Douce",
+  "descriptionUk": "Паперовий пакет із прозорою вставкою містить міні-букет у зеленому обгортанні з рожевими садовими трояндами та ніжними гілочками зелені. Caresse de Rose підкреслює делікатність моменту й тонке ставлення, доповнюючи стильний дар.",
+  "descriptionEn": "A paper bag with a transparent window contains a small bouquet wrapped in green paper, featuring pink garden roses and soft green sprigs. Caresse de Rose highlights the delicacy of the occasion and refined care, enhancing the elegance of your gift.",
+  "seo": {
+    "titleUk": "Caresse de Rose - міні-букет у паперовому пакеті",
+    "descriptionUk": "Міні-букет з рожевими садовими трояндами у зеленій обгортці в паперовому пакеті від Nouvel Amour. Ідеальне доповнення до подарунка чи самостійний делікатний дар.",
+    "keywordsUk": "міні-букет, рожеві троянди, паперовий пакет, квіти в подарунок, рожевий букет, Nouvel Amour",
+    "slug": "lumiere-douce"
+  },
+  "qualityIssues": []
+}

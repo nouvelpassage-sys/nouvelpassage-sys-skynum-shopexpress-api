@@ -1,0 +1,29 @@
+{
+  "id": "draft-20260511080412-h15sfr",
+  "status": "draft",
+  "createdAt": "2026-05-11T08:04:12.875Z",
+  "sourceText": "15000",
+  "photoFileId": null,
+  "visionUsed": false,
+  "sku": "DC-254251",
+  "price": 15000,
+  "currency": "UAH",
+  "category": "Декор та подарунки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "декоративний подарунок",
+  "productTypeEn": "decorative gift",
+  "visibleSummaryUk": "Витончений декоративний подарунок з французьким шармом у стриманому дизайні, що створює теплу атмосферу.",
+  "nameUk": "Velours Secret",
+  "nameEn": "Velours Secret",
+  "descriptionUk": "Ніжний декоративний подарунок із витонченим французьким шармом. Його стриманий дизайн додає м'якості та оригінальності будь-якому простору, створюючи теплу і запам’ятовуючу атмосферу.",
+  "descriptionEn": "A delicate decorative gift featuring refined French-inspired charm. Its understated design adds softness and originality to any space, creating a warm and memorable ambiance.",
+  "seo": {
+    "titleUk": "Velours Secret - декоративний подарунок від Nouvel Amour",
+    "descriptionUk": "Декоративний подарунок Velours Secret з витонченим французьким дизайном від Nouvel Amour. Ідеальний акцент для стильного інтер’єру чи подарунка.",
+    "keywordsUk": "декоративний подарунок, французький стиль, стильний декор, витончений дизайн, Nouvel Amour",
+    "slug": "velours-secret"
+  }
+}

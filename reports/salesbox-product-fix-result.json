@@ -1,0 +1,16 @@
+{
+  "apply": true,
+  "total": 58,
+  "offerPatchesPlanned": 57,
+  "seoPlanned": 58,
+  "offerPatchesUpdated": 56,
+  "seoUpdated": 57,
+  "detailFailures": [],
+  "failed": [
+    {
+      "id": "e2c700d8-3b79-49ac-ad83-7cba41500757",
+      "name": "Букет “Éclat de Douceur”",
+      "error": "SalesBox request failed: 500 {\"success\":false,\"errors\":{\"id\":\"SERVER_ERROR\",\"message\":\"********\\nSomething went wrong: \\nCannot read properties of undefined (reading 'reduce')\\n********\"},\"data\":null}"
+    }
+  ]
+}

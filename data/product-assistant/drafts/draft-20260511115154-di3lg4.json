@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511115154-di3lg4",
+  "status": "draft",
+  "createdAt": "2026-05-11T11:51:54.090Z",
+  "sourceText": "500",
+  "sourceDraftId": "draft-20260511115140-1jh0ax",
+  "revisionInstruction": "Recreate the entire product card from the same photo and seller hint. Produce a fresh better creative name, clearer product type, stronger boutique description, and SEO. Keep the real category, price, and visible product facts.",
+  "photoFileId": "AgACAgIAAxkBAANZagHCqc5vEEAeOq5XZ0h2QW-4nBYAApQVaxsKWAlIP_tf1J21vioBAAMCAAN4AAM7BA",
+  "visionUsed": true,
+  "sku": "PL-918373",
+  "price": 500,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": true,
+  "stockMode": "counted",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "кімнатна рослина в горщику",
+  "productTypeEn": "indoor plant in pot",
+  "visibleSummaryUk": "Жива кімнатна рослина з яскраво-зеленим листям у компактному пластиковому горщику.",
+  "nameUk": "Verte Lumière",
+  "nameEn": "Verte Lumière",
+  "descriptionUk": "Жива кімнатна рослина у горщику з яскраво-зеленим листям і міцним стовбуром. Verte Lumière освіжає інтер’єр і створює атмосферу природної гармонії та спокою.",
+  "descriptionEn": "A living indoor plant in a pot featuring vibrant green leaves and a sturdy trunk. Verte Lumière refreshes interiors and brings a natural sense of harmony and calm.",
+  "seo": {
+    "titleUk": "Verte Lumière - кімнатна рослина в горщику",
+    "descriptionUk": "Кімнатна рослина Verte Lumière від Nouvel Amour з яскраво-зеленим листям для оформлення затишного інтер’єру та природної атмосфери.",
+    "keywordsUk": "кімнатна рослина, горщик, зелений лист, рослина для дому, декор інтер’єру",
+    "slug": "verte-lumiere"
+  },
+  "qualityIssues": []
+}

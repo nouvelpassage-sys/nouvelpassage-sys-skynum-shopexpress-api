@@ -1,0 +1,25 @@
+{
+  "id": "draft-20260511051414-mvn0hq",
+  "status": "kept",
+  "createdAt": "2026-05-11T05:14:14.003Z",
+  "sourceText": "букет  15000",
+  "photoFileId": "AgACAgIAAxkBAAMKagFlpGrMNsVNJjsbXmJ0nUY-PxcAAm4Vaxu__AlIWsqS7-FnqQ0BAAMCAAN3AAM7BA",
+  "sku": "BQ-517643",
+  "price": 15000,
+  "currency": "UAH",
+  "category": "Букети",
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "nameUk": "Букет",
+  "nameEn": "Buket",
+  "descriptionUk": "Букет - товар Nouvel Amour у категорії \"Букети\". Підійде для подарунка, доповнення до квітів або самостійного замовлення.",
+  "descriptionEn": "Buket by Nouvel Amour in the \"Bukety\" category. A stylish choice for a gift or as an addition to flowers.",
+  "seo": {
+    "titleUk": "Букет - купити в Nouvel Amour",
+    "descriptionUk": "Букет від Nouvel Amour. В наявності, ціна 15000 грн. Швидке оформлення та стильна подача.",
+    "keywordsUk": "букет, Букети, Nouvel Amour, подарунок",
+    "slug": "buket"
+  },
+  "updatedAt": "2026-05-11T05:14:24.050Z"
+}

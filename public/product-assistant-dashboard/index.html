@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nouvel Amour Product Assistant</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Nouvel Amour</p>
+        <h1>Product Assistant</h1>
+      </div>
+      <a class="ghost-link" href="/operator-guide.html">Operator guide</a>
+      <div class="status-strip" id="statusStrip">
+        <span class="status-dot muted"></span>
+        <span>Перевіряю налаштування...</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel input-panel">
+        <div class="panel-head">
+          <h2>Новий товар</h2>
+          <button class="ghost-button" id="clearButton" type="button">Очистити</button>
+        </div>
+
+        <label for="productText">Фото, ціна і коротка підказка</label>
+        <textarea
+          id="productText"
+          spellcheck="true"
+          placeholder="1900 спатифілум у кашпо https://.../photo.jpg"
+        ></textarea>
+
+        <label for="photoFile">Або локальне фото для розпізнавання</label>
+        <input id="photoFile" type="file" accept="image/png,image/jpeg,image/webp" />
+        <div class="file-note" id="fileNote">
+          Локальне фото допоможе GPT розпізнати товар, але для публікації в SalesBox потрібне публічне посилання.
+        </div>
+
+        <label for="publicPhotoUrl">Публічне фото для SalesBox</label>
+        <input
+          id="publicPhotoUrl"
+          type="url"
+          inputmode="url"
+          placeholder="https://sales-box-photos.../photo.jpg"
+        />
+
+        <label for="sourceCategory">Категорія, якщо треба зафіксувати</label>
+        <select id="sourceCategory">
+          <option value="">Автовизначення</option>
+          <option>Букети</option>
+          <option>Квіти в коробках</option>
+          <option>Кімнатні рослини</option>
+          <option>Арома товари</option>
+          <option>Іграшки</option>
+          <option>Листівки</option>
+          <option>Декор та подарунки</option>
+          <option>Авторські роботи By Lesnikov</option>
+          <option>Гарячі пропозиції</option>
+        </select>
+
+        <label for="revisionInstruction">Редакторська команда</label>
+        <input
+          id="revisionInstruction"
+          type="text"
+          placeholder="Наприклад: перепиши коротше, без складу букета"
+        />
+
+        <button class="primary-button" id="generateButton" type="button">Згенерувати картку</button>
+
+        <div class="hint-grid">
+          <button type="button" data-example="1900 ніжний букет для преміум подарунка https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg">
+            Букет
+          </button>
+          <button type="button" data-example="1450 кімнатна рослина з етикеткою на фото https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg">
+            Рослина
+          </button>
+        </div>
+
+        <div class="recent-head">
+          <h2>Останні чернетки</h2>
+          <button class="ghost-button" id="refreshDraftsButton" type="button">Оновити</button>
+        </div>
+        <div class="draft-list" id="draftList"></div>
+      </section>
+
+      <section class="panel preview-panel">
+        <div class="panel-head">
+          <h2>Чернетка</h2>
+          <span class="pill" id="draftState">Немає</span>
+        </div>
+
+        <div class="empty-state" id="emptyState">
+          Додай посилання на фото, ціну й коротку підказку. Тут одразу з'явиться готова картка українською та англійською.
+        </div>
+
+        <article class="draft-view hidden" id="draftView">
+          <div class="image-slot" id="imageSlot">
+            <img id="draftImage" alt="" />
+            <span id="imagePlaceholder">Без фото</span>
+          </div>
+          <div class="draft-content">
+            <div class="draft-meta">
+              <span id="draftCategory"></span>
+              <span id="draftPrice"></span>
+            </div>
+            <h3 id="draftName"></h3>
+            <p class="type-line" id="draftType"></p>
+            <p id="draftDescription"></p>
+            <dl>
+              <div>
+                <dt>English</dt>
+                <dd id="draftNameEn"></dd>
+              </div>
+              <div>
+                <dt>SEO title</dt>
+                <dd id="draftSeoTitle"></dd>
+              </div>
+              <div>
+                <dt>Slug</dt>
+                <dd id="draftSlug"></dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <div class="issues hidden" id="issuesBox"></div>
+
+        <form class="draft-editor hidden" id="draftEditor">
+          <div class="editor-grid">
+            <label>
+              Назва UA
+              <input id="editNameUk" type="text" />
+            </label>
+            <label>
+              Назва EN
+              <input id="editNameEn" type="text" />
+            </label>
+            <label>
+              Категорія
+              <select id="editCategory">
+                <option>Букети</option>
+                <option>Квіти в коробках</option>
+                <option>Кімнатні рослини</option>
+                <option>Арома товари</option>
+                <option>Іграшки</option>
+                <option>Листівки</option>
+                <option>Декор та подарунки</option>
+                <option>Авторські роботи By Lesnikov</option>
+                <option>Гарячі пропозиції</option>
+              </select>
+            </label>
+            <label>
+              Ціна
+              <input id="editPrice" type="number" min="0" step="1" />
+            </label>
+          </div>
+          <label>
+            Тип товару
+            <input id="editProductTypeUk" type="text" />
+          </label>
+          <label>
+            Опис UA
+            <textarea id="editDescriptionUk"></textarea>
+          </label>
+          <label>
+            Публічне фото
+            <input id="editPhotoUrl" type="url" inputmode="url" />
+          </label>
+          <div class="editor-actions">
+            <button class="secondary-button" id="saveDraftButton" type="submit">Зберегти правки</button>
+            <button class="ghost-button" id="reviseDraftButton" type="button">AI переписати</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel payload-panel">
+        <div class="panel-head">
+          <h2>SalesBox</h2>
+          <span class="pill" id="writeState">Dry-run</span>
+        </div>
+
+        <section class="storage-status" id="storageStatus">
+          <div>
+            <h2>Сховище фото</h2>
+            <p id="storageSummary">Перевіряю...</p>
+          </div>
+          <pre id="storageSnippet"></pre>
+          <button class="ghost-button" id="copyStorageSnippetButton" type="button">Copy .env</button>
+        </section>
+
+        <section class="telegram-status" id="telegramStatus">
+          <div>
+            <h2>Telegram bot</h2>
+            <p id="telegramSummary">Перевіряю...</p>
+          </div>
+          <ul id="telegramChecklist"></ul>
+        </section>
+
+        <div class="publish-row">
+          <button class="secondary-button" id="publishButton" type="button" disabled>Перевірити публікацію</button>
+          <button class="ghost-button" id="copyPayloadButton" type="button" disabled>Copy JSON</button>
+          <span id="publishResult"></span>
+        </div>
+
+        <section class="feed-export">
+          <div>
+            <h2>SalesBox YML</h2>
+            <p>Export ready drafts as a file for the SalesBox synchronization window.</p>
+          </div>
+          <div class="feed-actions">
+            <a class="secondary-link" id="downloadYmlLink" href="/api/salesbox-feed.yml" download>Download YML</a>
+            <button class="ghost-button" id="copyYmlLinkButton" type="button">Copy link</button>
+            <button class="ghost-button" id="refreshYmlStatusButton" type="button">Refresh status</button>
+          </div>
+          <code id="ymlFeedUrl">/api/salesbox-feed.yml</code>
+          <div class="export-stats" id="ymlExportStats"></div>
+          <div class="export-issues" id="ymlExportIssues"></div>
+        </section>
+
+        <pre id="payloadBox">{}</pre>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

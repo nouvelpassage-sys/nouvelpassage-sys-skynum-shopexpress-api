@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511084136-wa069h",
+  "status": "draft",
+  "createdAt": "2026-05-11T08:41:36.249Z",
+  "sourceText": "5580",
+  "sourceDraftId": "draft-20260511084116-dpvlck",
+  "revisionInstruction": "Make the description shorter and sharper: 1-2 polished sentences. Keep the name, category, product type, and factual image evidence clear.",
+  "photoFileId": "AgACAgIAAxkBAAMKagFlpGrMNsVNJjsbXmJ0nUY-PxcAAm4Vaxu__AlIWsqS7-FnqQ0BAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "BX-212937",
+  "price": 5580,
+  "currency": "UAH",
+  "category": "Квіти в коробках",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "квіткова композиція в коробці",
+  "productTypeEn": "flower composition in a box",
+  "visibleSummaryUk": "Рожеві і кремові троянди щільно укладені в чорній коробці з білим папером і стрічками Nouvel Amour.",
+  "nameUk": "Jardin Secret",
+  "nameEn": "Jardin Secret",
+  "descriptionUk": "Букет Рожеві і кремові троянди щільно укладені в чорній коробці з білим папером і стрічками Nouvel Amour виглядає зібрано й дорого завдяки м'якій палітрі та виразним фактурам. Це варіант для романтичного жесту, привітання або стриманої класики, яка не виглядає випадковою.",
+  "descriptionEn": "This flower box features densely arranged pink and cream roses with a soft color gradient. Rose Velouté evokes refined tenderness and elegant charm for special occasions.",
+  "seo": {
+    "titleUk": "Rose Velouté - квіткова композиція в коробці з рожевих і кремових троянд",
+    "descriptionUk": "Квіткова композиція Rose Velouté від Nouvel Amour: ніжний букет троянд у стильній коробці для вишуканого подарунка.",
+    "keywordsUk": "квіткова композиція, троянди, рожеві троянди, кремові троянди, квіти в коробці, подарунок, Nouvel Amour",
+    "slug": "jardin-secret"
+  },
+  "qualityIssues": []
+}

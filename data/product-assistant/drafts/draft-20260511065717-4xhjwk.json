@@ -1,0 +1,29 @@
+{
+  "id": "draft-20260511065717-4xhjwk",
+  "status": "draft",
+  "createdAt": "2026-05-11T06:57:17.677Z",
+  "sourceText": "Перепиши",
+  "photoFileId": null,
+  "visionUsed": false,
+  "sku": "DC-795871",
+  "price": null,
+  "currency": "UAH",
+  "category": "Декор та подарунки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "декоративний подарунок",
+  "productTypeEn": "decorative gift",
+  "visibleSummaryUk": "Стильний декоративний подарунок із французьким настроєм для додавання теплоти та характеру інтер’єру.",
+  "nameUk": "Éclat Charmant - декоративний подарунок",
+  "nameEn": "Éclat Charmant - decorative gift",
+  "descriptionUk": "Декоративний подарунок в стильному виконанні з французькою ноткою додає інтер’єру акценту уваги та теплоти. Éclat Charmant створений, щоб доповнити будь-який простір або стати вишуканим акцентом подарунка.",
+  "descriptionEn": "A decorative gift with a stylish design and a French-inspired charm adds a warm accent to any interior. Éclat Charmant is crafted to complement any space or serve as an elegant focal point of a present.",
+  "seo": {
+    "titleUk": "Éclat Charmant - декоративний подарунок від Nouvel Amour",
+    "descriptionUk": "Éclat Charmant – декоративний подарунок із французьким шармом від Nouvel Amour, що додає інтер’єру витонченості та теплоти.",
+    "keywordsUk": "декоративний подарунок, французький стиль, інтер’єр, акцент, подарунок, Nouvel Amour",
+    "slug": "eclat-charmant-dekoratyvnyy-podarunok"
+  }
+}

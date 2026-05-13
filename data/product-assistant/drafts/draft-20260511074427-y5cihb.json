@@ -1,0 +1,29 @@
+{
+  "id": "draft-20260511074427-y5cihb",
+  "status": "draft",
+  "createdAt": "2026-05-11T07:44:27.787Z",
+  "sourceText": "10000",
+  "photoFileId": "AgACAgIAAxkBAAMKagFlpGrMNsVNJjsbXmJ0nUY-PxcAAm4Vaxu__AlIWsqS7-FnqQ0BAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "DC-485096",
+  "price": 10000,
+  "currency": "UAH",
+  "category": "Декор та подарунки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "букет великих рожевих троянд",
+  "productTypeEn": "large pink rose bouquet",
+  "visibleSummaryUk": "Великий букет ніжно-рожевих троянд у чорній упаковці з білою обгорткою та сірою стрічкою",
+  "nameUk": "Belle Nuit - букет великих рожевих троянд",
+  "nameEn": "Belle Nuit - large pink rose bouquet",
+  "descriptionUk": "Великий букет ніжно-рожевих троянд упакований у стильний чорний папір із білою обгорткою і сірою стрічкою з логотипом. Belle Nuit створює елегантний настрій, який підкреслить теплі почуття і дарує відчуття витонченості.",
+  "descriptionEn": "A large bouquet of soft pink roses wrapped in stylish black paper with white tissue and gray ribbon branded with the logo. Belle Nuit evokes an elegant mood, highlighting warm feelings and offering a refined impression.",
+  "seo": {
+    "titleUk": "Belle Nuit - букет великих рожевих троянд",
+    "descriptionUk": "Великий букет рожевих троянд Belle Nuit від Nouvel Amour в стильній упаковці для особливого дарунка.",
+    "keywordsUk": "букет рожевих троянд, подарунок, рожеві троянди, елегантний букет, Nouvel Amour",
+    "slug": "belle-nuit-buket-velykykh-rozhevykh-troyand"
+  }
+}

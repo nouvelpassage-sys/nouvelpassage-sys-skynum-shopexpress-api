@@ -1,0 +1,41 @@
+{
+  "id": "draft-20260511204310-hyonpd",
+  "status": "draft",
+  "createdAt": "2026-05-11T20:43:10.052Z",
+  "sourceText": "lux аромасвічка morocan cashmere exclusive 1599uhy",
+  "sourceDraftId": "draft-20260511204252-eoxy1c",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAAO6agI_FyhJ5uQOpeYLq4MLKrFFwc8AAhwVaxsKWBFIRak6AAFb9TrkAQADAgADeQADOwQ",
+  "visionUsed": true,
+  "sku": "AR-287145",
+  "price": 1599,
+  "currency": "UAH",
+  "category": "Арома товари",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "KA Aroma",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532190/nouvel-amour/products/draft-20260511204310-hyonpd.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532190/nouvel-amour/products/draft-20260511204310-hyonpd.jpg",
+  "productTypeUk": "аромасвічка Moroccan Cashmere",
+  "productTypeEn": "Moroccan Cashmere scented candle",
+  "visibleSummaryUk": "KA Aroma Moroccan Cashmere — аромасвічка у прозорій скляній банці з кришкою, кремовим воском і золотим пензликом.",
+  "nameUk": "Lueur Cachemire",
+  "nameEn": "Lueur Cachemire",
+  "descriptionUk": "Аромасвічка у прозорій скляній банці з кришкою, кремовим воском і декоративним золотим пензликом. Аромат Moroccan Cashmere звучить як м'який, камерний акцент для спальні, вітальні або тихого вечора вдома.",
+  "descriptionEn": "A scented candle in a clear glass jar with a lid, creamy wax, and a decorative golden tassel. Moroccan Cashmere reads as a soft, intimate accent for a bedroom, living room, or a quiet evening at home.",
+  "seo": {
+    "titleUk": "Lueur Cachemire - аромасвічка Moroccan Cashmere",
+    "descriptionUk": "Аромасвічка Moroccan Cashmere від Nouvel Amour у прозорій скляній банці з кришкою та декоративним пензликом.",
+    "keywordsUk": "аромасвічка Moroccan Cashmere, свічка KA Aroma, аромасвічка у склі, свічка з кришкою, ароматична свічка Nouvel Amour",
+    "slug": "lueur-cachemire"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532190/nouvel-amour/products/draft-20260511204310-hyonpd.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532190/nouvel-amour/products/draft-20260511204310-hyonpd.jpg",
+      "contentType": "image/jpeg"
+    }
+  ]
+}

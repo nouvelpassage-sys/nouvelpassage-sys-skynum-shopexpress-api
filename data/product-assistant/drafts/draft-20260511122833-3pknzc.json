@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511122833-3pknzc",
+  "status": "draft",
+  "createdAt": "2026-05-11T12:28:33.008Z",
+  "sourceText": "",
+  "sourceDraftId": "draft-20260511122803-x6k2ng",
+  "revisionInstruction": "Rewrite the product copy. Keep the real product, price, category, and product type, but make the Ukrainian and English descriptions more specific, premium, warm, and commercially useful. Remove dry technical catalog wording.",
+  "photoFileId": "AgACAgIAAxkBAANvagHLSQymA4AwUuBxGsUXML1Dl64AAr0VaxsKWAlI80rInmeRjh4BAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-533449",
+  "price": null,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "букет у рожево-білій гамі",
+  "productTypeEn": "pink and white bouquet",
+  "visibleSummaryUk": "Повітряний букет у рожево-білій палітрі зі світлою упаковкою, стрічками та м'якими зеленими акцентами.",
+  "nameUk": "Velours Tendre",
+  "nameEn": "Velours Tendre",
+  "descriptionUk": "Повітряний букет у ніжній рожево-білій гамі з м'якою округлою формою, фактурними пелюстками та свіжими зеленими акцентами, оформлений у багатошарову світлу упаковку з атласними стрічками. Він виглядає делікатно й камерно, тому особливо красиво звучить як привітання, романтичний жест або теплий день народження.",
+  "descriptionEn": "An airy bouquet in a soft pink-and-white palette with a rounded silhouette, layered textures, fresh green accents, and elegant light wrapping finished with satin ribbons. Delicate and intimate in mood, it suits a romantic gesture, a graceful birthday greeting, or a tender personal message.",
+  "seo": {
+    "titleUk": "Velours Tendre - букет у рожево-білій гамі",
+    "descriptionUk": "Ніжний букет Velours Tendre у рожево-білій палітрі зі світлим оформленням і стрічками від Nouvel Amour.",
+    "keywordsUk": "букет рожево-білий, ніжний букет, повітряний букет, букет у пастельних тонах, букет Nouvel Amour, романтичний букет",
+    "slug": "velours-tendre"
+  },
+  "qualityIssues": []
+}

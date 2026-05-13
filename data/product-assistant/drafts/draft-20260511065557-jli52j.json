@@ -1,0 +1,29 @@
+{
+  "id": "draft-20260511065557-jli52j",
+  "status": "draft",
+  "createdAt": "2026-05-11T06:55:57.490Z",
+  "sourceText": "5000₴",
+  "photoFileId": null,
+  "visionUsed": false,
+  "sku": "DC-819585",
+  "price": 5000,
+  "currency": "UAH",
+  "category": "Декор та подарунки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "декоративний подарунок",
+  "productTypeEn": "decorative gift",
+  "visibleSummaryUk": "Декоративний подарунок у ніжних кремово-рожевих відтінках з элегантним дизайном",
+  "nameUk": "Lumière Douce - декоративний подарунок",
+  "nameEn": "Lumiere Douce - decorative gift",
+  "descriptionUk": "Елегантний декоративний подарунок в ніжних відтінках кремового та пастельного рожевого створює теплу, делікатну атмосферу простору. Lumière Douce приносить в дім витонченість та м’якість, яка підкреслює увагу до деталей і смак власника.",
+  "descriptionEn": "An elegant decorative gift in soft cream and pastel pink tones bringing a warm, delicate ambiance to any space. Lumiere Douce adds refined softness and highlights thoughtful attention to detail.",
+  "seo": {
+    "titleUk": "Lumière Douce - декоративний подарунок від Nouvel Amour",
+    "descriptionUk": "Lumière Douce – ніжний декоративний подарунок від Nouvel Amour, що створює затишок і стиль у вашому просторі.",
+    "keywordsUk": "декоративний подарунок, ніжний декор, пастельний декор, подарунок у стилі Nouvel Amour",
+    "slug": "lumiere-douce-dekoratyvnyy-podarunok"
+  }
+}

@@ -1,0 +1,546 @@
+{
+  "generatedAt": "2026-05-11T16:38:46.788Z",
+  "stats": {
+    "total": 60,
+    "exportable": 7,
+    "skipped": 53
+  },
+  "ready": [
+    {
+      "id": "draft-20260511145051-7qw5wn",
+      "nameUk": "Maison Calme",
+      "category": "Кімнатні рослини",
+      "price": 1900,
+      "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778511052/nouvel-amour/products/draft-20260511145051-7qw5wn.png",
+      "updatedAt": "2026-05-11T14:50:51.399Z"
+    },
+    {
+      "id": "draft-20260511141154-kpq2x2",
+      "nameUk": "Corail Secret",
+      "category": "Букети",
+      "price": 5566,
+      "photoUrl": "https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg",
+      "updatedAt": "2026-05-11T14:12:18.602Z"
+    },
+    {
+      "id": "draft-20260511141138-tqm0xd",
+      "nameUk": "Corail Secret",
+      "category": "Букети",
+      "price": 1900,
+      "photoUrl": "https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg",
+      "updatedAt": "2026-05-11T14:11:38.130Z"
+    },
+    {
+      "id": "draft-20260511141047-rgagdn",
+      "nameUk": "Lumiere Douce",
+      "category": "Букети",
+      "price": 1900,
+      "photoUrl": "https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg",
+      "updatedAt": "2026-05-11T14:10:47.817Z"
+    },
+    {
+      "id": "draft-20260511140031-erz1vo",
+      "nameUk": "Tendre Lumiere",
+      "category": "Кімнатні рослини",
+      "price": 1901,
+      "photoUrl": "https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg",
+      "updatedAt": "2026-05-11T14:00:31.358Z"
+    },
+    {
+      "id": "draft-20260511134639-kx90m7",
+      "nameUk": "Maison Vivante",
+      "category": "Кімнатні рослини",
+      "price": 1900,
+      "photoUrl": "https://sales-box-photos.s3-eu-central-1.amazonaws.com/nouvelflowersnow/original/services/5eb8c3fb-3147-4721-b3d7-b44c9ed98462.jpg",
+      "updatedAt": "2026-05-11T13:46:39.160Z"
+    },
+    {
+      "id": "draft-20260511132958-m2slpi",
+      "nameUk": "Lumiere Tendre",
+      "category": "Кімнатні рослини",
+      "price": 1900,
+      "photoUrl": "https://sales-box-photos.s3-eu-central-1.amazonaws.com/nouvelflowersnow/original/services/5eb8c3fb-3147-4721-b3d7-b44c9ed98462.jpg",
+      "updatedAt": "2026-05-11T13:29:58.970Z"
+    }
+  ],
+  "skipped": [
+    {
+      "id": "draft-20260511141325-pummkb",
+      "nameUk": "Maison Ambree",
+      "category": "Арома товари",
+      "updatedAt": "2026-05-11T14:13:30.060Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511141257-pe9tv8",
+      "nameUk": "Maison Ambree",
+      "category": "Арома товари",
+      "updatedAt": "2026-05-11T14:13:01.309Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511131029-lz05yg",
+      "nameUk": "Jardin Secret",
+      "category": "Квіти в коробках",
+      "updatedAt": "2026-05-11T14:00:59.028Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511135443-wdg08f",
+      "nameUk": "Atelier Test",
+      "category": "Кімнатні рослини",
+      "updatedAt": "2026-05-11T13:55:55.578Z",
+      "reasons": [
+        "QA issues: 1"
+      ]
+    },
+    {
+      "id": "draft-20260511134616-tyrtwe",
+      "nameUk": "Maison Vivante",
+      "category": "Кімнатні рослини",
+      "updatedAt": "2026-05-11T13:46:16.433Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511130918-ma4w5d",
+      "nameUk": "Lilas Tendre",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T13:09:27.100Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511130909-7capjf",
+      "nameUk": "Velours Lilas",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T13:09:09.498Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511130840-g00t59",
+      "nameUk": "Parfum de Printemps",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T13:08:40.910Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511124854-mh34no",
+      "nameUk": "Maison Claire",
+      "category": "Кімнатні рослини",
+      "updatedAt": "2026-05-11T12:48:56.619Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511124832-uyieja",
+      "nameUk": "Maison Claire",
+      "category": "Кімнатні рослини",
+      "updatedAt": "2026-05-11T12:48:32.668Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511122857-c0043b",
+      "nameUk": "Poudre Tendre",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T12:30:41.345Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511122833-3pknzc",
+      "nameUk": "Velours Tendre",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T12:28:33.008Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511122810-s8krhy",
+      "nameUk": "Maison Velours",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T12:28:10.798Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511122803-x6k2ng",
+      "nameUk": "Douce Reverie",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T12:28:03.186Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511122040-n6iind",
+      "nameUk": "Maison Calme",
+      "category": "Кімнатні рослини",
+      "updatedAt": "2026-05-11T12:20:40.520Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511121619-bpemva",
+      "nameUk": "Maison Calme",
+      "category": "Кімнатні рослини",
+      "updatedAt": "2026-05-11T12:16:19.262Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511121453-hqbojr",
+      "nameUk": "Maison Vivante",
+      "category": "Кімнатні рослини",
+      "updatedAt": "2026-05-11T12:14:53.527Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511120133-6eol2a",
+      "nameUk": "Feuille Éternelle",
+      "category": "Кімнатні рослини",
+      "updatedAt": "2026-05-11T12:01:33.120Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511115303-qr4w0h",
+      "nameUk": "Derive Minerale",
+      "category": "Арома товари",
+      "updatedAt": "2026-05-11T11:53:03.835Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511115239-7k5gyt",
+      "nameUk": "Nuit Silencieuse",
+      "category": "Арома товари",
+      "updatedAt": "2026-05-11T11:52:39.802Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511115154-di3lg4",
+      "nameUk": "Verte Lumière",
+      "category": "Кімнатні рослини",
+      "updatedAt": "2026-05-11T11:51:54.090Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511115140-1jh0ax",
+      "nameUk": "Verte Essence",
+      "category": "Кімнатні рослини",
+      "updatedAt": "2026-05-11T11:51:40.058Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511115112-iamqtj",
+      "nameUk": "Verte Espoir",
+      "category": "Кімнатні рослини",
+      "updatedAt": "2026-05-11T11:51:12.129Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511114839-jgfs06",
+      "nameUk": "Éclat Élégant",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T11:48:39.509Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511114828-3dvwrj",
+      "nameUk": "Jardin Mystique",
+      "category": "Квіти в коробках",
+      "updatedAt": "2026-05-11T11:48:28.115Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511113829-44t2in",
+      "nameUk": "Jolie Matinee",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T11:46:10.798Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511113807-ol825p",
+      "nameUk": "Jardin Velouté",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T11:38:07.613Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511113502-9c8ig5",
+      "nameUk": "Lumiere Douce",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T11:35:02.871Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511113421-vokv9x",
+      "nameUk": "Lumiere Douce",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T11:34:21.013Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511084811-n9o6vg",
+      "nameUk": "Lumiere Douce",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T08:48:11.083Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511084731-kvlbdl",
+      "nameUk": "Belle Histoire",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T08:47:31.434Z",
+      "reasons": [
+        "QA issues: 1",
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511084721-cxpnsx",
+      "nameUk": "Velours Secret",
+      "category": "Квіти в коробках",
+      "updatedAt": "2026-05-11T08:47:21.129Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511084427-6x0a1m",
+      "nameUk": "Lumiere Douce",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T08:44:27.546Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511084136-wa069h",
+      "nameUk": "Jardin Secret",
+      "category": "Квіти в коробках",
+      "updatedAt": "2026-05-11T08:41:36.249Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511084116-dpvlck",
+      "nameUk": "Velours Secret",
+      "category": "Квіти в коробках",
+      "updatedAt": "2026-05-11T08:41:16.025Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511083944-lqbagz",
+      "nameUk": "Velours Secret",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T08:39:44.769Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511081113-kxw6oy",
+      "nameUk": "Élégance Silencieuse",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T08:11:13.486Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511080514-erlfwj",
+      "nameUk": "Éclat Élégant",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T08:05:14.118Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511080412-h15sfr",
+      "nameUk": "Velours Secret",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T08:04:12.875Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511075925-7avsu1",
+      "nameUk": "Fleur Tentation",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T07:59:25.225Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511075715-w8n9ng",
+      "nameUk": "Fleur de Velours",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T07:57:15.310Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511075140-xb0ntc",
+      "nameUk": "Belle Rose - букет рожевих троянд у чорній обгортці",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T07:51:40.915Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511074427-y5cihb",
+      "nameUk": "Belle Nuit - букет великих рожевих троянд",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T07:44:27.787Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511065717-4xhjwk",
+      "nameUk": "Éclat Charmant - декоративний подарунок",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T06:57:17.677Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511065700-p2ybn3",
+      "nameUk": "Éclat d'Acier - декоративний подарунок з металу",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T06:57:00.626Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511065557-jli52j",
+      "nameUk": "Lumière Douce - декоративний подарунок",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T06:55:57.490Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511065549-brs1b5",
+      "nameUk": "Fleur Élégante - букет рожевих гортензій та троянд",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T06:55:49.550Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511064211-mt0jbe",
+      "nameUk": "Fleur de Lys - букет рожевих півоній та бузку",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T06:43:33.368Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511062521-a015dp",
+      "nameUk": "Éclat de Rose - букет рожевих півоній",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T06:25:21.934Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511062134-4rglyq",
+      "nameUk": "Fleur de Noël у рожевому святі",
+      "category": "Декор та подарунки",
+      "updatedAt": "2026-05-11T06:21:34.371Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511061507-sce53b",
+      "nameUk": "Pivoine Élégante букет",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T06:15:07.351Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511055822-dfqn4s",
+      "nameUk": ",букет Піввнній",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T05:58:22.135Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    },
+    {
+      "id": "draft-20260511051414-mvn0hq",
+      "nameUk": "Букет",
+      "category": "Букети",
+      "updatedAt": "2026-05-11T05:14:24.050Z",
+      "reasons": [
+        "Missing public photo URL."
+      ]
+    }
+  ]
+}

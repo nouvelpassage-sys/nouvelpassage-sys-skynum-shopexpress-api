@@ -1,0 +1,98 @@
+{
+  "id": "draft-20260511203655-t5z229",
+  "status": "published",
+  "createdAt": "2026-05-11T20:36:55.409Z",
+  "sourceText": "Іграшка Заєць 650грн",
+  "sourceDraftId": "draft-20260511203559-3itbby",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAAOqagI7skc9xxxTAj_ClQEtXlgHg7YAAhYVaxsKWBFIKN7gSc6aHf4BAAMCAAN5AAM7BA",
+  "visionUsed": true,
+  "sku": "TY-750252",
+  "price": 650,
+  "currency": "UAH",
+  "category": "Іграшки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778531816/nouvel-amour/products/draft-20260511203655-t5z229.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778531816/nouvel-amour/products/draft-20260511203655-t5z229.jpg",
+  "productTypeUk": "м'яка іграшка заєць",
+  "productTypeEn": "bunny plush toy",
+  "visibleSummaryUk": "Пудрово-рожевий плюшевий заєць із м'якою фактурою та світлими деталями.",
+  "nameUk": "Douce Peluche",
+  "nameEn": "Douce Peluche",
+  "descriptionUk": "М'яка іграшка у формі зайця виконана в ніжному пудрово-рожевому відтінку з м'якою плюшевою фактурою та світлими акцентами. Вона додає подарунку тепла й камерного настрою та красиво звучить у романтичному оформленні Nouvel Amour.",
+  "descriptionEn": "A soft bunny plush in a gentle powder-pink tone with a cozy plush texture and light contrasting accents. It adds warmth to a gift and brings a quiet romantic mood in Nouvel Amour styling.",
+  "seo": {
+    "titleUk": "Douce Peluche - м'яка іграшка заєць",
+    "descriptionUk": "М'яка іграшка заєць у пудрово-рожевому відтінку від Nouvel Amour. Плюшевий подарунок з ніжною подачею для романтичного оформлення.",
+    "keywordsUk": "м'яка іграшка заєць, плюшевий заєць, рожева м'яка іграшка, іграшка зайчик, подарунок Nouvel Amour, м'яка іграшка для подарунка",
+    "slug": "douce-peluche"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778531816/nouvel-amour/products/draft-20260511203655-t5z229.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778531816/nouvel-amour/products/draft-20260511203655-t5z229.jpg",
+      "contentType": "image/jpeg"
+    }
+  ],
+  "salesBoxResult": {
+    "dryRun": false,
+    "body": {
+      "success": true,
+      "data": {
+        "jobId": "da818e61-727a-4239-86b7-f8f5a618a36e",
+        "jobIds": [
+          "da818e61-727a-4239-86b7-f8f5a618a36e"
+        ],
+        "status": "PENDING",
+        "message": "Job queued for processing"
+      },
+      "errors": null
+    },
+    "seoResult": {
+      "updated": true,
+      "offerId": "ea4a25b1-e93f-4b86-be39-53b9182efc7a",
+      "fields": [
+        "thxsd2rona_seo_offertitle_hidden",
+        "thxsd2rona_seo_offerdescription_hidden",
+        "thxsd2rona_seo_offerkeywords_hidden",
+        "thxsd2rona_seo_offerslug_hidden"
+      ]
+    }
+  },
+  "shopExpressResult": {
+    "enabled": true,
+    "dryRun": true,
+    "queued": true,
+    "importFilePath": "data/product-assistant/shopexpress-pending-import.csv",
+    "duplicate": false,
+    "payload": {
+      "externalId": "draft-20260511203655-t5z229",
+      "name": "Douce Peluche",
+      "nameEn": "Douce Peluche",
+      "sku": "TY-750252",
+      "price": 650,
+      "currency": "UAH",
+      "category": "Іграшки",
+      "description": "М'яка іграшка у формі зайця виконана в ніжному пудрово-рожевому відтінку з м'якою плюшевою фактурою та світлими акцентами. Вона додає подарунку тепла й камерного настрою та красиво звучить у романтичному оформленні Nouvel Amour.",
+      "descriptionEn": "A soft bunny plush in a gentle powder-pink tone with a cozy plush texture and light contrasting accents. It adds warmth to a gift and brings a quiet romantic mood in Nouvel Amour styling.",
+      "shortDescription": "Пудрово-рожевий плюшевий заєць із м'якою фактурою та світлими деталями.",
+      "images": [
+        "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778531816/nouvel-amour/products/draft-20260511203655-t5z229.jpg"
+      ],
+      "inStock": 999,
+      "isAvailable": "Available",
+      "unit": "шт",
+      "minOrder": 1,
+      "step": 1,
+      "alias": "douce-peluche",
+      "metaTitle": "Douce Peluche - м'яка іграшка заєць",
+      "metaDescription": "М'яка іграшка заєць у пудрово-рожевому відтінку від Nouvel Amour. Плюшевий подарунок з ніжною подачею для романтичного оформлення.",
+      "metaKeywords": ""
+    }
+  },
+  "updatedAt": "2026-05-11T20:37:04.416Z"
+}

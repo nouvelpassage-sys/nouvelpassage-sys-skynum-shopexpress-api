@@ -1,0 +1,30 @@
+{
+  "id": "draft-20260511115112-iamqtj",
+  "status": "draft",
+  "createdAt": "2026-05-11T11:51:12.129Z",
+  "sourceText": "500",
+  "photoFileId": "AgACAgIAAxkBAANZagHCqc5vEEAeOq5XZ0h2QW-4nBYAApQVaxsKWAlIP_tf1J21vioBAAMCAAN4AAM7BA",
+  "visionUsed": true,
+  "sku": "PL-485607",
+  "price": 500,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": false,
+  "stockMode": "counted",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "кімнатна рослина в горщику",
+  "productTypeEn": "indoor plant in pot",
+  "visibleSummaryUk": "Стильна кімнатна рослина з насиченим зеленим листям у простому горщику.",
+  "nameUk": "Verte Espoir",
+  "nameEn": "Verte Espoir",
+  "descriptionUk": "Живий кімнатний рослина з пишним зеленим листям у горщику класичного кольору. Verte Espoir наповнює простір природним акцентом і приносить відчуття свіжості й гармонії у будь-який інтер'єр.",
+  "descriptionEn": "A living indoor plant with lush green foliage in a classic-colored pot. Verte Espoir brings a natural accent and a sense of freshness and harmony to any interior.",
+  "seo": {
+    "titleUk": "Verte Espoir - кімнатна рослина в горщику",
+    "descriptionUk": "Verte Espoir від Nouvel Amour — жива кімнатна рослина з густим зеленим листям у стильному горщику для декору дому чи офісу.",
+    "keywordsUk": "кімнатна рослина, зелений горщик, жива рослина, рослина для дому, рослина для офісу",
+    "slug": "verte-espoir"
+  },
+  "qualityIssues": []
+}

@@ -1,0 +1,30 @@
+{
+  "id": "draft-20260511122803-x6k2ng",
+  "status": "draft",
+  "createdAt": "2026-05-11T12:28:03.186Z",
+  "sourceText": "",
+  "photoFileId": "AgACAgIAAxkBAANvagHLSQymA4AwUuBxGsUXML1Dl64AAr0VaxsKWAlI80rInmeRjh4BAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-862648",
+  "price": null,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "ніжний букет у рожево-кремовій палітрі",
+  "productTypeEn": "delicate bouquet in a pink and cream palette",
+  "visibleSummaryUk": "Ручний букет у пудрово-рожевих, кремових і зелених відтінках у білому пакуванні з рожевими стрічками.",
+  "nameUk": "Douce Reverie",
+  "nameEn": "Douce Reverie",
+  "descriptionUk": "Ніжний букет у пудрово-рожевій, кремовій і свіжо-зеленій палітрі оформлений у біле пакування з довгими стрічками. Він звучить м'яко й камерно, тож пасує для делікатного привітання, романтичного жесту або світлого домашнього настрою.",
+  "descriptionEn": "A delicate bouquet in a powder pink, cream, and fresh green palette, wrapped in white paper with long ribbons. It feels soft and intimate, making it a graceful choice for a gentle celebration, a romantic gesture, or a light home mood.",
+  "seo": {
+    "titleUk": "Douce Reverie - ніжний букет у рожево-кремовій палітрі",
+    "descriptionUk": "Ніжний букет Douce Reverie від Nouvel Amour у рожево-кремовій гамі з білим оформленням і м'яким романтичним настроєм.",
+    "keywordsUk": "ніжний букет, рожево-кремовий букет, букет у білому пакуванні, романтичний букет, букет Nouvel Amour",
+    "slug": "douce-reverie"
+  },
+  "qualityIssues": []
+}

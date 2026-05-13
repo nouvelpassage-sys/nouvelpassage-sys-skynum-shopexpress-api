@@ -1,0 +1,25 @@
+{
+  "id": "draft-20260511061507-sce53b",
+  "status": "draft",
+  "createdAt": "2026-05-11T06:15:07.351Z",
+  "sourceText": ",букет піввнній 1899грн",
+  "photoFileId": "AgACAgIAAxkBAAMMagFv-ok6xft8opjGIh7K3X-tBAIAAsQVaxu__AlItX4dpL-ZbqIBAAMCAAN5AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-418217",
+  "price": 1899,
+  "currency": "UAH",
+  "category": "Букети",
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "nameUk": "Pivoine Élégante букет",
+  "nameEn": "Pivoine Élégante Bouquet",
+  "descriptionUk": "Витончений букет з ніжних рожевих півоній, що таять у собі ефемерне відчуття весняної свіжості та романтики. Кожен бутон лише починає розкриватися, обіцяючи чарівний розквіт і чарівний настрій. Ідеально для тих, хто цінує природну красу та легкість у кожній деталі.",
+  "descriptionEn": "An elegant bouquet of delicate pink peonies, capturing the fleeting essence of spring freshness and romance. Each bud is just beginning to unfurl, promising a charming bloom and enchanting mood. Perfect for those who appreciate natural beauty and lightness in every detail.",
+  "seo": {
+    "titleUk": "Pivoine Élégante – вишуканий букет півоній",
+    "descriptionUk": "Купуйте букет Pivoine Élégante з ніжними рожевими півоніями. Ідеальний вибір для створення романтичної атмосфери та весняної свіжості.",
+    "keywordsUk": "букет півоній, рожеві півонії, весняні квіти, романтичний букет, Pivoine Élégante",
+    "slug": "pivoine-elegante-bukiet"
+  }
+}

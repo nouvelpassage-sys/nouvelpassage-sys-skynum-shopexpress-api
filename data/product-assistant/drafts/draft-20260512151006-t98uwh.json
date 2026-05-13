@@ -1,0 +1,96 @@
+{
+  "id": "draft-20260512151006-t98uwh",
+  "status": "published",
+  "createdAt": "2026-05-12T15:10:06.951Z",
+  "sourceText": "Коробка квітів 1499₴",
+  "photoFileId": "AgACAgIAAxkBAAPtagNCyKCOV0tqPni4BpsAAR3YG3IGAAJlG2sbClgZSCsnqfM2Y08cAQADAgADdwADOwQ",
+  "visionUsed": true,
+  "sku": "BX-477921",
+  "price": 1499,
+  "currency": "UAH",
+  "category": "Квіти в коробках",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778598608/nouvel-amour/products/draft-20260512151006-t98uwh.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778598608/nouvel-amour/products/draft-20260512151006-t98uwh.jpg",
+  "productTypeUk": "квіткова композиція в коробці",
+  "productTypeEn": "flower arrangement in a box",
+  "visibleSummaryUk": "Ніжна квіткова композиція в рожевій коробці Nouvel Amour у рожево-білій палітрі.",
+  "nameUk": "Douce Pastelle",
+  "nameEn": "Douce Pastelle",
+  "descriptionUk": "Квіткова композиція в круглій коробці виконана у ніжній рожево-білій палітрі з м'яким, повітряним силуетом. Така подача виглядає зібрано й делікатно, а сама композиція одразу готова до вручення.",
+  "descriptionEn": "A flower arrangement in a round hat box designed in a soft pink-and-white palette with an airy, graceful silhouette. This presentation feels polished and delicate, and the arrangement is ready to gift right away.",
+  "seo": {
+    "titleUk": "Douce Pastelle - квіткова композиція в коробці в рожево-білій гамі",
+    "descriptionUk": "Квіткова композиція Douce Pastelle у коробці від Nouvel Amour у ніжній рожево-білій палітрі. Акуратна подарункова подача та м'який повітряний характер.",
+    "keywordsUk": "квіткова композиція в коробці, коробка квітів, рожево-біла композиція, ніжні квіти в коробці, Nouvel Amour",
+    "slug": "douce-pastelle"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778598608/nouvel-amour/products/draft-20260512151006-t98uwh.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778598608/nouvel-amour/products/draft-20260512151006-t98uwh.jpg",
+      "contentType": "image/jpeg"
+    }
+  ],
+  "salesBoxResult": {
+    "dryRun": false,
+    "body": {
+      "success": true,
+      "data": {
+        "jobId": "226c92fd-b3f5-439b-8254-c78ddec0c95d",
+        "jobIds": [
+          "226c92fd-b3f5-439b-8254-c78ddec0c95d"
+        ],
+        "status": "PENDING",
+        "message": "Job queued for processing"
+      },
+      "errors": null
+    },
+    "seoResult": {
+      "updated": true,
+      "offerId": "f53aed83-1b6a-4526-a72e-f5d812b74eaa",
+      "fields": [
+        "thxsd2rona_seo_offertitle_hidden",
+        "thxsd2rona_seo_offerdescription_hidden",
+        "thxsd2rona_seo_offerkeywords_hidden",
+        "thxsd2rona_seo_offerslug_hidden"
+      ]
+    }
+  },
+  "shopExpressResult": {
+    "enabled": true,
+    "dryRun": true,
+    "queued": true,
+    "importFilePath": "data/product-assistant/shopexpress-pending-import.csv",
+    "duplicate": false,
+    "payload": {
+      "externalId": "draft-20260512151006-t98uwh",
+      "name": "Douce Pastelle",
+      "nameEn": "Douce Pastelle",
+      "sku": "BX-477921",
+      "price": 1499,
+      "currency": "UAH",
+      "category": "Квіти в коробках",
+      "description": "Квіткова композиція в круглій коробці виконана у ніжній рожево-білій палітрі з м'яким, повітряним силуетом. Така подача виглядає зібрано й делікатно, а сама композиція одразу готова до вручення.",
+      "descriptionEn": "A flower arrangement in a round hat box designed in a soft pink-and-white palette with an airy, graceful silhouette. This presentation feels polished and delicate, and the arrangement is ready to gift right away.",
+      "shortDescription": "Ніжна квіткова композиція в рожевій коробці Nouvel Amour у рожево-білій палітрі.",
+      "images": [
+        "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778598608/nouvel-amour/products/draft-20260512151006-t98uwh.jpg"
+      ],
+      "inStock": 999,
+      "isAvailable": "Available",
+      "unit": "шт",
+      "minOrder": 1,
+      "step": 1,
+      "alias": "douce-pastelle",
+      "metaTitle": "Douce Pastelle - квіткова композиція в коробці в рожево-білій гамі",
+      "metaDescription": "Квіткова композиція Douce Pastelle у коробці від Nouvel Amour у ніжній рожево-білій палітрі. Акуратна подарункова подача та м'який повітряний характер.",
+      "metaKeywords": ""
+    }
+  },
+  "updatedAt": "2026-05-12T15:10:36.596Z"
+}

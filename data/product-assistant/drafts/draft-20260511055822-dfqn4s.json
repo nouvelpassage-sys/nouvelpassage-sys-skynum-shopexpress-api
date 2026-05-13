@@ -1,0 +1,25 @@
+{
+  "id": "draft-20260511055822-dfqn4s",
+  "status": "draft",
+  "createdAt": "2026-05-11T05:58:22.135Z",
+  "sourceText": ",букет піввнній 1899грн",
+  "photoFileId": "AgACAgIAAxkBAAMMagFv-ok6xft8opjGIh7K3X-tBAIAAsQVaxu__AlItX4dpL-ZbqIBAAMCAAN5AAM7BA",
+  "visionUsed": false,
+  "sku": "BQ-331078",
+  "price": 1899,
+  "currency": "UAH",
+  "category": "Букети",
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "nameUk": ",букет Піввнній",
+  "nameEn": ",buket Pivvnniy",
+  "descriptionUk": ",букет Піввнній - товар Nouvel Amour у категорії \"Букети\". Підійде для подарунка, доповнення до квітів або самостійного замовлення.",
+  "descriptionEn": ",buket Pivvnniy by Nouvel Amour in the \"Bukety\" category. A stylish choice for a gift or as an addition to flowers.",
+  "seo": {
+    "titleUk": ",букет Піввнній - купити в Nouvel Amour",
+    "descriptionUk": ",букет Піввнній від Nouvel Amour. В наявності, ціна 1899 грн. Швидке оформлення та стильна подача.",
+    "keywordsUk": ",букет піввнній, Букети, Nouvel Amour, подарунок",
+    "slug": "buket-pivvnniy"
+  }
+}

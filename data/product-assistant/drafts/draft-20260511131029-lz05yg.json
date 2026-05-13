@@ -1,0 +1,87 @@
+{
+  "id": "draft-20260511131029-lz05yg",
+  "status": "dry-run",
+  "createdAt": "2026-05-11T13:10:29.392Z",
+  "sourceText": "Коробка спрей троянди тралала XXXL",
+  "photoFileId": "AgACAgIAAxkBAAOGagHVOVLIkSsyFLxV8Unn_9qHaXwAAxNrGwpYEUi_MnmQPjSdMgEAAwIAA3cAAzsE",
+  "visionUsed": true,
+  "sku": "BX-650176",
+  "price": null,
+  "currency": "UAH",
+  "category": "Квіти в коробках",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": null,
+  "previewUrl": null,
+  "productTypeUk": "велика квіткова композиція в коробці зі спрей трояндами",
+  "productTypeEn": "large spray rose flower box",
+  "visibleSummaryUk": "Велика кругла коробка Nouvel Amour, щільно заповнена рожевими спрей трояндами у ніжній пудровій гамі.",
+  "nameUk": "Jardin Secret",
+  "nameEn": "Jardin Secret",
+  "descriptionUk": "Велика квіткова композиція в круглій коробці з дрібними рожевими бутонами виглядає м’яко, пишно й дуже зібрано. Ніжна пудрово-рожева палітра та капелюшна форма подачі створюють виразний, але делікатний подарунок для привітання, освідчення або камерного свята.",
+  "descriptionEn": "A large flower box in a round hatbox filled with delicate pink buds looks soft, abundant, and beautifully composed. The powder-pink palette and elegant presentation create a statement gift with a gentle mood for congratulations, a romantic gesture, or an intimate celebration.",
+  "seo": {
+    "titleUk": "Velours Rosé - велика квіткова композиція в коробці з рожевими спрей трояндами",
+    "descriptionUk": "Велика квіткова композиція в коробці Velours Rosé від Nouvel Amour у ніжній рожевій гамі. Пишна подача у капелюшній коробці зі спрей трояндами.",
+    "keywordsUk": "квіткова композиція в коробці, коробка зі спрей трояндами, рожеві спрей троянди, велика коробка квітів, квіти в коробці Nouvel Amour, ніжна рожева композиція",
+    "slug": "jardin-secret"
+  },
+  "qualityIssues": [],
+  "salesBoxResult": {
+    "dryRun": true,
+    "reason": "SalesBox write is disabled or credentials are incomplete.",
+    "endpoint": "offers/createMany?lang=uk",
+    "missingRequiredFields": [
+      "offers.*.price",
+      "offers.*.photos"
+    ],
+    "payload": {
+      "offers": [
+        {
+          "internalId": "BX-650176",
+          "externalId": "draft-20260511131029-lz05yg",
+          "baseCurrency": "UAH",
+          "names": [
+            {
+              "lang": "uk",
+              "name": "Jardin Secret"
+            },
+            {
+              "lang": "en",
+              "name": "Jardin Secret"
+            }
+          ],
+          "descriptions": [
+            {
+              "lang": "uk",
+              "description": "Велика квіткова композиція в круглій коробці з дрібними рожевими бутонами виглядає м’яко, пишно й дуже зібрано. Ніжна пудрово-рожева палітра та капелюшна форма подачі створюють виразний, але делікатний подарунок для привітання, освідчення або камерного свята."
+            },
+            {
+              "lang": "en",
+              "description": "A large flower box in a round hatbox filled with delicate pink buds looks soft, abundant, and beautifully composed. The powder-pink palette and elegant presentation create a statement gift with a gentle mood for congratulations, a romantic gesture, or an intimate celebration."
+            }
+          ],
+          "photos": [],
+          "available": true,
+          "availableStatus": "AVAILABLE",
+          "stockType": "endless",
+          "count": 0,
+          "allowNegativeStock": true,
+          "units": "pc",
+          "minCount": 1,
+          "step": 1,
+          "isFixedStep": false,
+          "isService": false,
+          "categories": [
+            {
+              "id": "ac6ada44-7269-4e06-a23f-b5a613c832c7"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "updatedAt": "2026-05-11T14:00:59.028Z"
+}

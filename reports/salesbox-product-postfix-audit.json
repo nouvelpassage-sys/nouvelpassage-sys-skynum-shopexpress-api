@@ -1,0 +1,1073 @@
+{
+  "createdAt": "2026-05-11T22:58:11.261Z",
+  "total": 58,
+  "minCountBad": [],
+  "stepBad": [],
+  "seoBad": [],
+  "plants": [],
+  "noCategory": [],
+  "ribbon": {
+    "id": "57d45057-be87-4175-aaba-59e2afce4a04",
+    "name": "Персоналізована стрічка для квітів з вашим текстом",
+    "category": "Додай індивідуальний підпис, Додавай до квітів",
+    "available": true,
+    "availableStatus": "AVAILABLE",
+    "stockType": "endless",
+    "count": 0,
+    "minCount": 1,
+    "step": 1,
+    "seoEmpty": [],
+    "seo": {
+      "thxsd2rona_seo_offertitle_hidden": "Персоналізована стрічка для квітів з вашим текстом | Nouvel",
+      "thxsd2rona_seo_offerdescription_hidden": "Персоналізована стрічка додається до букета або квіткової композиції.",
+      "thxsd2rona_seo_offerkeywords_hidden": "Персоналізована стрічка для квітів з вашим текстом, Додай індивідуальний підпис, Додавай до квітів, Nouvel Amour, квіти Київ, подарунок",
+      "thxsd2rona_seo_offerslug_hidden": "personalizovana-strichka-dlia-kvitiv-z-vashym-tekstom"
+    }
+  },
+  "rows": [
+    {
+      "id": "554d3be9-35ad-48a9-8fef-84e4744264db",
+      "name": "Букет Ciel Apricot",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Букет Ciel Apricot | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Вишуканий букет у м’якій пастельній палітрі з акцентом на персикові, лавандові та блакитні відтінки.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Букет Ciel Apricot, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "buket-ciel-apricot"
+      }
+    },
+    {
+      "id": "b50ec9fb-3b61-4ccb-88ef-62cb38aae2af",
+      "name": "Квіти в коробці Rosé Jardin",
+      "category": "Квіти в коробках, Гарячі  пропозиції",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Квіти в коробці Rosé Jardin | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Об’ємна квіткова композиція у фірмовій коробці Nouvel Amour, створена для яскравого враження з першого погляду.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Квіти в коробці Rosé Jardin, Гарячі пропозиції, Квіти в коробках, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "kvity-v-korobtsi-rose-jardin"
+      }
+    },
+    {
+      "id": "8ca2064c-d7ec-46d2-8e95-efe1a276a10a",
+      "name": "Букет Vert Élégance",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Букет Vert Élégance | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Елегантний букет у білому та зеленому відтінках з відчуттям свіжості, легкості та дорогого мінімалізму.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Букет Vert Élégance, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "buket-vert-elegance"
+      }
+    },
+    {
+      "id": "aa81cdc4-bf16-4121-87dd-a59101ed3ac9",
+      "name": "Букет L’Amour Sombre",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Букет L’Amour Sombre | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Темна сторона романтики - зухвала, стильна, немов ніч у Парижі.Букет, який не намагається сподобатись - він знає, хто він є.⠀Глибокі бордові троянди, благородн",
+        "thxsd2rona_seo_offerkeywords_hidden": "Букет L’Amour Sombre, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "buket-l-amour-sombre"
+      }
+    },
+    {
+      "id": "c0874a9f-3925-4358-8bf2-6cec0a1765ec",
+      "name": "Кулька Happy Birthday фольгована",
+      "category": "Повітряні Кульки",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Кулька Happy Birthday фольгована | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Кулька з гелієм з написом \"Happy Birthday\" - це чудовий вибір для святкування дня народження.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Кулька Happy Birthday фольгована, Повітряні Кульки, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "kulka-happy-birthday-folhovana"
+      }
+    },
+    {
+      "id": "c68ce381-4008-43d0-b1b1-4a53bda92867",
+      "name": "Арома Лампа White",
+      "category": "Декор та подарунки",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Арома Лампа White | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Арома лампаWhite Арома лампа White - це стильний і функціональний аксесуар для вашого дому.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Арома Лампа White, Декор та подарунки, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "aroma-lampa-white"
+      }
+    },
+    {
+      "id": "c12b32a1-8828-4a44-8640-dfe1f78d8a65",
+      "name": "Jardin Rosé - Bouquet lumineux de fleurs tendres",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Jardin Rosé - Bouquet lumineux de fleurs tendres | Nouvel A",
+        "thxsd2rona_seo_offerdescription_hidden": "Jardin Rosé - букет для тонкого жесту уваги.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Jardin Rosé - Bouquet lumineux de fleurs tendres, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "jardin-rose-bouquet-lumineux-de-fleurs-tendres"
+      }
+    },
+    {
+      "id": "2dc29fce-61be-48ab-9db7-9148082ac114",
+      "name": "Velours Violet - Фіолетовий вельвет",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Velours Violet - Фіолетовий вельвет | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Velours Violet - букет із гіацинтом і гортензією Velours Violet - букет для жінки, яка має смак до глибини.Це витончене поєднання пудрових троянд, гіацинта, фі",
+        "thxsd2rona_seo_offerkeywords_hidden": "Velours Violet - Фіолетовий вельвет, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "velours-violet-fioletovyy-velvet"
+      }
+    },
+    {
+      "id": "0d09f14a-57fd-4d59-a426-85da96f6d5a4",
+      "name": "Haute Amour - Букет у рожевій коробці з піоновими трояндами",
+      "category": "Квіти в коробках",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Haute Amour - Букет у рожевій коробці з піоновими трояндами",
+        "thxsd2rona_seo_offerdescription_hidden": "Haute Amour - розкішна композиція у фірмовій рожевій коробці з піоновими трояндами SilvaPink, лізіантусами, евкаліптом і сезонними акцентами.Насичені рожеві ві",
+        "thxsd2rona_seo_offerkeywords_hidden": "Haute Amour - Букет у рожевій коробці з піоновими трояндами, Квіти в коробках, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "haute-amour-buket-u-rozheviy-korobtsi-z-pionovymy-troiandamy"
+      }
+    },
+    {
+      "id": "cf554dec-7d94-4c2f-bafa-6b8ff2a76efb",
+      "name": "Rosé Poésie - Букет з півоніями та гортензією",
+      "category": "Авторські роботи By Lesnikov",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Rosé Poésie - Букет з півоніями та гортензією | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Velours Violet - букет із гіацинтом і гортензією Rosé Poésie - ніжна квіткова композиція у пастельних відтінках з кремово-рожевої гортензії, тюльпанів, півоній",
+        "thxsd2rona_seo_offerkeywords_hidden": "Rosé Poésie - Букет з півоніями та гортензією, Авторські роботи By Lesnikov, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "rose-poesie-buket-z-pivoniiamy-ta-hortenziieiu"
+      }
+    },
+    {
+      "id": "39aabaea-687a-4bb8-8b7c-2a609a96a458",
+      "name": "Scarlet Emotion - це чуттєвий букет, що передає пристрасть і глибину.",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Scarlet Emotion - це чуттєвий букет, що передає пристрасть",
+        "thxsd2rona_seo_offerdescription_hidden": "Scarlet Emotion - це чуттєвий букет, що передає пристрасть і глибину.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Scarlet Emotion - це чуттєвий букет, що передає пристрасть і глибину., Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "scarlet-emotion-tse-chuttievyy-buket-shcho-peredaie-prystrast-i-hlybynu"
+      }
+    },
+    {
+      "id": "2f468dac-3506-4c89-a10b-891720f34b07",
+      "name": "Букет White Poetry",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Букет White Poetry | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Букет White Poetry - це витончене поєднання білих гвоздик, еустоми, жовтих акцентів та свіжої зелені.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Букет White Poetry, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "buket-white-poetry"
+      }
+    },
+    {
+      "id": "34796adc-ca70-4cef-99be-feb0af208086",
+      "name": "Panier Bleu Stitch",
+      "category": "Авторські роботи By Lesnikov",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Panier Bleu Stitch | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Подаруйте казку - унікальний квітковий кошик Panier Bleu Stitch об'єднує чарівний світ квітів і дитячої радості.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Panier Bleu Stitch, Авторські роботи By Lesnikov, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "panier-bleu-stitch"
+      }
+    },
+    {
+      "id": "acb1c0e2-5175-452a-bc5d-0df6a837bf90",
+      "name": "Зайчик Bunny",
+      "category": "Додавай до квітів, Іграшки",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Зайчик Bunny | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Цей миленький плюшевий зайчик Bunny стане чудовим подарунком для будь-якої вікової категорії!",
+        "thxsd2rona_seo_offerkeywords_hidden": "Зайчик Bunny, Додавай до квітів, Іграшки, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "zaychyk-bunny"
+      }
+    },
+    {
+      "id": "6824f7a6-af3c-4235-a3e8-05e986728f0e",
+      "name": "Symphonie des Fleurs - Édition spéciale",
+      "category": "Квіти в коробках",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Symphonie des Fleurs - Édition spéciale | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Вибір для тих, хто шукає елегантність і стиль у кожному елементі.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Symphonie des Fleurs - Édition spéciale, Квіти в коробках, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "symphonie-des-fleurs-edition-speciale"
+      }
+    },
+    {
+      "id": "b5991794-7eae-428d-b353-0b31b9b1cc06",
+      "name": "М'який плюшевий ведмедик",
+      "category": "Іграшки",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "М'який плюшевий ведмедик | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Тедді-бір, м'який плюшевий ведмедик, стане чудовим подарунком для вашої малечі або близької людини.",
+        "thxsd2rona_seo_offerkeywords_hidden": "М'який плюшевий ведмедик, Іграшки, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "m-iakyy-pliushevyy-vedmedyk"
+      }
+    },
+    {
+      "id": "f58e7c91-c1d6-4659-b458-cb7aa42a95a6",
+      "name": "Lapin Printanier зайчик",
+      "category": "Іграшки, Декор та подарунки",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Lapin Printanier зайчик | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Lapin Printanier - це чарівний плюшевий зайчик, який втілює атмосферу весняної свіжості та радості.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Lapin Printanier зайчик, Іграшки, Декор та подарунки, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "lapin-printanier-zaychyk"
+      }
+    },
+    {
+      "id": "fc1b7a5d-2a9b-483f-b97c-17dffe38d28a",
+      "name": "Автопарфум LOST CHERY",
+      "category": "Автомобільні дифузери, Арома товари",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Автопарфум LOST CHERY | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Автопарфум LOST CHERY Aroma | Автодифузор Lost Cherry | Преміум аромат для авто.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Автопарфум LOST CHERY, Автомобільні дифузери, Арома товари, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "avtoparfum-lost-chery"
+      }
+    },
+    {
+      "id": "0cbc4c39-ec1c-48d9-9324-351de741afa6",
+      "name": "Квіткова композиція \"Spring Tenderness\" у дерев’яному кошику",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Квіткова композиція \"Spring Tenderness\" у дерев’яному кошик",
+        "thxsd2rona_seo_offerdescription_hidden": "Витончена квіткова композиція у дерев’яній коробці.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Квіткова композиція \"Spring Tenderness\" у дерев’яному кошику, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "kvitkova-kompozytsiia-spring-tenderness-u-derev-ianomu-koshyku"
+      }
+    },
+    {
+      "id": "d73fc1f4-c3ac-4909-b3ed-3c59173a2653",
+      "name": "Éclat de Soleil\" - Tournesol et Roses Poudrées",
+      "category": "Букети, Гарячі  пропозиції",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Éclat de Soleil\" - Tournesol et Roses Poudrées | Nouvel Amo",
+        "thxsd2rona_seo_offerdescription_hidden": "Éclat de Soleil - це не просто букет, а справжній вибух світла й настрою.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Éclat de Soleil\" - Tournesol et Roses Poudrées, Гарячі пропозиції, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "eclat-de-soleil-tournesol-et-roses-poudrees"
+      }
+    },
+    {
+      "id": "42a573b2-faea-4403-afa9-53e3fecb5945",
+      "name": "Аудіолистівка з записом голосу — унікальний подарунок, що зберігає емоції назавжди 💖",
+      "category": "Листівки, листівки аудіо, листівки день народження, листівки для всіх подій , листівки з весіллям ",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Аудіолистівка з записом голосу — унікальний подарунок, що з",
+        "thxsd2rona_seo_offerdescription_hidden": "Ви коли-небудь хотіли зберегти важливі слова назавжди?",
+        "thxsd2rona_seo_offerkeywords_hidden": "Аудіолистівка з записом голосу — унікальний подарунок, що зберігає емоції назавжди 💖, Листівки, листівки аудіо, листівки день народження, листівки для всіх подій , листівки з весіллям , Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "audiolystivka-z-zapysom-holosu-unikalnyy-podarunok-shcho-zberihaie-emotsii-nazav"
+      }
+    },
+    {
+      "id": "db744eac-59e1-42d0-8a3e-ca52a67a64f4",
+      "name": "Букет «Lumière Verte»",
+      "category": "Букети, Гарячі  пропозиції",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Букет «Lumière Verte» | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Букет «Lumière Verte» - це символ природної свіжості та витонченості.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Букет «Lumière Verte», Гарячі пропозиції, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "buket-lumiere-verte"
+      }
+    },
+    {
+      "id": "450e8c5b-a91c-4f68-b378-72877b92123d",
+      "name": " букет Crystal",
+      "category": "Букети, Гарячі  пропозиції",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "букет Crystal | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Відчуйте елегантність і простоту з нашим світлим мінімалістичним букетом 'crystal.",
+        "thxsd2rona_seo_offerkeywords_hidden": "букет Crystal, Гарячі пропозиції, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "buket-crystal"
+      }
+    },
+    {
+      "id": "bedd4ba3-451f-4aa0-8c88-6aac62b9e2be",
+      "name": "Діонея в горщику – Небесний Хижак для Вашого Дому",
+      "category": "Кімнатні рослини",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "limited",
+      "count": 1,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Діонея в горщику – Небесний Хижак для Вашого Дому | Nouvel",
+        "thxsd2rona_seo_offerdescription_hidden": "Діонея, також відома як рослина-молода леді або мухоловка, тепер доступна у стильному горщику!",
+        "thxsd2rona_seo_offerkeywords_hidden": "Діонея в горщику – Небесний Хижак для Вашого Дому, Кімнатні рослини, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "dioneia-v-horshchyku-nebesnyy-khyzhak-dlia-vashoho-domu"
+      }
+    },
+    {
+      "id": "504623f0-05de-4c44-94a1-cea753ed93e5",
+      "name": "Porcelaine d’Été",
+      "category": "Букети, Гарячі  пропозиції",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Porcelaine d’Été | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Porcelaine d’Été - це букет з дуже тонким настроєм, у якому поєднуються ніжність, свіже повітря кольору та делікатна фактура.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Porcelaine d’Été, Гарячі пропозиції, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "porcelaine-d-ete"
+      }
+    },
+    {
+      "id": "553ad84a-81ec-432f-baed-53178d3723e0",
+      "name": "Poudre d’Amour",
+      "category": "Квіти в коробках",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Poudre d’Amour | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Poudre d’Amour - це композиція з делікатним характером, у якій поєднуються пудрово-рожеві відтінки, свіжа зелень і салонна подача.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Poudre d’Amour, Квіти в коробках, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "poudre-d-amour"
+      }
+    },
+    {
+      "id": "fa8a88b1-b08b-4d20-80d3-6c90e18865ae",
+      "name": "Букет Éternelle Tendresse ",
+      "category": "Букети, Авторські роботи By Lesnikov",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Букет Éternelle Tendresse | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Букет «Éternelle Tendresse» – це втілення ніжності та витонченої елегантності.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Букет Éternelle Tendresse , Букети, Авторські роботи By Lesnikov, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "buket-eternelle-tendresse"
+      }
+    },
+    {
+      "id": "2ae2a93a-cb64-4672-b669-7ad2af640181",
+      "name": "Ніжний рожевий букет",
+      "category": "Букети, Гарячі  пропозиції",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Ніжний рожевий букет | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Цей вишуканий ніжний рожевий букет створений з різноманітних квітів, які підкреслять будь-яку подію.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Ніжний рожевий букет, Букети, Гарячі пропозиції, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "nizhnyy-rozhevyy-buket"
+      }
+    },
+    {
+      "id": "8ddacf0b-bcc9-4057-a8e3-e9b08e216c16",
+      "name": "Арома свічка соєва The Blanc",
+      "category": "Соєві свічки",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Арома свічка соєва The Blanc | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "The Blanc - аромасвічка з благородним, чистим і дуже зібраним характером.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Арома свічка соєва The Blanc, Соєві свічки, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "aroma-svichka-soieva-the-blanc"
+      }
+    },
+    {
+      "id": "2c338780-11f3-4672-8eb3-6e79fdbb62ea",
+      "name": "Авторський букет Tropic - Екзотичний флористичний шедевр",
+      "category": "Букети, Авторські роботи By Lesnikov",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Авторський букет Tropic - Екзотичний флористичний шедевр |",
+        "thxsd2rona_seo_offerdescription_hidden": "Внесіть яскраві кольори та тропічну атмосферу у ваше життя з авторським букетом Tropic.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Авторський букет Tropic - Екзотичний флористичний шедевр, Букети, Авторські роботи By Lesnikov, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "avtorskyy-buket-tropic-ekzotychnyy-florystychnyy-shedevr"
+      }
+    },
+    {
+      "id": "21583785-e9c3-4981-89ca-60d7fba2091f",
+      "name": "Натуральна соєва свічка Nouvel Amour Aroma",
+      "category": "Соєві свічки, Додавай до квітів",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Натуральна соєва свічка Nouvel Amour Aroma | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Пориньте у світ спокою та затишку з нашою натуральною соєвою свічкою від Nouvel Amour Aroma.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Натуральна соєва свічка Nouvel Amour Aroma, Соєві свічки, Додавай до квітів, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "naturalna-soieva-svichka-nouvel-amour-aroma"
+      }
+    },
+    {
+      "id": "57d45057-be87-4175-aaba-59e2afce4a04",
+      "name": "Персоналізована стрічка для квітів з вашим текстом",
+      "category": "Додай індивідуальний підпис, Додавай до квітів",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Персоналізована стрічка для квітів з вашим текстом | Nouvel",
+        "thxsd2rona_seo_offerdescription_hidden": "Персоналізована стрічка додається до букета або квіткової композиції.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Персоналізована стрічка для квітів з вашим текстом, Додай індивідуальний підпис, Додавай до квітів, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "personalizovana-strichka-dlia-kvitiv-z-vashym-tekstom"
+      }
+    },
+    {
+      "id": "28df7cff-7e67-4201-8bc6-4f6760c815eb",
+      "name": "Натуральна соєва свічка Citron & Coco",
+      "category": "Соєві свічки",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Натуральна соєва свічка Citron & Coco | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Пориньте у справжній оазис свіжості з нашою натуральною соєвою свічкою Citron & Coco.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Натуральна соєва свічка Citron & Coco, Соєві свічки, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "naturalna-soieva-svichka-citron-coco"
+      }
+    },
+    {
+      "id": "8a0362fe-dc52-4ec5-b72d-5e4c00d56ad6",
+      "name": "Lavender Dream",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Lavender Dream | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Відкрийте для себе елегантність та спокій з букетом Lavender Dream.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Lavender Dream, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "lavender-dream"
+      }
+    },
+    {
+      "id": "93876591-4a92-422a-ad70-65440647cf20",
+      "name": "Pink Harmony",
+      "category": "Букети, Авторські роботи By Lesnikov",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Pink Harmony | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Pink Harmony - це повітряна квіткова композиція, створена у найніжніших відтінках рожевого, кремового та білого.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Pink Harmony, Букети, Авторські роботи By Lesnikov, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "pink-harmony"
+      }
+    },
+    {
+      "id": "a74546a6-f4fd-477a-ae3c-727485f967a4",
+      "name": "Lux Bouquet - The Ultimate Luxury Floral Arrangement",
+      "category": "Букети, Авторські роботи By Lesnikov",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Lux Bouquet - The Ultimate Luxury Floral Arrangement | Nouv",
+        "thxsd2rona_seo_offerdescription_hidden": "Discover the epitome of elegance with our Lux Bouquet, crafted from the biggest and most luxurious flowers available.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Lux Bouquet - The Ultimate Luxury Floral Arrangement, Букети, Авторські роботи By Lesnikov, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "lux-bouquet-the-ultimate-luxury-floral-arrangement"
+      }
+    },
+    {
+      "id": "02f87c77-9a7c-40fe-8f8c-fef41c4caf30",
+      "name": "Аромадифузер Sweet Peony",
+      "category": "Ароматичні дифузери, Арома товари",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Аромадифузер Sweet Peony | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Аромадифузер з ароматом \"Sweet Peony\" зазвичай має ніжний, квітковий запах, що імітує аромат півоній.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Аромадифузер Sweet Peony, Ароматичні дифузери, Арома товари, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "aromadyfuzer-sweet-peony"
+      }
+    },
+    {
+      "id": "e2f0263b-c923-4fa5-8a56-7beccc6af8fe",
+      "name": "Арома Лампа Gold view",
+      "category": "Декор та подарунки, Арома товари",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Арома Лампа Gold view | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Арома лампа Gold View - це стильний і функціональний аксесуар для вашого дому.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Арома Лампа Gold view, Декор та подарунки, Арома товари, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "aroma-lampa-gold-view"
+      }
+    },
+    {
+      "id": "33c0bb50-01ea-42f4-a2be-04eae5807630",
+      "name": "Аромадифузер \"Nouvel Amour Aroma\" Oakmoss & Amber",
+      "category": "Ароматичні дифузери, Арома товари",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Аромадифузер \"Nouvel Amour Aroma\" Oakmoss & Amber | Nouvel",
+        "thxsd2rona_seo_offerdescription_hidden": "Насичений і глибокий аромат Oakmoss & Amber від Nouvel Amour Aroma -наповнює простір теплом бурштину, деревним мохом і легкими мускусними нотами.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Аромадифузер \"Nouvel Amour Aroma\" Oakmoss & Amber, Ароматичні дифузери, Арома товари, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "aromadyfuzer-nouvel-amour-aroma-oakmoss-amber"
+      }
+    },
+    {
+      "id": "d9378378-6dcd-43a9-8ba5-71a0bdbe3cd4",
+      "name": "Éclat Botanique - Тіландсія Аніта в керамічному горщику",
+      "category": "Кімнатні рослини",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "limited",
+      "count": 1,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Éclat Botanique - Тіландсія Аніта в керамічному горщику | N",
+        "thxsd2rona_seo_offerdescription_hidden": "Éclat Botanique - це стильна та мінімалістична тиландсія Аніта в керамічному горщику, яка ідеально підходить для сучасного інтер'єру.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Éclat Botanique - Тіландсія Аніта в керамічному горщику, Кімнатні рослини, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "eclat-botanique-tilandsiia-anita-v-keramichnomu-horshchyku"
+      }
+    },
+    {
+      "id": "c2fb1004-7265-42be-8961-5877e63750ba",
+      "name": "Іграшка Stitch Étoile",
+      "category": "Іграшки",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Іграшка Stitch Étoile | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Познайомтесь із Stitch Étoile - ексклюзивною м’якою іграшкою з офіційної колекції Disneyland.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Іграшка Stitch Étoile, Іграшки, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "ihrashka-stitch-etoile"
+      }
+    },
+    {
+      "id": "05fcdcb2-b96d-4a44-835d-ed98f216917f",
+      "name": "Автопарфум Nouvel Amour Aroma Tabacco Vanille",
+      "category": "Автомобільні дифузери, Арома товари",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Автопарфум Nouvel Amour Aroma Tabacco Vanille | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Створіть атмосферу розкоші у вашому авто з автопарфумом Aroma \"Tobacco Vanilla\".",
+        "thxsd2rona_seo_offerkeywords_hidden": "Автопарфум Nouvel Amour Aroma Tabacco Vanille, Автомобільні дифузери, Арома товари, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "avtoparfum-nouvel-amour-aroma-tabacco-vanille"
+      }
+    },
+    {
+      "id": "6b62021f-5f6c-4bfd-8001-923d15ff79ec",
+      "name": "Bouquet \"Douceur Pastel\" - Hydrangeas, Roses & Lisianthus",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Bouquet \"Douceur Pastel\" - Hydrangeas, Roses & Lisianthus |",
+        "thxsd2rona_seo_offerdescription_hidden": "Douceur Pastel - це ніжність у кожній пелюстці.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Bouquet \"Douceur Pastel\" - Hydrangeas, Roses & Lisianthus, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "bouquet-douceur-pastel-hydrangeas-roses-lisianthus"
+      }
+    },
+    {
+      "id": "41a5217e-c14b-4d31-a843-d52b60683bc3",
+      "name": "Плюшевий котик \"Tom\" сидячий",
+      "category": "Іграшки",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Плюшевий котик \"Tom\" сидячий | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "устрічайте котика Tom - ніжного, м’якого та дуже обіймального!Ідеальний подарунок для дітей, закоханих або просто для створення затишку вдома.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Плюшевий котик \"Tom\" сидячий, Іграшки, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "pliushevyy-kotyk-tom-sydiachyy"
+      }
+    },
+    {
+      "id": "f6a93c82-e290-4e46-b983-6a5aa860061c",
+      "name": "Purple Elegance",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Purple Elegance | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Purple Elegance - втілення розкоші та ніжності у квітах.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Purple Elegance, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "purple-elegance"
+      }
+    },
+    {
+      "id": "3b96ff1d-af4d-441b-bd31-96c345673835",
+      "name": "Éternelle Tendresse",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Éternelle Tendresse | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Букет «Éternelle Tendresse» - це втілення ніжності та витонченої елегантності.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Éternelle Tendresse, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "eternelle-tendresse"
+      }
+    },
+    {
+      "id": "d255d1d7-10ec-4636-ab05-afeaf5271791",
+      "name": "Антуріум Розе - Екзотичний Квітковий Скарб",
+      "category": "Кімнатні рослини",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "limited",
+      "count": 1,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Антуріум Розе - Екзотичний Квітковий Скарб | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Знайомтесь з Антуріумом Розе, витонченим і екзотичним рослиною, яка стане справжньою окрасою вашого інтер'єру.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Антуріум Розе - Екзотичний Квітковий Скарб, Кімнатні рослини, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "anturium-roze-ekzotychnyy-kvitkovyy-skarb"
+      }
+    },
+    {
+      "id": "ce1a2df4-c551-451a-ba34-7dac95f90043",
+      "name": "Антуріум Black",
+      "category": "Кімнатні рослини",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "limited",
+      "count": 1,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Антуріум Black | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Антуріум блек",
+        "thxsd2rona_seo_offerkeywords_hidden": "Антуріум Black, Кімнатні рослини, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "anturium-black"
+      }
+    },
+    {
+      "id": "e2c700d8-3b79-49ac-ad83-7cba41500757",
+      "name": "Букет “Éclat de Douceur”",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Букет “Éclat de Douceur” | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Ніжний букет у пастельних відтінках із рожевими лізіантусами, білими трояндами та евкаліптом.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Букет “Éclat de Douceur”, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "buket-eclat-de-douceur"
+      }
+    },
+    {
+      "id": "075d4126-11aa-48d9-bdbd-1f0e47e53191",
+      "name": "Petit Calin",
+      "category": "Іграшки",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Petit Calin | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "М'яке ведмежа у теплому бежевому відтінку має пухнасту фактуру та охайний декоративний шнурок на шиї.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Petit Calin, Іграшки, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "petit-calin"
+      }
+    },
+    {
+      "id": "bb8de581-3b12-4eb2-bb4b-47925143fe9f",
+      "name": "Velours Tendre",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Velours Tendre | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Повітряний букет у пудрово-рожевій та кремово-білій палітрі, зібраний у м'якій округлій формі та оформлений у світле пакування зі стрічками.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Velours Tendre, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "velours-tendre"
+      }
+    },
+    {
+      "id": "e7f3adc0-8959-42e5-bae3-537ce8bc4694",
+      "name": "Petit Etoile",
+      "category": "Іграшки",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Petit Etoile | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "М'яке ведмежа у теплому карамельному відтінку доповнене намистом із кольоровими елементами та зірочкою.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Petit Etoile, Іграшки, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "petit-etoile"
+      }
+    },
+    {
+      "id": "ea4a25b1-e93f-4b86-be39-53b9182efc7a",
+      "name": "Douce Peluche",
+      "category": "Іграшки",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Douce Peluche | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "М'яка іграшка у формі зайця виконана в ніжному пудрово-рожевому відтінку з м'якою плюшевою фактурою та світлими акцентами.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Douce Peluche, Іграшки, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "douce-peluche"
+      }
+    },
+    {
+      "id": "f94cf060-d5b7-48a5-9e4b-2f6cb1b05af5",
+      "name": "Velours Dore",
+      "category": "Арома товари",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Velours Dore | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Аромасвічка Moroccan Cashmere у прозорій скляній ємності з кришкою виглядає чисто, вишукано й одразу читається як інтер’єрний акцент.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Velours Dore, Арома товари, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "velours-dore"
+      }
+    },
+    {
+      "id": "72e68193-7e7b-4c28-b3f7-f4960c531c30",
+      "name": "Букет Ivory Silence",
+      "category": "Букети",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Букет Ivory Silence | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Ivory Silence - це про спокій, який відчувається з першого погляду.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Букет Ivory Silence, Букети, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "buket-ivory-silence"
+      }
+    },
+    {
+      "id": "b2896209-ad18-428d-967d-654304a4c084",
+      "name": "Букет Élixir d’Amour",
+      "category": "Квіти в коробках",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Букет Élixir d’Amour | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Букет Élixir d’Amour now",
+        "thxsd2rona_seo_offerkeywords_hidden": "Букет Élixir d’Amour, Квіти в коробках, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "buket-elixir-d-amour"
+      }
+    },
+    {
+      "id": "18759c62-7568-4928-81e0-91b7ca1ea4aa",
+      "name": "Автопарфум LOST CHERY",
+      "category": "Арома товари",
+      "available": true,
+      "availableStatus": "AVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "Автопарфум LOST CHERY | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Автопарфум LOST CHERY - ароматичний товар Nouvel Amour для дому, подарунка або доповнення до квітів.",
+        "thxsd2rona_seo_offerkeywords_hidden": "Автопарфум LOST CHERY, Арома товари, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "avtoparfum-lost-chery"
+      }
+    },
+    {
+      "id": "0e3f844a-06b9-4f52-8b19-8d1268650000",
+      "name": "TEST Codex API",
+      "category": "Декор та подарунки",
+      "available": false,
+      "availableStatus": "UNAVAILABLE",
+      "stockType": "endless",
+      "count": 0,
+      "minCount": 1,
+      "step": 1,
+      "seoEmpty": [],
+      "seo": {
+        "thxsd2rona_seo_offertitle_hidden": "TEST Codex API | Nouvel Amour",
+        "thxsd2rona_seo_offerdescription_hidden": "Технічний тест публікації SalesBox API.",
+        "thxsd2rona_seo_offerkeywords_hidden": "TEST Codex API, Декор та подарунки, Nouvel Amour, квіти Київ, подарунок",
+        "thxsd2rona_seo_offerslug_hidden": "test-codex-api"
+      }
+    }
+  ]
+}

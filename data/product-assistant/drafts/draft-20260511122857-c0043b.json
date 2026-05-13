@@ -1,0 +1,87 @@
+{
+  "id": "draft-20260511122857-c0043b",
+  "status": "dry-run",
+  "createdAt": "2026-05-11T12:28:57.704Z",
+  "sourceText": "",
+  "sourceDraftId": "draft-20260511122833-3pknzc",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAANvagHLSQymA4AwUuBxGsUXML1Dl64AAr0VaxsKWAlI80rInmeRjh4BAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-396913",
+  "price": null,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "ніжний букет у пудрово-рожевій гамі",
+  "productTypeEn": "delicate bouquet in powder pink tones",
+  "visibleSummaryUk": "Округлий букет у пудрово-рожевих і молочно-білих відтінках у світлій багатошаровій упаковці зі стрічками.",
+  "nameUk": "Poudre Tendre",
+  "nameEn": "Poudre Tendre",
+  "descriptionUk": "Ніжний букет у пудрово-рожевій та молочно-білій гамі, зібраний у м'яку багатошарову упаковку зі стрічками. Округла форма, повітряна фактура й делікатні контрасти роблять його камерним, дуже жіночним жестом для привітання або особистого вручення.",
+  "descriptionEn": "A delicate bouquet in powder pink and milky white tones, arranged in soft layered wrapping with ribbons. Its rounded silhouette, airy texture, and gentle contrast create an intimate, feminine gesture for a greeting or a personal presentation.",
+  "seo": {
+    "titleUk": "Poudre Tendre - ніжний букет у пудрово-рожевій гамі",
+    "descriptionUk": "Ніжний букет Poudre Tendre від Nouvel Amour у пудрово-рожевих і молочно-білих тонах, оформлений у м'яку світлу упаковку зі стрічками.",
+    "keywordsUk": "ніжний букет, букет у рожевих тонах, пудрово рожевий букет, світлий букет, букет у м'якій упаковці, букет Nouvel Amour",
+    "slug": "poudre-tendre"
+  },
+  "qualityIssues": [],
+  "salesBoxResult": {
+    "dryRun": true,
+    "reason": "SalesBox write is disabled or credentials are incomplete.",
+    "endpoint": "offers/createMany?lang=uk",
+    "missingRequiredFields": [
+      "offers.*.price",
+      "offers.*.photos"
+    ],
+    "payload": {
+      "offers": [
+        {
+          "internalId": "BQ-396913",
+          "externalId": "draft-20260511122857-c0043b",
+          "baseCurrency": "UAH",
+          "names": [
+            {
+              "lang": "uk",
+              "name": "Poudre Tendre"
+            },
+            {
+              "lang": "en",
+              "name": "Poudre Tendre"
+            }
+          ],
+          "descriptions": [
+            {
+              "lang": "uk",
+              "description": "Ніжний букет у пудрово-рожевій та молочно-білій гамі, зібраний у м'яку багатошарову упаковку зі стрічками. Округла форма, повітряна фактура й делікатні контрасти роблять його камерним, дуже жіночним жестом для привітання або особистого вручення."
+            },
+            {
+              "lang": "en",
+              "description": "A delicate bouquet in powder pink and milky white tones, arranged in soft layered wrapping with ribbons. Its rounded silhouette, airy texture, and gentle contrast create an intimate, feminine gesture for a greeting or a personal presentation."
+            }
+          ],
+          "photos": [],
+          "available": true,
+          "availableStatus": "AVAILABLE",
+          "stockType": "endless",
+          "count": 0,
+          "allowNegativeStock": true,
+          "units": "pc",
+          "minCount": 1,
+          "step": 1,
+          "isFixedStep": false,
+          "isService": false,
+          "categories": [
+            {
+              "id": "710e87ac-5c0a-470b-a02e-e366179fef57"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "updatedAt": "2026-05-11T12:30:41.345Z"
+}

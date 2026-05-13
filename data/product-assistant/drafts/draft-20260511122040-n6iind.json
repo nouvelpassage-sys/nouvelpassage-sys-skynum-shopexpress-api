@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511122040-n6iind",
+  "status": "draft",
+  "createdAt": "2026-05-11T12:20:40.520Z",
+  "sourceText": "300",
+  "sourceDraftId": "draft-20260511121619-bpemva",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAANlagHFFuJZ3oG7ls-ztg4CKc-PqvgAApkVaxsKWAlIXb7Gr6Od74EBAAMCAANtAAM7BA",
+  "visionUsed": true,
+  "sku": "PL-900288",
+  "price": 300,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": false,
+  "stockMode": "counted",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "кімнатна рослина спатифілум у горщику",
+  "productTypeEn": "potted peace lily houseplant",
+  "visibleSummaryUk": "Жива кімнатна рослина спатифілум у простому теракотовому горщику, з темно-зеленим листям і білими суцвіттями.",
+  "nameUk": "Maison Calme",
+  "nameEn": "Maison Calme",
+  "descriptionUk": "Жива кімнатна рослина в горщику з густим зеленим листям і білими покривалами суцвіть виглядає стримано та доглянуто. Вона м'яко освіжає інтер'єр і добре звучить як елегантний зелений акцент для дому або робочого простору.",
+  "descriptionEn": "A living potted houseplant with lush green foliage and white bloom-like spathes looks clean, calm, and well-kept. It brings a gentle sense of freshness to an interior and works beautifully as an elegant green accent for home or workspace.",
+  "seo": {
+    "titleUk": "Maison Calme - кімнатна рослина спатифілум у горщику",
+    "descriptionUk": "Кімнатна рослина спатифілум у горщику від Nouvel Amour: жива зелена рослина з білими суцвіттями для дому, офісу або подарунка.",
+    "keywordsUk": "спатифілум, кімнатна рослина, рослина в горщику, зелена рослина, квітуча кімнатна рослина, Nouvel Amour",
+    "slug": "maison-calme"
+  },
+  "qualityIssues": []
+}

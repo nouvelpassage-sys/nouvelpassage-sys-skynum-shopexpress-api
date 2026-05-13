@@ -1,0 +1,39 @@
+{
+  "id": "draft-20260511190354-megkyd",
+  "status": "draft",
+  "createdAt": "2026-05-11T19:03:54.504Z",
+  "sourceText": "690 іграшка ведмежа",
+  "photoFileId": "AgACAgIAAxkBAAOkagIoCfrsnyCJc3ZGwFoGEpFBqV0AAtsUaxsKWBFIUQEeRUu3HXMBAAMCAAN5AAM7BA",
+  "visionUsed": true,
+  "sku": "TY-729698",
+  "price": 690,
+  "currency": "UAH",
+  "category": "Іграшки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778526242/nouvel-amour/products/draft-20260511190354-megkyd.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778526242/nouvel-amour/products/draft-20260511190354-megkyd.jpg",
+  "productTypeUk": "м'яке ведмежа",
+  "productTypeEn": "soft teddy bear",
+  "visibleSummaryUk": "Карамельне м'яке ведмежа з пухнастою фактурою та кольоровим декором на шиї.",
+  "nameUk": "Petit Câlin",
+  "nameEn": "Petit Câlin",
+  "descriptionUk": "М'яке ведмежа у теплому карамельному відтінку має пухнасту фактуру й декоративний нашийник із кольоровими намистинами. Така іграшка додає подарунку домашнього тепла й ніжно виглядає як окремий жест уваги.",
+  "descriptionEn": "A soft teddy bear in a warm caramel shade features a fluffy texture and a decorative necklace with colorful beads. This toy adds a gentle, cozy touch to a gift and looks charming as a standalone present.",
+  "seo": {
+    "titleUk": "Petit Câlin - м'яке ведмежа",
+    "descriptionUk": "М'яке ведмежа Petit Câlin від Nouvel Amour у карамельному відтінку з пухнастою фактурою та декоративною деталлю на шиї.",
+    "keywordsUk": "м'яке ведмежа, плюшевий ведмедик, іграшка ведмежа, м'яка іграшка, Nouvel Amour",
+    "slug": "petit-calin"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778526242/nouvel-amour/products/draft-20260511190354-megkyd.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778526242/nouvel-amour/products/draft-20260511190354-megkyd.jpg",
+      "contentType": "image/jpeg"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "draft-20260511080514-erlfwj",
+  "status": "draft",
+  "createdAt": "2026-05-11T08:05:14.118Z",
+  "sourceText": "15000",
+  "sourceDraftId": "draft-20260511080412-h15sfr",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": null,
+  "visionUsed": false,
+  "sku": "DC-406783",
+  "price": 15000,
+  "currency": "UAH",
+  "category": "Декор та подарунки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "декоративний подарунок",
+  "productTypeEn": "decorative gift",
+  "visibleSummaryUk": "Елегантний декоративний подарунок з м’якими текстурами і стриманою палітрою кольорів, що додає теплоти інтер'єру або сету подарунків.",
+  "nameUk": "Éclat Élégant",
+  "nameEn": "Éclat Élégant",
+  "descriptionUk": "Цей декоративний подарунок створений із увагою до деталей і гармонії форми. М’які текстури й елегантна палітра кольорів підкреслюють його унікальний характер. Éclat Élégant наповнює простір ніжністю і теплом, додаючи завершеності будь-якому інтер’єру або подарунковому сету.",
+  "descriptionEn": "This decorative gift is crafted with attention to detail and harmonious form. Soft textures and an elegant color palette highlight its unique character. Éclat Élégant brings a gentle warmth and refinement to any interior or gift ensemble.",
+  "seo": {
+    "titleUk": "Éclat Élégant - декоративний подарунок від Nouvel Amour",
+    "descriptionUk": "Елегантний декоративний подарунок Éclat Élégant від Nouvel Amour з вишуканими текстурами та стриманою палітрою для стильного інтер’єру чи подарунка.",
+    "keywordsUk": "декор, подарунок, елегантний декор, стильний подарунок, Nouvel Amour, витончений декор, французький стиль",
+    "slug": "eclat-elegant"
+  }
+}

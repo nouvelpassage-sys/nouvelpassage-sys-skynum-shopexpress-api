@@ -1,0 +1,128 @@
+{
+  "createdAt": "2026-05-11T06:55:19.260Z",
+  "input": "C:\\Users\\milan\\OneDrive\\Desktop\\salesbox-product-load\\salesbox-products-ready.csv",
+  "totals": {
+    "samples": 9,
+    "passed": 9,
+    "failed": 0
+  },
+  "results": [
+    {
+      "sourceId": "11272622",
+      "sourceName": "Автопарфум LOST CHERY",
+      "expectedCategory": "Арома товари",
+      "draft": {
+        "nameUk": "Perle Rouge - автопарфум для авто LOST CHERY",
+        "productTypeUk": "автопарфум для авто",
+        "category": "Арома товари",
+        "descriptionUk": "Автопарфум поміщений у прозору скляну пляшечку з дерев’яною кришкою та двома паличками з білими круглими наконечниками. Perle Rouge наповнює салон ніжним ароматом, створюючи комфортну атмосферу під час поїздок.",
+        "seoSlug": "perle-rouge-avtoparfum-dlya-avto-lost-chery"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "12506344",
+      "sourceName": "Аудіолистівка \"Best Wishes\" | Запишіть своє повідомлення або улюблену мелодію",
+      "expectedCategory": "Листівки",
+      "draft": {
+        "nameUk": "Souvenir Sonore - аудіолистівка з індивідуальним повідомленням",
+        "productTypeUk": "аудіолистівка з індивідуальним повідомленням",
+        "category": "Листівки",
+        "descriptionUk": "Аудіолистівка у вигляді ретро-касети з ніжним рожево-блакитним дизайном. Souvenir Sonore дозволяє записати особисте побажання або мелодію, додаючи подарунку індивідуальності і тепла. Такий сувенір принесе живі емоції і стане особливим знаком уваги.",
+        "seoSlug": "souvenir-sonore-audiolystivka-z-indyvidualnym-povidomlennyam"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "17435767",
+      "sourceName": "Ведмедик «Зірочка»",
+      "expectedCategory": "Іграшки",
+      "draft": {
+        "nameUk": "Étoile Douce - м'яка іграшка ведмедик «Зірочка»",
+        "productTypeUk": "м'яка іграшка ведмедик",
+        "category": "Іграшки",
+        "descriptionUk": "М'яка іграшка ведмедик доповнює замовлення без зайвої декоративності: виглядає охайно, доречно і легко поєднується з квітами. Такий подарунок працює як невеликий, але помітний знак уваги.",
+        "seoSlug": "etoile-douce-myaka-ihrashka-vedmedyk-zirochka"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "11272755",
+      "sourceName": "Квіткова композиція \"Spring Tenderness\" у дерев’яному кошику",
+      "expectedCategory": "Квіти в коробках",
+      "draft": {
+        "nameUk": "Douce Printemps - квіткова композиція у дерев’яному кошику з трояндами та орхідеями",
+        "productTypeUk": "квіткова композиція в дерев’яному кошику",
+        "category": "Квіти в коробках",
+        "descriptionUk": "Квіткова композиція в дерев’яному кошику поєднує ніжні рожеві троянди та кремові орхідеї з зеленню евкаліпту. Douce Printemps виглядає як делікатний, свіжий подарунок, що дарує відчуття весняної легкості та тепла.",
+        "seoSlug": "douce-printemps-kvitkova-kompozytsiya-u-derev-yanomu-koshyku-z-troyandamy-ta-ork"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "10686109",
+      "sourceName": "Керамічний вазон",
+      "expectedCategory": "Декор та подарунки",
+      "draft": {
+        "nameUk": "Ligne Douce - керамічний вазон з рельєфним візерунком",
+        "productTypeUk": "керамічний вазон",
+        "category": "Декор та подарунки",
+        "descriptionUk": "Керамічний вазон ніжного м’ятно-зеленого відтінку з плавним горизонтальним ребристим візерунком. Ligne Douce додає простору витонченості та проживленої текстури, створюючи атмосферу затишку та легкості.",
+        "seoSlug": "ligne-douce-keramichnyy-vazon-z-relyefnym-vizerunkom"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "17604693",
+      "sourceName": "Півонії Festiva Maxima - преміальні білі півонії з доставкою | Nouvel Amour Flower",
+      "expectedCategory": "Букети",
+      "draft": {
+        "nameUk": "Festiva Maxima - букет білих півоній",
+        "productTypeUk": "букет білих півоній",
+        "category": "Букети",
+        "descriptionUk": "Букет Великий букет білих півоній із зеленим листям на довгих стеблах. Світлий, делікатний і натуральний виглядає зібрано й дорого завдяки м'якій палітрі та виразним фактурам. Його хочеться дарувати там, де потрібна ніжність без банальності: на день народження, побачення або як дуже особистий комплімент.",
+        "seoSlug": "festiva-maxima-buket-bilykh-pivoniy"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "17605881",
+      "sourceName": "Азалія 13см",
+      "expectedCategory": "Кімнатні рослини",
+      "draft": {
+        "nameUk": "Azalée de Lumière - кімнатна рослина азалія",
+        "productTypeUk": "кімнатна рослина в горщику",
+        "category": "Кімнатні рослини",
+        "descriptionUk": "Компактна кімнатна рослина азалія з ніжними рожево-кремовими квітками і зеленим листям. Azalée de Lumière створює атмосферу затишку і природної краси в будь-якому інтер'єрі, даруючи м'якість і ніжність на щодень.",
+        "seoSlug": "azalee-de-lumiere-kimnatna-roslyna-azaliya"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "13646979",
+      "sourceName": "Букет “Éclat de Douceur”",
+      "expectedCategory": "Авторські роботи By Lesnikov",
+      "draft": {
+        "nameUk": "Éclat de Douceur - авторська флористична робота з ніжних пастельних квітів",
+        "productTypeUk": "авторська флористична робота",
+        "category": "Авторські роботи By Lesnikov",
+        "descriptionUk": "Авторська композиція Éclat de Douceur поєднує ніжні рожеві й кремові відтінки троянд, лілій і еустом, доповнену легким зеленним евкаліпта. Акуратне обгортання пастельного рожевого паперу і стрічка додають виконанню камерної елегантності. Цей букет оживляє простір і виглядає як делікатний подарунок із французьким акцентом для особливих моментів.",
+        "seoSlug": "eclat-de-douceur-avtorska-florystychna-robota-z-nizhnykh-pastelnykh-kvitiv"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "10778489",
+      "sourceName": "Букет Élixir d’Amour",
+      "expectedCategory": "Гарячі пропозиції",
+      "draft": {
+        "nameUk": "Élixir d’Amour - букет білих півоній та бузкової гортензії - спеціальна квіткова пропозиція",
+        "productTypeUk": "спеціальна квіткова пропозиція",
+        "category": "Гарячі пропозиції",
+        "descriptionUk": "Букет із великих білих півоній та пухнастої бузкової гортензії доповнено світло-фіолетовими акцентами й зеленню. Élixir d’Amour створює атмосферу спокійної романтики у стриманих пастельних тонах. Це вибір для тих, хто цінує ніжність і легкість у квіткових композиціях.",
+        "seoSlug": "elixir-d-amour-buket-bilykh-pivoniy-ta-buzkovoi-hortenzii-spetsialna-kvitkova-pr"
+      },
+      "issues": []
+    }
+  ]
+}

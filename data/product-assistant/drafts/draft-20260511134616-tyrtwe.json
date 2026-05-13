@@ -1,0 +1,31 @@
+{
+  "id": "draft-20260511134616-tyrtwe",
+  "status": "draft",
+  "createdAt": "2026-05-11T13:46:16.433Z",
+  "sourceText": "1900 тестова кімнатна рослина",
+  "visionUsed": false,
+  "sku": "PL-342905",
+  "price": 1900,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": false,
+  "stockMode": "counted",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": null,
+  "previewUrl": null,
+  "productTypeUk": "кімнатна рослина в горщику",
+  "productTypeEn": "potted indoor plant",
+  "visibleSummaryUk": "Кімнатна рослина в горщику.",
+  "nameUk": "Maison Vivante",
+  "nameEn": "Maison Vivante",
+  "descriptionUk": "Кімнатна рослина в горщику для дому, офісу або спокійного подарункового жесту. Вона додає простору доглянутий зелений акцент і залишається поруч надовго, створюючи м'який, живий настрій щодня.",
+  "descriptionEn": "A potted indoor plant for home, office, or a calm gift gesture. It brings a cared-for green accent to the space and stays with the recipient over time, creating a soft, living mood every day.",
+  "seo": {
+    "titleUk": "Maison Vivante - кімнатна рослина в горщику",
+    "descriptionUk": "Кімнатна рослина в горщику від Nouvel Amour для дому, офісу або подарунка з тривалим настроєм.",
+    "keywordsUk": "кімнатна рослина, рослина в горщику, кімнатні рослини, зелений подарунок, рослина для дому, рослина для офісу, Nouvel Amour",
+    "slug": "maison-vivante"
+  },
+  "qualityIssues": []
+}

@@ -1,0 +1,86 @@
+{
+  "id": "draft-20260511184648-bx2rxm",
+  "status": "published",
+  "createdAt": "2026-05-11T18:46:48.242Z",
+  "sourceText": "іграшка ведмежа 650грн",
+  "photoFileId": "AgACAgIAAxkBAAOYagIkDQbGBUOLz7I4pO2H8nd7B3MAAscUaxsKWBFI8H3pyEX1aXYBAAMCAAN5AAM7BA",
+  "visionUsed": true,
+  "sku": "TY-165500",
+  "price": 650,
+  "currency": "UAH",
+  "category": "Іграшки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778525209/nouvel-amour/products/draft-20260511184648-bx2rxm.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778525209/nouvel-amour/products/draft-20260511184648-bx2rxm.jpg",
+  "productTypeUk": "м'яка іграшка ведмежа",
+  "productTypeEn": "teddy bear plush toy",
+  "visibleSummaryUk": "Пухнасте бежеве ведмежа з декоративним шнурком на шиї.",
+  "nameUk": "Petit Calin",
+  "nameEn": "Petit Calin",
+  "descriptionUk": "М'яке ведмежа у теплому бежевому відтінку має пухнасту фактуру та охайний декоративний шнурок на шиї. Така іграшка додає подарунку більше ніжності й домашнього тепла та добре звучить як окремий жест або мила деталь до квітів.",
+  "descriptionEn": "A soft teddy bear in a warm beige tone features a fluffy texture and a neat decorative cord around the neck. This toy brings extra tenderness and a cozy feel to a gift, whether chosen on its own or paired with flowers.",
+  "seo": {
+    "titleUk": "Petit Calin - м'яка іграшка ведмежа",
+    "descriptionUk": "М'яка іграшка ведмежа Petit Calin від Nouvel Amour у бежевому відтінку з пухнастою фактурою та ніжною подарунковою подачею.",
+    "keywordsUk": "м'яка іграшка ведмежа, плюшевий ведмедик, бежева іграшка, іграшка ведмедик, подарунок Nouvel Amour",
+    "slug": "petit-calin"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778525209/nouvel-amour/products/draft-20260511184648-bx2rxm.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778525209/nouvel-amour/products/draft-20260511184648-bx2rxm.jpg",
+      "contentType": "image/jpeg"
+    }
+  ],
+  "salesBoxResult": {
+    "dryRun": false,
+    "body": {
+      "success": true,
+      "data": {
+        "jobId": "b7d77907-b1cf-4808-9cf4-2adbc57f884a",
+        "jobIds": [
+          "b7d77907-b1cf-4808-9cf4-2adbc57f884a"
+        ],
+        "status": "PENDING",
+        "message": "Job queued for processing"
+      },
+      "errors": null
+    }
+  },
+  "updatedAt": "2026-05-11T19:08:35.663Z",
+  "shopExpressResult": {
+    "enabled": true,
+    "dryRun": true,
+    "queued": true,
+    "importFilePath": "data/product-assistant/shopexpress-pending-import.csv",
+    "duplicate": false,
+    "payload": {
+      "externalId": "draft-20260511184648-bx2rxm",
+      "name": "Petit Calin",
+      "nameEn": "Petit Calin",
+      "sku": "TY-165500",
+      "price": 650,
+      "currency": "UAH",
+      "category": "Іграшки",
+      "description": "М'яке ведмежа у теплому бежевому відтінку має пухнасту фактуру та охайний декоративний шнурок на шиї. Така іграшка додає подарунку більше ніжності й домашнього тепла та добре звучить як окремий жест або мила деталь до квітів.",
+      "descriptionEn": "A soft teddy bear in a warm beige tone features a fluffy texture and a neat decorative cord around the neck. This toy brings extra tenderness and a cozy feel to a gift, whether chosen on its own or paired with flowers.",
+      "shortDescription": "Пухнасте бежеве ведмежа з декоративним шнурком на шиї.",
+      "images": [
+        "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778525209/nouvel-amour/products/draft-20260511184648-bx2rxm.jpg"
+      ],
+      "inStock": 999,
+      "isAvailable": "Available",
+      "unit": "шт",
+      "minOrder": 1,
+      "step": 1,
+      "alias": "petit-calin",
+      "metaTitle": "Petit Calin - м'яка іграшка ведмежа",
+      "metaDescription": "М'яка іграшка ведмежа Petit Calin від Nouvel Amour у бежевому відтінку з пухнастою фактурою та ніжною подарунковою подачею.",
+      "metaKeywords": ""
+    }
+  }
+}

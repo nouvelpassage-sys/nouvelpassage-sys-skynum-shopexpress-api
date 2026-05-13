@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511115303-qr4w0h",
+  "status": "draft",
+  "createdAt": "2026-05-11T11:53:03.835Z",
+  "sourceText": "880",
+  "sourceDraftId": "draft-20260511115239-7k5gyt",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAANgagHC_6RJi06e_jH50VK8bLg5C6QAApUVaxsKWAlIInFmQQ3Bv7MBAAMCAAN4AAM7BA",
+  "visionUsed": true,
+  "sku": "AR-386595",
+  "price": 880,
+  "currency": "UAH",
+  "category": "Арома товари",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "аромадифузор для дому",
+  "productTypeEn": "aroma diffuser",
+  "visibleSummaryUk": "матовий чорний аромадифузор з чорними паличками у стильній коробці для створення атмосфери затишку",
+  "nameUk": "Derive Minerale",
+  "nameEn": "Derive Minerale",
+  "descriptionUk": "Аромадифузор із матовою чорненою пляшкою і тонкими чорними паличками підкреслює стриману елегантність інтер’єру. Derive Minerale створює затишну атмосферу, що підходить для рівноваги та внутрішнього комфорту щодня.",
+  "descriptionEn": "The aroma diffuser features a matte black bottle with slender black reeds, highlighting understated elegance in any space. Derive Minerale fosters a cozy ambiance, perfect for balance and inner comfort daily.",
+  "seo": {
+    "titleUk": "Derive Minerale - аромадифузор з елегантним дизайном",
+    "descriptionUk": "Аромадифузор Derive Minerale – стриманий стиль і тепла атмосфера для дому та робочого простору.",
+    "keywordsUk": "аромадифузор, дифузор для дому, чорний аромадифузор, атмосферний аромат, інтер'єрний аксесуар",
+    "slug": "derive-minerale"
+  },
+  "qualityIssues": []
+}

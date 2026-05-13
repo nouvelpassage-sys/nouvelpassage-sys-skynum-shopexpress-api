@@ -1,0 +1,39 @@
+{
+  "id": "draft-20260511222352-e8wmhs",
+  "status": "draft",
+  "createdAt": "2026-05-11T22:23:52.280Z",
+  "sourceText": "Букет Luxury Girl 4688₴",
+  "photoFileId": "AgACAgIAAxkBAAPOagJW7q7vxHADvfSldnZA_JWJ5NIAAk4VaxsKWBFIMC0YkPqflYUBAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-693936",
+  "price": 4688,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778538234/nouvel-amour/products/draft-20260511222352-e8wmhs.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778538234/nouvel-amour/products/draft-20260511222352-e8wmhs.jpg",
+  "productTypeUk": "ніжно-рожевий букет",
+  "productTypeEn": "soft pink bouquet",
+  "visibleSummaryUk": "Ніжно-рожевий букет у світлому матовому пакуванні з молочно-білими акцентами та стрічками.",
+  "nameUk": "Velours Tendre",
+  "nameEn": "Velours Tendre",
+  "descriptionUk": "Повітряний букет у ніжно-рожевій та молочно-білій гамі, зібраний у м'яку округлу форму й оформлений у світле матове пакування зі стрічками. Він звучить легко, романтично й делікатно — для привітання, подяки або камерного красивого жесту.",
+  "descriptionEn": "An airy bouquet in a soft pink and milky white palette, arranged in a rounded silhouette and wrapped in light matte paper with ribbons. It feels light, romantic, and delicate — suited for congratulations, gratitude, or an intimate elegant gesture.",
+  "seo": {
+    "titleUk": "Velours Tendre - ніжно-рожевий букет у світлому пакуванні",
+    "descriptionUk": "Ніжно-рожевий букет Velours Tendre від Nouvel Amour у світлому пакуванні: повітряна форма, м'яка пастельна палітра та делікатна подача.",
+    "keywordsUk": "ніжно-рожевий букет, букет у світлому пакуванні, пастельний букет, романтичний букет, повітряний букет, Nouvel Amour",
+    "slug": "velours-tendre"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778538234/nouvel-amour/products/draft-20260511222352-e8wmhs.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778538234/nouvel-amour/products/draft-20260511222352-e8wmhs.jpg",
+      "contentType": "image/jpeg"
+    }
+  ]
+}

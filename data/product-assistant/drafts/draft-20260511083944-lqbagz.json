@@ -1,0 +1,30 @@
+{
+  "id": "draft-20260511083944-lqbagz",
+  "status": "draft",
+  "createdAt": "2026-05-11T08:39:44.769Z",
+  "sourceText": "5580",
+  "photoFileId": "AgACAgIAAxkBAAMKagFlpGrMNsVNJjsbXmJ0nUY-PxcAAm4Vaxu__AlIWsqS7-FnqQ0BAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-601621",
+  "price": 5580,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "букет світло-рожевих троянд",
+  "productTypeEn": "bouquet of soft pink roses",
+  "visibleSummaryUk": "Букет світло-рожевих троянд у чорній обгортці з білим папером і стрічкою",
+  "nameUk": "Velours Secret",
+  "nameEn": "Velours Secret",
+  "descriptionUk": "Букет із світло-рожевих троянд теплих відтінків у чорній преміальній обгортці з білим папером і декоративною стрічкою. Velours Secret виглядає як вишуканий жест ніжності та уваги до деталей, який створює камерний романтичний настрій.",
+  "descriptionEn": "A bouquet of soft pink roses in warm shades wrapped in luxurious black paper with white tissue and a decorative ribbon. Velours Secret presents a refined gesture of tenderness and attention to detail, evoking an intimate romantic mood.",
+  "seo": {
+    "titleUk": "Velours Secret - букет світло-рожевих троянд",
+    "descriptionUk": "Світло-рожевий букет троянд Velours Secret від Nouvel Amour у преміальній упаковці для особливого моменту.",
+    "keywordsUk": "букет троянд, рожеві троянди, преміальна упаковка, рожевий букет, подарунок, Nouvel Amour",
+    "slug": "velours-secret"
+  },
+  "qualityIssues": []
+}

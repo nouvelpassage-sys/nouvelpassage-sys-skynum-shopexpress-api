@@ -1,0 +1,39 @@
+{
+  "id": "draft-20260511204208-k4na80",
+  "status": "draft",
+  "createdAt": "2026-05-11T20:42:08.143Z",
+  "sourceText": "lux аромасвічка morocan cashmere exclusive 1599uhy",
+  "photoFileId": "AgACAgIAAxkBAAO6agI_FyhJ5uQOpeYLq4MLKrFFwc8AAhwVaxsKWBFIRak6AAFb9TrkAQADAgADeQADOwQ",
+  "visionUsed": true,
+  "sku": "AR-112150",
+  "price": 1599,
+  "currency": "UAH",
+  "category": "Арома товари",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "KA Aroma",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532129/nouvel-amour/products/draft-20260511204208-k4na80.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532129/nouvel-amour/products/draft-20260511204208-k4na80.jpg",
+  "productTypeUk": "аромасвічка Moroccan Cashmere",
+  "productTypeEn": "Moroccan Cashmere scented candle",
+  "visibleSummaryUk": "Прозора скляна аромасвічка KA Aroma з написом Moroccan Cashmere, кришкою та золотою китицею.",
+  "nameUk": "Maison Cachemire",
+  "nameEn": "Maison Cachemire",
+  "descriptionUk": "Аромасвічка у прозорій скляній банці з кришкою, кремовим воском і золотим китицевим акцентом. Аромат Moroccan Cashmere звучить м'яко й камерно та красиво доповнює інтер'єр домашнім теплом.",
+  "descriptionEn": "A scented candle in a clear glass jar with a lid, creamy wax, and a golden tassel detail. The Moroccan Cashmere scent feels soft and intimate, adding a warm, dressed interior mood.",
+  "seo": {
+    "titleUk": "Maison Cachemire - аромасвічка Moroccan Cashmere",
+    "descriptionUk": "Аромасвічка Moroccan Cashmere у скляній банці з кришкою від Nouvel Amour. Кремовий віск, виразна подача та теплий акцент для інтер'єру.",
+    "keywordsUk": "аромасвічка Moroccan Cashmere, свічка в склі, ароматична свічка, свічка з кришкою, Nouvel Amour, Aroma",
+    "slug": "maison-cachemire"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532129/nouvel-amour/products/draft-20260511204208-k4na80.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532129/nouvel-amour/products/draft-20260511204208-k4na80.jpg",
+      "contentType": "image/jpeg"
+    }
+  ]
+}

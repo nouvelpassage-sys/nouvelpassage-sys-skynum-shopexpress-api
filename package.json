@@ -1,0 +1,19 @@
+{
+  "name": "skynum-shopexpress-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.js",
+    "bot": "node src/product-assistant-runner.js",
+    "dashboard": "node src/product-assistant-dashboard.js",
+    "verify:bot-config": "node scripts/verify-bot-config.mjs",
+    "backfill:salesbox-seo": "node scripts/backfill-salesbox-seo.mjs",
+    "export:salesbox-yml": "node scripts/export-salesbox-yml.mjs",
+    "export:salesbox-to-shopexpress": "node scripts/export-salesbox-to-shopexpress-import.mjs",
+    "export:shopexpress-queue-link": "node scripts/publish-shopexpress-import-link.mjs",
+    "eval:assistant": "node scripts/evaluate-product-assistant.mjs",
+    "sync:once": "node src/index.js --once",
+    "test": "node --test"
+  }
+}

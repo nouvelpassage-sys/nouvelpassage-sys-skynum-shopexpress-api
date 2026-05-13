@@ -1,0 +1,31 @@
+{
+  "id": "draft-20260511081113-kxw6oy",
+  "status": "draft",
+  "createdAt": "2026-05-11T08:11:13.486Z",
+  "sourceText": "15000",
+  "sourceDraftId": "draft-20260511080514-erlfwj",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": null,
+  "visionUsed": false,
+  "sku": "DC-534583",
+  "price": 15000,
+  "currency": "UAH",
+  "category": "Декор та подарунки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "декоративний подарунок",
+  "productTypeEn": "decorative gift",
+  "visibleSummaryUk": "Декоративний подарунок із ніжними текстурами природних відтінків, що створює атмосферу спокою та вишуканої стриманості.",
+  "nameUk": "Élégance Silencieuse",
+  "nameEn": "Élégance Silencieuse",
+  "descriptionUk": "Декоративний подарунок виглядає охайно, доречно і легко поєднується з квітами або іншим подарунком. Це невелика деталь, яка робить вручення більш особистим і завершеним.",
+  "descriptionEn": "A decorative gift crafted with subtle textural highlights in natural shades. Élégance Silencieuse brings an atmosphere of calm and gentle refinement, perfect for those who appreciate delicate style in details.",
+  "seo": {
+    "titleUk": "Élégance Silencieuse - декоративний подарунок з ніжними текстурами",
+    "descriptionUk": "Élégance Silencieuse від Nouvel Amour — декоративний подарунок з природними відтінками та стриманим шармом для вибагливих поціновувачів стилю.",
+    "keywordsUk": "декоративний подарунок, ніжні текстури, елегантність, природні відтінки, стильний декор, Nouvel Amour",
+    "slug": "elegance-silencieuse"
+  }
+}

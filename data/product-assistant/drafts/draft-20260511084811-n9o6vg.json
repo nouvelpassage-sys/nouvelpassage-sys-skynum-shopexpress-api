@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511084811-n9o6vg",
+  "status": "draft",
+  "createdAt": "2026-05-11T08:48:11.083Z",
+  "sourceText": "",
+  "sourceDraftId": "draft-20260511084731-kvlbdl",
+  "revisionInstruction": "Fix weak parts of the product card: wrong or vague category, unclear product type, boring name, dry description, SEO issues, and generic wording. Keep factual evidence and allowed category rules.",
+  "photoFileId": "AgACAgIAAxkBAANFagGXln-iel1Y_tzK77ZG6A-KjHgAAlETaxu__BFIGl1Zoj6lNjABAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-160128",
+  "price": null,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "букет рожевої гортензії, троянд і еустом",
+  "productTypeEn": "bouquet of pink hydrangea, roses and lisianthus",
+  "visibleSummaryUk": "Букет з рожевою гортензією, рожевими й білими трояндами, еустомою й евкаліптом у пастельних тонах",
+  "nameUk": "Lumiere Douce",
+  "nameEn": "Lumiere Douce",
+  "descriptionUk": "Букет зі світло-рожевої гортензії, білих й рожевих троянд, еустом і евкаліпту зібрано у ніжну палітру з обгортуванням пастельного кольору. Douceur Rosée — витончений вибір для тих, хто цінує легкість і романтичний настрій у квітах.",
+  "descriptionEn": "A bouquet featuring soft pink hydrangea, white and pink roses, lisianthus, and eucalyptus in a delicate pastel wrapping. Douceur Rosée offers a refined choice for those who appreciate lightness and a romantic mood in floral arrangements.",
+  "seo": {
+    "titleUk": "Douceur Rosée - букет рожевої гортензії, троянд і еустом",
+    "descriptionUk": "Букет Douceur Rosée від Nouvel Amour з речовою гортензією, рожевими та білими трояндами, еустомою і евкаліптом у пастельних тонах.",
+    "keywordsUk": "букет, рожеві троянди, гортензія, еустома, евкаліпт, пастельні кольори",
+    "slug": "lumiere-douce"
+  },
+  "qualityIssues": []
+}

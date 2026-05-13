@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511121619-bpemva",
+  "status": "draft",
+  "createdAt": "2026-05-11T12:16:19.262Z",
+  "sourceText": "300",
+  "sourceDraftId": "draft-20260511121453-hqbojr",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAANlagHFFuJZ3oG7ls-ztg4CKc-PqvgAApkVaxsKWAlIXb7Gr6Od74EBAAMCAANtAAM7BA",
+  "visionUsed": true,
+  "sku": "PL-427717",
+  "price": 300,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": true,
+  "stockMode": "counted",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "кімнатна рослина в горщику",
+  "productTypeEn": "potted indoor plant",
+  "visibleSummaryUk": "Жива кімнатна рослина в пластиковому горщику з темно-зеленим листям і білими квітами.",
+  "nameUk": "Maison Calme",
+  "nameEn": "Maison Calme",
+  "descriptionUk": "Жива кімнатна рослина в горщику з густим зеленим листям і білими покривалами виглядає стримано та доглянуто. Такий формат легко вписується в дім або робочий простір і додає інтер’єру тихої, живої присутності.",
+  "descriptionEn": "A living potted plant with lush green foliage and white blooms has a neat, understated presence. It sits beautifully in a home or workspace, adding a calm living touch to the interior.",
+  "seo": {
+    "titleUk": "Maison Calme - кімнатна рослина в горщику",
+    "descriptionUk": "Жива кімнатна рослина Maison Calme у пластиковому горщику: зелена рослина з білими квітами для дому або офісу.",
+    "keywordsUk": "кімнатна рослина в горщику, жива рослина, зелена кімнатна рослина, рослина з білими квітами, кімнатна рослина Nouvel Amour",
+    "slug": "maison-calme"
+  },
+  "qualityIssues": []
+}

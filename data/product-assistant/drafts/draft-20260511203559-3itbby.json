@@ -1,0 +1,39 @@
+{
+  "id": "draft-20260511203559-3itbby",
+  "status": "draft",
+  "createdAt": "2026-05-11T20:35:59.863Z",
+  "sourceText": "Іграшка Заєць 650грн",
+  "photoFileId": "AgACAgIAAxkBAAOqagI7skc9xxxTAj_ClQEtXlgHg7YAAhYVaxsKWBFIKN7gSc6aHf4BAAMCAAN5AAM7BA",
+  "visionUsed": true,
+  "sku": "TY-529181",
+  "price": 650,
+  "currency": "UAH",
+  "category": "Іграшки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778531761/nouvel-amour/products/draft-20260511203559-3itbby.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778531761/nouvel-amour/products/draft-20260511203559-3itbby.jpg",
+  "productTypeUk": "м'яка іграшка заєць",
+  "productTypeEn": "soft bunny plush",
+  "visibleSummaryUk": "Пухнастий м'який заєць у ніжно-пудровому кольорі.",
+  "nameUk": "Petit Tendresse",
+  "nameEn": "Petit Tendresse",
+  "descriptionUk": "М'яка іграшка у формі зайця виконана в ніжно-пудровому відтінку з пухнастою фактурою та світлими акцентами. Вона додає подарунку тепла й м'якості та добре звучить як окремий милий жест.",
+  "descriptionEn": "A soft bunny plush in a delicate powder-pink shade with a fluffy texture and light accents. It adds warmth and softness to a gift and works beautifully as a sweet standalone gesture.",
+  "seo": {
+    "titleUk": "Petit Tendresse - м'яка іграшка заєць",
+    "descriptionUk": "М'яка іграшка заєць у ніжно-пудровому відтінку від Nouvel Amour. Пухнастий подарунок для теплого та делікатного вручення.",
+    "keywordsUk": "м'яка іграшка заєць, іграшка зайчик, плюшевий заєць, м'яка іграшка Nouvel Amour, подарунок заєць",
+    "slug": "petit-tendresse"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778531761/nouvel-amour/products/draft-20260511203559-3itbby.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778531761/nouvel-amour/products/draft-20260511203559-3itbby.jpg",
+      "contentType": "image/jpeg"
+    }
+  ]
+}

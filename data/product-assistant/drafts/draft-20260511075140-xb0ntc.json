@@ -1,0 +1,31 @@
+{
+  "id": "draft-20260511075140-xb0ntc",
+  "status": "draft",
+  "createdAt": "2026-05-11T07:51:40.915Z",
+  "sourceText": "10000",
+  "sourceDraftId": "draft-20260511074427-y5cihb",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAAMKagFlpGrMNsVNJjsbXmJ0nUY-PxcAAm4Vaxu__AlIWsqS7-FnqQ0BAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "DC-998517",
+  "price": 10000,
+  "currency": "UAH",
+  "category": "Декор та подарунки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "букет рожевих троянд у чорній обгортці",
+  "productTypeEn": "pink roses bouquet in black wrap",
+  "visibleSummaryUk": "Великий букет ніжно-рожевих троянд у чорній матовій обгортці з білим папером, впевнено і елегантно.",
+  "nameUk": "Belle Rose - букет рожевих троянд у чорній обгортці",
+  "nameEn": "Belle Rose - pink roses bouquet in black wrap",
+  "descriptionUk": "Букет рожевих троянд у чорній обгортці виглядає охайно, доречно і легко поєднується з квітами або іншим подарунком. Це невелика деталь, яка робить вручення більш особистим і завершеним.",
+  "descriptionEn": "Soft pink roses arranged in a large bouquet wrapped in matte black paper with a delicate white overlay. Belle Rose presents an elegant and restrained charm, offering a gentle and romantic atmosphere. Perfect for those who appreciate classic beauty with a subtle French touch.",
+  "seo": {
+    "titleUk": "Belle Rose - букет рожевих троянд у чорній обгортці",
+    "descriptionUk": "Belle Rose від Nouvel Amour — стриманий букет рожевих троянд у чорній матовій обгортці з білим акцентом, вишуканий подарунок для особливих моментів.",
+    "keywordsUk": "рожеві троянди, букет троянд, чорна обгортка, витончений букет, Nouvel Amour",
+    "slug": "belle-rose-buket-rozhevykh-troyand-u-chorniy-obhorttsi"
+  }
+}

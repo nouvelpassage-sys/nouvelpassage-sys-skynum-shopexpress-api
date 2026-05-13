@@ -1,0 +1,31 @@
+{
+  "id": "draft-20260511132958-m2slpi",
+  "status": "draft",
+  "createdAt": "2026-05-11T13:29:58.970Z",
+  "sourceText": "1900 кімнатна рослина з етикеткою на фото https://sales-box-photos.s3-eu-central-1.amazonaws.com/nouvelflowersnow/original/services/5eb8c3fb-3147-4721-b3d7-b44c9ed98462.jpg",
+  "visionUsed": false,
+  "sku": "PL-264098",
+  "price": 1900,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": false,
+  "stockMode": "counted",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://sales-box-photos.s3-eu-central-1.amazonaws.com/nouvelflowersnow/original/services/5eb8c3fb-3147-4721-b3d7-b44c9ed98462.jpg",
+  "previewUrl": "https://sales-box-photos.s3-eu-central-1.amazonaws.com/nouvelflowersnow/original/services/5eb8c3fb-3147-4721-b3d7-b44c9ed98462.jpg",
+  "productTypeUk": "букет у світлій упаковці",
+  "productTypeEn": "hand-tied bouquet in light wrapping",
+  "visibleSummaryUk": "Пастельний ручний букет в абрикосово-блакитній гамі у світлій матовій упаковці зі стрічками.",
+  "nameUk": "Lumiere Tendre",
+  "nameEn": "Lumiere Tendre",
+  "descriptionUk": "Ручний букет у м'якій пастельній гамі з абрикосовими, блакитними та ліловими акцентами, оформлений у світлу матову упаковку зі стрічками. Він виглядає повітряно й делікатно, з живим кольоровим ритмом та легкою весняною подачею.",
+  "descriptionEn": "A hand-tied bouquet in a soft pastel palette with apricot, blue, and lilac accents, wrapped in light matte paper with ribbons. It feels airy and delicate, with a lively color rhythm and a gentle spring-like presentation.",
+  "seo": {
+    "titleUk": "Lumiere Tendre - пастельний букет у світлій упаковці",
+    "descriptionUk": "Пастельний букет Lumiere Tendre від Nouvel Amour в абрикосово-блакитній гамі, оформлений у світлу упаковку зі стрічками.",
+    "keywordsUk": "пастельний букет, букет у світлій упаковці, абрикосовий букет, блакитний букет, ніжний букет, Nouvel Amour",
+    "slug": "lumiere-tendre"
+  },
+  "qualityIssues": []
+}

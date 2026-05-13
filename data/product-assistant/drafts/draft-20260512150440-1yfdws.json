@@ -1,0 +1,96 @@
+{
+  "id": "draft-20260512150440-1yfdws",
+  "status": "published",
+  "createdAt": "2026-05-12T15:04:40.001Z",
+  "sourceText": "Букет 4790₴",
+  "photoFileId": "AgACAgIAAxkBAAPqagNBfgqI5HF0Sa4LtQz3urIaix4AAlUbaxsKWBlIhHEX7ScaBxwBAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-483561",
+  "price": 4790,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778598281/nouvel-amour/products/draft-20260512150440-1yfdws.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778598281/nouvel-amour/products/draft-20260512150440-1yfdws.jpg",
+  "productTypeUk": "букет у ніжно-рожевій гамі",
+  "productTypeEn": "bouquet in soft pink tones",
+  "visibleSummaryUk": "Повітряний букет у ніжно-рожевих і кремово-білих відтінках у напівпрозорій упаковці.",
+  "nameUk": "Lumiere Douce",
+  "nameEn": "Lumiere Douce",
+  "descriptionUk": "Повітряний букет у ніжно-рожевій та кремово-білій гамі, з округлим силуетом, фактурними пелюстками та легкою садовою пластикою. Напівпрозора упаковка підкреслює м'якість відтінків і робить композицію особливо делікатною для романтичного привітання або камерного свята.",
+  "descriptionEn": "An airy bouquet in a soft pink and creamy white palette, shaped with a rounded silhouette, textured petals, and a light garden feel. The semi-sheer wrapping enhances its gentle tones and gives it a delicate presence for a romantic gesture or an intimate celebration.",
+  "seo": {
+    "titleUk": "Lumiere Rosée - ніжно-рожевий букет у кремово-білій гамі",
+    "descriptionUk": "Ніжно-рожевий букет Lumiere Rosée від Nouvel Amour у м'якій кремово-білій палітрі, з повітряною формою та делікатною святковою подачею.",
+    "keywordsUk": "ніжно-рожевий букет, рожево-білий букет, повітряний букет, букет у пастельних тонах, романтичний букет, букет Nouvel Amour",
+    "slug": "lumiere-douce"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778598281/nouvel-amour/products/draft-20260512150440-1yfdws.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778598281/nouvel-amour/products/draft-20260512150440-1yfdws.jpg",
+      "contentType": "image/jpeg"
+    }
+  ],
+  "salesBoxResult": {
+    "dryRun": false,
+    "body": {
+      "success": true,
+      "data": {
+        "jobId": "1c78563f-d974-49d9-b281-69bc502f262d",
+        "jobIds": [
+          "1c78563f-d974-49d9-b281-69bc502f262d"
+        ],
+        "status": "PENDING",
+        "message": "Job queued for processing"
+      },
+      "errors": null
+    },
+    "seoResult": {
+      "updated": true,
+      "offerId": "8f1a3f1f-8f5d-4464-aa64-b805e3e0ab15",
+      "fields": [
+        "thxsd2rona_seo_offertitle_hidden",
+        "thxsd2rona_seo_offerdescription_hidden",
+        "thxsd2rona_seo_offerkeywords_hidden",
+        "thxsd2rona_seo_offerslug_hidden"
+      ]
+    }
+  },
+  "shopExpressResult": {
+    "enabled": true,
+    "dryRun": true,
+    "queued": true,
+    "importFilePath": "data/product-assistant/shopexpress-pending-import.csv",
+    "duplicate": false,
+    "payload": {
+      "externalId": "draft-20260512150440-1yfdws",
+      "name": "Lumiere Douce",
+      "nameEn": "Lumiere Douce",
+      "sku": "BQ-483561",
+      "price": 4790,
+      "currency": "UAH",
+      "category": "Букети",
+      "description": "Повітряний букет у ніжно-рожевій та кремово-білій гамі, з округлим силуетом, фактурними пелюстками та легкою садовою пластикою. Напівпрозора упаковка підкреслює м'якість відтінків і робить композицію особливо делікатною для романтичного привітання або камерного свята.",
+      "descriptionEn": "An airy bouquet in a soft pink and creamy white palette, shaped with a rounded silhouette, textured petals, and a light garden feel. The semi-sheer wrapping enhances its gentle tones and gives it a delicate presence for a romantic gesture or an intimate celebration.",
+      "shortDescription": "Повітряний букет у ніжно-рожевих і кремово-білих відтінках у напівпрозорій упаковці.",
+      "images": [
+        "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778598281/nouvel-amour/products/draft-20260512150440-1yfdws.jpg"
+      ],
+      "inStock": 999,
+      "isAvailable": "Available",
+      "unit": "шт",
+      "minOrder": 1,
+      "step": 1,
+      "alias": "lumiere-douce",
+      "metaTitle": "Lumiere Rosée - ніжно-рожевий букет у кремово-білій гамі",
+      "metaDescription": "Ніжно-рожевий букет Lumiere Rosée від Nouvel Amour у м'якій кремово-білій палітрі, з повітряною формою та делікатною святковою подачею.",
+      "metaKeywords": ""
+    }
+  },
+  "updatedAt": "2026-05-12T15:15:34.763Z"
+}

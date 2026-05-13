@@ -1,0 +1,62 @@
+{
+  "id": "draft-20260511064211-mt0jbe",
+  "status": "dry-run",
+  "createdAt": "2026-05-11T06:42:11.948Z",
+  "sourceText": "Букет 6500₴",
+  "photoFileId": "AgACAgIAAxkBAAMVagF6NZBATZU_dygHFZpR9qv7Jb8AAgwWaxu__AlIp8BH1Y9YLt8BAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-937384",
+  "price": 6500,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "букет рожевих півоній та бузку",
+  "productTypeEn": "pink peony and lilac bouquet",
+  "visibleSummaryUk": "Ручний букет з рожевими півоніями та бузком у рожево-лиловій палітрі з зеленими акцентами",
+  "nameUk": "Fleur de Lys - букет рожевих півоній та бузку",
+  "nameEn": "Fleur de Lys - pink peony and lilac bouquet",
+  "descriptionUk": "Ручний букет у ніжних рожево-лилових відтінках поєднує великі півонії з ароматним бузком та акцентами світлої зелені. Це елегантний та живий акцент для особливих моментів або свята душі.",
+  "descriptionEn": "A hand-tied bouquet in soft pink and lilac hues combines large peonies with fragrant lilacs and touches of light greenery. An elegant and lively accent for special moments or soulful celebrations.",
+  "seo": {
+    "titleUk": "Fleur de Lys - букет рожевих півоній та бузку",
+    "descriptionUk": "Букет Fleur de Lys з рожевих півоній і бузку від Nouvel Amour – вишуканий подарунок для важливих подій.",
+    "keywordsUk": "букет, півонії, бузок, рожевий букет, квіти, подарунок, Nouvel Amour",
+    "slug": "fleur-de-lys-buket-rozhevykh-pivoniy-ta-buzku"
+  },
+  "updatedAt": "2026-05-11T06:43:33.368Z",
+  "salesBoxResult": {
+    "dryRun": true,
+    "reason": "SalesBox write is disabled or credentials are incomplete.",
+    "endpoint": "companies/{companyId}/offers",
+    "payload": {
+      "name": {
+        "uk": "Fleur de Lys - букет рожевих півоній та бузку",
+        "en": "Fleur de Lys - pink peony and lilac bouquet"
+      },
+      "description": {
+        "uk": "Ручний букет у ніжних рожево-лилових відтінках поєднує великі півонії з ароматним бузком та акцентами світлої зелені. Це елегантний та живий акцент для особливих моментів або свята душі.",
+        "en": "A hand-tied bouquet in soft pink and lilac hues combines large peonies with fragrant lilacs and touches of light greenery. An elegant and lively accent for special moments or soulful celebrations."
+      },
+      "price": 6500,
+      "currency": "UAH",
+      "sku": "BQ-937384",
+      "vendor": "Nouvel Amour",
+      "availability": "available",
+      "stockMode": "unlimited",
+      "categoryName": "Букети",
+      "seo": {
+        "titleUk": "Fleur de Lys - букет рожевих півоній та бузку",
+        "descriptionUk": "Букет Fleur de Lys з рожевих півоній і бузку від Nouvel Amour – вишуканий подарунок для важливих подій.",
+        "keywordsUk": "букет, півонії, бузок, рожевий букет, квіти, подарунок, Nouvel Amour",
+        "slug": "fleur-de-lys-buket-rozhevykh-pivoniy-ta-buzku"
+      },
+      "source": {
+        "assistantDraftId": "draft-20260511064211-mt0jbe",
+        "telegramPhotoFileId": "AgACAgIAAxkBAAMVagF6NZBATZU_dygHFZpR9qv7Jb8AAgwWaxu__AlIp8BH1Y9YLt8BAAMCAAN3AAM7BA"
+      }
+    }
+  }
+}

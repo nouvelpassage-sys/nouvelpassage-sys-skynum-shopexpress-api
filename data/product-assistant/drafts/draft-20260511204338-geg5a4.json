@@ -1,0 +1,98 @@
+{
+  "id": "draft-20260511204338-geg5a4",
+  "status": "published",
+  "createdAt": "2026-05-11T20:43:38.659Z",
+  "sourceText": "lux аромасвічка morocan cashmere exclusive 1599uhy",
+  "sourceDraftId": "draft-20260511204310-hyonpd",
+  "revisionInstruction": "Rewrite the product copy. Keep the real product, price, category, and product type, but make the Ukrainian and English descriptions more specific, premium, warm, and commercially useful. Remove dry technical catalog wording.",
+  "photoFileId": "AgACAgIAAxkBAAO6agI_FyhJ5uQOpeYLq4MLKrFFwc8AAhwVaxsKWBFIRak6AAFb9TrkAQADAgADeQADOwQ",
+  "visionUsed": true,
+  "sku": "AR-145026",
+  "price": 1599,
+  "currency": "UAH",
+  "category": "Арома товари",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "KA Aroma",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532219/nouvel-amour/products/draft-20260511204338-geg5a4.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532219/nouvel-amour/products/draft-20260511204338-geg5a4.jpg",
+  "productTypeUk": "аромасвічка Moroccan Cashmere",
+  "productTypeEn": "Moroccan Cashmere scented candle",
+  "visibleSummaryUk": "Аромасвічка KA Aroma Moroccan Cashmere у прозорій скляній банці з кришкою та золотою китицею.",
+  "nameUk": "Velours Dore",
+  "nameEn": "Velours Dore",
+  "descriptionUk": "Аромасвічка Moroccan Cashmere у прозорій скляній ємності з кришкою виглядає чисто, вишукано й одразу читається як інтер’єрний акцент. Кремовий віск, огранене скло та золота китиця додають подачі м’якої декоративності, тож свічка красиво звучить у спальні, вітальні або як теплий подарунок зі смаком.",
+  "descriptionEn": "The Moroccan Cashmere scented candle comes in a clear glass vessel with a lid, giving it an elegant, polished presence from the first glance. Cream wax, faceted glass and a golden tassel add a soft decorative touch, making it a refined choice for a bedroom, living space or a warm, tasteful gift.",
+  "seo": {
+    "titleUk": "Velours Dore - аромасвічка Moroccan Cashmere",
+    "descriptionUk": "Аромасвічка Moroccan Cashmere у скляній ємності з кришкою від Nouvel Amour. Вишукана свічка для дому або подарунка з елегантною подачею.",
+    "keywordsUk": "аромасвічка Moroccan Cashmere, свічка в склі, ароматична свічка для дому, подарункова свічка, KA Aroma, Nouvel Amour",
+    "slug": "velours-dore"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532219/nouvel-amour/products/draft-20260511204338-geg5a4.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532219/nouvel-amour/products/draft-20260511204338-geg5a4.jpg",
+      "contentType": "image/jpeg"
+    }
+  ],
+  "salesBoxResult": {
+    "dryRun": false,
+    "body": {
+      "success": true,
+      "data": {
+        "jobId": "7f076751-e531-4fb6-936a-0c938bfa52ab",
+        "jobIds": [
+          "7f076751-e531-4fb6-936a-0c938bfa52ab"
+        ],
+        "status": "PENDING",
+        "message": "Job queued for processing"
+      },
+      "errors": null
+    },
+    "seoResult": {
+      "updated": true,
+      "offerId": "f94cf060-d5b7-48a5-9e4b-2f6cb1b05af5",
+      "fields": [
+        "thxsd2rona_seo_offertitle_hidden",
+        "thxsd2rona_seo_offerdescription_hidden",
+        "thxsd2rona_seo_offerkeywords_hidden",
+        "thxsd2rona_seo_offerslug_hidden"
+      ]
+    }
+  },
+  "shopExpressResult": {
+    "enabled": true,
+    "dryRun": true,
+    "queued": true,
+    "importFilePath": "data/product-assistant/shopexpress-pending-import.csv",
+    "duplicate": false,
+    "payload": {
+      "externalId": "draft-20260511204338-geg5a4",
+      "name": "Velours Dore",
+      "nameEn": "Velours Dore",
+      "sku": "AR-145026",
+      "price": 1599,
+      "currency": "UAH",
+      "category": "Арома товари",
+      "description": "Аромасвічка Moroccan Cashmere у прозорій скляній ємності з кришкою виглядає чисто, вишукано й одразу читається як інтер’єрний акцент. Кремовий віск, огранене скло та золота китиця додають подачі м’якої декоративності, тож свічка красиво звучить у спальні, вітальні або як теплий подарунок зі смаком.",
+      "descriptionEn": "The Moroccan Cashmere scented candle comes in a clear glass vessel with a lid, giving it an elegant, polished presence from the first glance. Cream wax, faceted glass and a golden tassel add a soft decorative touch, making it a refined choice for a bedroom, living space or a warm, tasteful gift.",
+      "shortDescription": "Аромасвічка KA Aroma Moroccan Cashmere у прозорій скляній банці з кришкою та золотою китицею.",
+      "images": [
+        "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532219/nouvel-amour/products/draft-20260511204338-geg5a4.jpg"
+      ],
+      "inStock": 999,
+      "isAvailable": "Available",
+      "unit": "шт",
+      "minOrder": 1,
+      "step": 1,
+      "alias": "velours-dore",
+      "metaTitle": "Velours Dore - аромасвічка Moroccan Cashmere",
+      "metaDescription": "Аромасвічка Moroccan Cashmere у скляній ємності з кришкою від Nouvel Amour. Вишукана свічка для дому або подарунка з елегантною подачею.",
+      "metaKeywords": ""
+    }
+  },
+  "updatedAt": "2026-05-11T20:44:01.759Z"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511115140-1jh0ax",
+  "status": "draft",
+  "createdAt": "2026-05-11T11:51:40.058Z",
+  "sourceText": "500",
+  "sourceDraftId": "draft-20260511115112-iamqtj",
+  "revisionInstruction": "Fix weak parts of the product card: wrong or vague category, unclear product type, boring name, dry description, SEO issues, and generic wording. Keep factual evidence and allowed category rules.",
+  "photoFileId": "AgACAgIAAxkBAANZagHCqc5vEEAeOq5XZ0h2QW-4nBYAApQVaxsKWAlIP_tf1J21vioBAAMCAAN4AAM7BA",
+  "visionUsed": true,
+  "sku": "PL-655850",
+  "price": 500,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": false,
+  "stockMode": "counted",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "кімнатна рослина в горщику",
+  "productTypeEn": "indoor plant in pot",
+  "visibleSummaryUk": "Жива зелена кімнатна рослина у простому пластиковому горщику для дому та офісу.",
+  "nameUk": "Verte Essence",
+  "nameEn": "Verte Essence",
+  "descriptionUk": "Жива кімнатна рослина в простому пластиковому горщику демонструє свіжий зелений колір і природну силу. Verte Essence привносить в інтер’єр відчуття природності та спокою, створюючи затишний настрій у будинку чи офісі.",
+  "descriptionEn": "Living indoor plant in a simple plastic pot with vibrant green foliage and natural vigor. Verte Essence brings a sense of nature and calm to interiors, creating a cozy atmosphere at home or in the office.",
+  "seo": {
+    "titleUk": "Verte Essence - кімнатна рослина в горщику",
+    "descriptionUk": "Кімнатна рослина Verte Essence в пластиковому горщику від Nouvel Amour — жива зелень для дому та офісу, що додає природної свіжості й затишку.",
+    "keywordsUk": "кімнатна рослина, зелена рослина, горщик, живі рослини, рослина для дому, рослина для офісу",
+    "slug": "verte-essence"
+  },
+  "qualityIssues": []
+}

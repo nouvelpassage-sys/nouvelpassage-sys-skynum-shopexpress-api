@@ -1,0 +1,539 @@
+﻿{
+  "outputPath": "C:\\Users\\milan\\OneDrive\\Desktop\\export-2026-05-10-17-24-SAFE-public-audited-meta-description-uk-only.csv",
+  "reportPath": "C:\\Users\\milan\\OneDrive\\Desktop\\export-2026-05-10-17-24-SAFE-public-audited-meta-description-uk-only-report.json",
+  "report": {
+    "sourceRows": 303,
+    "sitemapUrls": 187,
+    "matchedUrls": 170,
+    "updatedRows": 110,
+    "skippedGoodRows": 60,
+    "skippedUnmatchedUrls": 17,
+    "generatedByCategory": {
+      "bouquet": 11,
+      "gift": 6,
+      "toy": 7,
+      "plant": 86
+    },
+    "updatedExamples": [
+      {
+        "id": "10685900",
+        "url": "https://www.nouvelamour.kiev.ua/shop/elixir-damour/",
+        "name": "Букет Élixir d’Amour",
+        "categories": "Каталог букетів / Гарячі пропозоціїї;Каталог букетів / Сезоні букети;Каталог букетів / Авторські букети",
+        "oldLength": 31,
+        "category": "bouquet",
+        "metaDescription": "Букет Élixir d’Amour - авторський букет від Nouvel Amour Flowers. Замовляйте свіжі квіти з доставкою по Києву для подарунку, побачення, свята або особливого моменту.",
+        "newLength": 165
+      },
+      {
+        "id": "10832808",
+        "url": "https://www.nouvelamour.kiev.ua/shop/aroma-lampa-gold-view/",
+        "name": "Арома Лампа Gold view",
+        "categories": "Декор та подарунки",
+        "oldLength": 17,
+        "category": "gift",
+        "metaDescription": "Арома Лампа Gold view - стильний подарунок або доповнення до квітів. Замовляйте в Nouvel Amour Flowers з доставкою по Києву для особливого настрою.",
+        "newLength": 147
+      },
+      {
+        "id": "10833611",
+        "url": "https://www.nouvelamour.kiev.ua/shop/aroma-lampa-white/",
+        "name": "Арома Лампа White",
+        "categories": "Декор та подарунки",
+        "oldLength": 25,
+        "category": "gift",
+        "metaDescription": "Арома Лампа White - стильний подарунок або доповнення до квітів. Замовляйте в Nouvel Amour Flowers з доставкою по Києву для особливого настрою.",
+        "newLength": 143
+      },
+      {
+        "id": "10935618",
+        "url": "https://www.nouvelamour.kiev.ua/shop/velours-violet-bouquet-hydrangea-hyacinth/",
+        "name": "Velours Violet — Фіолетовий вельвет",
+        "categories": "Каталог букетів / Гарячі пропозоціїї;Каталог букетів / Сезоні букети",
+        "oldLength": 200,
+        "category": "bouquet",
+        "metaDescription": "Velours Violet — Фіолетовий вельвет - авторський букет від Nouvel Amour Flowers. Замовляйте свіжі квіти з доставкою по Києву для подарунку, побачення, свята або особливого моменту.",
+        "newLength": 180
+      },
+      {
+        "id": "12242556",
+        "url": "https://www.nouvelamour.kiev.ua/shop/bouquet-douceur-pastel--hydrangeas-roses--lisianthus/",
+        "name": "Bouquet \"Douceur Pastel\" – Hydrangeas, Roses & Lisianthus",
+        "categories": "Каталог букетів / Гарячі пропозоціїї;Каталог букетів / Сезоні букети;Каталог букетів / Авторські букети",
+        "oldLength": 196,
+        "category": "bouquet",
+        "metaDescription": "Bouquet \"Douceur Pastel\" – Hydrangeas, Roses & Lisianthus - авторський букет від Nouvel Amour. Замовляйте свіжі квіти з доставкою по Києву для подарунку чи свята.",
+        "newLength": 162
+      },
+      {
+        "id": "11652632",
+        "url": "https://www.nouvelamour.kiev.ua/shop/tsukerki-raffaello/",
+        "name": "Цукерки Raffaello",
+        "categories": "Декор та подарунки",
+        "oldLength": 19,
+        "category": "gift",
+        "metaDescription": "Цукерки Raffaello - стильний подарунок або доповнення до квітів. Замовляйте в Nouvel Amour Flowers з доставкою по Києву для особливого настрою.",
+        "newLength": 143
+      },
+      {
+        "id": "12506344",
+        "url": "https://www.nouvelamour.kiev.ua/shop/audiolistivka-best-wishes--zapishit-svoe-povidomlennya-abo-ulyublenu-melodiyu/",
+        "name": "Аудіолистівка \"Best Wishes\" | Запишіть своє повідомлення або улюблену мелодію",
+        "categories": "Декор та подарунки / Аксесуари та аромалампи;Іграшки",
+        "oldLength": 195,
+        "category": "gift",
+        "metaDescription": "Аудіолистівка \"Best Wishes\" | Запишіть своє повідомлення або улюблену мелодію - стильний подарунок або доповнення до квітів. Замовляйте в Nouvel Amour з доставкою по Києву для особли...",
+        "newLength": 185
+      },
+      {
+        "id": "17435538",
+        "url": "https://www.nouvelamour.kiev.ua/shop/igrashka-piggi/",
+        "name": "Іграшка Barny",
+        "categories": "Іграшки;Кімнатні рослини",
+        "oldLength": 58,
+        "category": "toy",
+        "metaDescription": "Іграшка Barny - м'яка іграшка для подарунку, декору композиції або приємного сюрпризу. Доставка по Києву разом із квітами Nouvel Amour Flowers.",
+        "newLength": 143
+      },
+      {
+        "id": "13419293",
+        "url": "https://www.nouvelamour.kiev.ua/shop/buket-lumiere-verte/",
+        "name": "Букет «Lumière Verte»",
+        "categories": "Каталог букетів / Гарячі пропозоціїї;Каталог букетів / Сезоні букети;Каталог букетів / Авторські букети",
+        "oldLength": 195,
+        "category": "bouquet",
+        "metaDescription": "Букет «Lumière Verte» - авторський букет від Nouvel Amour Flowers. Замовляйте свіжі квіти з доставкою по Києву для подарунку, побачення, свята або особливого моменту.",
+        "newLength": 166
+      },
+      {
+        "id": "15778787",
+        "url": "https://www.nouvelamour.kiev.ua/shop/buket-rose-epoque/",
+        "name": "Букет Rose Époque exclusive",
+        "categories": "Каталог букетів / Гарячі пропозоціїї;Каталог букетів / Авторські букети",
+        "oldLength": 66,
+        "category": "bouquet",
+        "metaDescription": "Букет Rose Époque exclusive - авторський букет від Nouvel Amour Flowers. Замовляйте свіжі квіти з доставкою по Києву для подарунку, побачення, свята або особливого моменту.",
+        "newLength": 172
+      },
+      {
+        "id": "17435736",
+        "url": "https://www.nouvelamour.kiev.ua/shop/vedmedik-sonechko/",
+        "name": "Ведмедик-сонечко",
+        "categories": "Іграшки;Кімнатні рослини",
+        "oldLength": 0,
+        "category": "toy",
+        "metaDescription": "Ведмедик-сонечко - м'яка іграшка для подарунку, декору композиції або приємного сюрпризу. Доставка по Києву разом із квітами Nouvel Amour Flowers.",
+        "newLength": 146
+      },
+      {
+        "id": "17435809",
+        "url": "https://www.nouvelamour.kiev.ua/shop/zaychik-lyubov/",
+        "name": "Зайчик «Любов»",
+        "categories": "Іграшки;Кімнатні рослини",
+        "oldLength": 0,
+        "category": "toy",
+        "metaDescription": "Зайчик «Любов» - м'яка іграшка для подарунку, декору композиції або приємного сюрпризу. Доставка по Києву разом із квітами Nouvel Amour Flowers.",
+        "newLength": 144
+      },
+      {
+        "id": "17436028",
+        "url": "https://www.nouvelamour.kiev.ua/shop/chervona-panda-2120569333/",
+        "name": "Червона панда",
+        "categories": "Іграшки;Кімнатні рослини",
+        "oldLength": 0,
+        "category": "toy",
+        "metaDescription": "Червона панда - м'яка іграшка для подарунку, декору композиції або приємного сюрпризу. Доставка по Києву разом із квітами Nouvel Amour Flowers.",
+        "newLength": 143
+      },
+      {
+        "id": "17435898",
+        "url": "https://www.nouvelamour.kiev.ua/shop/chervona-panda/",
+        "name": "Червона панда",
+        "categories": "Іграшки;Кімнатні рослини",
+        "oldLength": 0,
+        "category": "toy",
+        "metaDescription": "Червона панда - м'яка іграшка для подарунку, декору композиції або приємного сюрпризу. Доставка по Києву разом із квітами Nouvel Amour Flowers.",
+        "newLength": 143
+      },
+      {
+        "id": "17604678",
+        "url": "https://www.nouvelamour.kiev.ua/shop/liliya-pivonovidna-5/",
+        "name": "Лілія півоновидна 5+",
+        "categories": "",
+        "oldLength": 0,
+        "category": "bouquet",
+        "metaDescription": "Лілія півоновидна 5+ - авторський букет від Nouvel Amour Flowers. Замовляйте свіжі квіти з доставкою по Києву для подарунку, побачення, свята або особливого моменту.",
+        "newLength": 165
+      },
+      {
+        "id": "17435767",
+        "url": "https://www.nouvelamour.kiev.ua/shop/vedmedik-zirochka/",
+        "name": "Ведмедик «Зірочка»",
+        "categories": "Іграшки;Кімнатні рослини",
+        "oldLength": 0,
+        "category": "toy",
+        "metaDescription": "Ведмедик «Зірочка» - м'яка іграшка для подарунку, декору композиції або приємного сюрпризу. Доставка по Києву разом із квітами Nouvel Amour Flowers.",
+        "newLength": 148
+      },
+      {
+        "id": "17436035",
+        "url": "https://www.nouvelamour.kiev.ua/shop/kotik-puhnastik/",
+        "name": "Котик-пухнастик",
+        "categories": "Іграшки;Кімнатні рослини",
+        "oldLength": 0,
+        "category": "toy",
+        "metaDescription": "Котик-пухнастик - м'яка іграшка для подарунку, декору композиції або приємного сюрпризу. Доставка по Києву разом із квітами Nouvel Amour Flowers.",
+        "newLength": 145
+      },
+      {
+        "id": "17604683",
+        "url": "https://www.nouvelamour.kiev.ua/shop/pivoniya-dyushes-de-nemur-60sm/",
+        "name": "Півонія Дюшес Де Немур 60см",
+        "categories": "Півонії",
+        "oldLength": 0,
+        "category": "bouquet",
+        "metaDescription": "Півонія Дюшес Де Немур 60см - авторський букет від Nouvel Amour Flowers. Замовляйте свіжі квіти з доставкою по Києву для подарунку, побачення, свята або особливого моменту.",
+        "newLength": 172
+      },
+      {
+        "id": "17604682",
+        "url": "https://www.nouvelamour.kiev.ua/shop/pivoniya-gardeniya-50sm/",
+        "name": "Півонія Гарденія 50см",
+        "categories": "Півонії",
+        "oldLength": 0,
+        "category": "bouquet",
+        "metaDescription": "Півонія Гарденія 50см - авторський букет від Nouvel Amour Flowers. Замовляйте свіжі квіти з доставкою по Києву для подарунку, побачення, свята або особливого моменту.",
+        "newLength": 166
+      },
+      {
+        "id": "17604684",
+        "url": "https://www.nouvelamour.kiev.ua/shop/pivoniya-enzhel-chik-60sm/",
+        "name": "Півонія Енжел Чік 60см",
+        "categories": "Півонії",
+        "oldLength": 0,
+        "category": "bouquet",
+        "metaDescription": "Півонія Енжел Чік 60см - авторський букет від Nouvel Amour Flowers. Замовляйте свіжі квіти з доставкою по Києву для подарунку, побачення, свята або особливого моменту.",
+        "newLength": 167
+      },
+      {
+        "id": "17604685",
+        "url": "https://www.nouvelamour.kiev.ua/shop/pivoniya-koral-sanset-ua/",
+        "name": "Півонія Корал Сансет UA",
+        "categories": "Півонії",
+        "oldLength": 0,
+        "category": "bouquet",
+        "metaDescription": "Півонія Корал Сансет UA - авторський букет від Nouvel Amour Flowers. Замовляйте свіжі квіти з доставкою по Києву для подарунку, побачення, свята або особливого моменту.",
+        "newLength": 168
+      },
+      {
+        "id": "17604694",
+        "url": "https://www.nouvelamour.kiev.ua/shop/pivoniya-florens-nizhno-rozhev/",
+        "name": "Півонія Флоренс ніжно-рожев",
+        "categories": "Півонії",
+        "oldLength": 0,
+        "category": "bouquet",
+        "metaDescription": "Півонія Флоренс ніжно-рожев - авторський букет від Nouvel Amour Flowers. Замовляйте свіжі квіти з доставкою по Києву для подарунку, побачення, свята або особливого моменту.",
+        "newLength": 172
+      },
+      {
+        "id": "17605885",
+        "url": "https://www.nouvelamour.kiev.ua/shop/anturium-adina-20sm/",
+        "name": "Антуріум Адіна 20см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Антуріум Адіна 20см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 166
+      },
+      {
+        "id": "17605888",
+        "url": "https://www.nouvelamour.kiev.ua/shop/anturium-miks-9-10/",
+        "name": "Антуріум мікс 9-10",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Антуріум мікс 9-10 - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 165
+      },
+      {
+        "id": "17605886",
+        "url": "https://www.nouvelamour.kiev.ua/shop/anturium-blek-lav/",
+        "name": "Антуріум Блек Лав",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Антуріум Блек Лав - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 164
+      },
+      {
+        "id": "17605887",
+        "url": "https://www.nouvelamour.kiev.ua/shop/anturium-vanila-12/",
+        "name": "Антуріум Ваніла 12",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Антуріум Ваніла 12 - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 165
+      },
+      {
+        "id": "17605891",
+        "url": "https://www.nouvelamour.kiev.ua/shop/aruakariya-10sm/",
+        "name": "Аруакарія 10см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Аруакарія 10см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 161
+      },
+      {
+        "id": "17605889",
+        "url": "https://www.nouvelamour.kiev.ua/shop/anturium-modural/",
+        "name": "Антуріум Модурал",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Антуріум Модурал - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 163
+      },
+      {
+        "id": "17605894",
+        "url": "https://www.nouvelamour.kiev.ua/shop/asprenium-parvat-11sm/",
+        "name": "Аспреніум парват 11см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Аспреніум парват 11см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 168
+      },
+      {
+        "id": "17605892",
+        "url": "https://www.nouvelamour.kiev.ua/shop/asparagus-falkatus-12/",
+        "name": "Аспарагус Фалькатус 12",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Аспарагус Фалькатус 12 - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 169
+      },
+      {
+        "id": "17605890",
+        "url": "https://www.nouvelamour.kiev.ua/shop/anturium-svit-drim/",
+        "name": "Антуріум Світ Дрім",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Антуріум Світ Дрім - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 165
+      },
+      {
+        "id": "17605901",
+        "url": "https://www.nouvelamour.kiev.ua/shop/dianeya-mustsipula-9sm/",
+        "name": "Діанея Мусципула 9см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Діанея Мусципула 9см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 167
+      },
+      {
+        "id": "17605897",
+        "url": "https://www.nouvelamour.kiev.ua/shop/begoniya-netiya-13sm/",
+        "name": "Бегонія Нетія 13см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Бегонія Нетія 13см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 165
+      },
+      {
+        "id": "17605898",
+        "url": "https://www.nouvelamour.kiev.ua/shop/gimnokaltsium-7sm/",
+        "name": "Гімнокальциум 7см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Гімнокальциум 7см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 164
+      },
+      {
+        "id": "17605899",
+        "url": "https://www.nouvelamour.kiev.ua/shop/gimnokaltsium-v-keramitsi-5sm/",
+        "name": "Гімнокальциум в кераміці 5см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Гімнокальциум в кераміці 5см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 175
+      },
+      {
+        "id": "17605900",
+        "url": "https://www.nouvelamour.kiev.ua/shop/guzmaniya-glou/",
+        "name": "Гузманія Глоу",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Гузманія Глоу - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 160
+      },
+      {
+        "id": "17605904",
+        "url": "https://www.nouvelamour.kiev.ua/shop/dratsena-marginata-12/",
+        "name": "Драцена Маргіната 12",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Драцена Маргіната 12 - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 167
+      },
+      {
+        "id": "17605903",
+        "url": "https://www.nouvelamour.kiev.ua/shop/diantus-u-gorshiku-vita-12sm/",
+        "name": "Діантус у горшику Віта 12см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Діантус у горшику Віта 12см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 174
+      },
+      {
+        "id": "17605905",
+        "url": "https://www.nouvelamour.kiev.ua/shop/dratsena-miks-7/",
+        "name": "Драцена мікс 7",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Драцена мікс 7 - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 161
+      },
+      {
+        "id": "17605902",
+        "url": "https://www.nouvelamour.kiev.ua/shop/diantus-u-gorshiku-ay-lav-yu/",
+        "name": "Діантус у горшику ай лав ю",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Діантус у горшику ай лав ю - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 173
+      },
+      {
+        "id": "17605908",
+        "url": "https://www.nouvelamour.kiev.ua/shop/epipremnum-heng-17sm/",
+        "name": "Епіпремнум Хенг 17см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Епіпремнум Хенг 17см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 167
+      },
+      {
+        "id": "17605893",
+        "url": "https://www.nouvelamour.kiev.ua/shop/asprenium-osaka-17sm/",
+        "name": "Аспреніум осака 17см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Аспреніум осака 17см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 167
+      },
+      {
+        "id": "17605896",
+        "url": "https://www.nouvelamour.kiev.ua/shop/begoniya-muv-tu-dzhoy-14sm/",
+        "name": "Бегонія Мув ту Джой 14см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Бегонія Мув ту Джой 14см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 171
+      },
+      {
+        "id": "17605914",
+        "url": "https://www.nouvelamour.kiev.ua/shop/kaktus-miks-5sm/",
+        "name": "Кактус мікс 5см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Кактус мікс 5см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 162
+      },
+      {
+        "id": "17605913",
+        "url": "https://www.nouvelamour.kiev.ua/shop/kaktus-miks-12sm/",
+        "name": "Кактус мікс 12см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Кактус мікс 12см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 163
+      },
+      {
+        "id": "17605909",
+        "url": "https://www.nouvelamour.kiev.ua/shop/euforbiya-miks-12sm/",
+        "name": "Еуфорбія мікс 12см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Еуфорбія мікс 12см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 165
+      },
+      {
+        "id": "17605912",
+        "url": "https://www.nouvelamour.kiev.ua/shop/zantedeksiya-miks-10/",
+        "name": "Зантедексія мікс 10",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Зантедексія мікс 10 - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 166
+      },
+      {
+        "id": "17605911",
+        "url": "https://www.nouvelamour.kiev.ua/shop/zamiakulkas-17sm-utsin/",
+        "name": "Заміакулькас 17см УЦІН",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "gift",
+        "metaDescription": "Заміакулькас 17см УЦІН - стильний подарунок або доповнення до квітів. Замовляйте в Nouvel Amour Flowers з доставкою по Києву для особливого настрою.",
+        "newLength": 148
+      },
+      {
+        "id": "17605906",
+        "url": "https://www.nouvelamour.kiev.ua/shop/dratsena-frag-kompakta-12/",
+        "name": "Драцена фраг Компакта 12",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Драцена фраг Компакта 12 - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 171
+      },
+      {
+        "id": "17605907",
+        "url": "https://www.nouvelamour.kiev.ua/shop/epipremnum-heli-lif-12sm/",
+        "name": "Епіпремнум Хелі Ліф 12см",
+        "categories": "Кімнатні рослини",
+        "oldLength": 0,
+        "category": "plant",
+        "metaDescription": "Епіпремнум Хелі Ліф 12см - кімнатна рослина для дому, офісу або подарунку. Замовляйте онлайн у Nouvel Amour Flowers з доставкою по Києву; кількість залежить від наявності.",
+        "newLength": 171
+      }
+    ],
+    "unmatchedSamples": [
+      "https://www.nouvelamour.kiev.ua/shop/katalog-buketiv/category1/",
+      "https://www.nouvelamour.kiev.ua/shop/katalog-buketiv/sezoni-buketi/",
+      "https://www.nouvelamour.kiev.ua/shop/katalog-buketiv/ekzotichni-buketi/",
+      "https://www.nouvelamour.kiev.ua/shop/katalog-buketiv/avtorski-buketi/",
+      "https://www.nouvelamour.kiev.ua/shop/katalog-buketiv/luxary-buketi/",
+      "https://www.nouvelamour.kiev.ua/shop/katalog-buketiv/",
+      "https://www.nouvelamour.kiev.ua/shop/katalog-korobok/",
+      "https://www.nouvelamour.kiev.ua/shop/aromatichna-produktsiya/",
+      "https://www.nouvelamour.kiev.ua/shop/dekor/",
+      "https://www.nouvelamour.kiev.ua/shop/kulki-igrashki/",
+      "https://www.nouvelamour.kiev.ua/shop/kimnatni-roslini/",
+      "https://www.nouvelamour.kiev.ua/shop/katalog-buketiv/listivki/",
+      "https://www.nouvelamour.kiev.ua/shop/dekor/aksesuari-ta-aromalampi/",
+      "https://www.nouvelamour.kiev.ua/shop/troyan/",
+      "https://www.nouvelamour.kiev.ua/shop/troyan/troyandi-sprey-kuschovi/",
+      "https://www.nouvelamour.kiev.ua/shop/pivonii/",
+      "https://www.nouvelamour.kiev.ua/shop/kimnatni-roslini/orhideyni/"
+    ]
+  }
+}

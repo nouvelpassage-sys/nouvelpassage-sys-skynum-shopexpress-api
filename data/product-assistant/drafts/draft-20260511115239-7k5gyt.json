@@ -1,0 +1,30 @@
+{
+  "id": "draft-20260511115239-7k5gyt",
+  "status": "draft",
+  "createdAt": "2026-05-11T11:52:39.802Z",
+  "sourceText": "880",
+  "photoFileId": "AgACAgIAAxkBAANgagHC_6RJi06e_jH50VK8bLg5C6QAApUVaxsKWAlIInFmQQ3Bv7MBAAMCAAN4AAM7BA",
+  "visionUsed": true,
+  "sku": "AR-618659",
+  "price": 880,
+  "currency": "UAH",
+  "category": "Арома товари",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "аромадифузор для дому",
+  "productTypeEn": "home diffuser",
+  "visibleSummaryUk": "Матова чорна пляшка з аромадифузором і чорними стіками створює атмосферу спокою та стилю.",
+  "nameUk": "Nuit Silencieuse",
+  "nameEn": "Nuit Silencieuse",
+  "descriptionUk": "Аромадифузор в матовій чорній скляній пляшці з мінімалістичним дизайном і чорними стіками. Стриманий та елегантний аксесуар для створення спокійної атмосфери в інтер’єрі.",
+  "descriptionEn": "A home diffuser in a matte black glass bottle with minimalist design and black reeds. A refined and elegant accessory to create a calm atmosphere in any space.",
+  "seo": {
+    "titleUk": "Nuit Silencieuse - аромадифузор для дому",
+    "descriptionUk": "Аромадифузор Nuit Silencieuse від Nouvel Amour в чорному дизайні для комфортного та стильного доповнення інтер’єру.",
+    "keywordsUk": "аромадифузор, дифузор для дому, чорний дифузор, ароматична продукція, декор інтер’єру",
+    "slug": "nuit-silencieuse"
+  },
+  "qualityIssues": []
+}

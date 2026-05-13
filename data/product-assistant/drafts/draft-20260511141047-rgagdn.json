@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511141047-rgagdn",
+  "status": "draft",
+  "createdAt": "2026-05-11T14:10:47.817Z",
+  "sourceText": "1900 ніжний букет для преміум подарунка https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg",
+  "revisionInstruction": "піівооннііїїї",
+  "visionUsed": true,
+  "sku": "BQ-548710",
+  "price": 1900,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg",
+  "previewUrl": "https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg",
+  "productTypeUk": "букет рожевих півоній",
+  "productTypeEn": "pink peony bouquet",
+  "visibleSummaryUk": "Пишний букет рожевих півоній у м'якій романтичній палітрі.",
+  "nameUk": "Lumiere Douce",
+  "nameEn": "Lumiere Douce",
+  "descriptionUk": "Букет Lumiere Douce виглядає зібрано й дорого завдяки загальному настрою, формі та м'якій подачі Nouvel Amour. Така позиція доречна для привітання, побачення або особистого компліменту, а опис не перераховує склад композиції.",
+  "descriptionEn": "A bouquet of pink peonies with lush rounded blooms and fresh greenery feels soft, full, and delicately expressive. It carries a romantic, luminous mood when you want flowers that make an impression without feeling overly formal.",
+  "seo": {
+    "titleUk": "Rosée Tendre - букет рожевих півоній",
+    "descriptionUk": "Букет рожевих півоній Rosée Tendre від Nouvel Amour: ніжна об'ємна квіткова подача у свіжій рожево-зеленій гамі.",
+    "keywordsUk": "букет рожевих півоній, півонії букет, ніжний букет півоній, рожеві півонії Nouvel Amour, букет півоній купити",
+    "slug": "lumiere-douce"
+  },
+  "qualityIssues": []
+}

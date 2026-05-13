@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511113502-9c8ig5",
+  "status": "draft",
+  "createdAt": "2026-05-11T11:35:02.871Z",
+  "sourceText": "1900",
+  "sourceDraftId": "draft-20260511113421-vokv9x",
+  "revisionInstruction": "Rewrite the product copy. Keep the real product, price, category, and product type, but make the Ukrainian and English descriptions more specific, premium, warm, and commercially useful. Remove dry technical catalog wording.",
+  "photoFileId": "AgACAgIAAxkBAANLagG-rOl-FuqemVCdxj_X7Hh7t0UAAiMUaxu__BFIaS6izsJDq5EBAAMCAAN4AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-482184",
+  "price": 1900,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "букет півоній і еустом",
+  "productTypeEn": "peony and eustoma bouquet",
+  "visibleSummaryUk": "Живий букет рожевих півоній, рожевих еустом і евкаліпта у подарунковій паперовій упаковці з віконцем.",
+  "nameUk": "Lumiere Douce",
+  "nameEn": "Lumiere Douce",
+  "descriptionUk": "Букет Живий букет рожевих півоній, рожевих еустом і евкаліпта у подарунковій паперовій упаковці з віконцем виглядає зібрано й дорого завдяки м'якій палітрі та виразним фактурам. Його хочеться дарувати там, де потрібна ніжність без банальності: на день народження, побачення або як дуже особистий комплімент.",
+  "descriptionEn": "A bouquet featuring vibrant pink peonies, eucalyptus greenery, and delicate pink eustomas, elegantly wrapped in a kraft paper gift bag with a clear window. Flânerie Rosee captures the freshness of a spring morning and infuses every detail with warmth and tenderness. A refined gift for those who appreciate natural beauty in an elegant presentation.",
+  "seo": {
+    "titleUk": "Flânerie Rosee - букет рожевих півоній та еустом у подарунковій упаковці",
+    "descriptionUk": "Букет Flânerie Rosee від Nouvel Amour: рожеві півонії, зелений евкаліпт та рожеві еустоми у стильній подарунковій паперовій упаковці.",
+    "keywordsUk": "букет півоній, рожеві квіти, еустоми, евкаліпт, подарункова упаковка, Nouvel Amour",
+    "slug": "lumiere-douce"
+  },
+  "qualityIssues": []
+}

@@ -1,0 +1,96 @@
+{
+  "id": "draft-20260512123446-p9s75l",
+  "status": "published",
+  "createdAt": "2026-05-12T12:34:46.645Z",
+  "sourceText": "Автоматична машина для парфумування приміщення  3999",
+  "photoFileId": "AgACAgIAAxkBAAPeagMUz58Tr4zmjCB9f2-eQROzs8UAAk4ZaxsKWBlIkJhGd4NKMZkBAAMCAAN4AAM7BA",
+  "visionUsed": true,
+  "sku": "AR-256901",
+  "price": 3999,
+  "currency": "UAH",
+  "category": "Арома товари",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778589289/nouvel-amour/products/draft-20260512123446-p9s75l.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778589289/nouvel-amour/products/draft-20260512123446-p9s75l.jpg",
+  "productTypeUk": "автоматична машина для парфумування приміщення",
+  "productTypeEn": "automatic room fragrance machine",
+  "visibleSummaryUk": "Компактна автоматична машина для парфумування приміщення з цифровим дисплеєм, верхнім розпиленням і написом Aroma на корпусі.",
+  "nameUk": "Maison Brume",
+  "nameEn": "Maison Brume",
+  "descriptionUk": "Автоматична машина для парфумування приміщення у компактному корпусі з чорно-білою панеллю, цифровим дисплеєм і верхнім розпиленням. Це виразний ароматичний аксесуар для дому, офісу чи студії, який додає простору доглянутого настрою.",
+  "descriptionEn": "An automatic room fragrance machine in a compact body with a black-and-white panel, digital display, and top mist output. It is a refined aromatic accessory for a home, office, or studio, bringing a polished atmosphere to the space.",
+  "seo": {
+    "titleUk": "Maison Brume - автоматична машина для парфумування приміщення",
+    "descriptionUk": "Автоматична машина для парфумування приміщення Maison Brume від Nouvel Amour: компактний ароматичний пристрій з цифровим дисплеєм для дому, офісу або студії.",
+    "keywordsUk": "автоматична машина для парфумування приміщення, арома товари, ароматичний пристрій для дому, аромамашина для офісу, дифузор для приміщення, Nouvel Amour",
+    "slug": "maison-brume"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778589289/nouvel-amour/products/draft-20260512123446-p9s75l.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778589289/nouvel-amour/products/draft-20260512123446-p9s75l.jpg",
+      "contentType": "image/jpeg"
+    }
+  ],
+  "salesBoxResult": {
+    "dryRun": false,
+    "body": {
+      "success": true,
+      "data": {
+        "jobId": "7b7ee9c3-6133-48f7-8581-d9effb92d4ca",
+        "jobIds": [
+          "7b7ee9c3-6133-48f7-8581-d9effb92d4ca"
+        ],
+        "status": "PENDING",
+        "message": "Job queued for processing"
+      },
+      "errors": null
+    },
+    "seoResult": {
+      "updated": true,
+      "offerId": "51673174-205e-4cea-a8e4-30e9f15ec983",
+      "fields": [
+        "thxsd2rona_seo_offertitle_hidden",
+        "thxsd2rona_seo_offerdescription_hidden",
+        "thxsd2rona_seo_offerkeywords_hidden",
+        "thxsd2rona_seo_offerslug_hidden"
+      ]
+    }
+  },
+  "shopExpressResult": {
+    "enabled": true,
+    "dryRun": true,
+    "queued": true,
+    "importFilePath": "data/product-assistant/shopexpress-pending-import.csv",
+    "duplicate": false,
+    "payload": {
+      "externalId": "draft-20260512123446-p9s75l",
+      "name": "Maison Brume",
+      "nameEn": "Maison Brume",
+      "sku": "AR-256901",
+      "price": 3999,
+      "currency": "UAH",
+      "category": "Арома товари",
+      "description": "Автоматична машина для парфумування приміщення у компактному корпусі з чорно-білою панеллю, цифровим дисплеєм і верхнім розпиленням. Це виразний ароматичний аксесуар для дому, офісу чи студії, який додає простору доглянутого настрою.",
+      "descriptionEn": "An automatic room fragrance machine in a compact body with a black-and-white panel, digital display, and top mist output. It is a refined aromatic accessory for a home, office, or studio, bringing a polished atmosphere to the space.",
+      "shortDescription": "Компактна автоматична машина для парфумування приміщення з цифровим дисплеєм, верхнім розпиленням і написом Aroma на корпусі.",
+      "images": [
+        "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778589289/nouvel-amour/products/draft-20260512123446-p9s75l.jpg"
+      ],
+      "inStock": 999,
+      "isAvailable": "Available",
+      "unit": "шт",
+      "minOrder": 1,
+      "step": 1,
+      "alias": "maison-brume",
+      "metaTitle": "Maison Brume - автоматична машина для парфумування приміщення",
+      "metaDescription": "Автоматична машина для парфумування приміщення Maison Brume від Nouvel Amour: компактний ароматичний пристрій з цифровим дисплеєм для дому, офісу або студії.",
+      "metaKeywords": ""
+    }
+  },
+  "updatedAt": "2026-05-12T15:02:21.179Z"
+}

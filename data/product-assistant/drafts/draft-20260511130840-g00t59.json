@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511130840-g00t59",
+  "status": "draft",
+  "createdAt": "2026-05-11T13:08:40.910Z",
+  "sourceText": "",
+  "photoFileId": "AgACAgIAAxkBAAMVagF6NZBATZU_dygHFZpR9qv7Jb8AAgwWaxu__AlIp8BH1Y9YLt8BAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-521387",
+  "price": null,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": null,
+  "previewUrl": null,
+  "productTypeUk": "букет у рожево-ліловій гамі",
+  "productTypeEn": "pink and lilac bouquet",
+  "visibleSummaryUk": "Ручний букет у рожево-ліловій палітрі, оформлений у світло-рожевий папір зі стрічками.",
+  "nameUk": "Parfum de Printemps",
+  "nameEn": "Parfum de Printemps",
+  "descriptionUk": "Повітряний букет у рожево-ліловій палітрі з великими округлими квітами, ніжними фактурними акцентами та світло-рожевим оформленням із стрічками. Має м'який, романтичний характер і красиво звучить як делікатне привітання або теплий особистий жест.",
+  "descriptionEn": "An airy bouquet in a pink and lilac palette with large rounded blooms, delicate textured accents, and soft blush wrapping with ribbons. It feels gentle and romantic, making it a lovely choice for a tender greeting or a warm personal gesture.",
+  "seo": {
+    "titleUk": "Parfum de Printemps - букет у рожево-ліловій гамі",
+    "descriptionUk": "Повітряний букет у рожево-ліловій палітрі від Nouvel Amour зі світлим оформленням і романтичним настроєм.",
+    "keywordsUk": "букет, рожево-ліловий букет, ніжний букет, романтичний букет, букет у світлому оформленні, Nouvel Amour",
+    "slug": "parfum-de-printemps"
+  },
+  "qualityIssues": []
+}

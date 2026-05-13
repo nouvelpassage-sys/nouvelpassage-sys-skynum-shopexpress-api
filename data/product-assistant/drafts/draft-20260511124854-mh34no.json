@@ -1,0 +1,88 @@
+{
+  "id": "draft-20260511124854-mh34no",
+  "status": "dry-run",
+  "createdAt": "2026-05-11T12:48:54.920Z",
+  "sourceText": "500",
+  "sourceDraftId": "draft-20260511124832-uyieja",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAAN5agHQF-3MZxgZS9QlP26qaZxknkAAAuoSaxsKWBFId7-8NBQ0HmcBAAMCAAN5AAM7BA",
+  "visionUsed": true,
+  "sku": "PL-739782",
+  "price": 500,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": false,
+  "stockMode": "counted",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "кімнатна рослина в горщику",
+  "productTypeEn": "potted indoor plant",
+  "visibleSummaryUk": "Кімнатна рослина у пластиковому горщику з округлим зеленим листям і світло-кремовою варіацією.",
+  "nameUk": "Maison Claire",
+  "nameEn": "Maison Claire",
+  "descriptionUk": "Кімнатна рослина у пластиковому горщику з округлим листям у зеленій та світло-кремовій палітрі виглядає свіжо й охайно. Такий формат добре звучить у домашньому інтер'єрі або робочому просторі, додаючи спокійний живий акцент на щодень.",
+  "descriptionEn": "A potted indoor plant in a simple plastic nursery pot with rounded foliage in green and soft cream tones looks fresh and neat. It works beautifully in a home interior or workspace, adding a calm living accent for everyday atmosphere.",
+  "seo": {
+    "titleUk": "Maison Claire - кімнатна рослина в горщику",
+    "descriptionUk": "Кімнатна рослина Maison Claire у горщику від Nouvel Amour: зелено-кремовий акцент для дому, офісу або делікатного подарунка.",
+    "keywordsUk": "кімнатна рослина в горщику, зелено-кремова кімнатна рослина, кімнатна рослина Nouvel Amour, рослина для дому, рослина для офісу",
+    "slug": "maison-claire"
+  },
+  "qualityIssues": [],
+  "salesBoxResult": {
+    "dryRun": true,
+    "reason": "SalesBox write is disabled or credentials are incomplete.",
+    "endpoint": "offers/createMany?lang=uk",
+    "missingRequiredFields": [
+      "offers.*.photos"
+    ],
+    "payload": {
+      "offers": [
+        {
+          "internalId": "PL-739782",
+          "externalId": "draft-20260511124854-mh34no",
+          "price": 500,
+          "basePrice": 500,
+          "baseCurrency": "UAH",
+          "names": [
+            {
+              "lang": "uk",
+              "name": "Maison Claire"
+            },
+            {
+              "lang": "en",
+              "name": "Maison Claire"
+            }
+          ],
+          "descriptions": [
+            {
+              "lang": "uk",
+              "description": "Кімнатна рослина у пластиковому горщику з округлим листям у зеленій та світло-кремовій палітрі виглядає свіжо й охайно. Такий формат добре звучить у домашньому інтер'єрі або робочому просторі, додаючи спокійний живий акцент на щодень."
+            },
+            {
+              "lang": "en",
+              "description": "A potted indoor plant in a simple plastic nursery pot with rounded foliage in green and soft cream tones looks fresh and neat. It works beautifully in a home interior or workspace, adding a calm living accent for everyday atmosphere."
+            }
+          ],
+          "photos": [],
+          "available": true,
+          "availableStatus": "AVAILABLE",
+          "stockType": "limited",
+          "count": 1,
+          "allowNegativeStock": false,
+          "units": "pc",
+          "minCount": 1,
+          "step": 1,
+          "isFixedStep": false,
+          "isService": false,
+          "categories": [
+            {
+              "id": "bd061350-4f12-49d6-a2e2-8e0d99ee0b90"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "updatedAt": "2026-05-11T12:48:56.619Z"
+}

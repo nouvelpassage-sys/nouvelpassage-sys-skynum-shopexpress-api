@@ -1,0 +1,90 @@
+{
+  "id": "draft-20260511141325-pummkb",
+  "status": "dry-run",
+  "createdAt": "2026-05-11T14:13:25.610Z",
+  "sourceText": "500",
+  "sourceDraftId": "draft-20260511141257-pe9tv8",
+  "revisionInstruction": "Make the description shorter and sharper: 1-2 polished sentences. Keep the name, category, product type, and factual image evidence clear.",
+  "photoFileId": "AgACAgIAAxkBAAOKagHj4d0oQ_47xY5lx5PFOLqyp20AAncTaxsKWBFIuV-sQVlX98UBAAMCAAN5AAM7BA",
+  "visionUsed": true,
+  "sku": "AR-281715",
+  "price": 500,
+  "currency": "UAH",
+  "category": "Арома товари",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "YX Aroma",
+  "photoUrl": null,
+  "previewUrl": null,
+  "productTypeUk": "аромасвічка",
+  "productTypeEn": "scented candle",
+  "visibleSummaryUk": "YX Aroma аромасвічка Amber driftwood у бурштиновій скляній банці з дерев'яним гнотом і кришкою.",
+  "nameUk": "Maison Ambree",
+  "nameEn": "Maison Ambree",
+  "descriptionUk": "Аромасвічка у бурштиновій скляній банці з дерев'яним гнотом і кришкою, у теплому відтінку пакування Amber driftwood. Дає м'який, зібраний настрій для дому й виглядає як стриманий, доглянутий подарунок.",
+  "descriptionEn": "A scented candle in an amber glass jar with a wooden wick and lid, presented in the warm-toned Amber driftwood packaging. It brings a calm, composed mood to the home and feels like a refined, well-chosen gift.",
+  "seo": {
+    "titleUk": "Maison Ambree - аромасвічка Amber driftwood",
+    "descriptionUk": "Аромасвічка Amber driftwood від YX Aroma у бурштиновій скляній банці з дерев'яним гнотом і кришкою.",
+    "keywordsUk": "аромасвічка, свічка для дому, Amber driftwood, YX Aroma, свічка з дерев'яним гнотом, арома товари",
+    "slug": "maison-ambree"
+  },
+  "qualityIssues": [],
+  "salesBoxResult": {
+    "dryRun": true,
+    "reason": "SalesBox write is disabled or credentials are incomplete.",
+    "endpoint": "offers/createMany?lang=uk",
+    "missingRequiredFields": [
+      "offers.*.photos"
+    ],
+    "payload": {
+      "offers": [
+        {
+          "internalId": "AR-281715",
+          "externalId": "draft-20260511141325-pummkb",
+          "price": 500,
+          "basePrice": 500,
+          "baseCurrency": "UAH",
+          "names": [
+            {
+              "lang": "uk",
+              "name": "Maison Ambree"
+            },
+            {
+              "lang": "en",
+              "name": "Maison Ambree"
+            }
+          ],
+          "descriptions": [
+            {
+              "lang": "uk",
+              "description": "Аромасвічка у бурштиновій скляній банці з дерев'яним гнотом і кришкою, у теплому відтінку пакування Amber driftwood. Дає м'який, зібраний настрій для дому й виглядає як стриманий, доглянутий подарунок."
+            },
+            {
+              "lang": "en",
+              "description": "A scented candle in an amber glass jar with a wooden wick and lid, presented in the warm-toned Amber driftwood packaging. It brings a calm, composed mood to the home and feels like a refined, well-chosen gift."
+            }
+          ],
+          "photos": [],
+          "available": true,
+          "availableStatus": "AVAILABLE",
+          "stockType": "endless",
+          "count": 0,
+          "allowNegativeStock": true,
+          "units": "pc",
+          "minCount": 1,
+          "step": 1,
+          "isFixedStep": false,
+          "isService": false,
+          "categories": [
+            {
+              "id": "0db4dca3-fa8d-49e4-9d86-0ea6e0ca99b7"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "updatedAt": "2026-05-11T14:13:30.060Z"
+}

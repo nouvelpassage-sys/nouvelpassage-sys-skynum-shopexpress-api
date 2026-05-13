@@ -1,0 +1,30 @@
+{
+  "id": "draft-20260511124832-uyieja",
+  "status": "draft",
+  "createdAt": "2026-05-11T12:48:32.668Z",
+  "sourceText": "500",
+  "photoFileId": "AgACAgIAAxkBAAN5agHQF-3MZxgZS9QlP26qaZxknkAAAuoSaxsKWBFId7-8NBQ0HmcBAAMCAAN5AAM7BA",
+  "visionUsed": true,
+  "sku": "PL-340120",
+  "price": 500,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": false,
+  "stockMode": "counted",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "кімнатна рослина в горщику",
+  "productTypeEn": "potted indoor plant",
+  "visibleSummaryUk": "Жива кімнатна рослина у пластиковому горщику з зеленим варієгатним листям.",
+  "nameUk": "Maison Claire",
+  "nameEn": "Maison Claire",
+  "descriptionUk": "Кімнатна рослина в горщику з варієгатним зеленим забарвленням виглядає свіжо й охайно. Вона м'яко оживляє інтер'єр дому чи робочого простору та залишається доречним подарунком надовго.",
+  "descriptionEn": "A potted indoor plant with variegated green tones looks fresh and neatly presented. It gently brightens a home or workspace and makes a lasting gift with a calm, cared-for feel.",
+  "seo": {
+    "titleUk": "Maison Claire - кімнатна рослина в горщику",
+    "descriptionUk": "Кімнатна рослина Maison Claire у горщику від Nouvel Amour: варієгатний зелений акцент для дому, офісу або тривалого подарунка.",
+    "keywordsUk": "кімнатна рослина в горщику, варієгатна кімнатна рослина, зелена рослина для дому, рослина для офісу, Nouvel Amour",
+    "slug": "maison-claire"
+  },
+  "qualityIssues": []
+}

@@ -1,0 +1,98 @@
+{
+  "id": "draft-20260511222437-3j8grt",
+  "status": "published",
+  "createdAt": "2026-05-11T22:24:37.085Z",
+  "sourceText": "Букет Luxury Girl 4688₴",
+  "sourceDraftId": "draft-20260511222409-kuizo6",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAAPOagJW7q7vxHADvfSldnZA_JWJ5NIAAk4VaxsKWBFIMC0YkPqflYUBAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-547049",
+  "price": 4688,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778538279/nouvel-amour/products/draft-20260511222437-3j8grt.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778538279/nouvel-amour/products/draft-20260511222437-3j8grt.jpg",
+  "productTypeUk": "ніжний букет у рожево-кремовій гамі",
+  "productTypeEn": "soft bouquet in pink and cream tones",
+  "visibleSummaryUk": "Пишний круглий букет у пудрово-рожевих, кремових і білих тонах у світлому пакуванні зі стрічками.",
+  "nameUk": "Velours Tendre",
+  "nameEn": "Velours Tendre",
+  "descriptionUk": "Повітряний букет у пудрово-рожевій та кремово-білій палітрі, зібраний у м'якій округлій формі та оформлений у світле пакування зі стрічками. Він звучить ніжно й камерно, пасує для делікатного привітання, романтичного жесту або світлого дня народження.",
+  "descriptionEn": "An airy bouquet in a powder pink, cream, and white palette, arranged in a soft rounded silhouette and wrapped in light paper with ribbons. It feels tender and intimate, suited to a delicate greeting, a romantic gesture, or a softly elegant birthday gift.",
+  "seo": {
+    "titleUk": "Velours Tendre - ніжний букет у рожево-кремовій гамі",
+    "descriptionUk": "Повітряний букет Velours Tendre від Nouvel Amour у рожево-кремово-білій палітрі, у світлому пакуванні з м'якою округлою формою.",
+    "keywordsUk": "ніжний букет, рожево-кремовий букет, букет у пастельних тонах, світлий букет, повітряний букет, Nouvel Amour",
+    "slug": "velours-tendre"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778538279/nouvel-amour/products/draft-20260511222437-3j8grt.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778538279/nouvel-amour/products/draft-20260511222437-3j8grt.jpg",
+      "contentType": "image/jpeg"
+    }
+  ],
+  "salesBoxResult": {
+    "dryRun": false,
+    "body": {
+      "success": true,
+      "data": {
+        "jobId": "94adf541-72e1-46ad-ab29-6461c7762e97",
+        "jobIds": [
+          "94adf541-72e1-46ad-ab29-6461c7762e97"
+        ],
+        "status": "PENDING",
+        "message": "Job queued for processing"
+      },
+      "errors": null
+    },
+    "seoResult": {
+      "updated": true,
+      "offerId": "bb8de581-3b12-4eb2-bb4b-47925143fe9f",
+      "fields": [
+        "thxsd2rona_seo_offertitle_hidden",
+        "thxsd2rona_seo_offerdescription_hidden",
+        "thxsd2rona_seo_offerkeywords_hidden",
+        "thxsd2rona_seo_offerslug_hidden"
+      ]
+    }
+  },
+  "shopExpressResult": {
+    "enabled": true,
+    "dryRun": true,
+    "queued": true,
+    "importFilePath": "data/product-assistant/shopexpress-pending-import.csv",
+    "duplicate": false,
+    "payload": {
+      "externalId": "draft-20260511222437-3j8grt",
+      "name": "Velours Tendre",
+      "nameEn": "Velours Tendre",
+      "sku": "BQ-547049",
+      "price": 4688,
+      "currency": "UAH",
+      "category": "Букети",
+      "description": "Повітряний букет у пудрово-рожевій та кремово-білій палітрі, зібраний у м'якій округлій формі та оформлений у світле пакування зі стрічками. Він звучить ніжно й камерно, пасує для делікатного привітання, романтичного жесту або світлого дня народження.",
+      "descriptionEn": "An airy bouquet in a powder pink, cream, and white palette, arranged in a soft rounded silhouette and wrapped in light paper with ribbons. It feels tender and intimate, suited to a delicate greeting, a romantic gesture, or a softly elegant birthday gift.",
+      "shortDescription": "Пишний круглий букет у пудрово-рожевих, кремових і білих тонах у світлому пакуванні зі стрічками.",
+      "images": [
+        "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778538279/nouvel-amour/products/draft-20260511222437-3j8grt.jpg"
+      ],
+      "inStock": 999,
+      "isAvailable": "Available",
+      "unit": "шт",
+      "minOrder": 1,
+      "step": 1,
+      "alias": "velours-tendre",
+      "metaTitle": "Velours Tendre - ніжний букет у рожево-кремовій гамі",
+      "metaDescription": "Повітряний букет Velours Tendre від Nouvel Amour у рожево-кремово-білій палітрі, у світлому пакуванні з м'якою округлою формою.",
+      "metaKeywords": ""
+    }
+  },
+  "updatedAt": "2026-05-11T22:29:06.924Z"
+}

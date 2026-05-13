@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511084116-dpvlck",
+  "status": "draft",
+  "createdAt": "2026-05-11T08:41:16.025Z",
+  "sourceText": "5580",
+  "sourceDraftId": "draft-20260511083944-lqbagz",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAAMKagFlpGrMNsVNJjsbXmJ0nUY-PxcAAm4Vaxu__AlIWsqS7-FnqQ0BAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "BX-833512",
+  "price": 5580,
+  "currency": "UAH",
+  "category": "Квіти в коробках",
+  "categoryWasCorrected": true,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "ручний букет троянд",
+  "productTypeEn": "hand bouquet of roses",
+  "visibleSummaryUk": "Ручний букет рожево-пудрових троянд у чорній матовій обгортці з білим верхом та сірими стрічками.",
+  "nameUk": "Velours Secret",
+  "nameEn": "Velours Secret",
+  "descriptionUk": "Ручний букет із рожево-пудрових троянд упакований у чорну матову обгортку з білим обрамленням. Композиція виглядає ніжно й стримано, підкреслюючи гармонію кольорів і форми. Цей букет створює атмосферу делікатної уваги і підходить для камерних, інтимних привітань.",
+  "descriptionEn": "A hand bouquet of pink and powder roses wrapped in matte black paper with a white border. The arrangement appears gentle and restrained, highlighting the harmony of colors and shape. This bouquet evokes a sense of delicate thoughtfulness, ideal for intimate, personal greetings.",
+  "seo": {
+    "titleUk": "Velours Secret - букет рожево-пудрових троянд",
+    "descriptionUk": "Velours Secret від Nouvel Amour – букет з рожево-пудрових троянд у стилі монохромної палітри, упакований у чорну матову паперову обгортку.",
+    "keywordsUk": "букет, рожеві троянди, пудрові троянди, ручний букет, преміум букет, Nouvel Amour",
+    "slug": "velours-secret"
+  },
+  "qualityIssues": []
+}

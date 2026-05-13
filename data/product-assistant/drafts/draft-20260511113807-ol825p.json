@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511113807-ol825p",
+  "status": "draft",
+  "createdAt": "2026-05-11T11:38:07.613Z",
+  "sourceText": "1900",
+  "sourceDraftId": "draft-20260511113502-9c8ig5",
+  "revisionInstruction": "Make the description shorter and sharper: 1-2 polished sentences. Keep the name, category, product type, and factual image evidence clear.",
+  "photoFileId": "AgACAgIAAxkBAANLagG-rOl-FuqemVCdxj_X7Hh7t0UAAiMUaxu__BFIaS6izsJDq5EBAAMCAAN4AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-677721",
+  "price": 1900,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "букет півоній",
+  "productTypeEn": "peony bouquet",
+  "visibleSummaryUk": "Рожеві півонії в зеленому пакуванні з бантом",
+  "nameUk": "Jardin Velouté",
+  "nameEn": "Jardin Velouté",
+  "descriptionUk": "Букет з рожевих півоній та ніжних акцентів у зеленому пакуванні з бантом. Jardin Velouté дарує м'який, камерний настрій для делікатного подарунка.",
+  "descriptionEn": "A bouquet of pink peonies and soft accents wrapped in green with a bow. Jardin Velouté offers a gentle, intimate mood for a refined gift.",
+  "seo": {
+    "titleUk": "Jardin Velouté - букет рожевих півоній",
+    "descriptionUk": "Букет Jardin Velouté з рожевих півоній від Nouvel Amour в елегантному зеленому пакуванні для витонченого подарунка.",
+    "keywordsUk": "букет, півонії, рожевий букет, подарунок, Nouvel Amour",
+    "slug": "jardin-veloute"
+  },
+  "qualityIssues": []
+}

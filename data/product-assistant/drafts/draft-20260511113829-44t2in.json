@@ -1,0 +1,88 @@
+{
+  "id": "draft-20260511113829-44t2in",
+  "status": "dry-run",
+  "createdAt": "2026-05-11T11:38:29.140Z",
+  "sourceText": "1900",
+  "sourceDraftId": "draft-20260511113807-ol825p",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAANLagG-rOl-FuqemVCdxj_X7Hh7t0UAAiMUaxu__BFIaS6izsJDq5EBAAMCAAN4AAM7BA",
+  "visionUsed": true,
+  "sku": "DC-722581",
+  "price": 1900,
+  "currency": "UAH",
+  "category": "Декор та подарунки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "аксесуар до замовлення",
+  "productTypeEn": "accessory",
+  "visibleSummaryUk": "Паперовий пакет з прозорою вставкою, живі рожеві та коралові квіти, акуратна упаковка для подарунка.",
+  "nameUk": "Jolie Matinee",
+  "nameEn": "Jolie Matinee",
+  "descriptionUk": "Паперовий пакет із прозорою вставкою розкриває елегантний набір живих квітів у ніжних рожевих і коралових відтінках. Його стриманий вигляд і зручна форма роблять це стильним доповненням до подарунку або самостійним аксесуаром із французьким шармом.",
+  "descriptionEn": "A paper bag with a clear window showcases an elegant set of fresh flowers in soft pink and coral tones. Its refined appearance and practical design make it a stylish gift addition or a standalone accessory with a touch of French elegance.",
+  "seo": {
+    "titleUk": "Jolie Matinee – квіткова упаковка в паперовому пакеті",
+    "descriptionUk": "Стильна квіткова упаковка Jolie Matinee від Nouvel Amour у паперовому пакеті з прозорою вставкою, що підкреслює делікатність живих квітів.",
+    "keywordsUk": "подарункова упаковка, паперовий пакет, живі квіти, рожеві квіти, квітковий аксесуар, французький стиль",
+    "slug": "jolie-matinee"
+  },
+  "qualityIssues": [],
+  "salesBoxResult": {
+    "dryRun": true,
+    "reason": "SalesBox write is disabled or credentials are incomplete.",
+    "endpoint": "offers/createMany?lang=uk",
+    "missingRequiredFields": [
+      "offers.*.photos"
+    ],
+    "payload": {
+      "offers": [
+        {
+          "internalId": "DC-722581",
+          "externalId": "draft-20260511113829-44t2in",
+          "price": 1900,
+          "basePrice": "1900",
+          "baseCurrency": "UAH",
+          "names": [
+            {
+              "lang": "uk",
+              "name": "Jolie Matinee"
+            },
+            {
+              "lang": "en",
+              "name": "Jolie Matinee"
+            }
+          ],
+          "descriptions": [
+            {
+              "lang": "uk",
+              "description": "Паперовий пакет із прозорою вставкою розкриває елегантний набір живих квітів у ніжних рожевих і коралових відтінках. Його стриманий вигляд і зручна форма роблять це стильним доповненням до подарунку або самостійним аксесуаром із французьким шармом."
+            },
+            {
+              "lang": "en",
+              "description": "A paper bag with a clear window showcases an elegant set of fresh flowers in soft pink and coral tones. Its refined appearance and practical design make it a stylish gift addition or a standalone accessory with a touch of French elegance."
+            }
+          ],
+          "photos": [],
+          "available": true,
+          "availableStatus": "AVAILABLE",
+          "stockType": "endless",
+          "count": 0,
+          "allowNegativeStock": true,
+          "units": "pc",
+          "minCount": 1,
+          "step": 1,
+          "isFixedStep": false,
+          "isService": false,
+          "categories": [
+            {
+              "id": "4e3b9be0-2552-498d-b7ab-76a160c1eae7"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "updatedAt": "2026-05-11T11:46:10.798Z"
+}

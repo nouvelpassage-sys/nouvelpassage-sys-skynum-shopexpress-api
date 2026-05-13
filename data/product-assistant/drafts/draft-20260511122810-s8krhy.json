@@ -1,0 +1,30 @@
+{
+  "id": "draft-20260511122810-s8krhy",
+  "status": "draft",
+  "createdAt": "2026-05-11T12:28:10.798Z",
+  "sourceText": "5500",
+  "photoFileId": null,
+  "visionUsed": false,
+  "sku": "DC-607828",
+  "price": 5500,
+  "currency": "UAH",
+  "category": "Декор та подарунки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "подарункова позиція",
+  "productTypeEn": "gift item",
+  "visibleSummaryUk": "Подарункова позиція з категорії декору та подарунків без уточненого виду товару.",
+  "nameUk": "Maison Velours",
+  "nameEn": "Maison Velours",
+  "descriptionUk": "Подарункова позиція з категорії декору та подарунків у стриманій бутиковій подачі. Вона звучить як делікатний акцент до інтер’єру або уважно обраний презент без зайвої урочистості.",
+  "descriptionEn": "A gift item from the decor and gifts category with a restrained boutique presentation. It reads as a delicate interior accent or a thoughtfully chosen present without excess formality.",
+  "seo": {
+    "titleUk": "Maison Velours - декор та подарунки від Nouvel Amour",
+    "descriptionUk": "Подарункова позиція Maison Velours від Nouvel Amour у категорії декор та подарунки з лаконічною та елегантною подачею.",
+    "keywordsUk": "Nouvel Amour, декор та подарунки, подарункова позиція, подарунок, декор, бутіковий подарунок",
+    "slug": "maison-velours"
+  },
+  "qualityIssues": []
+}

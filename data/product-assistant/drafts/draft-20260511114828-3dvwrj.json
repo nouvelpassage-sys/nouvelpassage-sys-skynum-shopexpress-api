@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511114828-3dvwrj",
+  "status": "draft",
+  "createdAt": "2026-05-11T11:48:28.115Z",
+  "sourceText": "1900",
+  "sourceDraftId": "draft-20260511113829-44t2in",
+  "revisionInstruction": "Fix weak parts of the product card: wrong or vague category, unclear product type, boring name, dry description, SEO issues, and generic wording. Keep factual evidence and allowed category rules.",
+  "photoFileId": "AgACAgIAAxkBAANLagG-rOl-FuqemVCdxj_X7Hh7t0UAAiMUaxu__BFIaS6izsJDq5EBAAMCAAN4AAM7BA",
+  "visionUsed": true,
+  "sku": "BX-952536",
+  "price": 1900,
+  "currency": "UAH",
+  "category": "Квіти в коробках",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "квіткова композиція в коробці",
+  "productTypeEn": "flower arrangement in a box",
+  "visibleSummaryUk": "Квіткова композиція в коробці з рожево-помаранчевими квітами й зеленими деталями у презентабельній упаковці.",
+  "nameUk": "Jardin Mystique",
+  "nameEn": "Jardin Mystique",
+  "descriptionUk": "Букет Jardin Mystique виглядає зібрано й дорого завдяки загальному настрою, формі та м'якій подачі Nouvel Amour. Така позиція доречна для привітання, побачення або особистого компліменту, а опис не перераховує склад композиції.",
+  "descriptionEn": "Flower arrangement in a box featuring soft pink-orange blooms with green accents, presented in a structured package with a handle. Jardin Mystique conveys elegance and thoughtful detail, perfect for a distinctive gift that speaks volumes without words.",
+  "seo": {
+    "titleUk": "Jardin Mystique - квіткова композиція в коробці з рожево-помаранчевим букетом",
+    "descriptionUk": "Квіткова композиція Jardin Mystique у коробці від Nouvel Amour: ніжні рожево-помаранчеві квіти та елегантна подача для особливого подарунка.",
+    "keywordsUk": "квіткова композиція, коробка з квітами, рожеві квіти, подарунок, Nouvel Amour",
+    "slug": "jardin-mystique"
+  },
+  "qualityIssues": []
+}

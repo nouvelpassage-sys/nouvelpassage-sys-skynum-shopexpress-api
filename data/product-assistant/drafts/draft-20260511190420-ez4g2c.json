@@ -1,0 +1,88 @@
+{
+  "id": "draft-20260511190420-ez4g2c",
+  "status": "published",
+  "createdAt": "2026-05-11T19:04:20.776Z",
+  "sourceText": "690 іграшка ведмежа",
+  "sourceDraftId": "draft-20260511190354-megkyd",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAAOkagIoCfrsnyCJc3ZGwFoGEpFBqV0AAtsUaxsKWBFIUQEeRUu3HXMBAAMCAAN5AAM7BA",
+  "visionUsed": true,
+  "sku": "TY-907307",
+  "price": 690,
+  "currency": "UAH",
+  "category": "Іграшки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778526265/nouvel-amour/products/draft-20260511190420-ez4g2c.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778526265/nouvel-amour/products/draft-20260511190420-ez4g2c.jpg",
+  "productTypeUk": "м'яка іграшка ведмежа",
+  "productTypeEn": "teddy bear soft toy",
+  "visibleSummaryUk": "Карамельне м'яке ведмежа з декоративним намистом і зірочкою.",
+  "nameUk": "Petit Etoile",
+  "nameEn": "Petit Etoile",
+  "descriptionUk": "М'яке ведмежа у теплому карамельному відтінку доповнене намистом із кольоровими елементами та зірочкою. Приємна на дотик іграшка додає подарунку домашнього тепла й м'якого, турботливого настрою.",
+  "descriptionEn": "A soft teddy bear in a warm caramel tone is finished with a beaded necklace and a small star detail. Pleasant to the touch, it brings a gentle, cozy feeling to a gift and makes the gesture feel more personal.",
+  "seo": {
+    "titleUk": "Petit Etoile - м'яка іграшка ведмежа",
+    "descriptionUk": "М'яка іграшка ведмежа Petit Etoile від Nouvel Amour у карамельному відтінку з декоративним намистом і зірочкою.",
+    "keywordsUk": "м'яка іграшка ведмежа, плюшеве ведмежа, ведмедик Nouvel Amour, іграшка ведмежа, подарункова іграшка",
+    "slug": "petit-etoile"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778526265/nouvel-amour/products/draft-20260511190420-ez4g2c.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778526265/nouvel-amour/products/draft-20260511190420-ez4g2c.jpg",
+      "contentType": "image/jpeg"
+    }
+  ],
+  "salesBoxResult": {
+    "dryRun": false,
+    "body": {
+      "success": true,
+      "data": {
+        "jobId": "228f4a6e-9e53-452c-86c2-a028be22fb2c",
+        "jobIds": [
+          "228f4a6e-9e53-452c-86c2-a028be22fb2c"
+        ],
+        "status": "PENDING",
+        "message": "Job queued for processing"
+      },
+      "errors": null
+    }
+  },
+  "updatedAt": "2026-05-11T19:15:23.436Z",
+  "shopExpressResult": {
+    "enabled": true,
+    "dryRun": true,
+    "queued": true,
+    "importFilePath": "data/product-assistant/shopexpress-pending-import.csv",
+    "duplicate": false,
+    "payload": {
+      "externalId": "draft-20260511190420-ez4g2c",
+      "name": "Petit Etoile",
+      "nameEn": "Petit Etoile",
+      "sku": "TY-907307",
+      "price": 690,
+      "currency": "UAH",
+      "category": "Іграшки",
+      "description": "М'яке ведмежа у теплому карамельному відтінку доповнене намистом із кольоровими елементами та зірочкою. Приємна на дотик іграшка додає подарунку домашнього тепла й м'якого, турботливого настрою.",
+      "descriptionEn": "A soft teddy bear in a warm caramel tone is finished with a beaded necklace and a small star detail. Pleasant to the touch, it brings a gentle, cozy feeling to a gift and makes the gesture feel more personal.",
+      "shortDescription": "Карамельне м'яке ведмежа з декоративним намистом і зірочкою.",
+      "images": [
+        "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778526265/nouvel-amour/products/draft-20260511190420-ez4g2c.jpg"
+      ],
+      "inStock": 999,
+      "isAvailable": "Available",
+      "unit": "шт",
+      "minOrder": 1,
+      "step": 1,
+      "alias": "petit-etoile",
+      "metaTitle": "Petit Etoile - м'яка іграшка ведмежа",
+      "metaDescription": "М'яка іграшка ведмежа Petit Etoile від Nouvel Amour у карамельному відтінку з декоративним намистом і зірочкою.",
+      "metaKeywords": ""
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "draft-20260511075925-7avsu1",
+  "status": "draft",
+  "createdAt": "2026-05-11T07:59:25.225Z",
+  "sourceText": "5500",
+  "sourceDraftId": "draft-20260511075715-w8n9ng",
+  "revisionInstruction": "Fix weak parts of the product card: wrong or vague category, unclear product type, boring name, dry description, SEO issues, and generic wording. Keep factual evidence and allowed category rules.",
+  "photoFileId": "AgACAgIAAxkBAAMRagF1Y239hn_J06ZgWJiW5tQuu3MAAvYVaxu__AlIxPKAwsU_Qj8BAAMCAAN5AAM7BA",
+  "visionUsed": true,
+  "sku": "DC-144799",
+  "price": 5500,
+  "currency": "UAH",
+  "category": "Декор та подарунки",
+  "categoryWasCorrected": true,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "кімнатна рослина в горщику",
+  "productTypeEn": "potted indoor plant",
+  "visibleSummaryUk": "Кімнатна рослина у рожевій тканинній обгортці з яскраво-рожевими квітами та зеленим листям.",
+  "nameUk": "Fleur Tentation",
+  "nameEn": "Fleur Tentation",
+  "descriptionUk": "Кімнатна рослина в горщику з яскравими рожевими квітами на зелених товстих листках. Рослина пакується в ніжно-рожеву тканинну обгортку з атласною стрічкою. Fleur Tentation створює свіжий акцент у домашньому інтер'єрі й виглядає як природна прикраса простору.",
+  "descriptionEn": "Potted indoor plant with vivid pink flowers blooming on thick green leaves. Wrapped in soft pink fabric with a satin ribbon. Fleur Tentation brings a fresh, natural accent to any living space.",
+  "seo": {
+    "titleUk": "Fleur Tentation - кімнатна рослина в горщику з рожевими квітами",
+    "descriptionUk": "Кімнатна рослина Fleur Tentation у горщику: яскраві рожеві квіти і природний зелений листяний фон в елегантній упаковці Nouvel Amour.",
+    "keywordsUk": "кімнатна рослина, рожеві квіти, декоративна рослина, зелений листяний фон, елегантна упаковка",
+    "slug": "fleur-tentation"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "draft-20260511204223-3j0507",
+  "status": "draft",
+  "createdAt": "2026-05-11T20:42:23.150Z",
+  "sourceText": "lux аромасвічка morocan cashmere exclusive 1599uhy",
+  "sourceDraftId": "draft-20260511204208-k4na80",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAAO6agI_FyhJ5uQOpeYLq4MLKrFFwc8AAhwVaxsKWBFIRak6AAFb9TrkAQADAgADeQADOwQ",
+  "visionUsed": true,
+  "sku": "AR-422369",
+  "price": 1599,
+  "currency": "UAH",
+  "category": "Арома товари",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "KA Aroma",
+  "photoUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532144/nouvel-amour/products/draft-20260511204223-3j0507.jpg",
+  "previewUrl": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532144/nouvel-amour/products/draft-20260511204223-3j0507.jpg",
+  "productTypeUk": "аромасвічка Moroccan Cashmere",
+  "productTypeEn": "Moroccan Cashmere scented candle",
+  "visibleSummaryUk": "KA Aroma Moroccan Cashmere — аромасвічка у прозорій банці з кришкою, кремовим воском і золотою китицею.",
+  "nameUk": "Maison Cachemire",
+  "nameEn": "Maison Cachemire",
+  "descriptionUk": "Аромасвічка у прозорій декоративній банці з кришкою, кремовим воском і золотою китицею виглядає виразно та зібрано. Аромат Moroccan Cashmere звучить як теплий інтер’єрний акцент для дому, спальні чи камерного вечора.",
+  "descriptionEn": "A scented candle in a clear decorative jar with a lid, creamy wax, and a gold tassel feels polished and distinctive. Moroccan Cashmere reads as a warm interior accent for home, a bedroom, or a quiet evening.",
+  "seo": {
+    "titleUk": "Maison Cachemire - аромасвічка Moroccan Cashmere",
+    "descriptionUk": "Аромасвічка Moroccan Cashmere від KA Aroma у прозорій декоративній банці з кришкою та золотою китицею.",
+    "keywordsUk": "аромасвічка, свічка Moroccan Cashmere, KA Aroma, свічка в банці, аромат для дому, декоративна свічка",
+    "slug": "maison-cachemire"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532144/nouvel-amour/products/draft-20260511204223-3j0507.jpg",
+      "previewURL": "https://res.cloudinary.com/dzvdtiolo/image/upload/v1778532144/nouvel-amour/products/draft-20260511204223-3j0507.jpg",
+      "contentType": "image/jpeg"
+    }
+  ]
+}

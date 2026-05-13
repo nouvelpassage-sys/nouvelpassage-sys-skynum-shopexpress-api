@@ -1,0 +1,132 @@
+{
+  "createdAt": "2026-05-11T06:51:35.729Z",
+  "input": "C:\\Users\\milan\\OneDrive\\Desktop\\salesbox-product-load\\salesbox-products-ready.csv",
+  "totals": {
+    "samples": 9,
+    "passed": 7,
+    "failed": 2
+  },
+  "results": [
+    {
+      "sourceId": "11272622",
+      "sourceName": "Автопарфум LOST CHERY",
+      "expectedCategory": "Арома товари",
+      "draft": {
+        "nameUk": "Étoile de Cerise - автопарфум для автомобіля LOST CHERRY",
+        "productTypeUk": "автопарфум для автомобіля",
+        "category": "Арома товари",
+        "descriptionUk": "Автопарфум для автомобіля LOST CHERRY розташований у скляній пляшці з дерев’яною кришкою та декоративними паличками. Стриманий дизайн та насичений аромат роблять цей дифузор атмосферним акцентом для вашого салону. Étoile de Cerise створює приємну атмосферу в дорозі, даруючи відчуття легкості та свіжості.",
+        "seoSlug": "etoile-de-cerise-avtoparfum-dlya-avtomobilya-lost-cherry"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "12506344",
+      "sourceName": "Аудіолистівка \"Best Wishes\" | Запишіть своє повідомлення або улюблену мелодію",
+      "expectedCategory": "Листівки",
+      "draft": {
+        "nameUk": "Souvenir Sonore - аудіолистівка «Best Wishes»",
+        "productTypeUk": "аудіолистівка",
+        "category": "Листівки",
+        "descriptionUk": "Аудіолистівка з яскравою ілюстрацією касети в ніжних пастельних тонах, яка відкриває запис вашого голосового повідомлення або мелодії. Souvenir Sonore дарує можливість передати теплі слова чи настрій, додаючи особистий штрих до будь-якого привітання.",
+        "seoSlug": "souvenir-sonore-audiolystivka-best-wishes"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "17435767",
+      "sourceName": "Ведмедик «Зірочка»",
+      "expectedCategory": "Іграшки",
+      "draft": {
+        "nameUk": "Étoile Douce - ведмедик «Зірочка» - м’яка іграшка",
+        "productTypeUk": "м’яка іграшка",
+        "category": "Іграшки",
+        "descriptionUk": "М’яка іграшка доповнює замовлення без зайвої декоративності: виглядає охайно, доречно і легко поєднується з квітами. Такий подарунок працює як невеликий, але помітний знак уваги.",
+        "seoSlug": "etoile-douce-vedmedyk-zirochka-m-yaka-ihrashka"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "11272755",
+      "sourceName": "Квіткова композиція \"Spring Tenderness\" у дерев’яному кошику",
+      "expectedCategory": "Квіти в коробках",
+      "draft": {
+        "nameUk": "Tendre Printemps - квіткова композиція в дерев’яному кошику з рожевими трояндами та кремовими орхідеями",
+        "productTypeUk": "квіткова композиція в дерев’яному кошику",
+        "category": "Квіти в коробках",
+        "descriptionUk": "Квіткова композиція у дерев’яному кошику поєднує ніжно-рожеві троянди, кремові орхідеї та зелені гілочки евкаліпту. Пастельна палітра створює спокійний, романтичний настрій. Tendre Printemps приносить відчуття теплоти і весняної свіжості у будь-який інтер’єр.",
+        "seoSlug": "tendre-printemps-kvitkova-kompozytsiya-v-derev-yanomu-koshyku-z-rozhevymy-troyan"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "10686109",
+      "sourceName": "Керамічний вазон",
+      "expectedCategory": "Декор та подарунки",
+      "draft": {
+        "nameUk": "Ceramique Spirale - керамічний вазон з рельєфним візерунком",
+        "productTypeUk": "декоративний керамічний вазон",
+        "category": "Декор та подарунки",
+        "descriptionUk": "Цей вазон зроблений із кераміки і прикрашений спіралеподібним рельєфним візерунком білого кольору. Ceramique Spirale додає інтер’єру структурованої текстури та легкості, підкреслюючи стильне просте озеленення столу чи полиці.",
+        "seoSlug": "ceramique-spirale-keramichnyy-vazon-z-relyefnym-vizerunkom"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "17604693",
+      "sourceName": "Півонії Festiva Maxima - преміальні білі півонії з доставкою | Nouvel Amour Flower",
+      "expectedCategory": "Букети",
+      "draft": {
+        "nameUk": "Blanche Élégance - букет білих півоній Festiva Maxima",
+        "productTypeUk": "букет білих півоній",
+        "category": "Букети",
+        "descriptionUk": "Букет з однієї півонії Festiva Maxima насиченого білого кольору з ніжними зеленими листям. Ця композиція виглядає свіжо і повітряно, створюючи атмосферу витонченості і спокою. Ідеальна квітка для камерного інтер'єру або як особливий акцент у подарунку.",
+        "seoSlug": "blanche-elegance-buket-bilykh-pivoniy-festiva-maxima"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "17605881",
+      "sourceName": "Азалія 13см",
+      "expectedCategory": "Кімнатні рослини",
+      "draft": {
+        "nameUk": "Azalée Élégante - кімнатна рослина азалія у горщику",
+        "productTypeUk": "кімнатна рослина в горщику",
+        "category": "Кімнатні рослини",
+        "descriptionUk": "Азалія з ніжно-рожевими квітами і декоративним листям у класичному горщику створює м'який, життєрадісний акцент для інтер’єру. Azalée Élégante дарує відчуття весняної свіжості і гармонії, ідеальна для тих, хто цінує природну красу і затишок вдома.",
+        "seoSlug": "azalee-elegante-kimnatna-roslyna-azaliya-u-horshchyku"
+      },
+      "issues": []
+    },
+    {
+      "sourceId": "13646979",
+      "sourceName": "Букет “Éclat de Douceur”",
+      "expectedCategory": "Авторські роботи By Lesnikov",
+      "draft": {
+        "nameUk": "Éclat de Douceur - букет ніжних рожевих та білих квітів",
+        "productTypeUk": "букет ніжних рожевих та білих квітів",
+        "category": "Букети",
+        "descriptionUk": "Букет із троянд, лілій і евкаліпта у пастельному пакуванні, натхненний спокоєм і ніжністю тримається на м'якому поєднанні відтінків і фактур, тому виглядає дорого без зайвої пишності. Це варіант для романтичного жесту, привітання або стриманої класики, яка не виглядає випадковою.",
+        "seoSlug": "eclat-de-douceur-buket-nizhnykh-rozhevykh-ta-bilykh-kvitiv"
+      },
+      "issues": [
+        "category mismatch: expected Авторські роботи By Lesnikov, got Букети"
+      ]
+    },
+    {
+      "sourceId": "10778489",
+      "sourceName": "Букет Élixir d’Amour",
+      "expectedCategory": "Гарячі пропозиції",
+      "draft": {
+        "nameUk": "Élixir d’Amour - букет біло-фіолетових півоній та гортензії",
+        "productTypeUk": "букет біло-фіолетових півоній та гортензії",
+        "category": "Букети",
+        "descriptionUk": "Букет Ручний букет з білими півоніями та фіолетовими гортензіями в палітрі ніжних і свіжих відтінків, акуратно упакований в матову фіолетову обгортку тримається на м'якому поєднанні відтінків і фактур, тому виглядає дорого без зайвої пишності. Його хочеться дарувати там, де потрібна ніжність без банальності: на день народження, побачення або як дуже особистий комплімент.",
+        "seoSlug": "elixir-d-amour-buket-bilo-fioletovykh-pivoniy-ta-hortenzii"
+      },
+      "issues": [
+        "category mismatch: expected Гарячі пропозиції, got Букети"
+      ]
+    }
+  ]
+}

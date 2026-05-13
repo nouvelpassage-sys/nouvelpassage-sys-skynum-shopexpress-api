@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511114839-jgfs06",
+  "status": "draft",
+  "createdAt": "2026-05-11T11:48:39.509Z",
+  "sourceText": "1900",
+  "sourceDraftId": "draft-20260511113829-44t2in",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAANLagG-rOl-FuqemVCdxj_X7Hh7t0UAAiMUaxu__BFIaS6izsJDq5EBAAMCAAN4AAM7BA",
+  "visionUsed": true,
+  "sku": "DC-406069",
+  "price": 1900,
+  "currency": "UAH",
+  "category": "Декор та подарунки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "подарунковий пакет з квітами",
+  "productTypeEn": "gift bag with flowers",
+  "visibleSummaryUk": "Подарунковий паперовий пакет з прозорим віконцем, який містить квітковий букет у стильній зеленій упаковці зі стрічкою.",
+  "nameUk": "Éclat Élégant",
+  "nameEn": "Éclat Élégant",
+  "descriptionUk": "Паперовий пакет з віконцем, в який упаковано свіжий квітковий букет у стриманій зеленій упаковці з білою стрічкою. Éclat Élégant виглядає як витончений спосіб вручення квітів, поєднуючи комфорт і делікатність у подарунку.",
+  "descriptionEn": "A paper gift bag with a window, containing a fresh flower bouquet wrapped in subtle green paper and tied with a white ribbon. Éclat Élégant presents an elegant, effortless way to gift flowers with understated charm.",
+  "seo": {
+    "titleUk": "Éclat Élégant - квітковий подарунковий пакет",
+    "descriptionUk": "Éclat Élégant від Nouvel Amour – подарунковий паперовий пакет із букетом у дбайливо підібраній палітрі для непомітного та стильного вручення.",
+    "keywordsUk": "подарунковий пакет, квіти в пакеті, подарунок, Nouvel Amour, квіти, упаковка",
+    "slug": "eclat-elegant"
+  },
+  "qualityIssues": []
+}

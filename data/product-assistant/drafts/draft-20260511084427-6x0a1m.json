@@ -1,0 +1,30 @@
+{
+  "id": "draft-20260511084427-6x0a1m",
+  "status": "draft",
+  "createdAt": "2026-05-11T08:44:27.546Z",
+  "sourceText": "",
+  "photoFileId": "AgACAgIAAxkBAANBagGW4Bn_upLcCeUCP2vJdlf0BMoAAksTaxu__BFIlLpm3iGL1icBAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "BQ-568448",
+  "price": null,
+  "currency": "UAH",
+  "category": "Букети",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "букет півоній",
+  "productTypeEn": "bouquet",
+  "visibleSummaryUk": "Ручний букет із рожевих півоній, гортензій і зелених ягід у пастельних тонах",
+  "nameUk": "Lumiere Douce",
+  "nameEn": "Lumiere Douce",
+  "descriptionUk": "Ручний букет із рожевих півоній, гортензій, зелених каллізерських ягід і лілових матіол у ніжних пастельних відтінках. Etoile Rosee створює свіжий та повітряний образ, який чудово підкреслить романтичний настрій.",
+  "descriptionEn": "Hand bouquet featuring pink peonies, hydrangeas, green viburnum berries, and lilac matthiolas in soft pastel shades. Etoile Rosee offers a fresh and airy look, perfect for enhancing a romantic mood.",
+  "seo": {
+    "titleUk": "Etoile Rosee - букет з рожевих півоній, гортензій та зелених ягід",
+    "descriptionUk": "Ручний букет Etoile Rosee з рожевих півоній, гортензій, зелених каллізерських ягід та лілових матіол у пастельній гамі від Nouvel Amour.",
+    "keywordsUk": "букет, рожеві півонії, гортензії, зелений калицер, матіола, квіти, подарунок",
+    "slug": "lumiere-douce"
+  },
+  "qualityIssues": []
+}

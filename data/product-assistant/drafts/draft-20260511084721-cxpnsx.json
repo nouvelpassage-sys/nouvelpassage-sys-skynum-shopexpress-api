@@ -1,0 +1,32 @@
+{
+  "id": "draft-20260511084721-cxpnsx",
+  "status": "draft",
+  "createdAt": "2026-05-11T08:47:21.129Z",
+  "sourceText": "",
+  "sourceDraftId": "draft-20260511084427-6x0a1m",
+  "revisionInstruction": "Make the whole product card feel more premium and boutique with a light French-inspired tone. Stay concrete and restrained; avoid cheap luxury words, vague poetry, and invented facts.",
+  "photoFileId": "AgACAgIAAxkBAANBagGW4Bn_upLcCeUCP2vJdlf0BMoAAksTaxu__BFIlLpm3iGL1icBAAMCAAN3AAM7BA",
+  "visionUsed": true,
+  "sku": "BX-223150",
+  "price": null,
+  "currency": "UAH",
+  "category": "Квіти в коробках",
+  "categoryWasCorrected": true,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "квіткова композиція в коробці",
+  "productTypeEn": "floral arrangement in box",
+  "visibleSummaryUk": "Витончені півонії, гортензія й троянди у матовій коробці рожево-зелених тонів з декоративними гілками.",
+  "nameUk": "Velours Secret",
+  "nameEn": "Velours Secret",
+  "descriptionUk": "Квіткова композиція в тонкій матовій коробці ніжних рожево-зелених відтінків. Поєднання півоній, гортензії, троянд і декоративних гілок створює витончену текстуру і легкість. Velours Secret — це витончений стильний акцент для дому чи подарунка з характером.",
+  "descriptionEn": "A floral arrangement presented in a delicate matte box with soft pink and green hues. The mix of peonies, hydrangeas, roses, and decorative branches forms an elegant texture and airiness. Velours Secret offers a refined statement piece for home or gifting with subtle character.",
+  "seo": {
+    "titleUk": "Velours Secret - квіткова композиція в коробці рожево-зелених відтінків",
+    "descriptionUk": "Елегантна композиція Velours Secret від Nouvel Amour: півонії, гортензія, троянди у матовій коробці ніжних кольорів.",
+    "keywordsUk": "квіткова композиція, коробка, півонії, гортензія, троянди, рожеві квіти, зелений декор",
+    "slug": "velours-secret"
+  },
+  "qualityIssues": []
+}

@@ -1,0 +1,29 @@
+{
+  "id": "draft-20260511075715-w8n9ng",
+  "status": "draft",
+  "createdAt": "2026-05-11T07:57:15.310Z",
+  "sourceText": "5500",
+  "photoFileId": "AgACAgIAAxkBAAMRagF1Y239hn_J06ZgWJiW5tQuu3MAAvYVaxu__AlIxPKAwsU_Qj8BAAMCAAN5AAM7BA",
+  "visionUsed": true,
+  "sku": "DC-835115",
+  "price": 5500,
+  "currency": "UAH",
+  "category": "Декор та подарунки",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "декоративна рослина в упаковці",
+  "productTypeEn": "decorative plant in wrapping",
+  "visibleSummaryUk": "Декоративна рослина з рожевими квітами в ніжному рожевому пакуванні з бантом.",
+  "nameUk": "Fleur de Velours",
+  "nameEn": "Fleur de Velours",
+  "descriptionUk": "Ця декоративна рослина з яскравими рожевими квітами в ніжному пакуванні створює святковий та життєрадісний настрій. Fleur de Velours додає живий акцент і відчуття чуттєвості інтер’єру, прекрасно підходить для особливих просторів, де цінують природну красу.",
+  "descriptionEn": "This decorative plant with vivid pink blooms wrapped in soft packaging brings a lively and festive mood. Fleur de Velours provides a vibrant accent and a sense of sensuality to the interior, ideal for spaces that cherish natural beauty.",
+  "seo": {
+    "titleUk": "Fleur de Velours - декоративна рослина з рожевими квітами",
+    "descriptionUk": "Fleur de Velours від Nouvel Amour — декоративна рослина з ніжними рожевими квітами в стильному пакуванні для особливого акценту в інтер’єрі.",
+    "keywordsUk": "декоративна рослина, рожеві квіти, пакування, зелений акцент, подарунок, декор",
+    "slug": "fleur-de-velours"
+  }
+}

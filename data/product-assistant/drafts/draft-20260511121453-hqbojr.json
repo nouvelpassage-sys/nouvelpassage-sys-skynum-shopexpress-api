@@ -1,0 +1,30 @@
+{
+  "id": "draft-20260511121453-hqbojr",
+  "status": "draft",
+  "createdAt": "2026-05-11T12:14:53.527Z",
+  "sourceText": "300",
+  "photoFileId": "AgACAgIAAxkBAANlagHFFuJZ3oG7ls-ztg4CKc-PqvgAApkVaxsKWAlIXb7Gr6Od74EBAAMCAANtAAM7BA",
+  "visionUsed": true,
+  "sku": "PL-505352",
+  "price": 300,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": true,
+  "stockMode": "counted",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "productTypeUk": "кімнатна рослина спатифілум у горщику",
+  "productTypeEn": "potted peace lily plant",
+  "visibleSummaryUk": "Живий спатифілум у пластиковому горщику з зеленим листям і білими суцвіттями.",
+  "nameUk": "Maison Vivante",
+  "nameEn": "Maison Vivante",
+  "descriptionUk": "Жива кімнатна рослина в горщику з густим зеленим листям і білими покривалами суцвіть. Вона виглядає свіжо й зібрано, додає інтер'єру спокійний природний акцент і добре читається як стриманий зелений подарунок.",
+  "descriptionEn": "A living potted plant with lush green foliage and white spathes. It brings a fresh, composed look to the interior and reads beautifully as a calm, understated green gift.",
+  "seo": {
+    "titleUk": "Maison Vivante - кімнатна рослина спатифілум у горщику",
+    "descriptionUk": "Кімнатна рослина спатифілум у горщику від Nouvel Amour: жива зелена рослина з білими суцвіттями для дому або подарунка.",
+    "keywordsUk": "спатифілум, кімнатна рослина, рослина в горщику, зелена рослина, квітуча кімнатна рослина, Nouvel Amour",
+    "slug": "maison-vivante"
+  },
+  "qualityIssues": []
+}

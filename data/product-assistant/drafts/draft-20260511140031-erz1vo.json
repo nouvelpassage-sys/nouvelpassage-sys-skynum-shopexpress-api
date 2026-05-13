@@ -1,0 +1,33 @@
+{
+  "id": "draft-20260511140031-erz1vo",
+  "status": "draft",
+  "createdAt": "2026-05-11T14:00:31.358Z",
+  "sourceText": "1901 кімнатна рослина Ручний букет у рожево-білій палітрі з матовим пакуванням і світлою стрічкою. 5000  ніжний букет для преміум подарунка https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg https://sales-box-photos.s3-eu-central-1.amazonaws.com/nouvelflowersnow/original/services/5eb8c3fb-3147-4721-b3d7-b44c9ed98462.jpg",
+  "sourceDraftId": "draft-20260511135443-wdg08f",
+  "revisionInstruction": "Перепиши коротше і преміальніше, без технічних фраз.",
+  "visionUsed": false,
+  "sku": "PL-453853",
+  "price": 1901,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": false,
+  "stockMode": "counted",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg",
+  "previewUrl": "https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg",
+  "productTypeUk": "ручний букет у рожево-білій палітрі",
+  "productTypeEn": "hand-tied bouquet in a pink and white palette",
+  "visibleSummaryUk": "Ручний букет у рожево-білій палітрі з матовим пакуванням і світлою стрічкою.",
+  "nameUk": "Tendre Lumiere",
+  "nameEn": "Tendre Lumiere",
+  "descriptionUk": "Ручний букет у рожево-білій палітрі з матовим пакуванням і світлою стрічкою виглядає м'яко, свіжо й дуже охайно. Ніжний силует і делікатна подача роблять його красивим вибором для преміального привітання.",
+  "descriptionEn": "A hand-tied bouquet in a pink and white palette with matte wrapping and a light ribbon feels soft, fresh, and refined. Its delicate silhouette and polished presentation make it a graceful choice for a premium gift.",
+  "seo": {
+    "titleUk": "Tendre Lumiere - ручний букет у рожево-білій палітрі",
+    "descriptionUk": "Ручний букет у рожево-білій палітрі з матовим пакуванням і світлою стрічкою від Nouvel Amour.",
+    "keywordsUk": "ручний букет, букет рожево-білий, ніжний букет, букет у матовому пакуванні, букет зі стрічкою, Nouvel Amour",
+    "slug": "tendre-lumiere"
+  },
+  "qualityIssues": []
+}

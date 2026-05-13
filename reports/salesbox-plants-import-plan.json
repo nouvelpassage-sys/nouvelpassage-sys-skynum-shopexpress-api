@@ -1,0 +1,26 @@
+{
+  "createdAt": "2026-05-12T01:34:15.501Z",
+  "apply": true,
+  "sourceRows": 303,
+  "plantRows": 84,
+  "existingOffers": 141,
+  "candidates": 1,
+  "skippedAsExisting": 83,
+  "preview": [
+    {
+      "sourceId": "17605916",
+      "externalId": "17605916",
+      "internalId": "PL-17605916",
+      "vendorCode": "17605916",
+      "nameUk": "Кактус мікс з квітами",
+      "nameEn": "Kaktus Miks Z Kvitamy",
+      "descriptionUk": "Кактус мікс з квітами - кімнатна рослина для дому, офісу або подарунка. Перед відправкою рослина перевіряється флористами Nouvel Amour; наявність залежить від актуального залишку.",
+      "descriptionEn": "Kaktus Miks Z Kvitamy adds a calm green accent to a home, office, or thoughtful gift. Nouvel Amour checks each plant before dispatch; availability follows the current stock.",
+      "price": 300,
+      "count": 2,
+      "photoUrl": "https://www.nouvelamour.kiev.ua/Media/shop-29325/_imports/skynum-storage/companies/3221/products/6b7f908c-cb31-11ef-8d69-92a369290a2c/c7a1bf575380816be7f9adaae9e759652b9348e3a7347b56c56eedd3557cfc25_ba1fe9d0e0.jpg",
+      "sourceUrl": "https://www.nouvelamour.kiev.ua/shop/kaktus-miks-z-kvitami/",
+      "brand": "Nouvel Amour"
+    }
+  ]
+}

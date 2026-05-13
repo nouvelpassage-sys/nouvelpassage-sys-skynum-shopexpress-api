@@ -1,0 +1,40 @@
+{
+  "id": "draft-20260511134639-kx90m7",
+  "status": "draft",
+  "createdAt": "2026-05-11T13:46:39.160Z",
+  "sourceText": "1900 тестова кімнатна рослина",
+  "visionUsed": false,
+  "sku": "PL-977416",
+  "price": 1900,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": false,
+  "stockMode": "counted",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://sales-box-photos.s3-eu-central-1.amazonaws.com/nouvelflowersnow/original/services/5eb8c3fb-3147-4721-b3d7-b44c9ed98462.jpg",
+  "previewUrl": "https://sales-box-photos.s3-eu-central-1.amazonaws.com/nouvelflowersnow/original/services/5eb8c3fb-3147-4721-b3d7-b44c9ed98462.jpg",
+  "productTypeUk": "кімнатна рослина в горщику",
+  "productTypeEn": "potted indoor plant",
+  "visibleSummaryUk": "Жива кімнатна рослина в горщику з категорії кімнатних рослин.",
+  "nameUk": "Maison Vivante",
+  "nameEn": "Maison Vivante",
+  "descriptionUk": "Кімнатна рослина в горщику у категорії живих рослин для дому або офісу. Це спокійний зелений акцент, який надовго залишається в інтер’єрі та додає простору доглянутого настрою.",
+  "descriptionEn": "A potted indoor plant in the live plant category for home or office. It brings a calm green accent to the interior and stays with the recipient as a lasting, cared-for gesture.",
+  "seo": {
+    "titleUk": "Maison Vivante - кімнатна рослина в горщику",
+    "descriptionUk": "Кімнатна рослина Maison Vivante від Nouvel Amour: живий зелений акцент для дому, офісу або подарунка.",
+    "keywordsUk": "кімнатна рослина, рослина в горщику, жива рослина, зелений подарунок, рослина для дому, рослина для офісу, Nouvel Amour",
+    "slug": "maison-vivante"
+  },
+  "qualityIssues": [],
+  "photos": [
+    {
+      "url": "https://sales-box-photos.s3-eu-central-1.amazonaws.com/nouvelflowersnow/original/services/5eb8c3fb-3147-4721-b3d7-b44c9ed98462.jpg",
+      "previewURL": "https://sales-box-photos.s3-eu-central-1.amazonaws.com/nouvelflowersnow/original/services/5eb8c3fb-3147-4721-b3d7-b44c9ed98462.jpg",
+      "order": 0,
+      "type": "image",
+      "resourceType": "image"
+    }
+  ]
+}

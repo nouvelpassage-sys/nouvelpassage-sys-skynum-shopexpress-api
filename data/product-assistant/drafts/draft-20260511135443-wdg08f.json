@@ -1,0 +1,43 @@
+{
+  "id": "draft-20260511135443-wdg08f",
+  "status": "draft",
+  "createdAt": "2026-05-11T13:54:43.636Z",
+  "sourceText": "5000  ніжний букет для преміум подарунка https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg",
+  "visionUsed": false,
+  "sku": "BQ-194877",
+  "price": 1901,
+  "currency": "UAH",
+  "category": "Кімнатні рослини",
+  "categoryWasCorrected": false,
+  "stockMode": "unlimited",
+  "availability": "available",
+  "brand": "Nouvel Amour",
+  "photoUrl": "https://sales-box-photos.s3-eu-central-1.amazonaws.com/nouvelflowersnow/original/services/5eb8c3fb-3147-4721-b3d7-b44c9ed98462.jpg",
+  "previewUrl": "https://sales-box-photos.s3-eu-central-1.amazonaws.com/nouvelflowersnow/original/services/5eb8c3fb-3147-4721-b3d7-b44c9ed98462.jpg",
+  "productTypeUk": "кімнатна рослина",
+  "productTypeEn": "delicate wrapped bouquet",
+  "visibleSummaryUk": "Ручний букет у рожево-білій палітрі з матовим пакуванням і світлою стрічкою.",
+  "nameUk": "Atelier Test",
+  "nameEn": "Lumiere Tendre",
+  "descriptionUk": "Тестова правка опису для перевірки редактора.",
+  "descriptionEn": "A delicate hand-tied bouquet in a pink and white palette, wrapped in matte paper and finished with a wide light ribbon. Its soft tones and airy silhouette make it a refined premium gift for an intimate greeting.",
+  "seo": {
+    "titleUk": "Lumiere Tendre - ніжний букет у рожево-білій гамі",
+    "descriptionUk": "Ніжний букет Lumiere Tendre від Nouvel Amour у рожево-білій палітрі, з матовим оформленням і стриманою преміальною подачею.",
+    "keywordsUk": "ніжний букет, рожево-білий букет, преміальний букет, букет у пастельних тонах, букет Nouvel Amour, букет у папері",
+    "slug": "lumiere-tendre"
+  },
+  "qualityIssues": [
+    "Опис не проходить редакційний фільтр якості."
+  ],
+  "updatedAt": "2026-05-11T13:55:55.578Z",
+  "photos": [
+    {
+      "url": "https://sales-box-photos.s3-eu-central-1.amazonaws.com/nouvelflowersnow/original/services/5eb8c3fb-3147-4721-b3d7-b44c9ed98462.jpg",
+      "previewURL": "https://sales-box-photos.s3-eu-central-1.amazonaws.com/nouvelflowersnow/original/services/5eb8c3fb-3147-4721-b3d7-b44c9ed98462.jpg",
+      "order": 0,
+      "type": "image",
+      "resourceType": "image"
+    }
+  ]
+}
