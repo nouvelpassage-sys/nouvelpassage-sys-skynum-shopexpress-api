@@ -213,7 +213,7 @@ export class SalesBoxClient {
     const categoryId = getSalesBoxCategoryId(draft.category);
     const photos = getDraftPhotos(draft);
     const stockType = draft.stockMode === "counted" ? "limited" : "endless";
-    const count = stockType === "limited" ? getPositiveCount(draft) : 0;
+    const count = stockType === "limited" ? getPositiveCount(draft) : 999;
 
     return {
       internalId: draft.sku || draft.id,

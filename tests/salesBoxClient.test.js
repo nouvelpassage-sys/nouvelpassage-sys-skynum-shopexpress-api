@@ -64,6 +64,25 @@ test("SalesBox payload keeps creative name separate from factual category data",
   assert.equal(payload.photos[0].url, "https://example.com/product.jpg");
 });
 
+test("SalesBox payload uses visible stock for always-available products", () => {
+  const client = new SalesBoxClient({
+    baseUrl: "https://prod.salesbox.me/openapi/",
+    apiToken: "token",
+    writeEnabled: false
+  });
+
+  const payload = client.toOfferPayload({
+    ...draft,
+    stockMode: "unlimited",
+    category: "Р‘СѓРєРµС‚Рё"
+  });
+
+  assert.equal(payload.stockType, "endless");
+  assert.equal(payload.allowNegativeStock, true);
+  assert.equal(payload.count, 999);
+  assert.equal(payload.minCount, 1);
+});
+
 test("SalesBox dry-run reports missing public photo URL", async () => {
   const client = new SalesBoxClient({
     baseUrl: "https://prod.salesbox.me/openapi/",
