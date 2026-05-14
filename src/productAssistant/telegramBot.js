@@ -543,22 +543,56 @@ export class ProductAssistantBot {
     if (callbackRevisionMode) {
       await this.withRunningAction(actionKey, async () => {
         await this.telegram.answerCallbackQuery(callbackQuery.id, "Готую нову версію");
-        await this.regenerateDraft(chatId, draftId, callbackRevisionMode);
+        try {
+          await this.regenerateDraft(chatId, draftId, callbackRevisionMode);
+        } catch (error) {
+          if (isMissingDraftError(error)) {
+            await this.sendMissingDraftMessage(chatId);
+            return;
+          }
+          throw error;
+        }
       });
       return;
     }
 
     if (action === "keep") {
-      await this.store.update(draftId, { status: "kept" });
-      await this.telegram.answerCallbackQuery(callbackQuery.id, "Залишено як чернетку");
+      try {
+        await this.store.update(draftId, { status: "kept" });
+        await this.telegram.answerCallbackQuery(callbackQuery.id, "Залишено як чернетку");
+      } catch (error) {
+        if (!isMissingDraftError(error)) {
+          throw error;
+        }
+        await this.telegram.answerCallbackQuery(callbackQuery.id, "Картка вже недоступна");
+        await this.sendMissingDraftMessage(chatId);
+      }
       return;
     }
 
     if (action === "publish") {
-      const publishResult = await this.withRunningAction(actionKey, () => this.publishDraft(chatId, draftId));
+      let publishResult;
+      try {
+        publishResult = await this.withRunningAction(actionKey, () => this.publishDraft(chatId, draftId));
+      } catch (error) {
+        if (!isMissingDraftError(error)) {
+          throw error;
+        }
+        await this.telegram.answerCallbackQuery(callbackQuery.id, "Картка вже недоступна");
+        await this.sendMissingDraftMessage(chatId);
+        return;
+      }
       await this.telegram.answerCallbackQuery(callbackQuery.id, getPublishCallbackMessage(publishResult));
     }
   }
+
+  async sendMissingDraftMessage(chatId) {
+    await this.telegram.sendMessage(
+      chatId,
+      "Ця картка була створена до перезапуску сервера і вже недоступна. Надішліть фото з ціною ще раз, я створю нову картку і її можна буде опублікувати."
+    );
+  }
+
   async publishDraft(chatId, draftId) {
     const draft = await this.store.get(draftId);
     if (draft.status === "published" && draft.salesBoxResult?.dryRun === false) {
@@ -666,6 +700,10 @@ export class ProductAssistantBot {
 
 function isTelegramPollingConflict(error) {
   return /Bot API getUpdates failed: 409|terminated by other getUpdates request/i.test(String(error?.message ?? error));
+}
+
+function isMissingDraftError(error) {
+  return error?.code === "ENOENT" && String(error?.path ?? "").includes("drafts");
 }
 
 function delay(ms) {

@@ -497,6 +497,44 @@ test("Telegram bot can sync ShopExpress for an already published SalesBox draft"
   assert.match(sentMessages.at(-1).text, /ShopExpress/);
 });
 
+test("Telegram bot explains stale inline publish buttons after server restart", async () => {
+  const callbackAnswers = [];
+  const sentMessages = [];
+  const missingDraftError = new Error("missing draft");
+  missingDraftError.code = "ENOENT";
+  missingDraftError.path = "/data/product-assistant/drafts/draft-stale.json";
+
+  const bot = new ProductAssistantBot({
+    telegram: {
+      answerCallbackQuery: async (callbackId, text) => callbackAnswers.push({ callbackId, text }),
+      sendMessage: async (chatId, text) => sentMessages.push({ chatId, text })
+    },
+    store: {
+      get: async () => {
+        throw missingDraftError;
+      }
+    },
+    contentClient: null,
+    allowedChatIds: [],
+    imageStorage: null,
+    salesBox: {
+      canWrite: () => true,
+      createOfferFromDraft: async () => {
+        throw new Error("Stale drafts must not call SalesBox.");
+      }
+    }
+  });
+
+  await bot.handleCallback({
+    id: "callback-stale",
+    data: "publish:draft-stale",
+    message: { chat: { id: "1" } }
+  });
+
+  assert.equal(callbackAnswers[0].text, "Картка вже недоступна");
+  assert.match(sentMessages[0].text, /створена до перезапуску сервера/);
+});
+
 test("recognizes ShopExpress import link command aliases", () => {
   assert.equal(getShopExpressImportModeFromText("/shopimport"), "link");
   assert.equal(getShopExpressImportModeFromText("/shoplink"), "link");
