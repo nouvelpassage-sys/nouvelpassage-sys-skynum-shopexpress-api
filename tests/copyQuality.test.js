@@ -90,6 +90,21 @@ test("rewrites weak decor copy without decorative gift boilerplate", () => {
     category: "Декор та подарунки"
   });
 
-  assert.match(description, /аксесуар Nouvel Amour|реальний предмет|матеріал|форму/);
-  assert.doesNotMatch(description, /декоративний подарунок|гармонією форми|гарний варіант|створено з увагою/i);
+  assert.match(description, /аксесуар Nouvel Amour|акцент|поєднується з квітами/);
+  assert.doesNotMatch(description, /декоративний подарунок|гармонією форми|гарний варіант|створено з увагою|опис має/i);
+});
+
+test("rejects editor advice accidentally used as product description", () => {
+  const weak = "Варто описувати реальний предмет, матеріал, форму, розмір через використання. Так покупець відразу зрозуміє.";
+
+  assert.equal(needsImprovement(weak, "Декор та подарунки"), true);
+
+  const description = improveShortDescription({
+    description: weak,
+    productType: "аксесуар Nouvel Amour",
+    category: "Декор та подарунки"
+  });
+
+  assert.match(description, /аксесуар Nouvel Amour|акцент|поєднується з квітами/);
+  assert.doesNotMatch(description, /варто описувати|так покупець|опис має|важливо показати/i);
 });
