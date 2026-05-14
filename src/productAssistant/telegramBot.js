@@ -33,7 +33,12 @@ export class ProductAssistantBot {
   async start() {
     console.log("Product assistant bot is running");
     for (;;) {
-      const updates = await this.telegram.getUpdates(this.offset);
+      const updates = await this.telegram.getUpdates(this.offset).catch(async (error) => {
+        console.error(error);
+        const retryDelayMs = isTelegramPollingConflict(error) ? 15000 : 3000;
+        await delay(retryDelayMs);
+        return [];
+      });
       for (const update of updates) {
         this.offset = update.update_id + 1;
         await this.handleUpdate(update).catch((error) => {
@@ -657,6 +662,14 @@ export class ProductAssistantBot {
       this.runningActions.delete(actionKey);
     }
   }
+}
+
+function isTelegramPollingConflict(error) {
+  return /Bot API getUpdates failed: 409|terminated by other getUpdates request/i.test(String(error?.message ?? error));
+}
+
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function summarizeUpdate(update) {
