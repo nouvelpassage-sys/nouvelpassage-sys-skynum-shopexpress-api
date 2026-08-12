@@ -36,15 +36,15 @@ export class OpenAiContentClient {
             tone:
               "premium floral and gift boutique, warm, sensual, elegant, lightly French-inspired, concise and natural",
             compositionDisclosure:
-              "For bouquets and flower boxes, do not name or list the flower species, greenery, or composition ingredients in descriptionUk/descriptionEn. Write a general premium description about mood, form, silhouette, palette, occasion, and feeling. Product composition details may exist internally, but the public description must not read like a recipe or ingredient list.",
+              "For bouquets and flower boxes, name the 1-3 main flowers when they are confidently visible or readable, but do not list every stem, greenery, filler, or complete composition. Write a premium description about the main flowers, form, silhouette, palette, occasion, and feeling; it must read like boutique copy, not a recipe or inventory list.",
             ocrFirst:
               "Before identifying the product visually, inspect the image for readable text: labels, stickers, tags, price labels, plant pots, packaging, and printed product names. If readable text names a plant, fragrance, brand, cultivar, or product model, treat that text as the strongest factual evidence. For indoor plants, use the readable plant name in productTypeUk/productTypeEn and visibleSummaryUk when clear. Do not ignore a visible plant label and do not invent a different plant name from leaf shape when a readable label is present. If the text is partially readable, use only the confident part and keep the rest generic.",
             plantDescriptionStyle:
               "For indoor plants, use the plant name from OCR/label in productType and SEO when it is clear, but do not describe obvious morphology in the public description: no leaves, dense foliage, white spathes/covers, flowers, or statements that it is a plant. The photo already shows that. Write descriptionUk/descriptionEn around a calm green accent, placement in home or office, lasting gift value, cared-for atmosphere, and Nouvel Amour presentation. Avoid botanical textbook wording.",
             creativeNaming:
-              "nameUk and nameEn are creative display names only, like a boutique collection title. Use 2-4 elegant words with a light French-inspired mood, for example 'Lumiere Douce', 'Velours Secret', 'Jardin Secret', 'Maison Ambree'. Do not put product type, flower species, colors, packaging, category words, or inventory words in the name. Forbidden in names: букет, квіти, композиція, коробка, троянди, півонії, гортензія, орхідея, рожевий, білий, кремовий, зелений, bouquet, flower, rose, peony, pivoine, hydrangea, orchid, pink, white, cream, green. Put factual clarity into productTypeUk/productTypeEn, visibleSummaryUk, descriptions, and SEO instead.",
+              "nameUk and nameEn are creative display names only, like a boutique collection title. Use 2-4 elegant words with a light French-inspired mood. Every product name must be meaningfully unique: do not reuse or closely imitate names from examples or previous cards. Never output these common fallback names: 'Lumiere Douce', 'Velours Secret', 'Jardin Secret', 'Maison Ambree', 'Maison Verte', 'Maison Vivante', 'Petit Ami', 'Mot Doux', 'Atelier Lesnikov', 'Offre Jolie', 'Belle Histoire'. Do not put product type, flower species, colors, packaging, category words, or inventory words in the name. Forbidden in names: букет, квіти, композиція, коробка, троянди, півонії, гортензія, орхідея, рожевий, білий, кремовий, зелений, bouquet, flower, rose, peony, pivoine, hydrangea, orchid, pink, white, cream, green. Put factual clarity into productTypeUk/productTypeEn, visibleSummaryUk, descriptions, and SEO instead.",
             descriptionStyle:
-              "Write like a boutique florist and ecommerce merchandiser, not like a technical catalog and not like vague poetry. No phrases like 'товар у категорії', 'декоративний подарунок', 'гарний букет', 'створено з увагою', 'гармонія форми', 'підійде для подарунка, доповнення до квітів або самостійного замовлення', 'ефемерне відчуття', repeated 'чарівний', or other boilerplate. First say exactly what is visible: product type, main flower/item if reasonably identifiable, color palette, packaging/form. Then add a short emotional/use-case sentence. Keep it 2-3 sentences.",
+              "Write like a boutique florist and ecommerce merchandiser, not like a technical catalog and not like vague poetry. No phrases like 'товар у категорії', 'декоративний подарунок', 'гарний букет', 'створено з увагою', 'гармонія форми', 'підійде для подарунка, доповнення до квітів або самостійного замовлення', 'ефемерне відчуття', repeated 'чарівний', or other boilerplate. First say exactly what is visible: product type, up to 3 main flowers/items if confidently identifiable, color palette, packaging/form. Then add a short emotional/use-case sentence. Keep it 2-3 polished sentences.",
             premiumShortDescription:
               "For flowers, never make the whole description just an inventory like 'букет рожевих півоній та бузку'. Use the visible composition as a factual anchor, then turn it into premium boutique copy: color, texture, mood, occasion, and why it feels special. Good pattern: '<specific visual composition> звучить/виглядає як <emotion or occasion>. <One elegant sentence about who it is for or what feeling it gives>.' Avoid cheap words: шикарний, розкішний, ідеальний, найкращий, вау, незабутній unless there is a precise reason. Prefer elegant words: ніжний, м'який, камерний, витончений, повітряний, стриманий, романтичний, делікатний.",
             bannedDescriptionPhrases:
@@ -66,8 +66,18 @@ export class OpenAiContentClient {
           styleExamples:
             "Use these as living examples for tone, clarity and structure. Do not copy them verbatim unless the product is the same; adapt the pattern to the actual image.",
           examples: getStyleExamplesForPrompt(),
+          existingNames: input.existingNames ?? [],
           input: {
-            ...input,
+            nameHint: input.nameHint,
+            price: input.price,
+            categoryHint: input.categoryHint,
+            sourceCategoryHint: input.sourceCategoryHint,
+            stockModeHint: input.stockModeHint,
+            hasImage: input.hasImage,
+            imageCount: Array.isArray(input.imageDataUrls) && input.imageDataUrls.length
+              ? input.imageDataUrls.length
+              : (input.imageDataUrl || input.imageUrl ? 1 : 0),
+            revisionInstruction: input.revisionInstruction,
             imageDataUrl: input.imageDataUrl ? "[attached image]" : null,
             imageUrl: input.imageUrl ? "[public image URL attached]" : null
           }
@@ -75,10 +85,15 @@ export class OpenAiContentClient {
       }
     ];
 
-    if (imageUrl) {
+    const imageUrls = [
+      ...(Array.isArray(input.imageDataUrls) ? input.imageDataUrls : []),
+      input.imageDataUrl,
+      input.imageUrl
+    ].filter(Boolean);
+    for (const currentImageUrl of [...new Set(imageUrls)]) {
       userContent.push({
         type: "input_image",
-        image_url: imageUrl,
+        image_url: currentImageUrl,
         detail: "high"
       });
     }

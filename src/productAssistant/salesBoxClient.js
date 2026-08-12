@@ -1,3 +1,5 @@
+import { DEFAULT_MAIN_PAGE_ORDER, buildSalesBoxHashtags } from "./merchandisingRules.js";
+
 export class SalesBoxClient {
   constructor({
     baseUrl,
@@ -210,16 +212,19 @@ export class SalesBoxClient {
   }
 
   toOfferPayload(draft) {
-    const categoryId = getSalesBoxCategoryId(draft.category);
+    const categories = getSalesBoxCategories(draft.category);
     const photos = getDraftPhotos(draft);
     const stockType = draft.stockMode === "counted" ? "limited" : "endless";
     const count = stockType === "limited" ? getPositiveCount(draft) : 999;
+    const merchandising = draft.merchandising ?? {};
+    const hashtags = Array.isArray(merchandising.hashtags) && merchandising.hashtags.length
+      ? merchandising.hashtags
+      : buildSalesBoxHashtags(draft);
 
     return {
       internalId: draft.sku || draft.id,
       externalId: draft.id,
       price: draft.price == null ? undefined : Number(draft.price),
-      basePrice: draft.price == null ? undefined : Number(draft.price),
       baseCurrency: draft.currency ?? "UAH",
       names: compactLocalizations([
         { lang: "uk", name: draft.nameUk },
@@ -240,7 +245,10 @@ export class SalesBoxClient {
       step: 1,
       isFixedStep: false,
       isService: false,
-      categories: categoryId ? [{ id: categoryId }] : [],
+      isTop: merchandising.showOnMainPage ?? true,
+      order: merchandising.order ?? DEFAULT_MAIN_PAGE_ORDER,
+      hashtags,
+      categories,
       barcode: draft.barcode,
       url: draft.url
     };
@@ -259,12 +267,23 @@ export const SALESBOX_CATEGORY_IDS = {
   "Гарячі пропозиції": "edfe5f4b-2097-41ae-9d9b-0da8bd35e41e"
 };
 
+const SALESBOX_HOT_SHOWCASE_CATEGORY_ID = "edfe5f4b-2097-41ae-9d9b-0da8bd35e41e";
+
 function ensureTrailingSlash(value) {
   return String(value).endsWith("/") ? String(value) : `${value}/`;
 }
 
 function getSalesBoxCategoryId(category) {
   return SALESBOX_CATEGORY_IDS[category] ?? null;
+}
+
+function getSalesBoxCategories(category) {
+  const categoryId = getSalesBoxCategoryId(category);
+  if (!categoryId) {
+    return [];
+  }
+
+  return [...new Set([categoryId, SALESBOX_HOT_SHOWCASE_CATEGORY_ID])].map((id) => ({ id }));
 }
 
 function compactLocalizations(items) {

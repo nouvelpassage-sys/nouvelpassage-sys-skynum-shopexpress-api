@@ -67,14 +67,14 @@ const PLANT_OBVIOUS_PHRASES = [
   "листя і білі"
 ];
 
-export function improveShortDescription({ description, name, productType, category }) {
+export function improveShortDescription({ description, name, productType, category, visibleSummary }) {
   const text = String(description ?? "").trim();
   if (!needsImprovement(text, category)) {
-    return text;
+    return ensureMainFlowerDetails(text, { productType, visibleSummary });
   }
 
   if (isFlowerCategory(category)) {
-    return buildFlowerDescription({ name });
+    return ensureMainFlowerDetails(buildFlowerDescription({ name, productType, visibleSummary }), { productType, visibleSummary });
   }
 
   let type = String(productType || name || "позиція Nouvel Amour").trim();
@@ -135,7 +135,23 @@ export function hasBannedCopyPhrase(value) {
 
 export function hasFlowerCompositionDetails(value) {
   const latin = transliterateForPolicy(stripLatinAccents(value)).toLowerCase();
-  return FLOWER_COMPOSITION_DETAIL_STEMS.some((stem) => latin.includes(stem));
+  const matches = FLOWER_COMPOSITION_DETAIL_STEMS.filter((stem) => latin.includes(stem));
+  return matches.length >= 4 || /(?:та|і|and|with|з)\s+\S+.*(?:та|і|and|with|з)\s+\S+.*(?:та|і|and|with|з)\s+\S+/iu.test(String(value ?? ""));
+}
+
+export function ensureMainFlowerDetails(description, { productType, visibleSummary } = {}) {
+  const flowers = extractMainFlowers([productType, visibleSummary].filter(Boolean).join(" "));
+  if (!flowers.length) {
+    return String(description ?? "").trim();
+  }
+
+  const normalized = String(description ?? "").trim();
+  const missing = flowers.filter((flower) => !normalized.toLocaleLowerCase("uk-UA").includes(flower.toLocaleLowerCase("uk-UA")));
+  if (!missing.length) {
+    return normalized;
+  }
+
+  return `${missing.join(" та ")} задають букету його впізнаваний настрій і фактуру. ${normalized}`;
 }
 
 export function hasObviousPlantMorphology(value) {
@@ -143,9 +159,23 @@ export function hasObviousPlantMorphology(value) {
   return PLANT_OBVIOUS_PHRASES.some((phrase) => lower.includes(phrase));
 }
 
-function buildFlowerDescription({ name }) {
+function buildFlowerDescription({ name, productType, visibleSummary }) {
   const safeName = cleanSentence(name) || "Nouvel Amour";
-  return `Букет ${safeName} виглядає зібрано й дорого завдяки загальному настрою, формі та м'якій подачі Nouvel Amour. Така позиція доречна для привітання, побачення або особистого компліменту, а опис не перераховує склад композиції.`;
+  const flowers = extractMainFlowers([productType, visibleSummary, name].filter(Boolean).join(" "));
+  const flowerLead = flowers.length ? `${flowers.join(" та ")} у` : "флористична композиція у";
+  return `${capitalize(flowerLead)} ${safeName} звучить витончено завдяки продуманому силуету, фактурі та делікатній палітрі Nouvel Amour. Це букет із французькою подачею для привітання, побачення або особистого компліменту, коли важливі не гучні слова, а точне відчуття моменту.`;
+}
+
+function extractMainFlowers(value) {
+  const source = String(value ?? "");
+  const terms = [
+    ["троянд", "троянди"], ["півон", "півонії"], ["піон", "півонії"], ["гортенз", "гортензії"],
+    ["лілі", "лілії"], ["еустом", "еустома"], ["ранункул", "ранункулюси"], ["орхіде", "орхідеї"],
+    ["тюльпан", "тюльпани"], ["хризантем", "хризантеми"], ["бузк", "бузок"], ["гвоздик", "гвоздики"],
+    ["rose", "троянди"], ["peon", "півонії"], ["hydrangea", "гортензії"], ["orchid", "орхідеї"],
+    ["lily", "лілії"], ["tulip", "тюльпани"]
+  ];
+  return terms.filter(([stem]) => new RegExp(stem, "iu").test(source)).map(([, label]) => label).slice(0, 3);
 }
 
 function buildPlantDescription(type) {

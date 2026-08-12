@@ -49,3 +49,10 @@ test("keeps flower boxes separate from indoor plants", () => {
   assert.equal(rule.category, "Квіти в коробках");
   assert.equal(rule.stockMode, "unlimited");
 });
+
+test("routes physical product categories before generic gift wording", () => {
+  assert.equal(detectCategory("ароматичний подарунок, дифузор для дому").category, "Арома товари");
+  assert.equal(detectCategory("подарунок: м'яка іграшка ведмедик").category, "Іграшки");
+  assert.equal(detectCategory("квітковий подарунок у коробці").category, "Квіти в коробках");
+  assert.equal(detectCategory("декоративний подарунок, спатифілум у кашпо").category, "Кімнатні рослини");
+});

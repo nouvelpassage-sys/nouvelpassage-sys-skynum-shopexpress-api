@@ -1,12 +1,18 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { SalesBoxClient, buildSalesBoxSeoCustomFields } from "../src/productAssistant/salesBoxClient.js";
+import { SalesBoxClient, SALESBOX_CATEGORY_IDS, buildSalesBoxSeoCustomFields } from "../src/productAssistant/salesBoxClient.js";
+
+const PLANTS_CATEGORY_ID = "bd061350-4f12-49d6-a2e2-8e0d99ee0b90";
+const BOUQUETS_CATEGORY_ID = "710e87ac-5c0a-470b-a02e-e366179fef57";
+const HOT_SHOWCASE_CATEGORY_ID = "edfe5f4b-2097-41ae-9d9b-0da8bd35e41e";
+const categoryById = (categoryId) => Object.entries(SALESBOX_CATEGORY_IDS).find(([, id]) => id === categoryId)?.[0];
+const hotShowcaseCategory = categoryById(HOT_SHOWCASE_CATEGORY_ID);
 
 const draft = {
   id: "draft-test",
   nameUk: "Lumiere Douce",
   nameEn: "Lumiere Douce",
-  descriptionUk: "Жива кімнатна рослина у декоративній упаковці.",
+  descriptionUk: "Indoor plant in decorative wrapping.",
   descriptionEn: "A living indoor plant in decorative wrapping.",
   price: 950,
   currency: "UAH",
@@ -14,11 +20,11 @@ const draft = {
   brand: "Nouvel Amour Plants",
   availability: "available",
   stockMode: "counted",
-  category: "Кімнатні рослини",
+  category: categoryById(PLANTS_CATEGORY_ID),
   seo: {
-    titleUk: "Lumiere Douce - кімнатна рослина",
-    descriptionUk: "Кімнатна рослина Lumiere Douce від Nouvel Amour.",
-    keywordsUk: "кімнатна рослина, Nouvel Amour",
+    titleUk: "Lumiere Douce - indoor plant",
+    descriptionUk: "Indoor plant Lumiere Douce by Nouvel Amour.",
+    keywordsUk: "indoor plant, Nouvel Amour",
     slug: "lumiere-douce"
   },
   photoFileId: "photo-id",
@@ -39,9 +45,14 @@ test("SalesBox client stays in dry-run when credentials are incomplete", async (
   assert.equal(result.dryRun, true);
   assert.equal(result.endpoint, "offers/createMany?lang=uk");
   assert.deepEqual(result.missingRequiredFields, []);
-  assert.equal(result.payload.offers[0].categories[0].id, "bd061350-4f12-49d6-a2e2-8e0d99ee0b90");
+  assert.equal(result.payload.offers[0].categories[0].id, PLANTS_CATEGORY_ID);
+  assert.equal(result.payload.offers[0].categories[1].id, HOT_SHOWCASE_CATEGORY_ID);
   assert.equal(result.payload.offers[0].stockType, "limited");
   assert.equal(result.payload.offers[0].count, 1);
+  assert.equal(result.payload.offers[0].isTop, true);
+  assert.equal(result.payload.offers[0].order, 1);
+  assert.ok(result.payload.offers[0].hashtags.some((tag) => tag.value === "tsina-do-1000"));
+  assert.equal("basePrice" in result.payload.offers[0], false);
 });
 
 test("SalesBox payload keeps creative name separate from factual category data", () => {
@@ -57,11 +68,32 @@ test("SalesBox payload keeps creative name separate from factual category data",
     { lang: "uk", name: "Lumiere Douce" },
     { lang: "en", name: "Lumiere Douce" }
   ]);
-  assert.equal(payload.categories[0].id, "bd061350-4f12-49d6-a2e2-8e0d99ee0b90");
+  assert.equal(payload.categories[0].id, PLANTS_CATEGORY_ID);
+  assert.equal(payload.categories[1].id, HOT_SHOWCASE_CATEGORY_ID);
   assert.equal(payload.stockType, "limited");
   assert.equal(payload.externalId, "draft-test");
-  assert.equal(payload.basePrice, 950);
+  assert.equal("basePrice" in payload, false);
+  assert.equal(payload.isTop, true);
+  assert.equal(payload.order, 1);
+  assert.ok(payload.hashtags.some((tag) => tag.value === "novynka"));
+  assert.ok(payload.hashtags.every((tag) => tag.showToClient === true));
+  assert.ok(payload.hashtags.every((tag) => tag.availableForSearch === true));
   assert.equal(payload.photos[0].url, "https://example.com/product.jpg");
+});
+
+test("SalesBox payload adds each product to the hot showcase category without duplicates", () => {
+  const client = new SalesBoxClient({
+    baseUrl: "https://prod.salesbox.me/openapi/",
+    apiToken: "token",
+    writeEnabled: false
+  });
+
+  const payload = client.toOfferPayload({
+    ...draft,
+    category: hotShowcaseCategory
+  });
+
+  assert.deepEqual(payload.categories, [{ id: HOT_SHOWCASE_CATEGORY_ID }]);
 });
 
 test("SalesBox payload uses visible stock for always-available products", () => {
@@ -74,7 +106,7 @@ test("SalesBox payload uses visible stock for always-available products", () => 
   const payload = client.toOfferPayload({
     ...draft,
     stockMode: "unlimited",
-    category: "Р‘СѓРєРµС‚Рё"
+    category: categoryById(BOUQUETS_CATEGORY_ID)
   });
 
   assert.equal(payload.stockType, "endless");

@@ -165,35 +165,46 @@ async function handleApi(request, response) {
       sendJson(response, 400, { error: "Додай ціну, коротку підказку або посилання на фото." });
       return;
     }
-    if (!hasDraftImageInput({ text, imageDataUrl: body.imageDataUrl, publicPhotoUrl: body.publicPhotoUrl })) {
+    if (!hasDraftImageInput({ text, imageDataUrl: body.imageDataUrl, imageDataUrls: body.imageDataUrls, publicPhotoUrl: body.publicPhotoUrl })) {
       sendJson(response, 400, {
         error: "Для нової картки потрібне фото: обери локальне фото або додай public image URL."
       });
       return;
     }
 
+    const existingDrafts = await store.list({ limit: 1000 });
+    const usedNames = existingDrafts.flatMap((item) => [item.nameUk, item.nameEn]).filter(Boolean);
     const draft = await createProductDraft({
       text,
       imageDataUrl: body.imageDataUrl,
+      imageDataUrls: body.imageDataUrls,
+      usedNames,
       sourceCategory: body.sourceCategory,
       revisionInstruction: body.revisionInstruction,
       openAiClient: contentClient
     });
     const publicPhotoUrl = normalizePublicImageUrl(body.publicPhotoUrl);
-    let storedImage = null;
+    let storedImages = [];
     try {
-      storedImage = await storeLocalImageIfPossible({
+      storedImages = await storeLocalImagesIfPossible({
         draft,
-        imageDataUrl: body.imageDataUrl,
-        sourceFilePath: body.imageFileName
+        imageDataUrls: body.imageDataUrls?.length ? body.imageDataUrls : [body.imageDataUrl].filter(Boolean),
+        sourceFilePaths: body.imageFileNames?.length ? body.imageFileNames : [body.imageFileName].filter(Boolean)
       });
     } catch (error) {
       draft.imageStorageWarning = error instanceof Error ? error.message : "Image upload failed.";
     }
-    const photoUrl = publicPhotoUrl ?? storedImage?.url;
-    const previewUrl = publicPhotoUrl ?? storedImage?.previewUrl ?? storedImage?.url;
-    if (photoUrl) {
-      setDraftPhoto(draft, { photoUrl, previewUrl });
+    const photos = publicPhotoUrl
+      ? [{ url: publicPhotoUrl, previewURL: publicPhotoUrl, order: 0, type: "image", resourceType: "image" }]
+      : storedImages.map((storedImage, index) => ({
+          url: storedImage.url,
+          previewURL: storedImage.previewUrl ?? storedImage.url,
+          order: index,
+          type: "image",
+          resourceType: "image"
+        }));
+    if (photos.length) {
+      setDraftPhotos(draft, photos);
     }
     await store.save(draft);
 
@@ -269,18 +280,20 @@ async function handleApi(request, response) {
   sendJson(response, 404, { error: "Dashboard API route not found." });
 }
 
-async function storeLocalImageIfPossible({ draft, imageDataUrl, sourceFilePath }) {
-  if (!imageDataUrl || !imageStorage.configured) {
-    return null;
+async function storeLocalImagesIfPossible({ draft, imageDataUrls = [], sourceFilePaths = [] }) {
+  if (!imageDataUrls.length || !imageStorage.configured) {
+    return [];
   }
 
-  const image = parseImageDataUrl(imageDataUrl);
-  return imageStorage.storeProductImage({
-    draftId: draft.id,
-    bytes: image.bytes,
-    contentType: image.contentType,
-    sourceFilePath
-  });
+  return (await Promise.all(imageDataUrls.map(async (imageDataUrl, index) => {
+    const image = parseImageDataUrl(imageDataUrl);
+    return imageStorage.storeProductImage({
+      draftId: imageDataUrls.length === 1 ? draft.id : `${draft.id}-${index + 1}`,
+      bytes: image.bytes,
+      contentType: image.contentType,
+      sourceFilePath: sourceFilePaths[index]
+    });
+  }))).filter(Boolean);
 }
 
 function parseImageDataUrl(value) {
@@ -308,22 +321,18 @@ function normalizePublicImageUrl(value) {
   return url.href;
 }
 
-function hasDraftImageInput({ text, imageDataUrl, publicPhotoUrl }) {
-  return Boolean(imageDataUrl || normalizeOptionalString(publicPhotoUrl) || parseProductMessage(text).imageUrl);
+function hasDraftImageInput({ text, imageDataUrl, imageDataUrls, publicPhotoUrl }) {
+  return Boolean(imageDataUrl || imageDataUrls?.length || normalizeOptionalString(publicPhotoUrl) || parseProductMessage(text).imageUrl);
 }
 
 function setDraftPhoto(draft, { photoUrl, previewUrl }) {
-  draft.photoUrl = photoUrl;
-  draft.previewUrl = previewUrl ?? photoUrl;
-  draft.photos = [
-    {
-      url: draft.photoUrl,
-      previewURL: draft.previewUrl,
-      order: 0,
-      type: "image",
-      resourceType: "image"
-    }
-  ];
+  setDraftPhotos(draft, [{ url: photoUrl, previewURL: previewUrl ?? photoUrl, order: 0, type: "image", resourceType: "image" }]);
+}
+
+function setDraftPhotos(draft, photos) {
+  draft.photos = photos;
+  draft.photoUrl = photos[0]?.url ?? null;
+  draft.previewUrl = photos[0]?.previewURL ?? photos[0]?.url ?? null;
 }
 
 function toDraftListItem(draft) {
@@ -440,11 +449,13 @@ function applyDraftPatch(draft, patch) {
 async function createRevisedDraft(sourceDraft, body) {
   const instruction = String(body.revisionInstruction ?? "").trim() || "Перепиши картку краще, преміально і природно.";
   const sourceText = buildRevisionSourceText(sourceDraft);
+  const existingDrafts = await store.list({ limit: 1000 });
   const revised = await createProductDraft({
     text: sourceText,
     sourceCategory: sourceDraft.category,
     revisionInstruction: instruction,
     sourceDraftId: sourceDraft.id,
+    usedNames: existingDrafts.flatMap((item) => [item.nameUk, item.nameEn]).filter(Boolean),
     openAiClient: contentClient
   });
 

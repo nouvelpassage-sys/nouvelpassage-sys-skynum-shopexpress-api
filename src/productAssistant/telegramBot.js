@@ -27,6 +27,8 @@ export class ProductAssistantBot {
     this.lastDraftByChat = new Map();
     this.recentPhotoMessages = new Map();
     this.recentMediaGroups = new Map();
+    this.mediaGroupBuffers = new Map();
+    this.mediaGroupTimers = new Map();
     this.runningActions = new Set();
   }
 
@@ -176,7 +178,8 @@ export class ProductAssistantBot {
       return;
     }
 
-    if (this.shouldIgnoreMediaGroupPhoto(message)) {
+    if (message.media_group_id) {
+      this.queueMediaGroupMessage(message);
       return;
     }
 
@@ -191,37 +194,44 @@ export class ProductAssistantBot {
       return;
     }
 
-    const draft = await this.createDraftFromMessage({ chatId, text, photoFileId });
+    const draft = await this.createDraftFromMessage({ chatId, text, photoFileId, photoFileIds: [photoFileId] });
     const filePath = await this.store.save(draft);
 
     await this.sendDraft(chatId, draft, filePath);
     await this.maybeAutoPublishReadyDraft(chatId, draft.id, draft);
   }
 
-  async createDraftFromMessage({ chatId, text, photoFileId }) {
-    let imageDataUrl = null;
-    let imageFile = null;
+  async createDraftFromMessage({ chatId, text, photoFileId, photoFileIds = [] }) {
+    let imageDataUrls = [];
+    let imageFiles = [];
 
-    if (photoFileId && this.contentClient && this.telegram.getFileDataUrl) {
+    if (photoFileIds.length && this.contentClient && this.telegram.getFileDataUrl) {
       await this.telegram.sendMessage(chatId, "Розпізнаю фото й готую опис українською та англійською...");
       try {
-        imageFile = this.telegram.getFileImage
-          ? await this.telegram.getFileImage(photoFileId)
-          : { dataUrl: await this.telegram.getFileDataUrl(photoFileId) };
-        imageDataUrl = imageFile.dataUrl;
+        imageFiles = await Promise.all(photoFileIds.map((fileId) => this.telegram.getFileImage
+          ? this.telegram.getFileImage(fileId)
+          : this.telegram.getFileDataUrl(fileId).then((dataUrl) => ({ dataUrl }))));
+        imageDataUrls = imageFiles.map((imageFile) => imageFile.dataUrl).filter(Boolean);
       } catch (error) {
         console.error(error);
         await this.telegram.sendMessage(chatId, "Фото отримав, але не зміг завантажити його для GPT. Створю чернетку з тексту.");
       }
     }
 
+    const existingDrafts = this.store.list
+      ? await this.store.list({ limit: 1000 })
+      : [];
+    const usedNames = existingDrafts.flatMap((item) => [item.nameUk, item.nameEn]).filter(Boolean);
     let draft;
     try {
       draft = await createProductDraft({
         text,
         photoFileId,
-        imageDataUrl,
-        openAiClient: this.contentClient
+        photoFileIds,
+        imageDataUrls,
+        imageDataUrl: imageDataUrls[0] ?? null,
+        openAiClient: this.contentClient,
+        usedNames
       });
     } catch (error) {
       console.error(error);
@@ -230,49 +240,52 @@ export class ProductAssistantBot {
         draft = await createProductDraft({
           text,
           photoFileId,
-          openAiClient: null
+          photoFileIds,
+          openAiClient: null,
+          usedNames
         });
       } else {
         throw error;
       }
     }
 
-    return this.attachStoredImage({ chatId, draft, imageFile });
+    return this.attachStoredImages({ chatId, draft, imageFiles });
   }
 
-  async attachStoredImage({ chatId, draft, imageFile }) {
-    if (!imageFile?.bytes || !this.imageStorage?.configured) {
+  async attachStoredImages({ chatId, draft, imageFiles = [] }) {
+    if (!imageFiles.length || !this.imageStorage?.configured) {
       return draft;
     }
 
     try {
-      const storedImage = await this.imageStorage.storeProductImage({
-        draftId: draft.id,
+      const storedImages = (await Promise.all(imageFiles.map((imageFile, index) => this.imageStorage.storeProductImage({
+        draftId: imageFiles.length === 1 ? draft.id : `${draft.id}-${index + 1}`,
         bytes: imageFile.bytes,
         contentType: imageFile.contentType,
         sourceFilePath: imageFile.sourceFilePath
-      });
-      if (!storedImage?.url) {
-        return draft;
-      }
-
+      })))).filter((storedImage) => storedImage?.url);
+      if (!storedImages.length) return draft;
+      const photos = storedImages.map((storedImage, index) => ({
+        url: storedImage.url,
+        previewURL: storedImage.previewUrl,
+        contentType: storedImage.contentType,
+        order: index
+      }));
       return {
         ...draft,
-        photoUrl: storedImage.url,
-        previewUrl: storedImage.previewUrl,
-        photos: [
-          {
-            url: storedImage.url,
-            previewURL: storedImage.previewUrl,
-            contentType: storedImage.contentType
-          }
-        ]
+        photoUrl: photos[0].url,
+        previewUrl: photos[0].previewURL,
+        photos
       };
     } catch (error) {
       console.error(error);
       await this.telegram.sendMessage(chatId, "Photo storage failed. I created the draft, but SalesBox dry-run will show that the public image URL is missing.");
       return draft;
     }
+  }
+
+  async attachStoredImage({ chatId, draft, imageFile }) {
+    return this.attachStoredImages({ chatId, draft, imageFiles: imageFile ? [imageFile] : [] });
   }
 
   async sendDraft(chatId, draft, filePath) {
@@ -479,14 +492,17 @@ export class ProductAssistantBot {
     const previousDraft = await this.store.get(draftId);
     await this.telegram.sendMessage(chatId, getRevisionProgressMessage(mode));
 
-    let imageDataUrl = null;
-    let imageFile = null;
-    if (previousDraft.photoFileId && this.contentClient && this.telegram.getFileDataUrl) {
+    let imageDataUrls = [];
+    let imageFiles = [];
+    const previousPhotoFileIds = previousDraft.photoFileIds?.length
+      ? previousDraft.photoFileIds
+      : (previousDraft.photoFileId ? [previousDraft.photoFileId] : []);
+    if (previousPhotoFileIds.length && this.contentClient && this.telegram.getFileDataUrl) {
       try {
-        imageFile = this.telegram.getFileImage
-          ? await this.telegram.getFileImage(previousDraft.photoFileId)
-          : { dataUrl: await this.telegram.getFileDataUrl(previousDraft.photoFileId) };
-        imageDataUrl = imageFile.dataUrl;
+        imageFiles = await Promise.all(previousPhotoFileIds.map((fileId) => this.telegram.getFileImage
+          ? this.telegram.getFileImage(fileId)
+          : this.telegram.getFileDataUrl(fileId).then((dataUrl) => ({ dataUrl }))));
+        imageDataUrls = imageFiles.map((imageFile) => imageFile.dataUrl).filter(Boolean);
       } catch (error) {
         console.error(error);
         await this.telegram.sendMessage(chatId, "Фото не зміг повторно завантажити, тому редагую картку за текстом і попередньою підказкою.");
@@ -499,8 +515,10 @@ export class ProductAssistantBot {
     try {
       draft = await createProductDraft({
         text: previousDraft.sourceText,
-        photoFileId: previousDraft.photoFileId,
-        imageDataUrl,
+        photoFileId: previousPhotoFileIds[0],
+        photoFileIds: previousPhotoFileIds,
+        imageDataUrls,
+        imageDataUrl: imageDataUrls[0] ?? null,
         openAiClient: this.contentClient,
         sourceCategory,
         revisionInstruction,
@@ -511,14 +529,15 @@ export class ProductAssistantBot {
       await this.telegram.sendMessage(chatId, getAiFailureMessage(error));
       draft = await createProductDraft({
         text: previousDraft.sourceText,
-        photoFileId: previousDraft.photoFileId,
+        photoFileId: previousPhotoFileIds[0],
+        photoFileIds: previousPhotoFileIds,
         openAiClient: null,
         sourceCategory,
         revisionInstruction,
         sourceDraftId: previousDraft.id
       });
     }
-    draft = await this.attachStoredImage({ chatId, draft, imageFile });
+    draft = await this.attachStoredImages({ chatId, draft, imageFiles });
     draft = preservePublicImageFromPreviousDraft(draft, previousDraft);
     const filePath = await this.store.save(draft);
     await this.sendDraft(chatId, draft, filePath);
@@ -674,6 +693,50 @@ export class ProductAssistantBot {
     }
 
     return this.recentMediaGroups.has(key);
+  }
+
+  queueMediaGroupMessage(message) {
+    const key = `${message.chat.id}:${message.media_group_id}`;
+    const current = this.mediaGroupBuffers.get(key) ?? [];
+    current.push(message);
+    this.mediaGroupBuffers.set(key, current);
+    if (this.mediaGroupTimers.has(key)) {
+      clearTimeout(this.mediaGroupTimers.get(key));
+    }
+    this.mediaGroupTimers.set(key, setTimeout(() => {
+      this.mediaGroupTimers.delete(key);
+      const messages = this.mediaGroupBuffers.get(key) ?? [];
+      this.mediaGroupBuffers.delete(key);
+      void this.processMediaGroup(messages).catch((error) => console.error(error));
+    }, 900));
+  }
+
+  async processMediaGroup(messages) {
+    if (!messages.length) return;
+    const chatId = String(messages[0].chat.id);
+    const photoFileIds = [...new Set(messages
+      .sort((left, right) => (left.message_id ?? 0) - (right.message_id ?? 0))
+      .map((message) => getLargestPhotoFileId(message.photo))
+      .filter(Boolean))];
+    const text = messages.map((message) => message.caption || message.text || "").find(Boolean) ?? "";
+    const captionIssue = getCaptionIssue(text);
+    if (captionIssue) {
+      await this.telegram.sendMessage(chatId, captionIssue);
+      return;
+    }
+    if (this.isRecentDuplicatePhotoMessage(chatId, photoFileIds.join(","), text)) {
+      await this.telegram.sendMessage(chatId, "Цей альбом із таким самим підписом уже обробляється або щойно оброблений.");
+      return;
+    }
+    const draft = await this.createDraftFromMessage({
+      chatId,
+      text,
+      photoFileId: photoFileIds[0],
+      photoFileIds
+    });
+    const filePath = await this.store.save(draft);
+    await this.sendDraft(chatId, draft, filePath);
+    await this.maybeAutoPublishReadyDraft(chatId, draft.id, draft);
   }
 
   isRecentDuplicatePhotoMessage(chatId, photoFileId, text) {

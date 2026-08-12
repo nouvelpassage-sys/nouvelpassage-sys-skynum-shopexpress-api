@@ -19,7 +19,8 @@ test("turns a dry bouquet inventory into general premium copy without compositio
     category: "Букети"
   });
 
-  assert.doesNotMatch(description, /півон|буз|rose|peony|eucalyptus/i);
+  assert.match(description, /півон|буз/i);
+  assert.doesNotMatch(description, /eucalyptus/i);
   assert.match(description, /виглядає зібрано|загальному враженні|Nouvel Amour|Lumiere/i);
   assert.ok(description.length > 110);
 });

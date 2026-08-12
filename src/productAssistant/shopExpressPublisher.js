@@ -127,7 +127,9 @@ export function createShopExpressPublisher(config = {}) {
 }
 
 export function toShopExpressPayload(draft) {
-  const photoUrl = draft.photoUrl ?? draft.previewUrl ?? draft.photos?.[0]?.url ?? draft.photos?.[0]?.previewURL;
+  const images = Array.isArray(draft.photos) && draft.photos.length
+    ? draft.photos.map((photo) => photo.url ?? photo.originalURL ?? photo.originalUrl ?? photo.imageUrl ?? photo.previewURL).filter(Boolean)
+    : [draft.photoUrl ?? draft.previewUrl].filter(Boolean);
   const slug = draft.seo?.slug ?? slugify(draft.nameUk ?? draft.id);
   return {
     externalId: draft.id,
@@ -140,7 +142,7 @@ export function toShopExpressPayload(draft) {
     description: draft.descriptionUk,
     descriptionEn: draft.descriptionEn,
     shortDescription: draft.visibleSummaryUk ?? draft.productTypeUk,
-    images: photoUrl ? [photoUrl] : [],
+    images,
     inStock: draft.stockMode === "counted" ? getPositiveCount(draft) : 999,
     isAvailable: draft.availability === "unavailable" ? "Unavailable" : "Available",
     unit: "шт",

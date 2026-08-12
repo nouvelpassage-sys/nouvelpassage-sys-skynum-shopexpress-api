@@ -63,3 +63,15 @@ test("queues ShopExpress import row while live API is disabled", async () => {
     await rm(dir, { recursive: true, force: true });
   }
 });
+
+test("maps all stored photos to ShopExpress import payload", () => {
+  const payload = toShopExpressPayload({
+    ...draft,
+    photos: [
+      { url: "https://cdn.example.com/one.jpg" },
+      { url: "https://cdn.example.com/two.jpg" }
+    ]
+  });
+
+  assert.deepEqual(payload.images, ["https://cdn.example.com/one.jpg", "https://cdn.example.com/two.jpg"]);
+});

@@ -1,17 +1,26 @@
-import { improveShortDescription } from "./copyQuality.js";
-import { detectCategory, getCategoryRule, resolveCategoryRule } from "./catalogRules.js";
+import { ensureMainFlowerDetails, improveShortDescription } from "./copyQuality.js";
+import { detectCategory, getAllowedCategories, getCategoryAliases, getCategoryRule, resolveCategoryRule } from "./catalogRules.js";
+import { buildMerchandisingProfile } from "./merchandisingRules.js";
 import { validateProductDraft } from "./productDraftQuality.js";
 import { hasProductNameStopWords as policyHasProductNameStopWords } from "./productCardPolicy.js";
+
+const PRICE_PATTERN = /(?:^|\s)(\d{2,6})(?:\s*(?:\u0433\u0440\u043d|uah|\u20b4|\u0420\u0456\u0421\u0402\u0420\u0405|\u0432\u201a\u0491))?/iu;
+const BOUQUET_AVAILABILITY_NOTE =
+  "У разі відсутності окремих квітів вони можуть бути замінені на аналогічні або дорожчі за наш рахунок, зі збереженням стилю, кольорової гами, форми та загального характеру букета.";
 
 export function parseProductMessage(text) {
   const raw = String(text ?? "").trim();
   const imageUrl = extractFirstImageUrl(raw);
   const textWithoutUrl = imageUrl ? raw.replace(imageUrl, " ") : raw;
-  const priceMatch = textWithoutUrl.match(/(?:^|\s)(\d{2,6})(?:\s*(?:грн|uah|₴))?/i);
+  const categoryPrefix = extractCategoryPrefix(textWithoutUrl);
+  const textWithoutCategory = categoryPrefix
+    ? textWithoutUrl.slice(categoryPrefix.consumedLength).replace(/^[\s,.;:!?\-|/]+/g, " ")
+    : textWithoutUrl;
+  const priceMatch = textWithoutCategory.match(PRICE_PATTERN);
   const price = priceMatch ? Number(priceMatch[1]) : null;
   const titleSeed = cleanProductHint(
-    textWithoutUrl
-      .replace(/(?:^|\s)\d{2,6}(?:\s*(?:грн|uah|₴))?/i, " ")
+    textWithoutCategory
+      .replace(PRICE_PATTERN, " ")
       .replace(/\s+/g, " ")
   );
 
@@ -19,24 +28,32 @@ export function parseProductMessage(text) {
     raw,
     price,
     titleSeed,
-    imageUrl
+    imageUrl,
+    categoryHint: categoryPrefix?.category ?? null
   };
 }
 
 export async function createProductDraft({
   text,
   photoFileId,
+  photoFileIds,
+  imageDataUrls,
   imageDataUrl,
   openAiClient,
+  usedNames = [],
   sourceCategory,
   revisionInstruction,
   sourceDraftId
 }) {
   const parsed = parseProductMessage(text);
+  const normalizedImageDataUrls = [
+    ...(Array.isArray(imageDataUrls) ? imageDataUrls : []),
+    imageDataUrl
+  ].filter(Boolean);
   const baseName = parsed.titleSeed || "Новий товар Nouvel Amour";
-  const sourceCategoryRule = getCategoryRule(sourceCategory);
+  const sourceCategoryRule = getCategoryRule(sourceCategory) ?? getCategoryRule(parsed.categoryHint);
   const categoryRule = sourceCategoryRule ?? detectCategory(baseName);
-  const fallbackNameUk = buildCreativeName(baseName, categoryRule.category);
+  const fallbackNameUk = buildCreativeName(baseName, categoryRule.category, parsed.raw);
 
   if (openAiClient) {
     const generated = await openAiClient.generateProductContent({
@@ -45,9 +62,11 @@ export async function createProductDraft({
       categoryHint: categoryRule.category,
       sourceCategoryHint: sourceCategoryRule?.category,
       stockModeHint: categoryRule.stockMode,
-      hasImage: Boolean(imageDataUrl || parsed.imageUrl),
-      imageDataUrl,
+      hasImage: Boolean(normalizedImageDataUrls.length || parsed.imageUrl),
+      imageDataUrl: normalizedImageDataUrls[0] ?? null,
+      imageDataUrls: normalizedImageDataUrls,
       imageUrl: parsed.imageUrl,
+      existingNames: usedNames,
       revisionInstruction
     });
     const generatedCategoryRule = sourceCategoryRule
@@ -64,8 +83,19 @@ export async function createProductDraft({
           ].filter(Boolean).join(" ")
         });
     const productTypeUk = cleanProductHint(generated.productTypeUk || generated.productType || inferProductTypeUk(generated.nameUk || baseName, generatedCategoryRule.category));
-    const nameUk = sanitizeCreativeProductName(generated.nameUk, generatedCategoryRule.category);
-    const nameEn = sanitizeCreativeProductName(generated.nameEn || buildFallbackNameEn(nameUk), generatedCategoryRule.category);
+    const creativeSeed = [
+      parsed.raw,
+      generated.visibleSummaryUk,
+      generated.productTypeUk,
+      generated.nameUk
+    ].filter(Boolean).join(" | ");
+    const nameUk = ensureUniqueCreativeName(generated.nameUk, generatedCategoryRule.category, creativeSeed, usedNames);
+    const nameEn = sanitizeCreativeProductName(
+      generated.nameEn || buildFallbackNameEn(nameUk),
+      generatedCategoryRule.category,
+      `${creativeSeed} | en`,
+      [...usedNames, nameUk]
+    );
 
     return normalizeDraft({
       ...generated,
@@ -84,7 +114,8 @@ export async function createProductDraft({
       photoUrl: parsed.imageUrl,
       previewUrl: parsed.imageUrl,
       photoFileId,
-      visionUsed: Boolean(imageDataUrl),
+      photoFileIds: photoFileIds ?? (photoFileId ? [photoFileId] : []),
+      visionUsed: Boolean(normalizedImageDataUrls.length),
       revisionInstruction,
       sourceDraftId
     });
@@ -111,6 +142,7 @@ export async function createProductDraft({
     photoUrl: parsed.imageUrl,
     previewUrl: parsed.imageUrl,
     photoFileId,
+    photoFileIds: photoFileIds ?? (photoFileId ? [photoFileId] : []),
     visionUsed: false,
     revisionInstruction,
     sourceDraftId
@@ -118,6 +150,20 @@ export async function createProductDraft({
 }
 
 function normalizeDraft(draft) {
+  const descriptionUk = appendBouquetAvailabilityNote(
+    ensureMainFlowerDetails(improveShortDescription({
+      description: draft.descriptionUk,
+      name: draft.nameUk,
+      productType: draft.productTypeUk,
+      visibleSummary: draft.visibleSummaryUk,
+      category: draft.category
+    }), {
+      productType: draft.productTypeUk,
+      visibleSummary: draft.visibleSummaryUk
+    }),
+    draft.category,
+    draft.productTypeUk
+  );
   const normalized = {
     id: createDraftId(),
     status: "draft",
@@ -126,6 +172,7 @@ function normalizeDraft(draft) {
     sourceDraftId: draft.sourceDraftId,
     revisionInstruction: draft.revisionInstruction,
     photoFileId: draft.photoFileId,
+    photoFileIds: draft.photoFileIds ?? (draft.photoFileId ? [draft.photoFileId] : []),
     visionUsed: draft.visionUsed,
     sku: draft.sku,
     price: draft.price,
@@ -137,18 +184,16 @@ function normalizeDraft(draft) {
     brand: draft.brand,
     photoUrl: draft.photoUrl,
     previewUrl: draft.previewUrl,
+    photos: Array.isArray(draft.photos) && draft.photos.length
+      ? draft.photos
+      : undefined,
     productTypeUk: draft.productTypeUk,
     productTypeEn: draft.productTypeEn,
     visibleSummaryUk: draft.visibleSummaryUk,
     nameUk: draft.nameUk,
     nameEn: draft.nameEn,
-    descriptionUk: improveShortDescription({
-      description: draft.descriptionUk,
-      name: draft.nameUk,
-      productType: draft.productTypeUk,
-      visibleSummary: draft.visibleSummaryUk,
-      category: draft.category
-    }),
+    merchandising: draft.merchandising ?? buildMerchandisingProfile(draft),
+    descriptionUk,
     descriptionEn: draft.descriptionEn,
     seo: {
       titleUk: draft.seoTitleUk,
@@ -163,6 +208,26 @@ function normalizeDraft(draft) {
   };
 }
 
+function extractCategoryPrefix(value) {
+  const raw = String(value ?? "");
+  const candidates = getAllowedCategories()
+    .flatMap((category) => getCategoryAliases(category).map((alias) => ({ category, alias })))
+    .sort((left, right) => right.alias.length - left.alias.length);
+
+  for (const { category, alias } of candidates) {
+    const match = raw.match(new RegExp(String.raw`^\s*${escapeRegExp(alias)}(?=$|[\s,.;:!?\-|/])`, "iu"));
+    if (match) {
+      return { category, consumedLength: match[0].length };
+    }
+  }
+
+  return null;
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 function extractFirstImageUrl(value) {
   const match = String(value ?? "").match(/https?:\/\/[^\s<>"']+\.(?:jpe?g|png|webp|gif)(?:\?[^\s<>"']*)?/i);
   return match?.[0] ?? null;
@@ -172,14 +237,73 @@ export function hasProductNameStopWords(name) {
   return policyHasProductNameStopWords(name);
 }
 
-function sanitizeCreativeProductName(name, category) {
+function appendBouquetAvailabilityNote(description, category, productType) {
+  if (!isBouquetDraft(category, productType)) {
+    return description;
+  }
+
+  const normalized = String(description ?? "").replace(/\s+/g, " ").trim();
+  if (!normalized) {
+    return BOUQUET_AVAILABILITY_NOTE;
+  }
+  if (normalized.includes(BOUQUET_AVAILABILITY_NOTE)) {
+    return normalized;
+  }
+
+  const separator = /[.!?…]$/u.test(normalized) ? " " : ". ";
+  return `${normalized}${separator}${BOUQUET_AVAILABILITY_NOTE}`;
+}
+
+function isBouquetDraft(category, productType) {
+  return String(category ?? "").includes("Букети") || /\b(букет|bouquet)\b/iu.test(String(productType ?? ""));
+}
+
+function sanitizeCreativeProductName(name, category, seed = "", usedNames = []) {
   const cleanName = cleanProductHint(name).replace(/\s+[-–—:|]\s+.*$/u, "");
-  if (!cleanName || cleanName.length < 3 || hasProductNameStopWords(cleanName)) {
-    return buildCategoryCreativeName(category);
+  const isDuplicate = usedNames.some((usedName) => areCreativeNamesTooSimilar(usedName, cleanName));
+  if (!cleanName || cleanName.length < 3 || cleanName.split(/\s+/).length < 2 || hasProductNameStopWords(cleanName) || isOverusedCreativeName(cleanName) || isDuplicate) {
+    return buildCategoryCreativeName(category, `${seed} | ${usedNames.join(" | ")}`);
   }
 
   return cleanName;
 }
+
+function ensureUniqueCreativeName(name, category, seed, usedNames) {
+  let candidate = sanitizeCreativeProductName(name, category, seed, usedNames);
+  for (let attempt = 0; attempt < 12 && usedNames.some((usedName) => areCreativeNamesTooSimilar(usedName, candidate)); attempt += 1) {
+    candidate = buildCategoryCreativeName(category, `${seed} | variant-${attempt + 1}`);
+  }
+  return candidate;
+}
+
+function areCreativeNamesTooSimilar(left, right) {
+  const leftWords = normalizeCreativeName(left).split(/\s+/).filter(Boolean);
+  const rightWords = normalizeCreativeName(right).split(/\s+/).filter(Boolean);
+  if (!leftWords.length || !rightWords.length) {
+    return false;
+  }
+  if (leftWords.join(" ") === rightWords.join(" ")) {
+    return true;
+  }
+  const sharedWords = leftWords.filter((word) => rightWords.includes(word)).length;
+  return sharedWords >= 2 || (leftWords.length === 2 && rightWords.length === 2 && sharedWords >= 1);
+}
+
+const OVERUSED_CREATIVE_NAMES = [
+  "atelier lesnikov",
+  "atelier lumiere",
+  "belle histoire",
+  "fete jolie",
+  "jardin secret",
+  "lumiere douce",
+  "maison ambree",
+  "maison verte",
+  "maison vivante",
+  "mot doux",
+  "offre jolie",
+  "petit ami",
+  "velours secret"
+];
 
 const PRODUCT_NAME_STOP_WORDS = [
   /\b(букет|букети|квіт\p{L}*|композиці\p{L}*|короб\p{L}*|подарунок|подарунков\p{L}*|листівк\p{L}*|іграшк\p{L}*|рослин\p{L}*|горщик\p{L}*)\b/iu,
@@ -296,54 +420,85 @@ function cleanProductHint(value) {
     .trim();
 }
 
-function buildCreativeName(baseName, category) {
-  const normalized = String(baseName).toLowerCase();
+const CREATIVE_NAME_FIRST = [
+  "Aveline",
+  "Bastide",
+  "Brume",
+  "Celestine",
+  "Clairmont",
+  "Elysee",
+  "Marais",
+  "Monceau",
+  "Nocturne",
+  "Ondine",
+  "Opaline",
+  "Rivage",
+  "Satin",
+  "Serenade",
+  "Solene",
+  "Vendome"
+];
 
-  if (normalized.includes("півон")) {
-    return "Lumiere Douce";
-  }
-  if (normalized.includes("троян") || normalized.includes("rose")) {
-    return "Velours Secret";
-  }
-  if (normalized.includes("орхіде")) {
-    return "Atelier Lumiere";
-  }
-  if (normalized.includes("автопарфум") || normalized.includes("арома")) {
-    return "Maison Ambree";
-  }
-  if (normalized.includes("кульк") || normalized.includes("balloon")) {
-    return "Fete Jolie";
-  }
-  return buildCategoryCreativeName(category);
+const CREATIVE_NAME_SECOND = [
+  "Aube",
+  "Belle Nuit",
+  "Clair",
+  "de Lune",
+  "de Minuit",
+  "de Soie",
+  "du Matin",
+  "en Reve",
+  "Opale",
+  "Rive Gauche",
+  "Serein",
+  "Tendre"
+];
+
+function buildCreativeName(baseName, category, seed = "") {
+  return buildCategoryCreativeName(category, `${baseName} | ${seed}`);
 }
 
-function buildCategoryCreativeName(category) {
-  if (category.includes("Квіти в коробках")) {
-    return "Jardin Secret";
-  }
-  if (category.includes("Букети")) {
-    return "Lumiere Douce";
-  }
-  if (category.includes("Кімнатні рослини")) {
-    return "Maison Vivante";
-  }
-  if (category.includes("Іграшки")) {
-    return "Petit Ami";
-  }
-  if (category.includes("Арома")) {
-    return "Maison Ambree";
-  }
-  if (category.includes("Листівки")) {
-    return "Mot Doux";
-  }
-  if (category.includes("Авторські")) {
-    return "Atelier Lesnikov";
-  }
-  if (category.includes("Гарячі")) {
-    return "Offre Jolie";
+function buildCategoryCreativeName(category, seed = "") {
+  const hash = hashString(`${category ?? ""} | ${seed}`);
+  const first = CREATIVE_NAME_FIRST[hash % CREATIVE_NAME_FIRST.length];
+  const second = CREATIVE_NAME_SECOND[Math.floor(hash / CREATIVE_NAME_FIRST.length) % CREATIVE_NAME_SECOND.length];
+  const candidate = `${first} ${second}`;
+
+  if (hasProductNameStopWords(candidate) || isOverusedCreativeName(candidate)) {
+    return `Solene ${CREATIVE_NAME_SECOND[hash % CREATIVE_NAME_SECOND.length]}`;
   }
 
-  return "Belle Histoire";
+  return candidate;
+}
+
+function isOverusedCreativeName(name) {
+  const normalized = normalizeCreativeName(name);
+  return OVERUSED_CREATIVE_NAMES.some((overused) => {
+    if (normalized === overused) {
+      return true;
+    }
+    const normalizedWords = new Set(normalized.split(/\s+/).filter(Boolean));
+    const overusedWords = overused.split(/\s+/).filter(Boolean);
+    const shared = overusedWords.filter((word) => normalizedWords.has(word)).length;
+    return overusedWords.length > 1 && shared === overusedWords.length;
+  });
+}
+
+function normalizeCreativeName(name) {
+  return stripLatinAccents(name)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function hashString(value) {
+  let hash = 2166136261;
+  for (const char of String(value ?? "")) {
+    hash ^= char.codePointAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
 }
 
 function buildFallbackNameEn(name) {

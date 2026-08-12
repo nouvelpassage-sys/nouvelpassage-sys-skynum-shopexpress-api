@@ -85,21 +85,23 @@ elements.refreshDraftsButton.addEventListener("click", loadDraftList);
 elements.generateButton.addEventListener("click", async () => {
   await withBusy(elements.generateButton, "Генерую...", async () => {
     elements.publishResult.textContent = "";
-    const imageDataUrl = await readSelectedImageDataUrl();
-    if (!imageDataUrl && !elements.publicPhotoUrl.value.trim() && !hasImageUrl(elements.productText.value)) {
+    const imageDataUrls = await readSelectedImageDataUrls();
+    if (!imageDataUrls.length && !elements.publicPhotoUrl.value.trim() && !hasImageUrl(elements.productText.value)) {
       elements.publishResult.textContent = "Додай фото: локальний файл або public image URL.";
       return;
     }
     const result = await postJson("/api/drafts", {
       text: elements.productText.value,
-      imageDataUrl,
+      imageDataUrl: imageDataUrls[0] ?? undefined,
+      imageDataUrls,
       imageFileName: elements.photoFile.files?.[0]?.name,
+      imageFileNames: [...(elements.photoFile.files ?? [])].map((file) => file.name),
       publicPhotoUrl: elements.publicPhotoUrl.value || undefined,
       sourceCategory: elements.sourceCategory.value || undefined,
       revisionInstruction: elements.revisionInstruction.value || undefined
     });
     state.draft = result.draft;
-    renderDraft(result.draft, result.salesBox, imageDataUrl);
+    renderDraft(result.draft, result.salesBox, imageDataUrls[0] ?? null);
     await loadDraftList();
     await loadYmlExportStatus();
   });
@@ -414,28 +416,29 @@ function renderDraftListItem(draft) {
   `;
 }
 
-async function readSelectedImageDataUrl() {
-  const file = elements.photoFile.files?.[0];
-  if (!file) {
-    return null;
-  }
-
-  if (!file.type.startsWith("image/")) {
-    throw new Error("Обери файл зображення.");
+async function readSelectedImageDataUrls() {
+  const files = [...(elements.photoFile.files ?? [])];
+  if (!files.length) {
+    return [];
   }
 
   const maxBytes = 8 * 1024 * 1024;
-  if (file.size > maxBytes) {
-    throw new Error("Фото завелике. Спробуй файл до 8 MB.");
+  for (const file of files) {
+    if (!file.type.startsWith("image/")) {
+      throw new Error("Обери тільки файли зображень.");
+    }
+    if (file.size > maxBytes) {
+      throw new Error(`Фото ${file.name} завелике. Спробуй файл до 8 MB.`);
+    }
   }
 
-  elements.fileNote.textContent = `Вибрано: ${file.name}`;
-  return new Promise((resolve, reject) => {
+  elements.fileNote.textContent = `Вибрано фото: ${files.length}`;
+  return Promise.all(files.map((file) => new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.addEventListener("load", () => resolve(String(reader.result)));
-    reader.addEventListener("error", () => reject(new Error("Не вдалося прочитати фото.")));
+    reader.addEventListener("error", () => reject(new Error(`Не вдалося прочитати фото ${file.name}.`)));
     reader.readAsDataURL(file);
-  });
+  })));
 }
 
 async function getJson(url) {

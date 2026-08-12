@@ -6,6 +6,10 @@ import {
   parseProductMessage,
   slugify
 } from "../src/productAssistant/contentGenerator.js";
+import { getAllowedCategories } from "../src/productAssistant/catalogRules.js";
+
+const BOUQUET_AVAILABILITY_NOTE =
+  "У разі відсутності окремих квітів вони можуть бути замінені на аналогічні або дорожчі за наш рахунок, зі збереженням стилю, кольорової гами, форми та загального характеру букета.";
 
 test("parses price and product hint from a Telegram message", () => {
   const parsed = parseProductMessage("280 автопарфум Lost Cherry");
@@ -22,6 +26,52 @@ test("parses public image URLs without mixing them into the product hint", () =>
   assert.equal(parsed.price, 1900);
   assert.equal(parsed.titleSeed, "букет ніжний");
   assert.equal(parsed.imageUrl, "https://www.nouvelamour.kiev.ua/Media/shop-29325/main%20page/b4.jpg");
+});
+
+
+test("parses an explicit SalesBox category prefix before price", () => {
+  const bouquetCategory = getAllowedCategories()[6];
+  const parsed = parseProductMessage(`${bouquetCategory}: 1899 soft volume`);
+
+  assert.equal(parsed.categoryHint, bouquetCategory);
+  assert.equal(parsed.price, 1899);
+  assert.equal(parsed.titleSeed, "soft volume");
+});
+
+test("uses the explicit caption category as the source category for AI drafts", async () => {
+  const bouquetCategory = getAllowedCategories()[6];
+  const fallbackCategory = getAllowedCategories()[5];
+  let capturedInput;
+
+  const draft = await createProductDraft({
+    text: `${bouquetCategory} 1899 soft volume`,
+    photoFileId: "photo-id",
+    imageDataUrl: "data:image/jpeg;base64,abc",
+    openAiClient: {
+      async generateProductContent(input) {
+        capturedInput = input;
+        return {
+          nameUk: "Bouquet Lumiere",
+          nameEn: "Bouquet Lumiere",
+          descriptionUk: "Soft floral volume for a personal gesture.",
+          descriptionEn: "A soft floral gesture with a boutique mood.",
+          seoTitleUk: "Bouquet Lumiere - Nouvel Amour",
+          seoDescriptionUk: "Bouquet Lumiere by Nouvel Amour.",
+          seoKeywordsUk: "Nouvel Amour",
+          slug: "bouquet-lumiere",
+          brand: "Nouvel Amour",
+          category: fallbackCategory,
+          productTypeUk: "soft bouquet",
+          productTypeEn: "soft bouquet",
+          visibleSummaryUk: "soft volume"
+        };
+      }
+    }
+  });
+
+  assert.equal(capturedInput.sourceCategoryHint, bouquetCategory);
+  assert.equal(draft.category, bouquetCategory);
+  assert.equal(draft.categoryWasCorrected, true);
 });
 
 test("uses public image URL as the draft photo URL", async () => {
@@ -49,7 +99,8 @@ test("creates an aroma product draft with unlimited stock", async () => {
   assert.equal(draft.photoFileId, "photo-id");
   assert.equal(draft.productTypeUk, "автопарфум");
   assert.match(draft.sku, /^AR-/);
-  assert.equal(draft.nameUk, "Maison Ambree");
+  assert.notEqual(draft.nameUk, "Maison Ambree");
+  assert.equal(hasProductNameStopWords(draft.nameUk), false);
   assert.doesNotMatch(draft.descriptionUk, /товар .*категорії/i);
 });
 
@@ -61,9 +112,10 @@ test("creates a boutique-style fallback name and description for bouquets", asyn
   });
 
   assert.equal(draft.price, 1899);
-  assert.equal(draft.nameUk, "Lumiere Douce");
+  assert.notEqual(draft.nameUk, "Lumiere Douce");
   assert.equal(draft.productTypeUk, "букет півоній");
   assert.equal(hasProductNameStopWords(draft.nameUk), false);
+  assert.ok(draft.descriptionUk.endsWith(BOUQUET_AVAILABILITY_NOTE));
   assert.doesNotMatch(draft.descriptionUk, /товар .*категорії/i);
   assert.match(draft.descriptionUk, /французьку подачу|Nouvel Amour/i);
 });
@@ -117,7 +169,8 @@ test("passes attached image data to AI content generation", async () => {
   assert.equal(draft.stockMode, "unlimited");
   assert.equal(draft.visionUsed, true);
   assert.match(draft.sku, /^BX-/);
-  assert.equal(draft.nameUk, "Jardin Secret");
+  assert.notEqual(draft.nameUk, "Jardin Secret");
+  assert.equal(hasProductNameStopWords(draft.nameUk), false);
 });
 
 test("prompts AI to read labels before guessing plant identity", async () => {
@@ -190,7 +243,8 @@ test("passes revision instructions to AI content generation", async () => {
   assert.equal(capturedInput.revisionInstruction, "Rewrite the description in a more premium tone.");
   assert.equal(draft.revisionInstruction, "Rewrite the description in a more premium tone.");
   assert.equal(draft.sourceDraftId, "draft-old");
-  assert.equal(draft.nameUk, "Lumiere Douce");
+  assert.notEqual(draft.nameUk, "Lumiere Douce");
+  assert.equal(hasProductNameStopWords(draft.nameUk), false);
 });
 
 test("removes product stop words from AI product names", async () => {
@@ -219,9 +273,98 @@ test("removes product stop words from AI product names", async () => {
     }
   });
 
-  assert.equal(draft.nameUk, "Lumiere Douce");
+  assert.notEqual(draft.nameUk, "Lumiere Douce");
   assert.equal(hasProductNameStopWords(draft.nameUk), false);
   assert.equal(draft.productTypeUk, "букет рожевих півоній");
+  assert.ok(draft.descriptionUk.endsWith(BOUQUET_AVAILABILITY_NOTE));
+});
+
+test("does not duplicate the bouquet availability note", async () => {
+  const draft = await createProductDraft({
+    text: "1899",
+    photoFileId: "photo-id",
+    imageDataUrl: "data:image/jpeg;base64,abc",
+    openAiClient: {
+      async generateProductContent() {
+        return {
+          nameUk: "Solene de Lune",
+          nameEn: "Solene de Lune",
+          descriptionUk: `Ніжний букет у м'якій гамі для особистого привітання. ${BOUQUET_AVAILABILITY_NOTE}`,
+          descriptionEn: "A refined bouquet for a personal greeting.",
+          seoTitleUk: "Solene de Lune - Nouvel Amour",
+          seoDescriptionUk: "Solene de Lune від Nouvel Amour.",
+          seoKeywordsUk: "Nouvel Amour",
+          slug: "solene-de-lune",
+          brand: "Nouvel Amour",
+          category: "Букети",
+          productTypeUk: "букет",
+          productTypeEn: "bouquet",
+          visibleSummaryUk: "ніжний букет"
+        };
+      }
+    }
+  });
+
+  assert.equal(draft.descriptionUk.split(BOUQUET_AVAILABILITY_NOTE).length - 1, 1);
+  assert.ok(draft.descriptionUk.endsWith(BOUQUET_AVAILABILITY_NOTE));
+});
+
+test("fallback creative names are different for different product hints", async () => {
+  const first = await createProductDraft({
+    text: "1899 букет ніжний",
+    photoFileId: "photo-1",
+    openAiClient: null
+  });
+  const second = await createProductDraft({
+    text: "2199 букет авторський",
+    photoFileId: "photo-2",
+    openAiClient: null
+  });
+
+  assert.notEqual(first.nameUk, second.nameUk);
+  assert.equal(hasProductNameStopWords(first.nameUk), false);
+  assert.equal(hasProductNameStopWords(second.nameUk), false);
+});
+
+test("product drafts include default merchandising data for SalesBox", async () => {
+  const draft = await createProductDraft({
+    text: "1899 букет ніжний",
+    photoFileId: "photo-id",
+    openAiClient: null
+  });
+
+  assert.equal(draft.merchandising.showOnMainPage, true);
+  assert.equal(draft.merchandising.order, 1);
+  assert.ok(draft.merchandising.hashtags.some((tag) => tag.value === "tsina-1000-2000"));
+  assert.ok(draft.merchandising.hashtags.every((tag) => tag.showToClient === true));
+  assert.ok(draft.merchandising.hashtags.every((tag) => tag.availableForSearch === true));
+});
+
+test("passes multiple image data URLs to the vision client", async () => {
+  let capturedInput;
+  await createProductDraft({
+    text: "1899 Букети ніжний",
+    photoFileIds: ["photo-1", "photo-2"],
+    imageDataUrls: ["data:image/jpeg;base64,one", "data:image/jpeg;base64,two"],
+    openAiClient: {
+      async generateProductContent(input) {
+        capturedInput = input;
+        return {
+          nameUk: "Rivage Serein",
+          nameEn: "Rivage Serein",
+          descriptionUk: "A refined floral composition with a soft boutique mood.",
+          descriptionEn: "A refined floral composition with a soft boutique mood.",
+          category: "Букети",
+          productTypeUk: "букет троянд",
+          productTypeEn: "rose bouquet",
+          visibleSummaryUk: "букет троянд"
+        };
+      }
+    }
+  });
+
+  assert.deepEqual(capturedInput.imageDataUrls, ["data:image/jpeg;base64,one", "data:image/jpeg;base64,two"]);
+  assert.equal(capturedInput.hasImage, true);
 });
 
 test("keeps a valid source category when importing catalog items", async () => {
