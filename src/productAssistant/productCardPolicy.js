@@ -7,13 +7,14 @@ export const PRODUCT_CARD_PLAYBOOK = {
     "nameUk/nameEn are only creative collection names. They must not contain product type, flower species, colors, packaging, or category words.",
     "productTypeUk/productTypeEn carry factual clarity: bouquet, flower box, plant, aroma diffuser, toy, postcard, accessory.",
     "descriptionUk must start from visible facts: product type, form, color palette, packaging, texture, material, or function.",
-    "Flower descriptions must not list bouquet or composition ingredients. Do not name flower species or greenery in the public description.",
+    "Flower descriptions must identify up to 1-3 main flowers when they are confidently visible or named by the seller. Never list every stem, greenery, filler, or the complete composition.",
+    "Every Ukrainian bouquet or flower-box description must end with the exact availability and substitution note supplied in the prompt, added once during final normalization.",
     "Indoor plant descriptions must not narrate obvious leaves, flowers, or white spathes from the photo. Use the label name for product type and write the public description around mood, placement, and lasting gift value.",
     "Never use generic premium filler. If a sentence could fit any product, rewrite it.",
     "SEO must be factual and restrained: no invented delivery, guarantees, exact counts, materials, size, or varieties."
   ],
   goodPattern:
-    "Creative name: 'Lumiere Douce'. Product type: 'букет півоній'. Description: factual visible composition first, then one restrained boutique sentence.",
+    "Creative name: 'Brume de Lune'. Product type: 'букет півоній та бузку'. Description: mention the main flowers once, then describe the silhouette, palette, mood, and occasion in one restrained boutique paragraph.",
   badPatterns: [
     "Декоративний подарунок створено з увагою і гармонією форми.",
     "Гарний букет для особливого моменту.",

@@ -9,7 +9,7 @@ import {
 import { getAllowedCategories } from "../src/productAssistant/catalogRules.js";
 
 const BOUQUET_AVAILABILITY_NOTE =
-  "У разі відсутності окремих квітів вони можуть бути замінені на аналогічні або дорожчі за наш рахунок, зі збереженням стилю, кольорової гами, форми та загального характеру букета.";
+  "У разі відсутності окремих позицій можливе коригування складу: окремі квіти можуть бути замінені на аналогічні або дорожчі за наш рахунок із збереженням стилю, кольорової гами, форми та загального характеру букета.";
 
 test("parses price and product hint from a Telegram message", () => {
   const parsed = parseProductMessage("280 автопарфум Lost Cherry");
@@ -120,6 +120,64 @@ test("creates a boutique-style fallback name and description for bouquets", asyn
   assert.match(draft.descriptionUk, /французьку подачу|Nouvel Amour/i);
 });
 
+test("forces main flowers, the final availability note, and SEO fallbacks", async () => {
+  const draft = await createProductDraft({
+    text: "букет рожевих півоній та бузку 2490 грн",
+    openAiClient: {
+      async generateProductContent() {
+        return {
+          nameUk: "Brume de Lune",
+          nameEn: "Brume de Lune",
+          descriptionUk:
+            "Цей букет має м'яку подачу для особистого привітання і виглядає доречно в камерній, стриманій атмосфері.",
+          descriptionEn: "A refined bouquet for an intimate, thoughtful greeting.",
+          category: "Букети",
+          productTypeUk: "букет",
+          productTypeEn: "bouquet",
+          visibleSummaryUk: "ніжна композиція",
+          seoTitleUk: "",
+          seoDescriptionUk: "Товар у категорії Букети для особливих моментів.",
+          seoKeywordsUk: ""
+        };
+      }
+    }
+  });
+
+  assert.match(draft.descriptionUk, /півоні|бузк/i);
+  assert.ok(draft.descriptionUk.endsWith(BOUQUET_AVAILABILITY_NOTE));
+  assert.equal(draft.descriptionUk.split(BOUQUET_AVAILABILITY_NOTE).length - 1, 1);
+  assert.ok(draft.seo.titleUk.length >= 12);
+  assert.ok(draft.seo.descriptionUk.length >= 12);
+  assert.doesNotMatch(draft.seo.descriptionUk, /товар у категорії|особливих моментів/i);
+  assert.ok(draft.seo.keywordsUk.length >= 12);
+});
+
+test("does not reuse a style-example name", async () => {
+  const draft = await createProductDraft({
+    text: "280 автопарфум",
+    openAiClient: {
+      async generateProductContent() {
+        return {
+          nameUk: "Brume de Lune",
+          nameEn: "Brume de Lune",
+          descriptionUk: "Аромадифузор додає простору делікатний ароматний акцент і відчуття доглянутої атмосфери для дому.",
+          descriptionEn: "A refined aroma accent for the home.",
+          category: "Арома товари",
+          productTypeUk: "аромадифузор",
+          productTypeEn: "aroma diffuser",
+          visibleSummaryUk: "аромадифузор",
+          seoTitleUk: "Brume de Lune",
+          seoDescriptionUk: "Аромадифузор від Nouvel Amour.",
+          seoKeywordsUk: "аромадифузор, Nouvel Amour"
+        };
+      }
+    }
+  });
+
+  assert.notEqual(draft.nameUk, "Brume de Lune");
+  assert.equal(hasProductNameStopWords(draft.nameUk), false);
+});
+
 test("creates counted stock drafts for indoor plants in decorative packaging", async () => {
   const draft = await createProductDraft({
     text: "декоративно-рослинна композиція в упаковці 950 грн",
@@ -171,6 +229,7 @@ test("passes attached image data to AI content generation", async () => {
   assert.match(draft.sku, /^BX-/);
   assert.notEqual(draft.nameUk, "Jardin Secret");
   assert.equal(hasProductNameStopWords(draft.nameUk), false);
+  assert.ok(draft.descriptionUk.endsWith(BOUQUET_AVAILABILITY_NOTE));
 });
 
 test("prompts AI to read labels before guessing plant identity", async () => {

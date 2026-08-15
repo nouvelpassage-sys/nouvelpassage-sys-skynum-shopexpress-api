@@ -6,7 +6,7 @@ import { hasProductNameStopWords as policyHasProductNameStopWords } from "./prod
 
 const PRICE_PATTERN = /(?:^|\s)(\d{2,6})(?:\s*(?:\u0433\u0440\u043d|uah|\u20b4|\u0420\u0456\u0421\u0402\u0420\u0405|\u0432\u201a\u0491))?/iu;
 const BOUQUET_AVAILABILITY_NOTE =
-  "У разі відсутності окремих квітів вони можуть бути замінені на аналогічні або дорожчі за наш рахунок, зі збереженням стилю, кольорової гами, форми та загального характеру букета.";
+  "У разі відсутності окремих позицій можливе коригування складу: окремі квіти можуть бути замінені на аналогічні або дорожчі за наш рахунок із збереженням стилю, кольорової гами, форми та загального характеру букета.";
 
 export function parseProductMessage(text) {
   const raw = String(text ?? "").trim();
@@ -156,10 +156,12 @@ function normalizeDraft(draft) {
       name: draft.nameUk,
       productType: draft.productTypeUk,
       visibleSummary: draft.visibleSummaryUk,
+      sourceText: draft.sourceText,
       category: draft.category
     }), {
       productType: draft.productTypeUk,
-      visibleSummary: draft.visibleSummaryUk
+      visibleSummary: draft.visibleSummaryUk,
+      sourceText: draft.sourceText
     }),
     draft.category,
     draft.productTypeUk
@@ -194,11 +196,25 @@ function normalizeDraft(draft) {
     nameEn: draft.nameEn,
     merchandising: draft.merchandising ?? buildMerchandisingProfile(draft),
     descriptionUk,
-    descriptionEn: draft.descriptionEn,
+    descriptionEn: draft.descriptionEn || buildEnDescription(draft.nameUk, draft.productTypeUk, draft.category),
     seo: {
-      titleUk: draft.seoTitleUk,
-      descriptionUk: draft.seoDescriptionUk,
-      keywordsUk: draft.seoKeywordsUk,
+      titleUk: normalizeSeoText(
+        draft.seoTitleUk,
+        `${draft.nameUk} — ${draft.productTypeUk} | Nouvel Amour`,
+        60
+      ),
+      descriptionUk: normalizeSeoText(
+        draft.seoDescriptionUk,
+        buildSeoDescription(draft),
+        160
+      ),
+      keywordsUk: normalizeSeoText(
+        draft.seoKeywordsUk,
+        [draft.nameUk, draft.productTypeUk, draft.category, "Nouvel Amour", "квіти Київ", "подарунок"]
+          .filter(Boolean)
+          .join(", "),
+        255
+      ),
       slug: slugify(draft.nameUk || draft.slug)
     }
   };
@@ -242,7 +258,13 @@ function appendBouquetAvailabilityNote(description, category, productType) {
     return description;
   }
 
-  const normalized = String(description ?? "").replace(/\s+/g, " ").trim();
+  const normalized = String(description ?? "")
+    .replace(/\s+/g, " ")
+    .replace(
+      /У разі відсутності окремих (?:позицій|квітів)[^.?!]+(?:букета|букету)\.?/iu,
+      ""
+    )
+    .trim();
   if (!normalized) {
     return BOUQUET_AVAILABILITY_NOTE;
   }
@@ -255,7 +277,9 @@ function appendBouquetAvailabilityNote(description, category, productType) {
 }
 
 function isBouquetDraft(category, productType) {
-  return String(category ?? "").includes("Букети") || /\b(букет|bouquet)\b/iu.test(String(productType ?? ""));
+  return String(category ?? "").includes("Букети") ||
+    String(category ?? "").includes("Квіти в коробках") ||
+    /\b(букет|bouquet|квіткова композиція|flower arrangement)\b/iu.test(String(productType ?? ""));
 }
 
 function sanitizeCreativeProductName(name, category, seed = "", usedNames = []) {
@@ -292,17 +316,26 @@ function areCreativeNamesTooSimilar(left, right) {
 const OVERUSED_CREATIVE_NAMES = [
   "atelier lesnikov",
   "atelier lumiere",
+  "aveline tendre",
   "belle histoire",
+  "brume de lune",
+  "celestine rive gauche",
+  "clairmont serein",
   "fete jolie",
   "jardin secret",
   "lumiere douce",
+  "marais de soie",
   "maison ambree",
   "maison verte",
   "maison vivante",
   "mot doux",
+  "nocturne opale",
   "offre jolie",
+  "opaline rive",
   "petit ami",
-  "velours secret"
+  "sillage aube",
+  "velours secret",
+  "vendome du matin"
 ];
 
 const PRODUCT_NAME_STOP_WORDS = [
@@ -532,6 +565,21 @@ function buildEnDescription(name, baseName, category) {
     return `${buildFallbackNameEn(name)} is a French-inspired floral composition made for moments that deserve more than an ordinary gift. ${titleCase(transliterate(baseName))} feels tender, elegant and memorable.`;
   }
   return `${buildFallbackNameEn(name)} by Nouvel Amour is a thoughtful gift with a soft boutique mood and a refined French touch.`;
+}
+
+function buildSeoDescription(draft) {
+  const name = draft.nameUk || "Товар Nouvel Amour";
+  const type = draft.productTypeUk || draft.category || "подарунок";
+  return `${name} — ${type} від Nouvel Amour для красивого особистого приводу або подарунка.`;
+}
+
+function normalizeSeoText(value, fallback, maxLength) {
+  const normalized = String(value ?? "")
+    .replace(/\s+/g, " ")
+    .trim();
+  const hasBoilerplate = /товар\s+у\s+категорі|декоративн(?:ий|ого)\s+подарунк|гарн(?:ий|ого)\s+букет|опис\s+має|варто\s+описувати/iu.test(normalized);
+  const candidate = normalized.length >= 12 && !hasBoilerplate ? normalized : String(fallback ?? "").trim();
+  return candidate.slice(0, maxLength).trim();
 }
 
 function createSku(category) {

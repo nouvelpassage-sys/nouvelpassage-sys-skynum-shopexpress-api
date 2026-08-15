@@ -27,6 +27,10 @@ export function validateProductDraft(draft) {
     issues.push("Опис не проходить редакційний фільтр якості.");
   }
 
+  if (isFloralDraft(draft) && !hasBouquetAvailabilityNote(draft.descriptionUk)) {
+    issues.push("Для букета або квітів у коробці відсутня обов'язкова примітка про можливу заміну квітів.");
+  }
+
   if (hasBannedCopyPhrase(draft.seo?.descriptionUk)) {
     issues.push("SEO опис містить заборонені шаблонні фрази.");
   }
@@ -46,6 +50,18 @@ export function validateProductDraft(draft) {
   }
 
   return issues;
+}
+
+function isFloralDraft(draft) {
+  return String(draft.category ?? "").includes("Букети") ||
+    String(draft.category ?? "").includes("Квіти в коробках") ||
+    /\b(букет|bouquet|квіткова композиція|flower arrangement)\b/iu.test(String(draft.productTypeUk ?? ""));
+}
+
+function hasBouquetAvailabilityNote(value) {
+  return /У разі відсутності окремих позицій можливе коригування складу:.*загального характеру букета\.$/iu.test(
+    String(value ?? "").trim()
+  );
 }
 
 export function formatQualityIssues(issues) {

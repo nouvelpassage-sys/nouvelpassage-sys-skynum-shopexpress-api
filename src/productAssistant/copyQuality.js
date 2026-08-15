@@ -67,14 +67,18 @@ const PLANT_OBVIOUS_PHRASES = [
   "листя і білі"
 ];
 
-export function improveShortDescription({ description, name, productType, category, visibleSummary }) {
+export function improveShortDescription({ description, name, productType, category, visibleSummary, sourceText }) {
   const text = String(description ?? "").trim();
   if (!needsImprovement(text, category)) {
-    return ensureMainFlowerDetails(text, { productType, visibleSummary });
+    return ensureMainFlowerDetails(text, { productType, visibleSummary, sourceText });
   }
 
   if (isFlowerCategory(category)) {
-    return ensureMainFlowerDetails(buildFlowerDescription({ name, productType, visibleSummary }), { productType, visibleSummary });
+    return ensureMainFlowerDetails(buildFlowerDescription({ name, productType, visibleSummary, sourceText }), {
+      productType,
+      visibleSummary,
+      sourceText
+    });
   }
 
   let type = String(productType || name || "позиція Nouvel Amour").trim();
@@ -136,11 +140,11 @@ export function hasBannedCopyPhrase(value) {
 export function hasFlowerCompositionDetails(value) {
   const latin = transliterateForPolicy(stripLatinAccents(value)).toLowerCase();
   const matches = FLOWER_COMPOSITION_DETAIL_STEMS.filter((stem) => latin.includes(stem));
-  return matches.length >= 4 || /(?:та|і|and|with|з)\s+\S+.*(?:та|і|and|with|з)\s+\S+.*(?:та|і|and|with|з)\s+\S+/iu.test(String(value ?? ""));
+  return matches.length >= 4;
 }
 
-export function ensureMainFlowerDetails(description, { productType, visibleSummary } = {}) {
-  const flowers = extractMainFlowers([productType, visibleSummary].filter(Boolean).join(" "));
+export function ensureMainFlowerDetails(description, { productType, visibleSummary, sourceText } = {}) {
+  const flowers = extractMainFlowers([productType, visibleSummary, sourceText].filter(Boolean).join(" "));
   if (!flowers.length) {
     return String(description ?? "").trim();
   }
@@ -151,7 +155,7 @@ export function ensureMainFlowerDetails(description, { productType, visibleSumma
     return normalized;
   }
 
-  return `${missing.join(" та ")} задають букету його впізнаваний настрій і фактуру. ${normalized}`;
+  return `Основу букета формують ${missing.join(" та ")}; вони задають його впізнаваний настрій і фактуру. ${normalized}`;
 }
 
 export function hasObviousPlantMorphology(value) {
@@ -159,9 +163,9 @@ export function hasObviousPlantMorphology(value) {
   return PLANT_OBVIOUS_PHRASES.some((phrase) => lower.includes(phrase));
 }
 
-function buildFlowerDescription({ name, productType, visibleSummary }) {
+function buildFlowerDescription({ name, productType, visibleSummary, sourceText }) {
   const safeName = cleanSentence(name) || "Nouvel Amour";
-  const flowers = extractMainFlowers([productType, visibleSummary, name].filter(Boolean).join(" "));
+  const flowers = extractMainFlowers([productType, visibleSummary, sourceText, name].filter(Boolean).join(" "));
   const flowerLead = flowers.length ? `${flowers.join(" та ")} у` : "флористична композиція у";
   return `${capitalize(flowerLead)} ${safeName} звучить витончено завдяки продуманому силуету, фактурі та делікатній палітрі Nouvel Amour. Це букет із французькою подачею для привітання, побачення або особистого компліменту, коли важливі не гучні слова, а точне відчуття моменту.`;
 }
