@@ -25,7 +25,6 @@ export class ProductAssistantBot {
     this.autoPublishReady = autoPublishReady;
     this.offset = undefined;
     this.lastDraftByChat = new Map();
-    this.pendingManualEdits = new Map();
     this.recentPhotoMessages = new Map();
     this.recentMediaGroups = new Map();
     this.mediaGroupBuffers = new Map();
@@ -93,15 +92,6 @@ export class ProductAssistantBot {
       return;
     }
 
-    if (command === "/cancel") {
-      const wasPending = this.pendingManualEdits.delete(chatId);
-      await this.telegram.sendMessage(
-        chatId,
-        wasPending ? "Ручне редагування скасовано. Картка залишилася без змін." : "Немає активного ручного редагування."
-      );
-      return;
-    }
-
     if (command === "/start") {
       await this.telegram.sendMessage(
         chatId,
@@ -160,13 +150,6 @@ export class ProductAssistantBot {
       return;
     }
 
-    const pendingManualEdit = this.getPendingManualEdit(chatId);
-    if (pendingManualEdit && !getLargestPhotoFileId(message.photo) && text.trim() && !command?.startsWith("/")) {
-      this.pendingManualEdits.delete(chatId);
-      await this.applyManualEdit(chatId, pendingManualEdit.draftId, text.trim());
-      return;
-    }
-
     const revisionMode = getRevisionModeFromText(message.text);
     if (revisionMode) {
       await this.handleRevisionCommand(chatId, revisionMode);
@@ -194,7 +177,6 @@ export class ProductAssistantBot {
       await this.telegram.sendMessage(chatId, getPhotoFirstInstruction());
       return;
     }
-    this.pendingManualEdits.delete(chatId);
 
     if (message.media_group_id) {
       this.queueMediaGroupMessage(message);
@@ -321,99 +303,6 @@ export class ProductAssistantBot {
     }
 
     await this.regenerateDraft(chatId, draftId, mode);
-  }
-
-  getPendingManualEdit(chatId) {
-    const pending = this.pendingManualEdits.get(chatId);
-    if (!pending) {
-      return null;
-    }
-
-    if (Date.now() - pending.createdAt > 30 * 60 * 1000) {
-      this.pendingManualEdits.delete(chatId);
-      return null;
-    }
-
-    return pending;
-  }
-
-  async beginManualEdit(chatId, draftId) {
-    this.lastDraftByChat.set(chatId, draftId);
-    this.pendingManualEdits.set(chatId, { draftId, createdAt: Date.now() });
-    await this.telegram.sendMessage(
-      chatId,
-      [
-        "<b>Ручне редагування картки</b>",
-        "",
-        "Напиши одним повідомленням, що додати, прибрати або змінити. Я застосую правку до цієї картки й покажу нову версію.",
-        "",
-        "Наприклад: <i>Зроби опис теплішим, прибери слово «подарунок» і додай, що композиція пасує для святкового столу.</i>",
-        "",
-        "Можна також у форматі:",
-        "<code>Назва: ...</code>",
-        "<code>Опис: ...</code>",
-        "<code>Ціна: ...</code>",
-        "",
-        "Щоб скасувати режим, надішли /cancel."
-      ].join("\n")
-    );
-  }
-
-  async applyManualEdit(chatId, draftId, instruction) {
-    const previousDraft = await this.store.get(draftId);
-    await this.telegram.sendMessage(chatId, "Застосовую твою правку до картки й перевіряю її ще раз...");
-
-    const previousPhotoFileIds = previousDraft.photoFileIds?.length
-      ? previousDraft.photoFileIds
-      : (previousDraft.photoFileId ? [previousDraft.photoFileId] : []);
-    let imageDataUrls = [];
-    let imageFiles = [];
-    if (previousPhotoFileIds.length && this.contentClient && this.telegram.getFileDataUrl) {
-      try {
-        imageFiles = await Promise.all(previousPhotoFileIds.map((fileId) => this.telegram.getFileImage
-          ? this.telegram.getFileImage(fileId)
-          : this.telegram.getFileDataUrl(fileId).then((dataUrl) => ({ dataUrl }))));
-        imageDataUrls = imageFiles.map((imageFile) => imageFile.dataUrl).filter(Boolean);
-      } catch (error) {
-        console.error(error);
-        await this.telegram.sendMessage(chatId, "Фото повторно не завантажилося, тому застосовую правку за даними попередньої картки.");
-      }
-    }
-
-    const explicitCategory = extractManualCategory(instruction);
-    const sourceText = applyManualPriceOverride(previousDraft.sourceText, instruction);
-    const revisionInstruction = getManualEditInstruction(instruction);
-    let draft;
-    try {
-      draft = await createProductDraft({
-        text: sourceText,
-        photoFileId: previousPhotoFileIds[0],
-        photoFileIds: previousPhotoFileIds,
-        imageDataUrls,
-        imageDataUrl: imageDataUrls[0] ?? null,
-        openAiClient: this.contentClient,
-        sourceCategory: explicitCategory ?? previousDraft.category,
-        revisionInstruction,
-        sourceDraftId: previousDraft.id
-      });
-    } catch (error) {
-      console.error(error);
-      await this.telegram.sendMessage(chatId, getAiFailureMessage(error));
-      draft = await createProductDraft({
-        text: sourceText,
-        photoFileId: previousPhotoFileIds[0],
-        photoFileIds: previousPhotoFileIds,
-        openAiClient: null,
-        sourceCategory: explicitCategory ?? previousDraft.category,
-        revisionInstruction,
-        sourceDraftId: previousDraft.id
-      });
-    }
-
-    draft = await this.attachStoredImages({ chatId, draft, imageFiles });
-    draft = preservePublicImageFromPreviousDraft(draft, previousDraft);
-    const filePath = await this.store.save(draft);
-    await this.sendDraft(chatId, draft, filePath);
   }
 
   async handlePublishCommand(chatId) {
@@ -700,21 +589,6 @@ export class ProductAssistantBot {
       return;
     }
 
-    if (action === "edit") {
-      try {
-        await this.store.get(draftId);
-        await this.telegram.answerCallbackQuery(callbackQuery.id, "Напиши правку наступним повідомленням");
-        await this.beginManualEdit(chatId, draftId);
-      } catch (error) {
-        if (!isMissingDraftError(error)) {
-          throw error;
-        }
-        await this.telegram.answerCallbackQuery(callbackQuery.id, "Картка вже недоступна");
-        await this.sendMissingDraftMessage(chatId);
-      }
-      return;
-    }
-
     if (action === "publish") {
       let publishResult;
       try {
@@ -850,7 +724,6 @@ export class ProductAssistantBot {
       await this.telegram.sendMessage(chatId, captionIssue);
       return;
     }
-
     if (this.isRecentDuplicatePhotoMessage(chatId, photoFileIds.join(","), text)) {
       await this.telegram.sendMessage(chatId, "Цей альбом із таким самим підписом уже обробляється або щойно оброблений.");
       return;
@@ -1182,8 +1055,6 @@ function getHelpMessage() {
     "/shorter - скоротити",
     "/fix - виправити слабкі місця",
     "/redo - створити заново",
-    "Кнопка «Редагувати картку» - написати власну правку для останньої чернетки",
-    "/cancel - скасувати очікування ручної правки",
     "/ready - стан готових карток",
     "/export - надіслати SalesBox YML файл",
     "/shopimport - дати публічне посилання на CSV-чергу ShopExpress",
@@ -1224,45 +1095,12 @@ function buildDraftKeyboard(draft) {
         { text: "Переписати опис", callback_data: `desc:${draft.id}` }
       ],
       [
-        { text: "✏️ Редагувати картку", callback_data: `edit:${draft.id}` }
-      ],
-      [
         { text: "Преміальніше", callback_data: `prem:${draft.id}` },
         { text: "Коротше", callback_data: `short:${draft.id}` },
         { text: "Виправити", callback_data: `fix:${draft.id}` }
       ]
     ]
   };
-}
-
-export function getManualEditInstruction(instruction) {
-  return [
-    "Apply the user's manual edit to the existing product card.",
-    "Preserve the real product identity, photo evidence, price, and approved catalog category unless the user explicitly asks to change one of them.",
-    "If the user provides replacement text for a field, use it as the source of truth for that field.",
-    "Keep the copy concise, premium, natural, and fact-based. Do not invent flowers, materials, dimensions, or benefits that are not supported by the photo or the existing card.",
-    `User's manual edit: ${String(instruction).trim()}`
-  ].join("\n");
-}
-
-function extractManualCategory(instruction) {
-  const match = String(instruction ?? "").match(/(?:^|\n)\s*категорія\s*:\s*(.+?)(?=\n|$)/iu);
-  return match?.[1]?.trim() || null;
-}
-
-function applyManualPriceOverride(sourceText, instruction) {
-  const priceMatch = String(instruction ?? "").match(/(?:^|\n)\s*ціна\s*:\s*(\d{2,6})(?=\s|грн|uah|₴|$)/iu);
-  if (!priceMatch) {
-    return sourceText;
-  }
-
-  const nextPrice = priceMatch[1];
-  const currentPrice = parseProductMessage(sourceText).price;
-  if (currentPrice == null) {
-    return `${nextPrice} ${String(sourceText ?? "").trim()}`.trim();
-  }
-
-  return String(sourceText).replace(String(currentPrice), nextPrice);
 }
 
 function getAiFailureMessage(error) {
