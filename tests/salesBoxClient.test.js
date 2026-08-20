@@ -81,6 +81,22 @@ test("SalesBox payload keeps creative name separate from factual category data",
   assert.equal(payload.photos[0].url, "https://example.com/product.jpg");
 });
 
+test("SalesBox payload forces every published product to the main page at position one", () => {
+  const client = new SalesBoxClient({
+    baseUrl: "https://prod.salesbox.me/openapi/",
+    apiToken: "token",
+    writeEnabled: false
+  });
+
+  const payload = client.toOfferPayload({
+    ...draft,
+    merchandising: { showOnMainPage: false, order: 47, hashtags: [] }
+  });
+
+  assert.equal(payload.isTop, true);
+  assert.equal(payload.order, 1);
+});
+
 test("SalesBox payload adds each product to the hot showcase category without duplicates", () => {
   const client = new SalesBoxClient({
     baseUrl: "https://prod.salesbox.me/openapi/",
