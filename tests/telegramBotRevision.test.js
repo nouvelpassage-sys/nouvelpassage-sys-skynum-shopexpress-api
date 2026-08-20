@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { SALESBOX_CATEGORY_IDS } from "../src/productAssistant/salesBoxClient.js";
 import {
   getExportModeFromText,
+  getManualEditInstruction,
   getRevisionInstruction,
   getRevisionModeFromCallbackAction,
   getRevisionModeFromText,
@@ -311,6 +312,118 @@ test("Telegram draft message is concise for mobile use", async () => {
   assert.match(sentMessages[0].text, /Картка готова до SalesBox/);
   assert.doesNotMatch(sentMessages[0].text, /internal\/path|draft-ready\.json/);
   assert.ok(sentMessages[0].options.reply_markup.inline_keyboard.length >= 2);
+  assert.equal(
+    sentMessages[0].options.reply_markup.inline_keyboard.flat().some((button) => button.callback_data === "edit:draft-ready"),
+    true
+  );
+});
+
+test("Telegram bot starts a manual edit session for the selected draft", async () => {
+  const callbackAnswers = [];
+  const sentMessages = [];
+  const draft = {
+    id: "draft-edit",
+    nameUk: "Maison Calme",
+    category: bouquetCategory,
+    sourceText: "2500 bouquet",
+    photoUrl: "https://example.test/bouquet.jpg"
+  };
+  const bot = new ProductAssistantBot({
+    telegram: {
+      answerCallbackQuery: async (callbackId, text) => callbackAnswers.push({ callbackId, text }),
+      sendMessage: async (chatId, text) => sentMessages.push({ chatId, text })
+    },
+    store: { get: async () => draft },
+    contentClient: null,
+    allowedChatIds: [],
+    imageStorage: null,
+    salesBox: { canWrite: () => false }
+  });
+
+  await bot.handleCallback({
+    id: "callback-edit",
+    data: "edit:draft-edit",
+    message: { chat: { id: "1" } }
+  });
+
+  assert.equal(callbackAnswers[0].text, "Напиши правку наступним повідомленням");
+  assert.match(sentMessages[0].text, /Ручне редагування картки/);
+  assert.equal(bot.pendingManualEdits.get("1").draftId, draft.id);
+});
+
+test("Telegram bot applies the next message to the selected draft instead of creating a new product", async () => {
+  const sentMessages = [];
+  const savedDrafts = [];
+  const previousDraft = {
+    id: "draft-manual-edit",
+    sourceText: "2500 bouquet",
+    category: bouquetCategory,
+    photoFileId: null,
+    photoFileIds: [],
+    photoUrl: "https://example.test/bouquet.jpg",
+    previewUrl: "https://example.test/bouquet.jpg"
+  };
+  let generationInput;
+  const bot = new ProductAssistantBot({
+    telegram: {
+      answerCallbackQuery: async () => {},
+      sendMessage: async (chatId, text, options) => sentMessages.push({ chatId, text, options })
+    },
+    store: {
+      get: async () => previousDraft,
+      save: async (draft) => {
+        savedDrafts.push(draft);
+        return `C:/drafts/${draft.id}.json`;
+      },
+      list: async () => []
+    },
+    contentClient: {
+      generateProductContent: async (input) => {
+        generationInput = input;
+        return {
+          nameUk: "Maison Calme",
+          nameEn: "Maison Calme",
+          productTypeUk: "bouquet",
+          productTypeEn: "bouquet",
+          visibleSummaryUk: "Букет у ніжній гамі",
+          descriptionUk: "Лаконічна композиція для теплого жесту.",
+          descriptionEn: "A delicate composition for a warm gesture.",
+          category: bouquetCategory,
+          brand: "Nouvel Amour",
+          seoTitleUk: "Maison Calme | Nouvel Amour",
+          seoDescriptionUk: "Букет Maison Calme від Nouvel Amour.",
+          seoKeywordsUk: "Maison Calme, букет, Nouvel Amour"
+        };
+      }
+    },
+    allowedChatIds: [],
+    imageStorage: null,
+    salesBox: { canWrite: () => false }
+  });
+
+  await bot.handleCallback({
+    id: "callback-edit",
+    data: "edit:draft-manual-edit",
+    message: { chat: { id: "1" } }
+  });
+  await bot.handleMessage({
+    chat: { id: "1" },
+    text: "Ціна: 3200\nЗроби опис теплішим і прибери слово подарунок."
+  });
+
+  assert.match(generationInput.revisionInstruction, /прибери слово подарунок/iu);
+  assert.equal(generationInput.price, 3200);
+  assert.equal(savedDrafts.length, 1);
+  assert.equal(savedDrafts[0].sourceDraftId, previousDraft.id);
+  assert.equal(bot.pendingManualEdits.has("1"), false);
+  assert.ok(sentMessages.at(-1).options.reply_markup.inline_keyboard.flat().some((button) => button.callback_data.startsWith("edit:")));
+});
+
+test("manual edit instructions tell GPT to preserve facts and accept explicit changes", () => {
+  const instruction = getManualEditInstruction("Опис: зроби коротшим і прибери слово подарунок");
+
+  assert.match(instruction, /preserve the real product identity/i);
+  assert.match(instruction, /прибери слово подарунок/iu);
 });
 
 test("provides concrete revision instructions for GPT", () => {
