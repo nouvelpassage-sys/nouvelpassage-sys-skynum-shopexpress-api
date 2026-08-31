@@ -50,9 +50,25 @@ test("keeps flower boxes separate from indoor plants", () => {
   assert.equal(rule.stockMode, "unlimited");
 });
 
+test("treats a flower composition without a container as a bouquet", () => {
+  assert.equal(detectCategory("квіткова композиція для привітання").category, "Букети");
+});
+
+test("uses the generic gift category when there is no physical category evidence", () => {
+  assert.equal(detectCategory("нова позиція Nouvel Amour").category, "Декор та подарунки");
+});
+
 test("routes physical product categories before generic gift wording", () => {
   assert.equal(detectCategory("ароматичний подарунок, дифузор для дому").category, "Арома товари");
   assert.equal(detectCategory("подарунок: м'яка іграшка ведмедик").category, "Іграшки");
   assert.equal(detectCategory("квітковий подарунок у коробці").category, "Квіти в коробках");
   assert.equal(detectCategory("декоративний подарунок, спатифілум у кашпо").category, "Кімнатні рослини");
+});
+
+test("keeps each supported non-flower product in its physical category", () => {
+  assert.equal(detectCategory("ароматична свічка для дому").category, "Арома товари");
+  assert.equal(detectCategory("аудіолистівка з привітанням").category, "Листівки");
+  assert.equal(detectCategory("м'яка іграшка зайчик").category, "Іграшки");
+  assert.equal(detectCategory("керамічна ваза для інтер'єру").category, "Декор та подарунки");
+  assert.equal(detectCategory("авторська робота By Lesnikov").category, "Авторські роботи By Lesnikov");
 });

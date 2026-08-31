@@ -31,7 +31,7 @@ export const CATEGORY_RULES = [
   },
   {
     category: "Квіти в коробках",
-    match: ["короб", "box", "hatbox", "композиці", "кошик", "basket", "flower box"],
+    match: ["короб", "box", "hatbox", "кошик", "basket", "flower box"],
     aliases: ["квіти в коробках", "квіти в коробці", "композиції в коробках", "коробки"],
     strongMatch: ["короб", "box", "hatbox", "кошик", "basket", "flower box"],
     priority: 110,
@@ -61,7 +61,7 @@ export const CATEGORY_RULES = [
   },
   {
     category: "Букети",
-    match: ["букет", "bouquet", "троянд", "півон", "квіти", "ранункул", "гортенз", "лілі", "еустом"],
+    match: ["букет", "bouquet", "квіткову композиці", "квіткова композиці", "flower arrangement", "троянд", "півон", "квіти", "ранункул", "гортенз", "лілі", "еустом"],
     aliases: ["букети", "букет", "зрізані квіти", "квіткові букети"],
     strongMatch: ["букет", "bouquet", "троянд", "півон", "квіти", "ранункул", "гортенз", "лілі", "еустом"],
     priority: 90,
@@ -112,7 +112,7 @@ export function detectCategory(input) {
       const strongMatches = (rule.strongMatch ?? rule.match).filter((word) => normalized.includes(normalize(word)));
       return {
         rule,
-        score: strongMatches.length * 100 + matches.length * 10 + (rule.priority ?? 0)
+        score: strongMatches.length * 100 + matches.length * 10 + (matches.length ? (rule.priority ?? 0) : 0)
       };
     })
     .filter((item) => item.score > 0)

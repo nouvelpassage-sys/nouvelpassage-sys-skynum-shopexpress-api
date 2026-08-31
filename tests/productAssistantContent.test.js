@@ -399,6 +399,69 @@ test("product drafts include default merchandising data for SalesBox", async () 
   assert.ok(draft.merchandising.hashtags.every((tag) => tag.availableForSearch === true));
 });
 
+test("normalizes merchandising defaults even when an AI response tries to override them", async () => {
+  const draft = await createProductDraft({
+    text: "1899 букет ніжний",
+    photoFileId: "photo-id",
+    openAiClient: {
+      async generateProductContent() {
+        return {
+          nameUk: "Aurelie Aube",
+          nameEn: "Aurelie Aube",
+          descriptionUk: "Ніжна квіткова композиція для особистого привітання у м'якій палітрі.",
+          category: "Букети",
+          productTypeUk: "букет троянд",
+          productTypeEn: "rose bouquet",
+          visibleSummaryUk: "букет троянд",
+          merchandising: { showOnMainPage: false, order: 999 }
+        };
+      }
+    }
+  });
+
+  assert.equal(draft.merchandising.showOnMainPage, true);
+  assert.equal(draft.merchandising.order, 1);
+});
+
+test("finds a fresh fallback name across the name bank", async () => {
+  const usedNames = [];
+  const names = [];
+  for (let index = 0; index < 40; index += 1) {
+    const draft = await createProductDraft({
+      text: `1899 букет ніжний ${index}`,
+      photoFileId: `photo-${index}`,
+      openAiClient: null,
+      usedNames
+    });
+    names.push(draft.nameUk);
+    usedNames.push(draft.nameUk, draft.nameEn);
+  }
+
+  assert.equal(new Set(names).size, names.length);
+  assert.ok(names.every((name) => hasProductNameStopWords(name) === false));
+});
+
+test("does not repeat a fallback name when the same product is submitted again", async () => {
+  const usedNames = [];
+  const first = await createProductDraft({
+    text: "1899 букет ніжний",
+    photoFileId: "photo-1",
+    openAiClient: null,
+    usedNames
+  });
+  usedNames.push(first.nameUk, first.nameEn);
+
+  const second = await createProductDraft({
+    text: "1899 букет ніжний",
+    photoFileId: "photo-2",
+    openAiClient: null,
+    usedNames
+  });
+
+  assert.notEqual(first.nameUk, second.nameUk);
+  assert.equal(hasProductNameStopWords(second.nameUk), false);
+});
+
 test("passes multiple image data URLs to the vision client", async () => {
   let capturedInput;
   await createProductDraft({

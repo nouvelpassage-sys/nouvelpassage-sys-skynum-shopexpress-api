@@ -53,7 +53,7 @@ export async function createProductDraft({
   const baseName = parsed.titleSeed || "Новий товар Nouvel Amour";
   const sourceCategoryRule = getCategoryRule(sourceCategory) ?? getCategoryRule(parsed.categoryHint);
   const categoryRule = sourceCategoryRule ?? detectCategory(baseName);
-  const fallbackNameUk = buildCreativeName(baseName, categoryRule.category, parsed.raw);
+  const fallbackNameUk = buildCreativeName(baseName, categoryRule.category, parsed.raw, usedNames);
 
   if (openAiClient) {
     const generated = await openAiClient.generateProductContent({
@@ -194,7 +194,10 @@ function normalizeDraft(draft) {
     visibleSummaryUk: draft.visibleSummaryUk,
     nameUk: draft.nameUk,
     nameEn: draft.nameEn,
-    merchandising: draft.merchandising ?? buildMerchandisingProfile(draft),
+    merchandising: {
+      ...(draft.merchandising ?? {}),
+      ...buildMerchandisingProfile(draft),
+    },
     descriptionUk,
     descriptionEn: draft.descriptionEn || buildEnDescription(draft.nameUk, draft.productTypeUk, draft.category),
     seo: {
@@ -293,11 +296,46 @@ function sanitizeCreativeProductName(name, category, seed = "", usedNames = []) 
 }
 
 function ensureUniqueCreativeName(name, category, seed, usedNames) {
-  let candidate = sanitizeCreativeProductName(name, category, seed, usedNames);
-  for (let attempt = 0; attempt < 12 && usedNames.some((usedName) => areCreativeNamesTooSimilar(usedName, candidate)); attempt += 1) {
-    candidate = buildCategoryCreativeName(category, `${seed} | variant-${attempt + 1}`);
+  const normalizedUsedNames = Array.isArray(usedNames) ? usedNames.filter(Boolean) : [];
+  const candidate = sanitizeCreativeProductName(name, category, seed, normalizedUsedNames);
+  if (candidate && !normalizedUsedNames.some((usedName) => areCreativeNamesTooSimilar(usedName, candidate))) {
+    return candidate;
   }
-  return candidate;
+
+  return buildAvailableCreativeName(category, `${seed} | ${candidate}`, normalizedUsedNames);
+}
+
+function buildAvailableCreativeName(category, seed, usedNames) {
+  const start = hashString(`${category ?? ""} | ${seed}`);
+  const pairCount = CREATIVE_NAME_FIRST.length * CREATIVE_NAME_SECOND.length;
+
+  for (let offset = 0; offset < pairCount; offset += 1) {
+    const hash = start + offset;
+    const candidate = `${CREATIVE_NAME_FIRST[hash % CREATIVE_NAME_FIRST.length]} ${CREATIVE_NAME_SECOND[Math.floor(hash / CREATIVE_NAME_FIRST.length) % CREATIVE_NAME_SECOND.length]}`;
+    if (isAvailableCreativeName(candidate, usedNames)) {
+      return candidate;
+    }
+  }
+
+  const threeWordCount = pairCount * CREATIVE_NAME_CONNECTORS.length;
+  for (let offset = 0; offset < threeWordCount; offset += 1) {
+    const hash = start + offset;
+    const firstIndex = hash % CREATIVE_NAME_FIRST.length;
+    const secondIndex = Math.floor(hash / CREATIVE_NAME_FIRST.length) % CREATIVE_NAME_SECOND.length;
+    const connector = CREATIVE_NAME_CONNECTORS[Math.floor(hash / pairCount) % CREATIVE_NAME_CONNECTORS.length];
+    const candidate = `${CREATIVE_NAME_FIRST[firstIndex]} ${connector} ${CREATIVE_NAME_SECOND[secondIndex]}`;
+    if (isAvailableCreativeName(candidate, usedNames)) {
+      return candidate;
+    }
+  }
+
+  throw new Error("Unable to create a unique creative product name from the configured name bank.");
+}
+
+function isAvailableCreativeName(candidate, usedNames) {
+  return !hasProductNameStopWords(candidate) &&
+    !isOverusedCreativeName(candidate) &&
+    !usedNames.some((usedName) => areCreativeNamesTooSimilar(usedName, candidate));
 }
 
 function areCreativeNamesTooSimilar(left, right) {
@@ -454,41 +492,68 @@ function cleanProductHint(value) {
 }
 
 const CREATIVE_NAME_FIRST = [
-  "Aveline",
+  "Aurelie",
   "Bastide",
-  "Brume",
-  "Celestine",
-  "Clairmont",
+  "Calisson",
+  "Cendre",
+  "Delphine",
+  "Eclat",
   "Elysee",
-  "Marais",
-  "Monceau",
+  "Esmee",
+  "Finesse",
+  "Giverny",
+  "Isaline",
+  "Jouvence",
+  "Liseron",
+  "Maelle",
+  "Mistral",
+  "Nacre",
   "Nocturne",
+  "Olympe",
   "Ondine",
   "Opaline",
-  "Rivage",
-  "Satin",
-  "Serenade",
-  "Solene",
-  "Vendome"
+  "Praline",
+  "Soline",
+  "Tuileries",
+  "Alouette",
+  "Doriane"
 ];
 
 const CREATIVE_NAME_SECOND = [
   "Aube",
   "Belle Nuit",
   "Clair",
-  "de Lune",
-  "de Minuit",
-  "de Soie",
-  "du Matin",
-  "en Reve",
+  "Ciel",
+  "Douceur",
+  "Envol",
+  "Etoile",
+  "Falaise",
+  "Lueur",
+  "Murmure",
+  "Perle",
+  "Poesie",
+  "Sillage",
+  "Solstice",
+  "Vesper",
+  "Velin",
+  "Verlaine",
+  "Brise",
+  "Clairiere",
+  "Miroir",
+  "Reverie",
+  "Minuit",
+  "Nuage",
   "Opale",
   "Rive Gauche",
   "Serein",
-  "Tendre"
+  "Tendre",
+  "Rivage"
 ];
 
-function buildCreativeName(baseName, category, seed = "") {
-  return buildCategoryCreativeName(category, `${baseName} | ${seed}`);
+const CREATIVE_NAME_CONNECTORS = ["de", "du", "en", "sur", "vers"];
+
+function buildCreativeName(baseName, category, seed = "", usedNames = []) {
+  return buildAvailableCreativeName(category, `${baseName} | ${seed}`, usedNames);
 }
 
 function buildCategoryCreativeName(category, seed = "") {
