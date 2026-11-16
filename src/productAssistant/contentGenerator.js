@@ -1,3 +1,5 @@
+import { randomUUID } from "node:crypto";
+import { chooseBouquetName, nameKey, randomNamingDirection } from "./bouquetNames.js";
 import { ensureMainFlowerDetails, improveShortDescription } from "./copyQuality.js";
 import { detectCategory, getAllowedCategories, getCategoryAliases, getCategoryRule, resolveCategoryRule } from "./catalogRules.js";
 import { buildMerchandisingProfile } from "./merchandisingRules.js";
@@ -41,6 +43,7 @@ export async function createProductDraft({
   imageDataUrl,
   openAiClient,
   usedNames = [],
+  store,
   sourceCategory,
   revisionInstruction,
   sourceDraftId
@@ -53,7 +56,21 @@ export async function createProductDraft({
   const baseName = parsed.titleSeed || "Новий товар Nouvel Amour";
   const sourceCategoryRule = getCategoryRule(sourceCategory) ?? getCategoryRule(parsed.categoryHint);
   const categoryRule = sourceCategoryRule ?? detectCategory(baseName);
-  const fallbackNameUk = buildCreativeName(baseName, categoryRule.category, parsed.raw, usedNames);
+  const id = createDraftId();
+  const history = [...new Set([...(await store?.getUsedNames?.() ?? []), ...usedNames])];
+  const reserve = (name) => store?.tryReserveName ? store.tryReserveName(name, id) : true;
+  async function selectName(suggestion, rule, productType, seed) {
+    if (!isBouquetDraft(rule.category, productType)) {
+      const candidate = suggestion
+        ? ensureUniqueCreativeName(suggestion, rule.category, seed, history)
+        : buildCreativeName(baseName, rule.category, seed, history);
+      if (await reserve(candidate)) return candidate;
+    }
+    return chooseBouquetName({
+      suggestion: cleanProductHint(suggestion).replace(/\s+[-–—:|]\s+.*$/u, ""),
+      usedNames: history, reserve, isBanned: isOverusedCreativeName
+    });
+  }
 
   if (openAiClient) {
     const generated = await openAiClient.generateProductContent({
@@ -66,7 +83,8 @@ export async function createProductDraft({
       imageDataUrl: normalizedImageDataUrls[0] ?? null,
       imageDataUrls: normalizedImageDataUrls,
       imageUrl: parsed.imageUrl,
-      existingNames: usedNames,
+      existingNames: history.slice(-40),
+      namingDirection: randomNamingDirection(),
       revisionInstruction
     });
     const generatedCategoryRule = sourceCategoryRule
@@ -89,18 +107,16 @@ export async function createProductDraft({
       generated.productTypeUk,
       generated.nameUk
     ].filter(Boolean).join(" | ");
-    const nameUk = ensureUniqueCreativeName(generated.nameUk, generatedCategoryRule.category, creativeSeed, usedNames);
-    const nameEn = sanitizeCreativeProductName(
-      generated.nameEn || buildFallbackNameEn(nameUk),
-      generatedCategoryRule.category,
-      `${creativeSeed} | en`,
-      [...usedNames, nameUk]
-    );
+    const nameUk = await selectName(generated.nameUk, generatedCategoryRule, productTypeUk, creativeSeed);
+    let nameEn = nameUk;
+    if (!isBouquetDraft(generatedCategoryRule.category, productTypeUk) && generated.nameEn) {
+      const candidate = sanitizeCreativeProductName(generated.nameEn, generatedCategoryRule.category, creativeSeed, history);
+      if (nameKey(candidate) !== nameKey(nameUk) && await reserve(candidate)) nameEn = candidate;
+    }
 
     return normalizeDraft({
-      ...generated,
-      nameUk,
-      nameEn,
+      ...replaceGeneratedNameInCopy(generated, nameUk, nameEn),
+      id, nameUk, nameEn,
       productTypeUk,
       productTypeEn: generated.productTypeEn || buildFallbackNameEn(productTypeUk),
       visibleSummaryUk: generated.visibleSummaryUk,
@@ -121,9 +137,11 @@ export async function createProductDraft({
     });
   }
 
+  const fallbackNameUk = await selectName(null, categoryRule, baseName, parsed.raw);
   return normalizeDraft({
+    id,
     nameUk: fallbackNameUk,
-    nameEn: buildFallbackNameEn(fallbackNameUk),
+    nameEn: isBouquetDraft(categoryRule.category, baseName) ? fallbackNameUk : buildFallbackNameEn(fallbackNameUk),
     productTypeUk: inferProductTypeUk(baseName, categoryRule.category),
     productTypeEn: buildFallbackNameEn(inferProductTypeUk(baseName, categoryRule.category)),
     visibleSummaryUk: titleCase(baseName),
@@ -149,6 +167,22 @@ export async function createProductDraft({
   });
 }
 
+function replaceGeneratedNameInCopy(generated, nameUk, nameEn) {
+  const copy = { ...generated };
+  for (const [oldName, newName, fields] of [
+    [generated.nameUk, nameUk, ["descriptionUk", "seoTitleUk", "seoDescriptionUk", "seoKeywordsUk"]],
+    [generated.nameEn, nameEn, ["descriptionEn"]]
+  ]) {
+    const oldTitle = cleanProductHint(oldName).split(/\s+[-–—:|]\s+/u)[0];
+    if (!oldTitle || oldTitle === newName) continue;
+    const pattern = new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(oldTitle)}(?![\\p{L}\\p{N}])`, "giu");
+    for (const field of fields) {
+      if (typeof copy[field] === "string") copy[field] = copy[field].replace(pattern, () => newName);
+    }
+  }
+  return copy;
+}
+
 function normalizeDraft(draft) {
   const descriptionUk = appendBouquetAvailabilityNote(
     ensureMainFlowerDetails(improveShortDescription({
@@ -167,7 +201,7 @@ function normalizeDraft(draft) {
     draft.productTypeUk
   );
   const normalized = {
-    id: createDraftId(),
+    id: draft.id,
     status: "draft",
     createdAt: new Date().toISOString(),
     sourceText: draft.sourceText,
@@ -282,7 +316,7 @@ function appendBouquetAvailabilityNote(description, category, productType) {
 function isBouquetDraft(category, productType) {
   return String(category ?? "").includes("Букети") ||
     String(category ?? "").includes("Квіти в коробках") ||
-    /\b(букет|bouquet|квіткова композиція|flower arrangement)\b/iu.test(String(productType ?? ""));
+    /(?<!\p{L})(букет|bouquet|квіткова композиція|flower arrangement)(?!\p{L})/iu.test(String(productType ?? ""));
 }
 
 function sanitizeCreativeProductName(name, category, seed = "", usedNames = []) {
@@ -666,7 +700,7 @@ function createSku(category) {
 
 function createDraftId() {
   const stamp = new Date().toISOString().replace(/\D/g, "").slice(0, 14);
-  const random = Math.random().toString(36).slice(2, 8);
+  const random = randomUUID().replaceAll("-", "");
   return `draft-${stamp}-${random}`;
 }
 

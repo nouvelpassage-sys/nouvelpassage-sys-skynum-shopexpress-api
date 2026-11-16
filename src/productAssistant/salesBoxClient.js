@@ -87,6 +87,27 @@ export class SalesBoxClient {
     return this.getJson(`offers/filter?${params.toString()}`);
   }
 
+  async getCatalogNames() {
+    const names = new Set();
+    const seenIds = new Set();
+    for (let page = 1; ; page++) {
+      const response = await this.getOffers({ page, pageSize: 100 });
+      const rows = Array.isArray(response) ? response : response?.data?.items ?? response?.data ?? response?.items;
+      if (!Array.isArray(rows)) throw new Error("Unrecognized SalesBox catalog response.");
+      if (!rows.length) break;
+      const countBefore = seenIds.size;
+      for (const offer of rows) {
+        seenIds.add(offer.id ?? offer.externalId ?? offer.name);
+        const localized = Array.isArray(offer.names) ? offer.names.map((entry) => entry.name) : [];
+        for (const name of [offer.name, ...localized]) {
+          if (typeof name === "string" && name.trim()) names.add(name.trim());
+        }
+      }
+      if (seenIds.size === countBefore) break;
+    }
+    return [...names];
+  }
+
   async getJson(path) {
     if (!this.apiToken) {
       throw new Error("SalesBox API token is missing.");

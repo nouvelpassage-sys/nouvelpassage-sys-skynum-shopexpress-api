@@ -236,31 +236,27 @@ export class ProductAssistantBot {
       }
     }
 
-    const existingDrafts = this.store.list
-      ? await this.store.list({ limit: 1000 })
-      : [];
-    const usedNames = existingDrafts.flatMap((item) => [item.nameUk, item.nameEn]).filter(Boolean);
     let draft;
     try {
       draft = await createProductDraft({
+        store: this.store,
         text,
         photoFileId,
         photoFileIds,
         imageDataUrls,
         imageDataUrl: imageDataUrls[0] ?? null,
-        openAiClient: this.contentClient,
-        usedNames
+        openAiClient: this.contentClient
       });
     } catch (error) {
       console.error(error);
       if (this.contentClient) {
         await this.telegram.sendMessage(chatId, getAiFailureMessage(error));
         draft = await createProductDraft({
+          store: this.store,
           text,
           photoFileId,
           photoFileIds,
-          openAiClient: null,
-          usedNames
+          openAiClient: null
         });
       } else {
         throw error;
@@ -386,6 +382,7 @@ export class ProductAssistantBot {
     let draft;
     try {
       draft = await createProductDraft({
+        store: this.store,
         text: sourceText,
         photoFileId: previousPhotoFileIds[0],
         photoFileIds: previousPhotoFileIds,
@@ -400,6 +397,7 @@ export class ProductAssistantBot {
       console.error(error);
       await this.telegram.sendMessage(chatId, getAiFailureMessage(error));
       draft = await createProductDraft({
+        store: this.store,
         text: sourceText,
         photoFileId: previousPhotoFileIds[0],
         photoFileIds: previousPhotoFileIds,
@@ -625,6 +623,7 @@ export class ProductAssistantBot {
     let draft;
     try {
       draft = await createProductDraft({
+        store: this.store,
         text: previousDraft.sourceText,
         photoFileId: previousPhotoFileIds[0],
         photoFileIds: previousPhotoFileIds,
@@ -639,6 +638,7 @@ export class ProductAssistantBot {
       console.error(error);
       await this.telegram.sendMessage(chatId, getAiFailureMessage(error));
       draft = await createProductDraft({
+        store: this.store,
         text: previousDraft.sourceText,
         photoFileId: previousPhotoFileIds[0],
         photoFileIds: previousPhotoFileIds,

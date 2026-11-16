@@ -109,17 +109,20 @@ if (!config.telegramToken) {
 
 startHealthServer();
 
+const salesBox = new SalesBoxClient(config.salesBox);
 const bot = new ProductAssistantBot({
   telegram: new JsonApiClient({
     apiBaseUrl: config.telegramApiBaseUrl,
     token: config.telegramToken
   }),
-  store: new DraftStore(config.dataDir),
+  store: new DraftStore(config.dataDir, {
+    fetchCatalogNames: config.salesBox.apiToken ? () => salesBox.getCatalogNames() : undefined
+  }),
   contentClient: config.openAiApiKey
     ? new OpenAiContentClient({ apiKey: config.openAiApiKey, model: config.openAiModel })
     : null,
   imageStorage: createImageStorage(config.imageStorage),
-  salesBox: new SalesBoxClient(config.salesBox),
+  salesBox,
   shopExpress: createShopExpressPublisher(config.shopExpress),
   shopExpressImportQueueLinkPublisher: createShopExpressImportQueueLinkPublisher(config.shopExpress),
   allowedChatIds: config.allowedChatIds,

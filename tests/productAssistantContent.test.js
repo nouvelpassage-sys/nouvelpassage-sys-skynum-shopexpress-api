@@ -377,7 +377,8 @@ test("fallback creative names are different for different product hints", async 
   const second = await createProductDraft({
     text: "2199 букет авторський",
     photoFileId: "photo-2",
-    openAiClient: null
+    openAiClient: null,
+    usedNames: [first.nameUk]
   });
 
   assert.notEqual(first.nameUk, second.nameUk);

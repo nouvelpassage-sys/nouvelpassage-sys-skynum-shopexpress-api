@@ -24,11 +24,13 @@ const rootDir = join(__dirname, "..");
 const staticDir = join(rootDir, "public", "product-assistant-dashboard");
 
 const config = readBotConfig();
-const store = new DraftStore(config.dataDir);
 const contentClient = config.openAiApiKey
   ? new OpenAiContentClient({ apiKey: config.openAiApiKey, model: config.openAiModel })
   : null;
 const salesBox = new SalesBoxClient(config.salesBox);
+const store = new DraftStore(config.dataDir, {
+  fetchCatalogNames: config.salesBox.apiToken ? () => salesBox.getCatalogNames() : undefined
+});
 const shopExpress = createShopExpressPublisher(config.shopExpress);
 const imageStorage = createImageStorage(config.imageStorage);
 const execFileAsync = promisify(execFile);
@@ -42,7 +44,7 @@ const server = createServer(async (request, response) => {
 
     await serveStatic(request, response);
   } catch (error) {
-    sendJson(response, 500, {
+    sendJson(response, error.code === "NAME_TAKEN" ? 409 : 500, {
       error: error instanceof Error ? error.message : "Unexpected dashboard error."
     });
   }
@@ -172,13 +174,11 @@ async function handleApi(request, response) {
       return;
     }
 
-    const existingDrafts = await store.list({ limit: 1000 });
-    const usedNames = existingDrafts.flatMap((item) => [item.nameUk, item.nameEn]).filter(Boolean);
     const draft = await createProductDraft({
       text,
       imageDataUrl: body.imageDataUrl,
       imageDataUrls: body.imageDataUrls,
-      usedNames,
+      store,
       sourceCategory: body.sourceCategory,
       revisionInstruction: body.revisionInstruction,
       openAiClient: contentClient
@@ -449,13 +449,12 @@ function applyDraftPatch(draft, patch) {
 async function createRevisedDraft(sourceDraft, body) {
   const instruction = String(body.revisionInstruction ?? "").trim() || "Перепиши картку краще, преміально і природно.";
   const sourceText = buildRevisionSourceText(sourceDraft);
-  const existingDrafts = await store.list({ limit: 1000 });
   const revised = await createProductDraft({
     text: sourceText,
     sourceCategory: sourceDraft.category,
     revisionInstruction: instruction,
     sourceDraftId: sourceDraft.id,
-    usedNames: existingDrafts.flatMap((item) => [item.nameUk, item.nameEn]).filter(Boolean),
+    store,
     openAiClient: contentClient
   });
 
