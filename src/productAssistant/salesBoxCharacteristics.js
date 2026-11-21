@@ -2,7 +2,7 @@
 // Never create dictionary values or invent sizes, occasions or paid variants.
 export function selectSalesBoxCharacteristics(draft, definitions) {
   if (!Array.isArray(definitions)) throw new Error('Invalid SalesBox characteristics dictionary');
-  const normalize = (value) => String(value ?? '').normalize('NFKC').toLocaleLowerCase('uk').trim();
+  const normalize = (value) => String(value ?? '').normalize('NFKC').replace(/[–—−]/g, '-').toLocaleLowerCase('uk').trim();
   const evidence = draft.visualEvidence ?? {};
   const colors = new Set((evidence.colors ?? []).map(normalize));
   const flowers = new Set((evidence.flowers ?? []).filter((item) => item.confidence === 'high').map((item) => normalize(item.nameUk)));
@@ -11,7 +11,7 @@ export function selectSalesBoxCharacteristics(draft, definitions) {
   const desired = new Map([['Колір', colors], ['Тип квітів', flowers]]);
   const price = Number(draft.price);
   const budget = price > 0 && price < 1000 ? 'до 1000' : price > 1000 && price < 2000 ? '1000–2000' : price > 2000 && price < 3000 ? '2000–3000' : price > 3000 && price < 5000 ? '3000–5000' : price > 5000 ? '5000+' : null;
-  if (budget) desired.set('Бюджет', new Set([budget]));
+  if (budget) desired.set('Бюджет', new Set([normalize(budget)]));
   if (draft.category === 'Букети') desired.set('Формат', new Set(['букет']));
   if (draft.category === 'Кімнатні рослини') desired.set('Формат', new Set(['рослина']));
   const result = [];

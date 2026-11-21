@@ -4,7 +4,7 @@ import {selectSalesBoxCharacteristics as select} from '../src/productAssistant/s
 const defs = [
   {id:'flowers',name:'Тип квітів',values:[{id:'rose',value:'троянди'},{id:'peony',value:'півонії'}]},
   {id:'color',name:'Колір',values:[{id:'pink',value:'рожевий'}]},
-  {id:'budget',name:'Бюджет',values:[{id:'mid',value:'3000–5000'}]},
+  {id:'budget',name:'Бюджет',values:[{id:'mid',value:'3000-5000'}]},
   {id:'form',name:'Формат',values:[{id:'bouquet',value:'букет'}]}
 ];
 test('only high-confidence flowers and exact dictionary colors are selected',()=>{
