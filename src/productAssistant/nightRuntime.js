@@ -11,13 +11,13 @@ export function readNightConfig(env = process.env) {
   return { mode, chatId };
 }
 
-export function createNightRuntime({ config, dataDir, telegram, store, contentClient, imageStorage, salesBox, now }) {
+export function createNightRuntime({ config, dataDir, telegram, store, contentClient, imageStorage, salesBox, photoStudio, now }) {
   if (config.mode === 'off') return { queue: null, worker: null };
   const queue = new NightContentQueue({ dataDir, chatId: config.chatId, ...(now ? {now} : {}) });
   if (config.mode === 'collect') return { queue, worker: null };
-  if (!contentClient || !imageStorage?.configured) throw new Error('Night content requires configured AI and image storage');
+  if (!contentClient || !imageStorage?.configured || !photoStudio) throw new Error('Night content requires configured AI and image storage');
   if (config.mode === 'publish' && !salesBox.canWrite()) throw new Error('Night publication requires SalesBox writes enabled');
-  const prepare = createNightPreparation({telegram,store,contentClient,imageStorage,now});
+  const prepare = createNightPreparation({telegram,store,contentClient,imageStorage,photoStudio,now});
   const adapters = config.mode === 'publish' ? {
     salesbox: createNightSalesBoxAdapter({client:salesBox,store,queue,now})
   } : {};

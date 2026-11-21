@@ -45,7 +45,8 @@ export function createNightSalesBoxAdapter({ client, store, queue, now = () => n
         if (exclusions.has(String(offer.id))) continue;
         if (!isKyivNight(now())) return { status:'review',reason:'outside-window' };
         try {
-          if (similarPhoto(draft.sourcePhotoFingerprint,await remoteFingerprint(offer))) {
+          const remote = await remoteFingerprint(offer);
+          if (similarPhoto(draft.sourcePhotoFingerprint,remote) || (draft.processedPhotoFingerprint && similarPhoto(draft.processedPhotoFingerprint,remote))) {
             return {status:'review',reason:'similar-existing-photo',remoteId:offer.id};
           }
         } catch { return {status:'review',reason:'catalog-photo-review-incomplete',remoteId:offer.id}; }

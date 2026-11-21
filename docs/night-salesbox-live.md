@@ -76,3 +76,11 @@ Replaces conflicting AI instructions and automatic canned rewrites. One response
 New cards require structured evidence, all four SEO fields and English copy. Only already-supported SalesBox payload fields are sent; no speculative measurements/barcodes/API fields are added. Photo Studio integration remains pending; original source images continue to drive recognition.
 
 132 local Node 18.20.5 tests pass. Live AI copy acceptance still requires an actual source bouquet.
+
+## Photo Studio processing (2026-11-21)
+
+Night preparation now requires NightPhotoStudio. It uses the exact Minimal White / preserve_original prompt and gpt-image-2 1024x1024 settings read from the running Photo Studio service (not the divergent GitHub checkout). The user explicitly authorized automatic publication after automated checks on 2026-11-21.
+
+The original remains the source for copy and duplicate recognition. A single image edit and a separate original/output vision comparison precede upload. Any missing/uncertain/failed review holds the draft. Both original and processed fingerprints are compared against catalog images. Files are stored under night-content/studio/<source+profile+review hash> with durable claim-before-request and checksummed cached result. Interrupted or unknown paid requests require review, never automatic retry. Existing private-chat image handling is unchanged. Collect mode spends no image API calls.
+
+138 Node 18.20.5 tests passed. AI preservation is a probabilistic check, not a guarantee. The image API credit grant and real-photo output have not yet been verified. No new provider, subscription, polling process, or public endpoint is introduced.
