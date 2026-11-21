@@ -16,6 +16,8 @@ export function createNightPreparation({ telegram, contentClient, imageStorage, 
     if (photos.length > 2) return { ready: false, reason: 'album-needs-photo-selection' };
     const images = [];
     for (const message of photos) images.push(await telegram.getFileImage(message.photo.fileId, { timeoutMs: 20000 }));
+    // Decode before any paid AI request, including both candidate originals.
+    const fingerprints = images.map((item) => fingerprintPhoto(item.bytes));
     let photo = photos[0].photo;
     let image = images[0];
     if (!image?.bytes?.length || !image.dataUrl) throw new Error('Photo download failed');
@@ -44,7 +46,7 @@ export function createNightPreparation({ telegram, contentClient, imageStorage, 
     draft.sourceGroupJobId = job.id;
     draft.sourcePhotoUniqueId = photo.uniqueId;
     draft.sourceImageSha256 = createHash('sha256').update(image.bytes).digest('hex');
-    draft.sourcePhotoFingerprint = fingerprintPhoto(image.bytes);
+    draft.sourcePhotoFingerprint = fingerprints[validSelection ? selected : 0];
     draft.nightPhotoAudit = audit;
     draft.qualityIssues = validateProductDraft(draft);
     await store.save(draft);

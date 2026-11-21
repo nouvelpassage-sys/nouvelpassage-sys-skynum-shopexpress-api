@@ -281,3 +281,31 @@ test('fallback reaches night SalesBox adapter while unlinked text never becomes 
   assert.equal(result[1].status, 'draft');
   assert.equal(result[1].price, null);
 });
+
+test('original JPG documents join albums and bind reply prices across restart', async(t)=>{
+  const queue=await fixture(t);
+  const first=message(501,{document:{file_id:'original-jpg',file_unique_id:'doc-501',file_name:'IMG_8539.JPG',mime_type:'image/jpeg',file_size:4600000},media_group_id:'files'});
+  await queue.ingest(first);
+  await queue.ingest(message(502,{document:{file_id:'original-png',file_unique_id:'doc-502',file_name:'image.png',mime_type:'application/octet-stream'},media_group_id:'files'}));
+  await queue.ingest(message(503,{text:'6300 грн',reply_to_message:{message_id:501}}));
+  await queue.ingest(first);
+  const restarted=new NightContentQueue({dataDir:join(queue.dir,'..'),chatId:'-123'});
+  const [job]=await jobs(restarted);
+  assert.equal(job.status,'queued');
+  assert.equal(job.price,6300);
+  assert.equal(job.messages[501].photo.fileId,'original-jpg');
+  assert.equal(Object.keys(job.messages).length,3);
+});
+test('HEIC and oversized originals remain durable review jobs, never thumbnails',async(t)=>{
+  const queue=await fixture(t);
+  for(const [id,name,size] of [[601,'IMG_1150.HEIC',2500000],[602,'huge.jpg',13000000]]) {
+    await queue.ingest(message(id,{document:{file_id:`original-${id}`,file_unique_id:`doc-${id}`,file_name:name,mime_type:name.endsWith('HEIC')?'image/heic':'image/jpeg',file_size:size,thumbnail:{file_id:'tiny'}},caption:'3500 грн'}));
+  }
+  for(const job of await jobs(queue)) {
+    assert.equal(job.status,'draft');
+    assert.equal(job.hold,'image-file-needs-review');
+    assert.ok(Object.values(job.messages)[0].photo.fileId.startsWith('original-'));
+  }
+  await queue.ingest(message(603,{document:{file_id:'pdf',file_name:'invoice.pdf',mime_type:'application/pdf'},caption:'5000 грн'}));
+  assert.equal((await jobs(queue))[2].reason,'unlinked-price-or-no-photo');
+});

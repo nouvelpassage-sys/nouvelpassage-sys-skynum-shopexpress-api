@@ -85,7 +85,9 @@ export class NightContentQueue {
       const revision = message.edit_date ?? message.date ?? 0;
       const prior = state.messages[id];
       if (prior && prior.revision >= revision) return;
-      const photo = message.photo?.at(-1);
+      const document = message.document;
+      const imageDocument = document && (/^image\//i.test(document.mime_type ?? '') || /\.(jpe?g|png|heic|heif|webp|gif|tiff?)$/i.test(document.file_name ?? ''));
+      const photo = message.photo?.at(-1) ?? (imageDocument ? document : null);
       const replyId = String(message.reply_to_message?.message_id ?? '');
       const reply = state.messages[replyId];
       const key = prior?.jobId ?? (photo
@@ -100,10 +102,19 @@ export class NightContentQueue {
       job.messages[id] = {
         messageId: message.message_id, date: message.date,
         text: message.caption ?? message.text ?? '', replyId: replyId || null,
-        photo: photo ? { fileId: photo.file_id, uniqueId: photo.file_unique_id } : null
+        photo: photo ? {
+          fileId: photo.file_id, uniqueId: photo.file_unique_id,
+          ...(imageDocument ? { document: true, fileName: document.file_name, mimeType: document.mime_type, fileSize: document.file_size } : {})
+        } : null
       };
       job.updatedAt = this.now().toISOString();
       const photos = Object.values(job.messages).filter((item) => item.photo);
+      // Preserve original image files, but hold formats the decoder cannot verify.
+      // Never substitute a document thumbnail: it may be cropped or too small.
+      if (photos.some(({photo}) => photo.document && (
+        Number(photo.fileSize) > 12 * 1024 * 1024 ||
+        !(/\.(jpe?g|png)$/i.test(photo.fileName ?? '') && ['image/jpeg', 'image/png', 'application/octet-stream', undefined].includes(photo.mimeType))
+      ))) job.hold = 'image-file-needs-review';
       const texts = Object.values(job.messages).map((item) => item.text);
       const prices = texts.map(explicitPrice).filter((price) => price !== null);
       // An ambiguous caption cannot be rescued by a single price in another message.

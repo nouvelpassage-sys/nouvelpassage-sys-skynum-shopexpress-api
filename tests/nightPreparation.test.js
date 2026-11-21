@@ -92,3 +92,9 @@ test('studio failure does not fall back to unprocessed photo', async () => {
   await assert.rejects(fixture.prepare(job));
   assert.equal(fixture.counts().uploads,0);
 });
+
+test('invalid original bytes are rejected before paid AI even with a JPG filename',async()=>{
+  const fixture=setup({telegram:{getFileImage:async()=>({bytes:Buffer.from('not-an-image'),dataUrl:'data:image/jpeg;base64,bm90',contentType:'image/jpeg'})}});
+  await assert.rejects(fixture.prepare(job));
+  assert.deepEqual(fixture.counts(),{uploads:0,requests:0});
+});
