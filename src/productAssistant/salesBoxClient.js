@@ -1,3 +1,5 @@
+import { selectSalesBoxCharacteristics } from "./salesBoxCharacteristics.js";
+
 export class SalesBoxClient {
   constructor({
     baseUrl,
@@ -43,6 +45,9 @@ export class SalesBoxClient {
       throw new Error(`SalesBox create offer is missing required fields: ${missingRequiredFields.join(", ")}`);
     }
 
+    const characteristics = await this.getCharacteristicsForDraft(draft);
+    if (characteristics.length) payload.offers[0].filters = characteristics;
+
     const response = await fetch(new URL(endpoint, this.baseUrl), {
       method: "POST",
       signal: AbortSignal.timeout(this.requestTimeoutMs),
@@ -70,6 +75,37 @@ export class SalesBoxClient {
     };
 
     return result;
+  }
+
+  async getCharacteristicsForDraft(draft) {
+    const response = await this.getJson("filters/params?lang=uk");
+    if (response?.success !== true) throw new Error("SalesBox characteristics unavailable");
+    return selectSalesBoxCharacteristics(draft, response.data);
+  }
+
+  async verifyOfferCompleteness(id, draft) {
+    const path = `offers/${encodeURIComponent(id)}`;
+    const [detail, seo, characteristics] = await Promise.all([
+      this.getJson(`${path}?lang=uk`),
+      this.getJson(`${path}/custom-fields?lang=uk`),
+      this.getCharacteristicsForDraft(draft)
+    ]);
+    if (detail?.success !== true || !detail.data || seo?.success !== true || !Array.isArray(seo.data)) {
+      throw new Error("Unverified SalesBox detail response");
+    }
+    const actual = detail.data;
+    const expected = this.toOfferPayload(draft);
+    const issues = [];
+    if (String(actual.id) !== String(id) || !(actual.externalId === draft.id || (draft.sku && actual.internalId === draft.sku))) issues.push("identity");
+    if (actual.isTop !== true || Number(actual.order) !== 1) issues.push("homepage");
+    for (const key of ["names", "descriptions"]) {
+      const valueKey = key === "names" ? "name" : "description";
+      if (expected[key].some((item) => !(actual[key] ?? []).some((value) => value.lang === item.lang && value[valueKey] === item[valueKey]))) issues.push(key);
+    }
+    if (expected.categories.some((item) => !(actual.categories ?? []).some((value) => value.id === item.id))) issues.push("categories");
+    if (characteristics.some((item) => !(actual.filters ?? []).some((value) => value.paramId === item.paramId && value.valueId === item.valueId))) issues.push("characteristics");
+    if (buildSalesBoxSeoCustomFields(draft).some((item) => !seo.data.some((value) => value.key === item.key && value.value === item.value))) issues.push("seo");
+    return { verified: issues.length === 0, issues };
   }
 
   async getCategories({ lang = "uk" } = {}) {
@@ -141,6 +177,11 @@ export class SalesBoxClient {
     }
 
     await this.putJson(`offers/${encodeURIComponent(offer.id)}/custom-fields?lang=uk`, { fields });
+    const persisted = await this.getJson(`offers/${encodeURIComponent(offer.id)}/custom-fields?lang=uk`);
+    if (persisted?.success !== true || !Array.isArray(persisted.data) ||
+        fields.some((expected) => !persisted.data.some((actual) => actual.key === expected.key && actual.value === expected.value))) {
+      throw new Error("SalesBox SEO read-back did not match requested fields.");
+    }
     return {
       updated: true,
       offerId: offer.id,
@@ -219,7 +260,6 @@ export class SalesBoxClient {
       internalId: draft.sku || draft.id,
       externalId: draft.id,
       price: draft.price == null ? undefined : Number(draft.price),
-      basePrice: draft.price == null ? undefined : Number(draft.price),
       baseCurrency: draft.currency ?? "UAH",
       names: compactLocalizations([
         { lang: "uk", name: draft.nameUk },

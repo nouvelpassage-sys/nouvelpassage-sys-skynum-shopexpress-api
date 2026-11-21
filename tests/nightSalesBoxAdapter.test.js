@@ -18,7 +18,7 @@ async function setup(t,offers=[]) {
   const options={
     now:night,queue:{dir,read:async()=>({jobs:{[job.id]:job}})},
     store:{list:async()=>[],save:async(d)=>saved.push(d),update:async(id,patch)=>saved.push({id,...patch})},
-    client:{canWrite:()=>true,getOffers:async({page})=>({success:true,data:page===1?offers:[]}),createOfferFromDraft:async()=>{writes++;return{dryRun:false};}},
+    client:{verifyOfferCompleteness:async()=>({verified:true,issues:[]}),canWrite:()=>true,getOffers:async({page})=>({success:true,data:page===1?offers:[]}),createOfferFromDraft:async()=>{writes++;return{dryRun:false};}},
     fetchImpl:async()=>{downloads++; return new Response(image);}
   };
   return {draft,job,options,saved,counts:()=>({writes,downloads}),adapter:createNightSalesBoxAdapter(options)};
@@ -68,3 +68,17 @@ test('only explicitly approved offer IDs bypass unavailable photo comparison',as
   fixture.options.client.getOffers=async({page})=>({success:true,data:page===1?[{id:'22222222-2222-2222-2222-222222222222',originalURL:'https://res.cloudinary.com/new-missing.jpg'}]:[]});
   assert.equal((await adapter.reconcile(fixture.job)).status,'review');
 });
+
+for (const failure of ['missing', 'unavailable']) {
+  test(`incomplete ${failure} card cannot be marked published or recreated`, async (t) => {
+    const fixture = await setup(t);
+    const d=fixture.draft;
+    fixture.options.client.getOffers=async({page})=>({success:true,data:page===1?[{id:'remote',externalId:d.id,price:d.price,name:d.nameUk,description:d.descriptionUk,originalURL:d.photoUrl,available:true,availableStatus:'AVAILABLE'}]:[]});
+    fixture.options.client.verifyOfferCompleteness=async()=>{if(failure==='unavailable')throw new Error('network');return {verified:false,issues:['seo']};};
+    const result=await fixture.adapter.reconcile(fixture.job);
+    assert.equal(result.status,'review');
+    assert.equal(result.remoteId,'remote');
+    assert.equal(fixture.saved.length,0);
+    assert.equal(fixture.counts().writes,0);
+  });
+}
