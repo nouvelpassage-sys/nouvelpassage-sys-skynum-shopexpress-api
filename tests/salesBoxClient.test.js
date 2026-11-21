@@ -62,7 +62,8 @@ test("SalesBox payload keeps creative name separate from factual category data",
   assert.equal(payload.categories[0].id, "bd061350-4f12-49d6-a2e2-8e0d99ee0b90");
   assert.equal(payload.stockType, "limited");
   assert.equal(payload.externalId, "draft-test");
-  assert.equal(payload.basePrice, 950);
+  assert.equal(Object.hasOwn(payload, "basePrice"), false);
+  assert.equal(payload.price, 950);
   assert.equal(payload.photos[0].url, "https://example.com/product.jpg");
 });
 
@@ -137,4 +138,34 @@ test("SalesBox SEO custom fields fall back to draft content instead of staying e
   assert.equal(fields[1].value, "Premium gift item from Nouvel Amour.");
   assert.equal(fields[2].value, "Gifts, Nouvel Amour");
   assert.equal(fields[3].value, "maison-ambree");
+});
+
+test('completeness requires persisted SEO, homepage and both languages', async () => {
+  const client = new SalesBoxClient({});
+  const detail = { ...client.toOfferPayload(draft), id: 'remote', filters: [] };
+  let fields = buildSalesBoxSeoCustomFields(draft);
+  client.getCharacteristicsForDraft = async () => [];
+  client.getJson = async (path) => ({success: true, data: path.includes('custom-fields') ? fields : detail});
+  assert.deepEqual(await client.verifyOfferCompleteness('remote', draft), {verified:true,issues:[]});
+  fields = fields.slice(1);
+  detail.isTop = false;
+  detail.names = detail.names.slice(0,1);
+  assert.deepEqual((await client.verifyOfferCompleteness('remote', draft)).issues, ['homepage','names','seo']);
+});
+
+test('SEO acknowledgement is not success until exact read-back', async () => {
+  const client = new SalesBoxClient({});
+  client.waitForOfferForDraft = async () => ({id:'remote'});
+  client.putJson = async () => ({success:true});
+  client.getJson = async () => ({success:true,data:[]});
+  await assert.rejects(client.updateSeoFieldsForDraft(draft), /read-back/);
+  client.getJson = async () => ({success:true,data:buildSalesBoxSeoCustomFields(draft)});
+  assert.equal((await client.updateSeoFieldsForDraft(draft)).updated,true);
+});
+
+test('missing persisted characteristic holds a card even after successful create', async () => {
+  const client = new SalesBoxClient({});
+  client.getCharacteristicsForDraft = async () => [{paramId:'flower',valueId:'rose'}];
+  client.getJson = async (path) => ({success:true,data:path.includes('custom-fields') ? buildSalesBoxSeoCustomFields(draft) : {...client.toOfferPayload(draft),id:'remote',filters:[]}});
+  assert.deepEqual((await client.verifyOfferCompleteness('remote',draft)).issues,['characteristics']);
 });

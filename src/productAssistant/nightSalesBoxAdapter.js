@@ -38,7 +38,13 @@ export function createNightSalesBoxAdapter({ client, store, queue, now = () => n
       const offers = await readNightCatalog(client);
       const exclusions = await readPhotoExclusions(join(queue.dir, 'photo-review-exclusions.json'));
       const exact = reconcileNightOffer(offers,draft,{knownDrafts:await store.list({limit:Infinity})});
-      if (exact.status === 'verified') await store.update(draft.id, { status: 'published', verifiedSalesBoxId: exact.remoteId });
+      if (exact.status === 'verified') {
+        let completeness;
+        try { completeness = await client.verifyOfferCompleteness(exact.remoteId, draft); }
+        catch { return { status: 'review', reason: 'published-details-unverified', remoteId: exact.remoteId }; }
+        if (!completeness.verified) return { status: 'review', reason: 'published-card-incomplete', remoteId: exact.remoteId, issues: completeness.issues };
+        await store.update(draft.id, { status: 'published', verifiedSalesBoxId: exact.remoteId });
+      }
       if (exact.reason !== 'manual-catalog-duplicate-review-required') return exact;
       if (!draft.sourcePhotoFingerprint) return { status:'review',reason:'missing-photo-fingerprint' };
       for (const offer of offers) {
