@@ -68,3 +68,11 @@ New photo intake without a recognizable price uses 1500 UAH for SalesBox and per
 Fallback-priced products must NOT be sent to LOKO or GetOrder/Uklon, including any future export file. Only products with a recognized source price are eligible for those destinations, with +20%. These destinations and their exports remain disabled/unimplemented in this release. Existing prepared/published jobs are not repriced.
 
 Validation: 128 tests pass on Node 18.20.5, covering fallback persistence, recognized/reply price priority, and 1500 reaching the night SalesBox adapter.
+
+## Editorial v2
+
+Replaces conflicting AI instructions and automatic canned rewrites. One response includes structured visual evidence, eight naming candidates and bilingual factual copy. Before generation the runner reads the complete SalesBox catalog and saved drafts; normalized names and high word-overlap descriptions are checked deterministically. Failed checks remain quality-blocked. This is a conservative similarity heuristic, not proof of uniqueness or botanical accuracy. Existing cards are not bulk rewritten.
+
+New cards require structured evidence, all four SEO fields and English copy. Only already-supported SalesBox payload fields are sent; no speculative measurements/barcodes/API fields are added. Photo Studio integration remains pending; original source images continue to drive recognition.
+
+132 local Node 18.20.5 tests pass. Live AI copy acceptance still requires an actual source bouquet.

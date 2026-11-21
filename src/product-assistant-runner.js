@@ -1,3 +1,4 @@
+import { readNightCatalog } from "./productAssistant/nightSalesBoxCatalog.js";
 import { readBotConfig } from "./productAssistant/env.js";
 import { DraftStore } from "./productAssistant/draftStore.js";
 import { resolveImageContentType } from "./productAssistant/imageDataUrl.js";
@@ -112,7 +113,8 @@ startHealthServer();
 const telegram = new JsonApiClient({ apiBaseUrl: config.telegramApiBaseUrl, token: config.telegramToken });
 const store = new DraftStore(config.dataDir);
 const contentClient = config.openAiApiKey
-  ? new OpenAiContentClient({ apiKey: config.openAiApiKey, model: config.openAiModel }) : null;
+  ? new OpenAiContentClient({ apiKey: config.openAiApiKey, model: config.openAiModel,
+      getExistingCards: async () => [...await readNightCatalog(salesBox), ...await store.list({ limit: Infinity })] }) : null;
 const imageStorage = createImageStorage(config.imageStorage);
 const salesBox = new SalesBoxClient(config.salesBox);
 const night = createNightRuntime({ config: readNightConfig(), dataDir: config.dataDir,
