@@ -9,20 +9,18 @@ export class ProductAssistantBot {
     contentClient,
     imageStorage,
     salesBox,
-    shopExpress,
-    shopExpressImportQueueLinkPublisher,
     allowedChatIds,
-    autoPublishReady = false
+    autoPublishReady = false,
+    nightQueue = null
   }) {
     this.telegram = telegram;
     this.store = store;
     this.contentClient = contentClient;
     this.imageStorage = imageStorage;
     this.salesBox = salesBox;
-    this.shopExpress = shopExpress;
-    this.shopExpressImportQueueLinkPublisher = shopExpressImportQueueLinkPublisher;
     this.allowedChatIds = new Set(allowedChatIds);
     this.autoPublishReady = autoPublishReady;
+    this.nightQueue = nightQueue;
     this.offset = undefined;
     this.lastDraftByChat = new Map();
     this.recentPhotoMessages = new Map();
@@ -32,6 +30,7 @@ export class ProductAssistantBot {
 
   async start() {
     console.log("Product assistant bot is running");
+    if (this.nightQueue) this.offset = (await this.nightQueue.read()).offset ?? undefined;
     for (;;) {
       const updates = await this.telegram.getUpdates(this.offset).catch(async (error) => {
         console.error(error);
@@ -40,15 +39,46 @@ export class ProductAssistantBot {
         return [];
       });
       for (const update of updates) {
-        this.offset = update.update_id + 1;
-        await this.handleUpdate(update).catch((error) => {
+        const sourceChat = (update.message ?? update.edited_message)?.chat ?? update.callback_query?.message?.chat;
+        const groupUpdate = this.nightQueue?.matches(sourceChat);
+        try {
+          await this.processPolledUpdate(update);
+        } catch (error) {
           console.error(error);
-        });
+          if (this.nightQueue && (groupUpdate || this.offset !== update.update_id + 1)) {
+            await delay(3000);
+            break;
+          }
+          this.offset = update.update_id + 1;
+        }
       }
     }
   }
 
+  async processPolledUpdate(update) {
+    const sourceChat = (update.message ?? update.edited_message)?.chat ?? update.callback_query?.message?.chat;
+    const groupUpdate = this.nightQueue?.matches(sourceChat);
+    // Preserve private-chat at-most-once handling. A queue checkpoint error
+    // must not replay an already executed private generation/publication.
+    if (this.nightQueue && !groupUpdate) {
+      await this.nightQueue.checkpoint(update.update_id + 1);
+      this.offset = update.update_id + 1;
+    }
+    await this.handleUpdate(update);
+    if (this.nightQueue && groupUpdate) await this.nightQueue.checkpoint(update.update_id + 1);
+    this.offset = update.update_id + 1;
+  }
+
   async handleUpdate(update) {
+    const sourceChat = (update.message ?? update.edited_message)?.chat ?? update.callback_query?.message?.chat;
+    if (this.nightQueue?.matches(sourceChat)) {
+      if (!update.callback_query) await this.nightQueue.ingest(update);
+      return; // No group replies, buttons, callback answers, or private commands.
+    }
+    if (sourceChat && sourceChat.type !== "private") {
+      console.log("ignored unconfigured group", JSON.stringify({ chatId: sourceChat.id, title: sourceChat.title, type: sourceChat.type }));
+      return;
+    }
     console.log("telegram update", JSON.stringify(summarizeUpdate(update)));
     if (update.message) {
       await this.handleMessage(update.message);
@@ -61,6 +91,10 @@ export class ProductAssistantBot {
   }
 
   async handleMessage(message) {
+    if (this.nightQueue?.matches(message.chat)) {
+      await this.nightQueue.ingest({ message });
+      return;
+    }
     const chatId = String(message.chat.id);
     console.log(
       "telegram message",
@@ -122,29 +156,15 @@ export class ProductAssistantBot {
       const storageStatus = this.imageStorage?.configured
         ? "Сховище фото увімкнене: Telegram фото підуть у Cloudinary/сховище та дадуть public URL."
         : "Сховище фото не налаштоване: для SalesBox потрібен public URL.";
-      const shopExpressStatus = renderShopExpressStatus(this.shopExpress);
       await this.telegram.sendMessage(
         chatId,
         [
           this.salesBox.canWrite()
             ? "SalesBox запис увімкнений. Бот може створювати товари після підтвердження."
             : "Працюю у безпечному режимі: створюю локальні чернетки, запис у SalesBox вимкнений.",
-          shopExpressStatus,
           storageStatus
         ].join("\n")
       );
-      return;
-    }
-
-    const shopExpressImportMode = getShopExpressImportModeFromText(message.text);
-    if (shopExpressImportMode) {
-      if (shopExpressImportMode === "clear") {
-        await this.handleShopExpressImportQueueClearCommand(chatId);
-      } else if (shopExpressImportMode === "status") {
-        await this.handleShopExpressImportQueueStatusCommand(chatId);
-      } else {
-        await this.handleShopExpressImportLinkCommand(chatId);
-      }
       return;
     }
 
@@ -321,7 +341,7 @@ export class ProductAssistantBot {
       return;
     }
 
-    await this.telegram.sendMessage(chatId, "Картка пройшла QA. Автоматично відправляю в SalesBox і ShopExpress...");
+    await this.telegram.sendMessage(chatId, "Картка пройшла QA. Автоматично відправляю в SalesBox...");
     await this.publishDraft(chatId, draftId);
   }
 
@@ -355,124 +375,6 @@ export class ProductAssistantBot {
       chatId,
       `${summary}\n\nФайл сформовано, але цей Telegram-клієнт ще не вміє надсилати документи. Відкрий дашборд і натисни Download YML.`
     );
-  }
-
-  async handleShopExpressImportLinkCommand(chatId) {
-    if (!this.shopExpressImportQueueLinkPublisher) {
-      await this.telegram.sendMessage(chatId, "Публічне посилання для ShopExpress ще не налаштоване в цьому запуску бота.");
-      return;
-    }
-
-    await this.telegram.sendMessage(chatId, "Готую публічне посилання на CSV-чергу ShopExpress...");
-
-    try {
-      const result = await this.shopExpressImportQueueLinkPublisher.publishQueueFile();
-      if (!result.enabled) {
-        await this.telegram.sendMessage(chatId, "Функція посилання на імпорт зараз вимкнена.");
-        return;
-      }
-
-      if (result.empty) {
-        await this.telegram.sendMessage(chatId, "Черга ShopExpress поки порожня. Спочатку опублікуй хоча б одну картку з фото.");
-        return;
-      }
-
-      if (!result.queued || !result.importUrl) {
-        await this.telegram.sendMessage(
-          chatId,
-          [
-            "Не вдалося підготувати посилання для імпорту.",
-            result.reason ? `Причина: <code>${escapeHtml(result.reason)}</code>` : null
-          ]
-            .filter(Boolean)
-            .join("\n")
-        );
-        return;
-      }
-
-      await this.telegram.sendMessage(
-        chatId,
-        [
-          "<b>ShopExpress CSV готовий</b>",
-          `Рядків у черзі: <b>${result.rowCount}</b>`,
-          `<a href="${escapeHtml(result.importUrl)}">Відкрити CSV-посилання</a>`,
-          "",
-          "Далі в ShopExpress: Імпорт товарів -> Вказати посилання на файл -> встав URL -> Далі."
-        ].join("\n")
-      );
-    } catch (error) {
-      console.error(error);
-      await this.telegram.sendMessage(
-        chatId,
-        [
-          "Не вийшло завантажити CSV у Cloudinary.",
-          "Перевір Cloudinary налаштування і спробуй ще раз командою /shopimport.",
-          `<code>${escapeHtml(String(error?.message ?? error))}</code>`
-        ].join("\n")
-      );
-    }
-  }
-
-  async handleShopExpressImportQueueClearCommand(chatId) {
-    if (!this.shopExpressImportQueueLinkPublisher) {
-      await this.telegram.sendMessage(chatId, "Очищення черги ShopExpress ще не налаштоване в цьому запуску бота.");
-      return;
-    }
-
-    try {
-      const result = await this.shopExpressImportQueueLinkPublisher.clearQueueFile();
-      if (!result.cleared) {
-        await this.telegram.sendMessage(chatId, "Не вдалося очистити чергу ShopExpress.");
-        return;
-      }
-      await this.telegram.sendMessage(
-        chatId,
-        [
-          "<b>Чергу ShopExpress очищено</b>",
-          "Тепер нові товари підуть у чистий CSV без дублів із попереднього імпорту."
-        ].join("\n")
-      );
-    } catch (error) {
-      console.error(error);
-      await this.telegram.sendMessage(
-        chatId,
-        [
-          "Помилка під час очищення черги ShopExpress.",
-          `<code>${escapeHtml(String(error?.message ?? error))}</code>`
-        ].join("\n")
-      );
-    }
-  }
-
-  async handleShopExpressImportQueueStatusCommand(chatId) {
-    if (!this.shopExpressImportQueueLinkPublisher) {
-      await this.telegram.sendMessage(chatId, "Статус черги ShopExpress ще не налаштований у цьому запуску бота.");
-      return;
-    }
-
-    try {
-      const status = await this.shopExpressImportQueueLinkPublisher.getQueueStatus();
-      await this.telegram.sendMessage(
-        chatId,
-        [
-          "<b>ShopExpress Queue Status</b>",
-          `Файл: <code>${escapeHtml(status.importFilePath ?? "data/product-assistant/shopexpress-pending-import.csv")}</code>`,
-          `Рядків у черзі: <b>${status.rowCount ?? 0}</b>`,
-          status.bytes != null ? `Розмір: <b>${status.bytes}</b> bytes` : null
-        ]
-          .filter(Boolean)
-          .join("\n")
-      );
-    } catch (error) {
-      console.error(error);
-      await this.telegram.sendMessage(
-        chatId,
-        [
-          "Помилка під час перевірки черги ShopExpress.",
-          `<code>${escapeHtml(String(error?.message ?? error))}</code>`
-        ].join("\n")
-      );
-    }
   }
 
   async regenerateDraft(chatId, draftId, mode) {
@@ -595,26 +497,15 @@ export class ProductAssistantBot {
 
   async publishDraft(chatId, draftId) {
     const draft = await this.store.get(draftId);
+    if (draft.sourceGroupJobId) {
+      await this.telegram.sendMessage(chatId, "Це чернетка з групи контенту. Її публікацією керує нічна черга; повторну ручну публікацію заблоковано.");
+      return { blocked: true, reason: "night-queue-owned" };
+    }
     if (draft.status === "published" && draft.salesBoxResult?.dryRun === false) {
-      const shouldSyncShopExpress =
-        this.shopExpress?.enabled && shouldRetryShopExpressPublish(draft.shopExpressResult);
-      if (shouldSyncShopExpress) {
-        const shopExpressResult = await this.shopExpress.publishDraft(draft);
-        const result = {
-          dryRun: false,
-          salesBoxResult: draft.salesBoxResult,
-          shopExpressResult
-        };
-        await this.store.update(draftId, { shopExpressResult });
-        await this.telegram.sendMessage(chatId, renderPublicationResult(result));
-        return result;
-      }
-
       const result = {
         dryRun: false,
         alreadyPublished: true,
-        salesBoxResult: draft.salesBoxResult,
-        shopExpressResult: draft.shopExpressResult
+        salesBoxResult: draft.salesBoxResult
       };
       await this.telegram.sendMessage(chatId, renderPublicationResult(result));
       return result;
@@ -633,23 +524,13 @@ export class ProductAssistantBot {
     }
 
     const salesBoxResult = await this.salesBox.createOfferFromDraft(draft);
-    const shopExpressResult = this.shopExpress
-      ? await this.shopExpress.publishDraft(draft)
-      : {
-          enabled: false,
-          dryRun: true,
-          queued: false,
-          reason: "ShopExpress channel is not configured."
-        };
     const result = {
       dryRun: salesBoxResult.dryRun,
-      salesBoxResult,
-      shopExpressResult
+      salesBoxResult
     };
     await this.store.update(draftId, {
       status: salesBoxResult.dryRun ? "dry-run" : "published",
-      salesBoxResult,
-      shopExpressResult
+      salesBoxResult
     });
     await this.telegram.sendMessage(chatId, renderPublicationResult(result));
     return result;
@@ -974,7 +855,7 @@ function getStartMessage() {
     "<code>2500 букет у ніжній гамі</code>",
     "<code>1900 спатифілум у кашпо, 2 шт</code>",
     "",
-    "Я створю картку, перевірю якість і підготую її до SalesBox та ShopExpress."
+    "Я створю картку, перевірю якість і підготую її до SalesBox."
   ].join("\n");
 }
 
@@ -984,7 +865,7 @@ function getHelpMessage() {
     "1. Зроби фото товару.",
     "2. У підписі напиши ціну і коротку підказку.",
     "3. Бот створить картку і покаже кнопки дій.",
-    "4. Після публікації картка піде в SalesBox і паралельно в ShopExpress (live або в чергу імпорту).",
+    "4. Після публікації картка піде в SalesBox.",
     "",
     "<b>Команди</b>",
     "/rewrite - переписати опис",
@@ -992,11 +873,10 @@ function getHelpMessage() {
     "/shorter - скоротити",
     "/fix - виправити слабкі місця",
     "/redo - створити заново",
+    "Кнопка «Редагувати картку» - написати власну правку для останньої чернетки",
+    "/cancel - скасувати очікування ручної правки",
     "/ready - стан готових карток",
-    "/export - надіслати SalesBox YML файл",
-    "/shopimport - дати публічне посилання на CSV-чергу ShopExpress",
-    "/shopstatus - показати, скільки товарів зараз у черзі ShopExpress",
-    "/shopdone - очистити CSV-чергу після успішного імпорту в ShopExpress"
+    "/export - надіслати SalesBox YML файл"
   ].join("\n");
 }
 
@@ -1024,7 +904,7 @@ function buildDraftKeyboard(draft) {
   return {
     inline_keyboard: [
       [
-        { text: "Опублікувати (SalesBox + ShopExpress)", callback_data: `publish:${draft.id}` },
+        { text: "Опублікувати в SalesBox", callback_data: `publish:${draft.id}` },
         { text: "Лише чернетка", callback_data: `keep:${draft.id}` }
       ],
       [
@@ -1122,7 +1002,6 @@ function renderDryRun(result) {
 
 function renderPublicationResult(result) {
   const salesBox = result.salesBoxResult ?? result;
-  const shopExpress = result.shopExpressResult;
   const lines = [];
 
   if (salesBox.dryRun) {
@@ -1140,34 +1019,6 @@ function renderPublicationResult(result) {
         `<code>${escapeHtml(salesBox.seoResult.error)}</code>`
       ].join("\n")
     );
-  }
-
-  if (!shopExpress) {
-    return lines.join("\n\n");
-  }
-
-  if (!shopExpress.enabled) {
-    lines.push("<b>ShopExpress</b>: канал ще не увімкнений.");
-  } else if (shopExpress.missingRequiredFields?.length) {
-    lines.push(
-      [
-        "<b>ShopExpress</b>: не додано в чергу.",
-        "Не вистачає полів:",
-        `<code>${escapeHtml(shopExpress.missingRequiredFields.join(", "))}</code>`
-      ].join("\n")
-    );
-  } else if (shopExpress.queued) {
-    lines.push(
-      [
-        "<b>ShopExpress</b>: додано в чергу імпорту.",
-        `<code>${escapeHtml(shopExpress.importFilePath)}</code>`,
-        shopExpress.duplicate ? "Ця картка вже була в черзі." : "Готово для перевірки й імпорту в ShopExpress."
-      ].join("\n")
-    );
-  } else if (shopExpress.dryRun) {
-    lines.push("<b>ShopExpress</b>: dry-run.");
-  } else {
-    lines.push("<b>ShopExpress</b>: товар створено.");
   }
 
   return lines.join("\n\n");

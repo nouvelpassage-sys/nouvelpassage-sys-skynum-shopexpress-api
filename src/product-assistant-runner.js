@@ -4,9 +4,8 @@ import { resolveImageContentType } from "./productAssistant/imageDataUrl.js";
 import { createImageStorage } from "./productAssistant/imageStorage.js";
 import { OpenAiContentClient } from "./productAssistant/openAiContentClient.js";
 import { SalesBoxClient } from "./productAssistant/salesBoxClient.js";
-import { createShopExpressImportQueueLinkPublisher } from "./productAssistant/shopExpressImportQueueLink.js";
-import { createShopExpressPublisher } from "./productAssistant/shopExpressPublisher.js";
 import { ProductAssistantBot } from "./productAssistant/telegramBot.js";
+import { createNightRuntime, readNightConfig } from "./productAssistant/nightRuntime.js";
 import { createServer } from "node:http";
 
 class JsonApiClient {
@@ -19,7 +18,7 @@ class JsonApiClient {
   async getUpdates(offset) {
     return this.call("getUpdates", {
       timeout: 25,
-      allowed_updates: ["message", "callback_query"],
+      allowed_updates: ["message", "edited_message", "callback_query"],
       ...(offset ? { offset } : {})
     });
   }
@@ -66,9 +65,9 @@ class JsonApiClient {
     return image.dataUrl;
   }
 
-  async getFileImage(fileId) {
-    const file = await this.call("getFile", { file_id: fileId });
-    const response = await fetch(new URL(`/file/bot${this.token}/${file.file_path}`, this.apiBaseUrl));
+  async getFileImage(fileId, { timeoutMs } = {}) {
+    const file = await this.call("getFile", { file_id: fileId }, { timeoutMs });
+    const response = await fetch(new URL(`/file/bot${this.token}/${file.file_path}`, this.apiBaseUrl), timeoutMs ? { signal: AbortSignal.timeout(timeoutMs) } : {});
     if (!response.ok) {
       throw new Error(`Bot API file download failed: ${response.status}`);
     }
@@ -86,8 +85,9 @@ class JsonApiClient {
     };
   }
 
-  async call(method, payload) {
+  async call(method, payload, { timeoutMs } = {}) {
     const response = await fetch(new URL(method, this.baseUrl), {
+      ...(timeoutMs ? { signal: AbortSignal.timeout(timeoutMs) } : {}),
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(payload)
@@ -109,22 +109,25 @@ if (!config.telegramToken) {
 
 startHealthServer();
 
+const telegram = new JsonApiClient({ apiBaseUrl: config.telegramApiBaseUrl, token: config.telegramToken });
+const store = new DraftStore(config.dataDir);
+const contentClient = config.openAiApiKey
+  ? new OpenAiContentClient({ apiKey: config.openAiApiKey, model: config.openAiModel }) : null;
+const imageStorage = createImageStorage(config.imageStorage);
+const salesBox = new SalesBoxClient(config.salesBox);
+const night = createNightRuntime({ config: readNightConfig(), dataDir: config.dataDir,
+  telegram, store, contentClient, imageStorage, salesBox });
 const bot = new ProductAssistantBot({
-  telegram: new JsonApiClient({
-    apiBaseUrl: config.telegramApiBaseUrl,
-    token: config.telegramToken
-  }),
-  store: new DraftStore(config.dataDir),
-  contentClient: config.openAiApiKey
-    ? new OpenAiContentClient({ apiKey: config.openAiApiKey, model: config.openAiModel })
-    : null,
-  imageStorage: createImageStorage(config.imageStorage),
-  salesBox: new SalesBoxClient(config.salesBox),
-  shopExpress: createShopExpressPublisher(config.shopExpress),
-  shopExpressImportQueueLinkPublisher: createShopExpressImportQueueLinkPublisher(config.shopExpress),
+  telegram, store, contentClient, imageStorage, salesBox,
   allowedChatIds: config.allowedChatIds,
-  autoPublishReady: config.telegramAutoPublishReady
+  autoPublishReady: config.telegramAutoPublishReady,
+  nightQueue: night.queue
 });
+if (night.worker) {
+  const tick = () => night.worker.tick().catch(() => console.error("Night worker deferred; inspect persisted queue state"));
+  setInterval(tick, 30000).unref();
+  void tick();
+}
 
 await bot.start();
 

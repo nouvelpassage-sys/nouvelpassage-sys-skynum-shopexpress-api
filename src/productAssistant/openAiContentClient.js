@@ -15,6 +15,7 @@ export class OpenAiContentClient {
         type: "input_text",
         text: JSON.stringify({
           task: "Generate a complete ecommerce product card from the seller hint and image when available.",
+          nightPhotoReview: input.nightContent ? "Also return nightPhotoAudit: {singleProduct: boolean, overallPhoto: boolean, collage: boolean, confidentComposition: boolean, selectedImageIndex: number}. Images are numbered from zero in attachment order. Choose one overall photo, not a collage. All attached images must show the same single product; otherwise singleProduct must be false. Only mark true when clearly visible. Multiple distinct works, detail-only crops, collages or uncertainty must fail review." : undefined,
           requiredJsonFields: [
             "nameUk",
             "nameEn",
@@ -35,8 +36,9 @@ export class OpenAiContentClient {
             languages: ["uk", "en"],
             tone:
               "premium floral and gift boutique, warm, sensual, elegant, lightly French-inspired, concise and natural",
-            compositionDisclosure:
-              "For bouquets and flower boxes, do not name or list the flower species, greenery, or composition ingredients in descriptionUk/descriptionEn. Write a general premium description about mood, form, silhouette, palette, occasion, and feeling. Product composition details may exist internally, but the public description must not read like a recipe or ingredient list.",
+            compositionDisclosure: input.nightContent
+              ? "Describe only confidently visible main flowers in Ukrainian, without inventing quantities or varieties. Include a concise possible-substitution note."
+              : "For bouquets and flower boxes, do not name or list the flower species, greenery, or composition ingredients in descriptionUk/descriptionEn. Write a general premium description about mood, form, silhouette, palette, occasion, and feeling. Product composition details may exist internally, but the public description must not read like a recipe or ingredient list.",
             ocrFirst:
               "Before identifying the product visually, inspect the image for readable text: labels, stickers, tags, price labels, plant pots, packaging, and printed product names. If readable text names a plant, fragrance, brand, cultivar, or product model, treat that text as the strongest factual evidence. For indoor plants, use the readable plant name in productTypeUk/productTypeEn and visibleSummaryUk when clear. Do not ignore a visible plant label and do not invent a different plant name from leaf shape when a readable label is present. If the text is partially readable, use only the confident part and keep the rest generic.",
             plantDescriptionStyle:
@@ -69,22 +71,25 @@ export class OpenAiContentClient {
           input: {
             ...input,
             imageDataUrl: input.imageDataUrl ? "[attached image]" : null,
+            ...(input.nightContent ? { imageDataUrls: "[attached images in order]" } : {}),
             imageUrl: input.imageUrl ? "[public image URL attached]" : null
           }
         })
       }
     ];
 
-    if (imageUrl) {
+    const imageUrls = input.nightContent && input.imageDataUrls?.length ? input.imageDataUrls.slice(0, 2) : [imageUrl].filter(Boolean);
+    for (const attachedImageUrl of imageUrls) {
       userContent.push({
         type: "input_image",
-        image_url: imageUrl,
+        image_url: attachedImageUrl,
         detail: "high"
       });
     }
 
     const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
+      ...(input.nightContent ? { signal: AbortSignal.timeout(60000) } : {}),
       headers: {
         authorization: `Bearer ${this.apiKey}`,
         "content-type": "application/json"
