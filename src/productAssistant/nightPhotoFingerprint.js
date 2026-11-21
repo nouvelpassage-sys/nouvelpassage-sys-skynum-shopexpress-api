@@ -6,9 +6,9 @@ export function fingerprintPhoto(bytes) {
   if (!bytes?.length || bytes.length > 12 * 1024 * 1024) throw new Error('Unsupported image size');
   let image;
   if (bytes[0] === 0xff && bytes[1] === 0xd8) {
-    image = jpeg.decode(bytes, { useTArray: true, maxResolutionInMP: 12, maxMemoryUsageInMB: 128, tolerantDecoding: false });
+    image = jpeg.decode(bytes, { useTArray: true, maxResolutionInMP: 16, maxMemoryUsageInMB: 256, tolerantDecoding: false });
   } else if (bytes.subarray(0, 8).equals(Buffer.from([137,80,78,71,13,10,26,10]))) {
-    if (bytes.length < 24 || bytes.readUInt32BE(16) * bytes.readUInt32BE(20) > 12000000) throw new Error('Unsupported PNG resolution');
+    if (bytes.length < 24 || bytes.readUInt32BE(16) * bytes.readUInt32BE(20) > 16000000) throw new Error('Unsupported PNG resolution');
     image = PNG.sync.read(bytes);
   } else throw new Error('Unsupported photo format');
   const { width, height, data } = image;

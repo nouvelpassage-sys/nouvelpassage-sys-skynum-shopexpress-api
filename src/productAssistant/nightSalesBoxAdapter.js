@@ -36,11 +36,13 @@ export function createNightSalesBoxAdapter({ client, store, queue, now = () => n
       const draft = job.preparation?.result?.draft;
       if (!draft) return { status: 'review', reason: 'missing-prepared-draft' };
       const offers = await readNightCatalog(client);
+      const exclusions = await readPhotoExclusions(join(queue.dir, 'photo-review-exclusions.json'));
       const exact = reconcileNightOffer(offers,draft,{knownDrafts:await store.list({limit:Infinity})});
       if (exact.status === 'verified') await store.update(draft.id, { status: 'published', verifiedSalesBoxId: exact.remoteId });
       if (exact.reason !== 'manual-catalog-duplicate-review-required') return exact;
       if (!draft.sourcePhotoFingerprint) return { status:'review',reason:'missing-photo-fingerprint' };
       for (const offer of offers) {
+        if (exclusions.has(String(offer.id))) continue;
         if (!isKyivNight(now())) return { status:'review',reason:'outside-window' };
         try {
           if (similarPhoto(draft.sourcePhotoFingerprint,await remoteFingerprint(offer))) {
@@ -48,7 +50,7 @@ export function createNightSalesBoxAdapter({ client, store, queue, now = () => n
           }
         } catch { return {status:'review',reason:'catalog-photo-review-incomplete',remoteId:offer.id}; }
       }
-      return {status:'absent',checkedOffers:offers.length};
+      return {status:'absent',checkedOffers:offers.length,excludedPhotos:offers.filter((offer) => exclusions.has(String(offer.id))).length};
     },
     async publish(job, price) {
       const current = (await queue.read()).jobs[job.id];
@@ -61,4 +63,16 @@ export function createNightSalesBoxAdapter({ client, store, queue, now = () => n
       await store.save({...draft,status:'publication-pending',salesBoxResult:result});
     }
   };
+}
+
+
+export async function readPhotoExclusions(path) {
+  let value;
+  try { value = JSON.parse(await readFile(path, 'utf8')); }
+  catch (error) { if (error.code === 'ENOENT') return new Set(); throw error; }
+  if (value.version !== 1 || !value.approvedAt || !Array.isArray(value.offerIds) ||
+      value.offerIds.length > 500 || value.offerIds.some((id) => !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id))) {
+    throw new Error('Invalid approved photo exclusions');
+  }
+  return new Set(value.offerIds);
 }

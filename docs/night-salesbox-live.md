@@ -10,7 +10,7 @@ Railway workspace `nouvelpassage-sys`, project `adventurous-simplicity`
 (`b4a38bbd-0b1d-4e96-b83a-d093257a2f7a`), service
 `0811c129-523c-47db-a05c-e6c3a945cb4b`, production environment
 `6c0a1a1a-c3b8-4440-b765-ef966dd9d88d`.
-Active deployment observed: `44155935-d8e2-4ec8-95cb-ee2dd5f1da87`.
+Initial night-code deployment: `64bb2f70-d65c-4bc1-a35f-e6a8250d2f4d`, main `5c4c5a5`, verified healthy with mode off.
 Live Node is **18.20.5**, start command `node src/product-assistant-runner.js`.
 Persistent draft directory `/data/product-assistant`; 117 stored drafts observed.
 `getMe` confirmed bot ID 8653239546, username NouvelProductAssistantBot,
@@ -22,7 +22,7 @@ Observed image origins: res.cloudinary.com,
 sales-box-photos.s3-eu-central-1.amazonaws.com, www.nouvelamour.kiev.ua,
 d3og57k1dk4307.cloudfront.net.
 
-## Local implementation (not deployed)
+## Implementation
 
 - SalesBox-only bot publication; existing private generation kept on old baseline.
 - Persistent source-group queue and offset, atomic fsync/rename, heartbeat locks.
@@ -40,26 +40,23 @@ d3og57k1dk4307.cloudfront.net.
 
 ## Verification
 
-Node tests pass locally and with Node 18.20.5. Latest full suite: 123 tests.
+Node tests pass locally and with Node 18.20.5. Latest full suite: 125 tests.
 No separate lint, type-check or build scripts exist in package.json.
 `git diff --check` passes; npm audit has no reported vulnerabilities.
 Dependencies pinned: proper-lockfile 4.1.2, jpeg-js 0.4.4, pngjs 7.0.0.
-No live AI generation, image upload, product creation, deployment, push, or polling was performed.
+No live AI generation, image upload or product creation was performed. PR #2 was merged and the existing single Railway service deployed; no second poller was started. All 117 drafts survived and were backed up in `/data/backups/product-assistant-before-night-20261121`.
 
 ## Remaining release gates and limitations
 
-1. Exact numeric group ID still unverified. Native Telegram is open in “Квіти Контент”.
-   Five human members observed; bot not present. Privacy is enabled, so group access must be configured.
-   Keyboard navigation and AX setValue work; native pointer actions were unreliable.
-   User explicitly prefers native Telegram; do not ask for Web login again.
+1. Group ID confirmed by live bot log on addition at 08:39:41 Kyiv: `-1003882742249`, title “Квіти Контент”, supergroup. Native Telegram confirms six members including the bot. Group Privacy is enabled; enabling access and real ingestion verification remain pending.
 2. Photo hashes catch recompression/resizing of the same image; different angles/crops can evade them.
    Similar hashes are held, not automatically treated as the same product.
    Unsupported formats, missing photos, unverified origins/redirects fail closed.
-   Validate the actual 140-product photo set before enabling publish.
+   Read-only audit: 116 fingerprints cached, 23 legacy HTTP-404 photos and one 4032px-class JPEG blocked. Owner explicitly approved excluding only those 23 offer IDs, persisted in `/data/product-assistant/night-content/photo-review-exclusions.json`. Identity comparisons still include them; new broken images still block. Follow-up code adds exact-ID exclusions and bounded 16MP / 256MB JPEG decoding. Container memory limit observed: 8,000,000,000 bytes. Re-audit after follow-up deployment.
 3. Albums with more than two photos currently remain for photo selection, without an AI call.
 4. No private UI yet for resolving night holds or resuming an interrupted preparation.
-5. Existing image upload client has no explicit timeout; worker may wait for a stalled upload.
-6. Confirm group access and source identity, back up persistent data, then deploy to the existing single service.
+5. Night image upload has a 20-second timeout; private upload behavior remains unchanged.
+6. Finish group reading access, deploy the photo-audit follow-up to the existing single service.
    Start with collect, inspect real durable ingestion and silence, then prepare, then publish.
    Never start a second poller or change deployment source to the newer 963eccc branch.
 7. No LOKO/GetOrder/ShopExpress publishing. GetOrder export is deferred until a product-only import schema is verified.
