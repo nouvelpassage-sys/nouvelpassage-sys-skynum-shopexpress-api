@@ -137,7 +137,7 @@ test("Telegram bot requires a photo for new product drafts", async () => {
   assert.match(sentMessages.at(-1).text, /фото/iu);
 });
 
-test("Telegram bot status reports ShopExpress queue mode", async () => {
+test("Telegram bot status advertises only SalesBox", async () => {
   const sentMessages = [];
   const bot = new ProductAssistantBot({
     telegram: {
@@ -160,8 +160,8 @@ test("Telegram bot status reports ShopExpress queue mode", async () => {
     text: "/status"
   });
 
-  assert.match(sentMessages.at(-1).text, /ShopExpress live API ще не увімкнено/);
-  assert.match(sentMessages.at(-1).text, /shopexpress-pending-import\.csv/);
+  assert.match(sentMessages.at(-1).text, /SalesBox/);
+  assert.doesNotMatch(sentMessages.at(-1).text, /ShopExpress|shopexpress/i);
 });
 
 test("Telegram bot requires price and hint in the photo caption", async () => {
@@ -446,7 +446,7 @@ test("Telegram bot does not publish an already published SalesBox draft twice", 
   assert.match(sentMessages.at(-1).text, /SalesBox/);
 });
 
-test("Telegram bot can sync ShopExpress for an already published SalesBox draft", async () => {
+test("Telegram bot never syncs ShopExpress for an already published SalesBox draft", async () => {
   const sentMessages = [];
   const updates = [];
   const bot = new ProductAssistantBot({
@@ -477,24 +477,17 @@ test("Telegram bot can sync ShopExpress for an already published SalesBox draft"
     },
     shopExpress: {
       enabled: true,
-      publishDraft: async () => ({
-        enabled: true,
-        dryRun: true,
-        queued: true,
-        duplicate: false,
-        importFilePath: "data/product-assistant/shopexpress-pending-import.csv"
-      })
+      publishDraft: async () => assert.fail("ShopExpress must not receive previously published products")
     }
   });
 
   const result = await bot.publishDraft("1", "draft-published-salesbox-only");
 
   assert.equal(result.salesBoxResult.dryRun, false);
-  assert.equal(result.shopExpressResult.queued, true);
-  assert.equal(updates.length, 1);
-  assert.equal(updates[0].draftId, "draft-published-salesbox-only");
-  assert.equal(updates[0].patch.shopExpressResult.queued, true);
-  assert.match(sentMessages.at(-1).text, /ShopExpress/);
+  assert.equal(result.alreadyPublished, true);
+  assert.equal(result.shopExpressResult, undefined);
+  assert.equal(updates.length, 0);
+  assert.doesNotMatch(sentMessages.at(-1).text, /ShopExpress/i);
 });
 
 test("Telegram bot explains stale inline publish buttons after server restart", async () => {
@@ -546,93 +539,21 @@ test("recognizes ShopExpress import link command aliases", () => {
   assert.equal(getShopExpressImportModeFromText("/rewrite"), null);
 });
 
-test("Telegram bot can return a ShopExpress import URL from queue", async () => {
+test("Telegram help and retired import commands never expose or mutate ShopExpress", async () => {
   const sentMessages = [];
+  const forbidden = async () => assert.fail("Retired import commands must not access the queue");
   const bot = new ProductAssistantBot({
-    telegram: {
-      sendMessage: async (chatId, text) => sentMessages.push({ chatId, text })
-    },
-    store: null,
-    contentClient: null,
+    telegram: { sendMessage: async (chatId, text) => sentMessages.push(text) },
     allowedChatIds: [],
-    imageStorage: { configured: true },
-    salesBox: { canWrite: () => true },
     shopExpressImportQueueLinkPublisher: {
-      publishQueueFile: async () => ({
-        enabled: true,
-        queued: true,
-        rowCount: 4,
-        importUrl: "https://example.test/shopexpress-pending-import.csv"
-      })
+      publishQueueFile: forbidden, clearQueueFile: forbidden, getQueueStatus: forbidden
     }
   });
-
-  await bot.handleMessage({
-    chat: { id: "1" },
-    text: "/shopimport"
-  });
-
-  assert.equal(sentMessages.length, 2);
-  assert.match(sentMessages[0].text, /Готую публічне посилання/);
-  assert.match(sentMessages[1].text, /ShopExpress CSV готовий/);
-  assert.match(sentMessages[1].text, /example\.test/);
-});
-
-test("Telegram bot can clear ShopExpress queue after import", async () => {
-  const sentMessages = [];
-  const bot = new ProductAssistantBot({
-    telegram: {
-      sendMessage: async (chatId, text) => sentMessages.push({ chatId, text })
-    },
-    store: null,
-    contentClient: null,
-    allowedChatIds: [],
-    imageStorage: { configured: true },
-    salesBox: { canWrite: () => true },
-    shopExpressImportQueueLinkPublisher: {
-      clearQueueFile: async () => ({
-        enabled: true,
-        cleared: true
-      })
-    }
-  });
-
-  await bot.handleMessage({
-    chat: { id: "1" },
-    text: "/shopdone"
-  });
-
-  assert.equal(sentMessages.length, 1);
-  assert.match(sentMessages[0].text, /чергу ShopExpress очищено/i);
-});
-
-test("Telegram bot can report ShopExpress queue status", async () => {
-  const sentMessages = [];
-  const bot = new ProductAssistantBot({
-    telegram: {
-      sendMessage: async (chatId, text) => sentMessages.push({ chatId, text })
-    },
-    store: null,
-    contentClient: null,
-    allowedChatIds: [],
-    imageStorage: { configured: true },
-    salesBox: { canWrite: () => true },
-    shopExpressImportQueueLinkPublisher: {
-      getQueueStatus: async () => ({
-        enabled: true,
-        importFilePath: "data/product-assistant/shopexpress-pending-import.csv",
-        rowCount: 7,
-        bytes: 2048
-      })
-    }
-  });
-
-  await bot.handleMessage({
-    chat: { id: "1" },
-    text: "/shopstatus"
-  });
-
-  assert.equal(sentMessages.length, 1);
-  assert.match(sentMessages[0].text, /Queue Status/);
-  assert.match(sentMessages[0].text, /7/);
+  for (const text of ["/start", "/help", "/shopimport", "/shoplink", "/shopstatus", "/shopdone", "/shopclear"]) {
+    await bot.handleMessage({ chat: { id: "1" }, text });
+  }
+  assert.match(sentMessages[0], /SalesBox/);
+  assert.match(sentMessages[1], /SalesBox/);
+  assert.doesNotMatch(sentMessages.join("\n"), /ShopExpress|shopimport|shopstatus|shopdone/i);
+  for (const message of sentMessages.slice(2)) assert.match(message, /Команду не впізнав/);
 });

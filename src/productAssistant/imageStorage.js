@@ -21,7 +21,7 @@ export class StaticPublicImageStorage {
     return Boolean(this.dir && this.publicBaseUrl);
   }
 
-  async storeProductImage({ draftId, bytes, contentType, sourceFilePath }) {
+  async storeProductImage({ draftId, bytes, contentType, sourceFilePath, signal }) {
     if (!this.configured || !bytes?.length) {
       return null;
     }
@@ -60,7 +60,7 @@ export class SalesBoxS3ImageStorage {
     return Boolean(this.apiBaseUrl && this.apiToken && this.companyId);
   }
 
-  async storeProductImage({ draftId, bytes, contentType, sourceFilePath }) {
+  async storeProductImage({ draftId, bytes, contentType, sourceFilePath, signal }) {
     if (!this.configured || !bytes?.length) {
       return null;
     }
@@ -74,6 +74,7 @@ export class SalesBoxS3ImageStorage {
 
     const response = await this.fetch(new URL("companies/uploadToS3", this.apiBaseUrl), {
       method: "POST",
+      ...(signal ? { signal } : {}),
       headers: {
         authorization: `Bearer ${this.apiToken}`,
         accept: "application/json",
@@ -119,7 +120,7 @@ export class CloudinaryUnsignedImageStorage {
     return Boolean(this.cloudName && this.uploadPreset);
   }
 
-  async storeProductImage({ draftId, bytes, contentType, sourceFilePath }) {
+  async storeProductImage({ draftId, bytes, contentType, sourceFilePath, signal }) {
     if (!this.configured || !bytes?.length) {
       return null;
     }
@@ -136,6 +137,7 @@ export class CloudinaryUnsignedImageStorage {
 
     const response = await this.fetch(`https://api.cloudinary.com/v1_1/${encodeURIComponent(this.cloudName)}/image/upload`, {
       method: "POST",
+      ...(signal ? { signal } : {}),
       body: form
     });
     const payload = await readJsonResponse(response);
