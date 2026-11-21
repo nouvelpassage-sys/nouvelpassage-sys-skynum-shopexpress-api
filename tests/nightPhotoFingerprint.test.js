@@ -23,3 +23,18 @@ test('unreadable and flat photos cannot establish uniqueness', () => {
   assert.throws(()=>fingerprintPhoto(Buffer.from('not an image')));
   assert.throws(()=>fingerprintPhoto(jpeg.encode({data:Buffer.alloc(64*64*4),width:64,height:64},80).data));
 });
+
+test('standard 12-megapixel phone photo fits the bounded decoder', () => {
+  const width=4032,height=3024;
+  const data=Buffer.alloc(width*height*4);
+  for(let y=0;y<height;y++)for(let x=0;x<width;x++){
+    const i=(y*width+x)*4;
+    data[i]=Math.floor(x/width*220);
+    data[i+1]=Math.floor(y/height*220);
+    data[i+2]=60;
+    data[i+3]=255;
+  }
+  const result=fingerprintPhoto(jpeg.encode({data,width,height},30).data);
+  assert.equal(result.version,1);
+  assert.equal(result.phash.length,63);
+});

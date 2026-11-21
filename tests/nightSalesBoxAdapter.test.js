@@ -53,3 +53,18 @@ test('write acknowledgement is pending until persisted catalog fields are verifi
   assert.equal((await fixture.adapter.reconcile(fixture.job)).status,'verified');
   assert.equal(fixture.saved.at(-1).status,'published');
 });
+
+test('only explicitly approved offer IDs bypass unavailable photo comparison',async(t)=>{
+  const {writeFile}=await import('node:fs/promises');
+  const approved='11111111-1111-1111-1111-111111111111';
+  const fixture=await setup(t,[{id:approved,originalURL:'https://res.cloudinary.com/missing.jpg'}]);
+  fixture.options.fetchImpl=async()=>new Response('missing',{status:404});
+  const adapter=createNightSalesBoxAdapter(fixture.options);
+  assert.equal((await adapter.reconcile(fixture.job)).status,'review');
+  await writeFile(join(fixture.options.queue.dir,'photo-review-exclusions.json'),JSON.stringify({version:1,approvedAt:'2026-11-21',offerIds:[approved]}));
+  const result=await adapter.reconcile(fixture.job);
+  assert.equal(result.status,'absent');
+  assert.equal(result.excludedPhotos,1);
+  fixture.options.client.getOffers=async({page})=>({success:true,data:page===1?[{id:'22222222-2222-2222-2222-222222222222',originalURL:'https://res.cloudinary.com/new-missing.jpg'}]:[]});
+  assert.equal((await adapter.reconcile(fixture.job)).status,'review');
+});
