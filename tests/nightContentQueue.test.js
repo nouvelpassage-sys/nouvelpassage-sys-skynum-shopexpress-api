@@ -239,3 +239,45 @@ test('unconfigured groups cannot trigger private commands or group replies',asyn
   await bot.handleUpdate(message(1,{text:'/start'}));
   await bot.handleUpdate({callback_query:{id:'c',message:message(1).message,data:'publish:any'}});
 });
+
+
+test('missing or unreadable photo price defaults to 1500 and survives restart', async (t) => {
+  const queue = await fixture(t);
+  for (const [i, caption] of ['', '25 троянд', 'Ціна: не вказана'].entries()) {
+    await queue.ingest(photo(i + 1, caption));
+  }
+  const restarted = new NightContentQueue({ dataDir: join(queue.dir, '..'), chatId: '-123' });
+  for (const job of await jobs(restarted)) {
+    assert.equal(job.price, 1500);
+    assert.equal(job.priceSource, 'default-1500');
+    assert.deepEqual(job.prices, { salesbox: 1500 });
+    assert.equal(job.status, 'queued');
+  }
+});
+
+test('recognized publication price wins and a linked reply replaces fallback', async (t) => {
+  const queue = await fixture(t);
+  await queue.ingest(photo(1, '2500 грн'));
+  await queue.ingest(photo(2, ''));
+  await queue.ingest(message(3, { text: '3200 грн', reply_to_message: { message_id: 2 } }));
+  const result = await jobs(queue);
+  assert.deepEqual(result.map(j => [j.price, j.priceSource]), [[2500, 'publication'], [3200, 'publication']]);
+});
+
+test('fallback reaches night SalesBox adapter while unlinked text never becomes a product', async (t) => {
+  const queue = await fixture(t);
+  await queue.ingest(photo(1, ''));
+  await queue.ingest(message(2, { text: 'ціна невідома' }));
+  let exists = false;
+  await new NightContentWorker({ queue, now: night, settleMs: 0,
+    prepare: async job => { assert.equal(job.price, 1500); return { ready: true }; },
+    adapters: { salesbox: {
+      reconcile: async () => exists ? { status: 'verified', remoteId: 'offer-default' } : { status: 'absent' },
+      publish: async (_job, price) => { assert.equal(price, 1500); exists = true; }
+    } }
+  }).tick();
+  const result = await jobs(queue);
+  assert.equal(result[0].status, 'published');
+  assert.equal(result[1].status, 'draft');
+  assert.equal(result[1].price, null);
+});

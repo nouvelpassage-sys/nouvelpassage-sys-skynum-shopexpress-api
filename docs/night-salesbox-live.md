@@ -60,3 +60,11 @@ No live AI generation, image upload or product creation was performed. PR #2 was
    Start with collect, inspect real durable ingestion and silence, then prepare, then publish.
    Never start a second poller or change deployment source to the newer 963eccc branch.
 7. No LOKO/GetOrder/ShopExpress publishing. GetOrder export is deferred until a product-only import schema is verified.
+
+## Owner price rule — 2026-11-21
+
+New photo intake without a recognizable price uses 1500 UAH for SalesBox and persists `priceSource: default-1500`. A recognized caption or linked reply uses its actual amount and `priceSource: publication`. Conflicting explicit amounts remain held. Unlinked text does not become a product.
+
+Fallback-priced products must NOT be sent to LOKO or GetOrder/Uklon, including any future export file. Only products with a recognized source price are eligible for those destinations, with +20%. These destinations and their exports remain disabled/unimplemented in this release. Existing prepared/published jobs are not repriced.
+
+Validation: 128 tests pass on Node 18.20.5, covering fallback persistence, recognized/reply price priority, and 1500 reaching the night SalesBox adapter.

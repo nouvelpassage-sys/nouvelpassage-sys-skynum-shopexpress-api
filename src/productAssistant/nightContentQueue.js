@@ -11,15 +11,17 @@ export function isKyivNight(date = new Date()) {
 }
 
 // Deliberately conservative: quantities, dates and multiple amounts are not prices.
-export function explicitPrice(text = '') {
+function priceAmounts(text = '') {
   const value = text.trim();
   const bare = value.match(/^(\d{2,6})(?:[.,](\d{1,2}))?\s*(?:грн|uah|₴)?$/iu);
   const marked = [...value.matchAll(/(?:ціна\s*[:—-]?\s*)(\d{2,6})(?:[.,](\d{1,2}))?|(?<![\d.,])(\d{2,6})(?:[.,](\d{1,2}))?\s*(?:грн|uah|₴)/giu)];
   const matches = bare ? [bare] : marked;
-  if (matches.length !== 1) return null;
-  const match = matches[0];
-  const amount = Number(`${match[1] ?? match[3]}.${match[2] ?? match[4] ?? '0'}`);
-  return amount > 0 ? amount : null;
+  return matches.map((match) => Number(`${match[1] ?? match[3]}.${match[2] ?? match[4] ?? '0'}`)).filter((amount) => amount > 0);
+}
+
+export function explicitPrice(text = '') {
+  const amounts = priceAmounts(text);
+  return amounts.length === 1 ? amounts[0] : null;
 }
 
 export class NightContentQueue {
@@ -106,7 +108,11 @@ export class NightContentQueue {
       const prices = texts.map(explicitPrice).filter((price) => price !== null);
       // An ambiguous caption cannot be rescued by a single price in another message.
       const ambiguous = texts.some((text) => /(?:грн|uah|₴|ціна)/iu.test(text) && explicitPrice(text) === null);
-      job.price = !ambiguous && prices.length && new Set(prices).size === 1 ? prices[0] : null;
+      // Owner-approved fallback is per photo job, never for an unlinked text.
+      // Conflicting explicit amounts still require review rather than inventing a choice.
+      const fallback = photos.length > 0 && prices.length === 0 && !texts.some((text) => priceAmounts(text).length > 1);
+      job.price = !ambiguous && prices.length && new Set(prices).size === 1 ? prices[0] : fallback ? 1500 : null;
+      job.priceSource = job.price === null ? null : fallback ? 'default-1500' : 'publication';
       job.prices = job.price === null ? null : {
         salesbox: job.price
       };
