@@ -3,7 +3,7 @@ import { hasBannedCopyPhrase, needsImprovement } from "./copyQuality.js";
 import { hasProductNameStopWords } from "./productCardPolicy.js";
 
 export function validateProductDraft(draft) {
-  const issues = [];
+  const issues = [...(draft.editorialIssues ?? [])];
 
   if (!draft.nameUk || String(draft.nameUk).trim().length < 5) {
     issues.push("Назва відсутня або занадто коротка.");
@@ -23,12 +23,21 @@ export function validateProductDraft(draft) {
     issues.push("Категорія відсутня або не входить у дозволений список.");
   }
 
-  if (needsImprovement(draft.descriptionUk, draft.category)) {
+  if (draft.editorialVersion === 2
+    ? (!draft.descriptionUk || draft.descriptionUk.length < 100 || hasBannedCopyPhrase(draft.descriptionUk))
+    : needsImprovement(draft.descriptionUk, draft.category)) {
     issues.push("Опис не проходить редакційний фільтр якості.");
   }
 
   if (hasBannedCopyPhrase(draft.seo?.descriptionUk)) {
     issues.push("SEO опис містить заборонені шаблонні фрази.");
+  }
+
+  if (draft.editorialVersion === 2) {
+    for (const field of ["titleUk", "descriptionUk", "keywordsUk", "slug"]) {
+      if (!String(draft.seo?.[field] ?? "").trim()) issues.push(`Не заповнено SEO: ${field}.`);
+    }
+    if (!draft.descriptionEn || !draft.productTypeEn || !draft.nameEn) issues.push("Не заповнено англійську версію картки.");
   }
 
   const evidence = [

@@ -64,8 +64,8 @@ export async function createProductDraft({
           ].filter(Boolean).join(" ")
         });
     const productTypeUk = cleanProductHint(generated.productTypeUk || generated.productType || inferProductTypeUk(generated.nameUk || baseName, generatedCategoryRule.category));
-    const nameUk = sanitizeCreativeProductName(generated.nameUk, generatedCategoryRule.category);
-    const nameEn = sanitizeCreativeProductName(generated.nameEn || buildFallbackNameEn(nameUk), generatedCategoryRule.category);
+    const nameUk = generated.editorialVersion === 2 ? cleanProductHint(generated.nameUk) : sanitizeCreativeProductName(generated.nameUk, generatedCategoryRule.category);
+    const nameEn = generated.editorialVersion === 2 ? cleanProductHint(generated.nameEn) : sanitizeCreativeProductName(generated.nameEn || buildFallbackNameEn(nameUk), generatedCategoryRule.category);
 
     return normalizeDraft({
       ...generated,
@@ -119,6 +119,9 @@ export async function createProductDraft({
 
 function normalizeDraft(draft) {
   const normalized = {
+    editorialVersion: draft.editorialVersion,
+    editorialIssues: draft.editorialIssues,
+    visualEvidence: draft.visualEvidence,
     id: createDraftId(),
     status: "draft",
     createdAt: new Date().toISOString(),
@@ -142,7 +145,7 @@ function normalizeDraft(draft) {
     visibleSummaryUk: draft.visibleSummaryUk,
     nameUk: draft.nameUk,
     nameEn: draft.nameEn,
-    descriptionUk: improveShortDescription({
+    descriptionUk: draft.editorialVersion === 2 ? String(draft.descriptionUk ?? "").trim() : improveShortDescription({
       description: draft.descriptionUk,
       name: draft.nameUk,
       productType: draft.productTypeUk,
