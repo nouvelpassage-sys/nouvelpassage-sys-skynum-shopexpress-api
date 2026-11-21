@@ -42,6 +42,8 @@ test("SalesBox client stays in dry-run when credentials are incomplete", async (
   assert.equal(result.payload.offers[0].categories[0].id, "bd061350-4f12-49d6-a2e2-8e0d99ee0b90");
   assert.equal(result.payload.offers[0].stockType, "limited");
   assert.equal(result.payload.offers[0].count, 1);
+  assert.equal(result.payload.offers[0].isTop, true);
+  assert.equal(result.payload.offers[0].order, 1);
 });
 
 test("SalesBox payload keeps creative name separate from factual category data", () => {

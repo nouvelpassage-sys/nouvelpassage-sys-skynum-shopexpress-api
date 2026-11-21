@@ -230,6 +230,8 @@ export class SalesBoxClient {
         { lang: "en", description: draft.descriptionEn }
       ]),
       photos,
+      isTop: true,
+      order: 1,
       available: draft.availability !== "unavailable",
       availableStatus: draft.availability === "unavailable" ? "UNAVAILABLE" : "AVAILABLE",
       stockType,
