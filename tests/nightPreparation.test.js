@@ -17,6 +17,7 @@ function setup(overrides = {}) {
   const saved = []; let uploads = 0; let requests = 0;
   const options = {
     now: night,
+    photoStudio: { process: async image => ({ ...image, ready: true, profile: "test" }) },
     telegram: { getFileImage: async () => ({ bytes, dataUrl: 'data:image/jpeg;base64,aW1hZ2U=', contentType: 'image/jpeg' }) },
     contentClient: { generateProductContent: async (input) => { requests++; assert.equal(input.nightContent, true); return generated; } },
     imageStorage: { configured: true, storeProductImage: async () => { uploads++; return { url: 'https://image.test/product.jpg' }; } },
@@ -77,4 +78,17 @@ test('larger albums stay for photo selection without spending AI',async()=>{
   const fixture=setup();
   assert.equal((await fixture.prepare(album)).reason,'album-needs-photo-selection');
   assert.equal(fixture.counts().requests,0);
+});
+
+test('studio rejection never uploads or returns a publishable card', async () => {
+  const fixture=setup({photoStudio:{process:async image=>({...image,ready:false,review:{uncertain:true}})}});
+  const result=await fixture.prepare(job);
+  assert.equal(result.reason,'studio-photo-needs-review');
+  assert.equal(fixture.counts().uploads,0);
+  assert.equal(fixture.saved.at(-1).photoStudio.ready,false);
+});
+test('studio failure does not fall back to unprocessed photo', async () => {
+  const fixture=setup({photoStudio:{process:async()=>{throw new Error('edit timeout')}}});
+  await assert.rejects(fixture.prepare(job));
+  assert.equal(fixture.counts().uploads,0);
 });

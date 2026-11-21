@@ -1,3 +1,4 @@
+import { NightPhotoStudio } from './productAssistant/nightPhotoStudio.js';
 import { readNightCatalog } from "./productAssistant/nightSalesBoxCatalog.js";
 import { readBotConfig } from "./productAssistant/env.js";
 import { DraftStore } from "./productAssistant/draftStore.js";
@@ -118,7 +119,8 @@ const contentClient = config.openAiApiKey
 const imageStorage = createImageStorage(config.imageStorage);
 const salesBox = new SalesBoxClient(config.salesBox);
 const night = createNightRuntime({ config: readNightConfig(), dataDir: config.dataDir,
-  telegram, store, contentClient, imageStorage, salesBox });
+  telegram, store, contentClient, imageStorage, salesBox,
+  photoStudio: new NightPhotoStudio({apiKey: config.openAiApiKey, reviewModel: config.openAiModel, dataDir: config.dataDir}) });
 const bot = new ProductAssistantBot({
   telegram, store, contentClient, imageStorage, salesBox,
   allowedChatIds: config.allowedChatIds,

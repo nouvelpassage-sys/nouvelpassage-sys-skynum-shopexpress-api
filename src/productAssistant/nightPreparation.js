@@ -6,10 +6,10 @@ import { isKyivNight } from './nightContentQueue.js';
 
 // The private-chat generator remains unchanged; this wrapper adds silent,
 // fail-closed review for unattended work and never retries a paid generation.
-export function createNightPreparation({ telegram, contentClient, imageStorage, store, now = () => new Date() }) {
+export function createNightPreparation({ telegram, contentClient, imageStorage, store, photoStudio, now = () => new Date() }) {
   return async (job) => {
     if (!isKyivNight(now())) throw new Error('Outside publication window');
-    if (!contentClient || !imageStorage?.configured) throw new Error('Night preparation dependencies unavailable');
+    if (!contentClient || !imageStorage?.configured || !photoStudio) throw new Error('Night preparation dependencies unavailable');
     const photos = Object.values(job.messages).filter((message) => message.photo)
       .sort((a, b) => a.messageId - b.messageId);
     if (!photos.length || !(job.price > 0)) return { ready: false, reason: 'missing-photo-or-price' };
@@ -52,6 +52,13 @@ export function createNightPreparation({ telegram, contentClient, imageStorage, 
       audit?.collage === false && audit?.confidentComposition === true;
     if (!reviewed || draft.qualityIssues.length) return { ready: false, draftId: draft.id, reason: 'photo-or-copy-needs-review' };
     if (!isKyivNight(now())) return { ready: false, draftId: draft.id, reason: 'window-ended-before-image-storage' };
+    const processed = await photoStudio.process(image);
+    draft.photoStudio = { profile: processed.profile, storageKey: processed.storageKey, review: processed.review, ready: processed.ready };
+    await store.save(draft);
+    if (!processed.ready) return { ready: false, draftId: draft.id, reason: 'studio-photo-needs-review' };
+    draft.processedPhotoFingerprint = fingerprintPhoto(processed.bytes);
+    image = processed;
+    if (!isKyivNight(now())) return { ready: false, draftId: draft.id, reason: 'window-ended-after-studio' };
     const saved = await imageStorage.storeProductImage({ draftId: draft.id, ...image, signal: AbortSignal.timeout(20000) });
     if (!saved?.url || !/^https:\/\//.test(saved.url)) throw new Error('Public product image unavailable');
     draft.photoUrl = saved.url;
