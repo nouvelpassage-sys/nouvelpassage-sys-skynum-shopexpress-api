@@ -5,7 +5,7 @@ import { readNightCatalog, reconcileNightOffer } from './nightSalesBoxCatalog.js
 import { fingerprintPhoto, similarPhoto } from './nightPhotoFingerprint.js';
 import { isKyivNight } from './nightContentQueue.js';
 
-export function createNightSalesBoxAdapter({ client, store, queue, now = () => new Date(), fetchImpl = fetch }) {
+export function createNightSalesBoxAdapter({ client, store, queue, publicationAllowed = isKyivNight, now = () => new Date(), fetchImpl = fetch }) {
   const dir = join(queue.dir, 'photo-fingerprints');
   async function remoteFingerprint(offer) {
     // Origins observed in the complete production catalog, 2026-11-21.
@@ -49,7 +49,7 @@ export function createNightSalesBoxAdapter({ client, store, queue, now = () => n
       if (!draft.sourcePhotoFingerprint) return { status:'review',reason:'missing-photo-fingerprint' };
       for (const offer of offers) {
         if (exclusions.has(String(offer.id))) continue;
-        if (!isKyivNight(now())) return { status:'review',reason:'outside-window' };
+        if (!publicationAllowed(now())) return { status:'review',reason:'outside-window' };
         try {
           const remote = await remoteFingerprint(offer);
           if (similarPhoto(draft.sourcePhotoFingerprint,remote) || (draft.processedPhotoFingerprint && similarPhoto(draft.processedPhotoFingerprint,remote))) {
@@ -61,7 +61,7 @@ export function createNightSalesBoxAdapter({ client, store, queue, now = () => n
     },
     async publish(job, price) {
       const current = (await queue.read()).jobs[job.id];
-      if (!isKyivNight(now()) || current?.hold || current?.status !== 'queued' ||
+      if (!publicationAllowed(now()) || current?.hold || current?.status !== 'queued' ||
           current.updatedAt !== job.updatedAt || current.channels.salesbox?.status !== 'writing' ||
           current.price !== price || !client.canWrite()) throw new Error('Publication guard rejected write');
       const draft = current.preparation.result.draft;

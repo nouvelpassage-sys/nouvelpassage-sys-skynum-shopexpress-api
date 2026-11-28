@@ -152,12 +152,12 @@ export class NightContentQueue {
 // Adapters must reconcile the full catalog (including manual entries) and verify
 // each platform's actual final state. No endpoint or successful status is inferred.
 export class NightContentWorker {
-  constructor({ queue, prepare, adapters = {}, now = () => new Date(), settleMs = 60000 }) {
-    Object.assign(this, { queue, prepare, adapters, now, settleMs });
+  constructor({ queue, prepare, adapters = {}, now = () => new Date(), settleMs = 60000, publicationAllowed = isKyivNight }) {
+    Object.assign(this, { queue, prepare, adapters, now, settleMs, publicationAllowed });
   }
 
   async tick() {
-    if (this.running || !isKyivNight(this.now())) return;
+    if (this.running || !this.publicationAllowed(this.now())) return;
     this.running = true;
     let lease;
     try {
@@ -165,13 +165,13 @@ export class NightContentWorker {
       lease = await lockfile.lock(join(this.queue.dir, 'worker'), { realpath: false, stale: 60000, update: 10000 });
       const state = await this.queue.read();
       for (const snapshot of Object.values(state.jobs)) {
-        if (!isKyivNight(this.now())) break;
+        if (!this.publicationAllowed(this.now())) break;
         if (snapshot.status !== 'queued' || snapshot.hold || (snapshot.nextAttemptAt && this.now() < new Date(snapshot.nextAttemptAt)) || this.now() - new Date(snapshot.updatedAt) < this.settleMs) continue;
         let job = snapshot;
         if (!job.preparation) {
           const claimed = await this.queue.patch(job.id, (current) => {
             if (current.hold || current.status !== 'queued' || current.preparation ||
-                current.updatedAt !== snapshot.updatedAt || !isKyivNight(this.now())) return false;
+                current.updatedAt !== snapshot.updatedAt || !this.publicationAllowed(this.now())) return false;
             current.preparation = { status: 'started' };
             return true;
           });
@@ -195,7 +195,7 @@ export class NightContentWorker {
         }
         if (job.preparation?.status !== 'done' || !job.preparation.result?.ready || job.hold) continue;
         for (const channel of ['salesbox']) {
-          if (!isKyivNight(this.now())) break;
+          if (!this.publicationAllowed(this.now())) break;
           job = (await this.queue.read()).jobs[job.id];
           if (job.hold) break;
           if (job.channels[channel]?.status === 'verified') continue;
@@ -220,9 +220,9 @@ export class NightContentWorker {
                 if (found?.reason !== 'outside-window') { current.status = 'draft'; current.reason = found?.reason ?? 'unverified-catalog'; } });
               continue;
             }
-            if (!isKyivNight(this.now())) break;
+            if (!this.publicationAllowed(this.now())) break;
             const claimed = await this.queue.patch(job.id, (current) => {
-              if (current.hold || current.status !== 'queued' || !isKyivNight(this.now()) ||
+              if (current.hold || current.status !== 'queued' || !this.publicationAllowed(this.now()) ||
                   ['writing', 'uncertain', 'verified'].includes(current.channels[channel]?.status)) return false;
               current.channels[channel] = { status: 'writing' };
               return true;

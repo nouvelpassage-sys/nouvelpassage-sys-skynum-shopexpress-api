@@ -82,3 +82,13 @@ for (const failure of ['missing', 'unavailable']) {
     assert.equal(fixture.counts().writes,0);
   });
 }
+
+test('all-day publication preserves source and price guards',async(t)=>{
+ const { publicationAllowed }=await import('../src/productAssistant/nightRuntime.js');
+ const f=await setup(t);
+ const adapter=createNightSalesBoxAdapter({...f.options,now:()=>new Date('2026-11-21T10:00:00Z'),publicationAllowed});
+ await assert.rejects(adapter.publish(f.job,999));
+ f.job.hold='review'; await assert.rejects(adapter.publish(f.job,3000)); delete f.job.hold;
+ await adapter.publish(f.job,3000);
+ assert.equal(f.counts().writes,1);
+});

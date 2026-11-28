@@ -309,3 +309,12 @@ test('HEIC and oversized originals remain durable review jobs, never thumbnails'
   await queue.ingest(message(603,{document:{file_id:'pdf',file_name:'invoice.pdf',mime_type:'application/pdf'},caption:'5000 грн'}));
   assert.equal((await jobs(queue))[2].reason,'unlinked-price-or-no-photo');
 });
+
+test('all-day worker publishes once during daytime and survives restart', async(t)=>{
+ const {publicationAllowed}=await import('../src/productAssistant/nightRuntime.js');
+ const queue=await fixture(t); await queue.ingest(photo(42));
+ let exists=false,writes=0;
+ const opts={queue,publicationAllowed,now:()=>new Date('2026-11-22T10:00:00Z'),settleMs:0,prepare:async()=>({ready:true}),adapters:{salesbox:{reconcile:async()=>exists?{status:'verified',remoteId:'r'}:{status:'absent'},publish:async()=>{writes++;exists=true;}}}};
+ await new NightContentWorker(opts).tick(); await new NightContentWorker(opts).tick();
+ assert.equal(writes,1); assert.equal((await jobs(queue))[0].status,'published');
+});

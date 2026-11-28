@@ -15,10 +15,10 @@ test('review requires all strict booleans; missing, uncertain and changed produc
  assert.equal(photoReviewPassed(pass),true);
  for(const patch of [{sameFlowers:false},{uncertain:true},{sameColors:'true'},{collage:true},{whiteBackground:undefined}]) assert.equal(photoReviewPassed({...pass,...patch}),false);
 });
-test('successful edit and comparison are durable and reused after restart',async()=>{
+for (const daytime of [false, true]) test(`successful edit and comparison are durable and reused after restart (daytime=${daytime})`,async()=>{
  const dataDir=await mkdtemp(join(tmpdir(),'studio-'));let calls=0;
  const fetchImpl=async(url,options)=>{calls++;if(url.endsWith('/edits')) {assert.equal(options.body.get('model'),'gpt-image-2');assert.match(options.body.get('prompt'),/Minimal White/);return {ok:true,json:async()=>({data:[{b64_json:bytes.toString('base64')}]})};}return {ok:true,json:async()=>({output_text:JSON.stringify(pass)})};};
- try{const opts={apiKey:'test',reviewModel:'test',dataDir,fetchImpl,now};const result=await new NightPhotoStudio(opts).process(image);assert.equal(result.ready,true);assert.equal(calls,2);const cached=await new NightPhotoStudio(opts).process(image);assert.equal(cached.outputSha256,result.outputSha256);assert.equal(calls,2);assert.equal((await readdir(join(dataDir,'night-content','studio',result.storageKey))).includes('original'),true);}finally{await rm(dataDir,{recursive:true,force:true});}
+ try{const opts={apiKey:'test',reviewModel:'test',dataDir,fetchImpl,now:daytime?()=>new Date('2026-11-21T10:00:00Z'):now,...(daytime?{publicationAllowed:(await import('../src/productAssistant/nightRuntime.js')).publicationAllowed}:{})};const result=await new NightPhotoStudio(opts).process(image);assert.equal(result.ready,true);assert.equal(calls,2);const cached=await new NightPhotoStudio(opts).process(image);assert.equal(cached.outputSha256,result.outputSha256);assert.equal(calls,2);assert.equal((await readdir(join(dataDir,'night-content','studio',result.storageKey))).includes('original'),true);}finally{await rm(dataDir,{recursive:true,force:true});}
 });
 test('unknown paid result is not retried after restart',async()=>{
  const dataDir=await mkdtemp(join(tmpdir(),'studio-'));let calls=0;
