@@ -98,3 +98,11 @@ test('invalid original bytes are rejected before paid AI even with a JPG filenam
   await assert.rejects(fixture.prepare(job));
   assert.deepEqual(fixture.counts(),{uploads:0,requests:0});
 });
+
+test('all-day policy prepares a reviewed product during daytime', async () => {
+  const { publicationAllowed } = await import('../src/productAssistant/nightRuntime.js');
+  const fixture = setup({now:()=>new Date('2026-11-21T10:00:00Z'), publicationAllowed});
+  const result = await fixture.prepare(job);
+  assert.equal(result.ready,true);
+  assert.deepEqual(fixture.counts(),{uploads:1,requests:1});
+});

@@ -16,3 +16,8 @@ test('publication fails closed without required dependencies or SalesBox write a
   assert.throws(()=>createNightRuntime({config:{mode:'prepare',chatId:'-123'},dataDir:'/unused-test-path'}));
   assert.throws(()=>createNightRuntime({config:{mode:'publish',chatId:'-123'},dataDir:'/unused-test-path',contentClient:{},imageStorage:{configured:true},salesBox:{canWrite:()=>false}}));
 });
+test('production pipeline uses seven-hour batches without a night restriction', () => {
+  const {worker}=createNightRuntime({config:{mode:'prepare',chatId:'-123'},dataDir:'/unused-test-path',contentClient:{},imageStorage:{configured:true},photoStudio:{}});
+  assert.equal(worker.batchIntervalMs,7*60*60*1000);
+  assert.equal(worker.publicationAllowed(new Date('2026-11-28T10:00:00Z')),true);
+});

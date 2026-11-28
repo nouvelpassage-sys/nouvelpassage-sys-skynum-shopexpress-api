@@ -23,13 +23,13 @@ export function photoReviewPassed(review) {
 // A durable claim is written BEFORE a paid request. Interrupted/unknown attempts
 // require operator review; restarting must never automatically pay again.
 export class NightPhotoStudio {
-  constructor({ apiKey, reviewModel, dataDir, fetchImpl = fetch, now = () => new Date() }) {
-    Object.assign(this, { apiKey, reviewModel, fetchImpl, now });
+  constructor({ apiKey, reviewModel, dataDir, fetchImpl = fetch, publicationAllowed = isKyivNight, now = () => new Date() }) {
+    Object.assign(this, { apiKey, reviewModel, fetchImpl, now, publicationAllowed });
     this.dir = join(dataDir, 'night-content', 'studio');
   }
   async process(image) {
     if (!this.apiKey || !this.reviewModel) throw new Error('Photo studio is not configured');
-    if (!isKyivNight(this.now())) throw new Error('Outside photo processing window');
+    if (!this.publicationAllowed(this.now())) throw new Error('Outside photo processing window');
     fingerprintPhoto(image.bytes);
     const key = sha(Buffer.concat([image.bytes, Buffer.from(JSON.stringify(photoStudioProfile) + this.reviewModel + '|review-v1')]));
     const dir = join(this.dir, key);
@@ -43,7 +43,7 @@ export class NightPhotoStudio {
     } catch (error) { if (error.code !== 'ENOENT') throw error; }
     await durableWrite(join(dir,'claim.json'), JSON.stringify({ sourceSha256: sha(image.bytes), profile: 'minimal-white-preserve-v1', startedAt: this.now().toISOString() }), true);
     await durableWrite(join(dir,'original'), image.bytes);
-    if (!isKyivNight(this.now())) throw new Error('Outside photo processing window');
+    if (!this.publicationAllowed(this.now())) throw new Error('Outside photo processing window');
     const form = new FormData();
     form.set('model', photoStudioProfile.model);
     form.set('size', photoStudioProfile.size);
@@ -60,7 +60,7 @@ export class NightPhotoStudio {
     if (!bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])) || bytes.length < 10000 || bytes.readUInt32BE(16) !== 1024 || bytes.readUInt32BE(20) !== 1024) throw new Error('Unexpected studio image format or dimensions');
     fingerprintPhoto(bytes);
     await durableWrite(join(dir,'result.png'), bytes);
-    if (!isKyivNight(this.now())) throw new Error('Window ended before studio review');
+    if (!this.publicationAllowed(this.now())) throw new Error('Window ended before studio review');
     const reviewed = await this.fetchImpl('https://api.openai.com/v1/responses', {
       method: 'POST', headers: { authorization: `Bearer ${this.apiKey}`, 'content-type': 'application/json' }, signal: AbortSignal.timeout(60000),
       body: JSON.stringify({ model: this.reviewModel, text: { format: { type: 'json_object' } }, input: [{ role: 'user', content: [

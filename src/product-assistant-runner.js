@@ -7,7 +7,7 @@ import { createImageStorage } from "./productAssistant/imageStorage.js";
 import { OpenAiContentClient } from "./productAssistant/openAiContentClient.js";
 import { SalesBoxClient } from "./productAssistant/salesBoxClient.js";
 import { ProductAssistantBot } from "./productAssistant/telegramBot.js";
-import { createNightRuntime, readNightConfig } from "./productAssistant/nightRuntime.js";
+import { createNightRuntime, readNightConfig, publicationAllowed } from "./productAssistant/nightRuntime.js";
 import { createServer } from "node:http";
 
 class JsonApiClient {
@@ -120,7 +120,7 @@ const imageStorage = createImageStorage(config.imageStorage);
 const salesBox = new SalesBoxClient(config.salesBox);
 const night = createNightRuntime({ config: readNightConfig(), dataDir: config.dataDir,
   telegram, store, contentClient, imageStorage, salesBox,
-  photoStudio: new NightPhotoStudio({apiKey: config.openAiApiKey, reviewModel: config.openAiModel, dataDir: config.dataDir}) });
+  photoStudio: new NightPhotoStudio({apiKey: config.openAiApiKey, reviewModel: config.openAiModel, dataDir: config.dataDir, publicationAllowed}) });
 const bot = new ProductAssistantBot({
   telegram, store, contentClient, imageStorage, salesBox,
   allowedChatIds: config.allowedChatIds,

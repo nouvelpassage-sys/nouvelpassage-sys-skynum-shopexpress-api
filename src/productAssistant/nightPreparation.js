@@ -6,9 +6,9 @@ import { isKyivNight } from './nightContentQueue.js';
 
 // The private-chat generator remains unchanged; this wrapper adds silent,
 // fail-closed review for unattended work and never retries a paid generation.
-export function createNightPreparation({ telegram, contentClient, imageStorage, store, photoStudio, now = () => new Date() }) {
+export function createNightPreparation({ telegram, contentClient, imageStorage, store, photoStudio, publicationAllowed = isKyivNight, now = () => new Date() }) {
   return async (job) => {
-    if (!isKyivNight(now())) throw new Error('Outside publication window');
+    if (!publicationAllowed(now())) throw new Error('Outside publication window');
     if (!contentClient || !imageStorage?.configured || !photoStudio) throw new Error('Night preparation dependencies unavailable');
     const photos = Object.values(job.messages).filter((message) => message.photo)
       .sort((a, b) => a.messageId - b.messageId);
@@ -21,7 +21,7 @@ export function createNightPreparation({ telegram, contentClient, imageStorage, 
     let photo = photos[0].photo;
     let image = images[0];
     if (!image?.bytes?.length || !image.dataUrl) throw new Error('Photo download failed');
-    if (!isKyivNight(now())) throw new Error('Outside publication window');
+    if (!publicationAllowed(now())) throw new Error('Outside publication window');
     let audit;
     const draft = await createProductDraft({
       text: `${job.price} грн\n${Object.values(job.messages).map((message) => message.text).join('\n')}`,
@@ -53,14 +53,14 @@ export function createNightPreparation({ telegram, contentClient, imageStorage, 
     const reviewed = validSelection && audit?.singleProduct === true && audit?.overallPhoto === true &&
       audit?.collage === false && audit?.confidentComposition === true;
     if (!reviewed || draft.qualityIssues.length) return { ready: false, draftId: draft.id, reason: 'photo-or-copy-needs-review' };
-    if (!isKyivNight(now())) return { ready: false, draftId: draft.id, reason: 'window-ended-before-image-storage' };
+    if (!publicationAllowed(now())) return { ready: false, draftId: draft.id, reason: 'window-ended-before-image-storage' };
     const processed = await photoStudio.process(image);
     draft.photoStudio = { profile: processed.profile, storageKey: processed.storageKey, review: processed.review, ready: processed.ready };
     await store.save(draft);
     if (!processed.ready) return { ready: false, draftId: draft.id, reason: 'studio-photo-needs-review' };
     draft.processedPhotoFingerprint = fingerprintPhoto(processed.bytes);
     image = processed;
-    if (!isKyivNight(now())) return { ready: false, draftId: draft.id, reason: 'window-ended-after-studio' };
+    if (!publicationAllowed(now())) return { ready: false, draftId: draft.id, reason: 'window-ended-after-studio' };
     const saved = await imageStorage.storeProductImage({ draftId: draft.id, ...image, signal: AbortSignal.timeout(20000) });
     if (!saved?.url || !/^https:\/\//.test(saved.url)) throw new Error('Public product image unavailable');
     draft.photoUrl = saved.url;
