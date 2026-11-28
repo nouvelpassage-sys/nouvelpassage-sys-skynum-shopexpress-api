@@ -2,6 +2,8 @@ import { NightContentQueue, NightContentWorker } from './nightContentQueue.js';
 import { createNightPreparation } from './nightPreparation.js';
 import { createNightSalesBoxAdapter } from './nightSalesBoxAdapter.js';
 
+export const CONTENT_BATCH_INTERVAL_MS = 7 * 60 * 60 * 1000;
+
 export function publicationAllowed() { return true; }
 
 export function readNightConfig(env = process.env) {
@@ -23,5 +25,5 @@ export function createNightRuntime({ config, dataDir, telegram, store, contentCl
   const adapters = config.mode === 'publish' ? {
     salesbox: createNightSalesBoxAdapter({client:salesBox,store,queue,now,publicationAllowed})
   } : {};
-  return { queue, worker: new NightContentWorker({queue,prepare,adapters,now,publicationAllowed}) };
+  return { queue, worker: new NightContentWorker({queue,prepare,adapters,now,publicationAllowed,batchIntervalMs:CONTENT_BATCH_INTERVAL_MS}) };
 }

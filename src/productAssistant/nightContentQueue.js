@@ -152,8 +152,8 @@ export class NightContentQueue {
 // Adapters must reconcile the full catalog (including manual entries) and verify
 // each platform's actual final state. No endpoint or successful status is inferred.
 export class NightContentWorker {
-  constructor({ queue, prepare, adapters = {}, now = () => new Date(), settleMs = 60000, publicationAllowed = isKyivNight }) {
-    Object.assign(this, { queue, prepare, adapters, now, settleMs, publicationAllowed });
+  constructor({ queue, prepare, adapters = {}, now = () => new Date(), settleMs = 60000, batchIntervalMs = 0, publicationAllowed = isKyivNight }) {
+    Object.assign(this, { queue, prepare, adapters, now, settleMs, batchIntervalMs, publicationAllowed });
   }
 
   async tick() {
@@ -163,6 +163,16 @@ export class NightContentWorker {
     try {
       await mkdir(this.queue.dir, { recursive: true });
       lease = await lockfile.lock(join(this.queue.dir, 'worker'), { realpath: false, stale: 60000, update: 10000 });
+      // Persist the batch claim before work so restarts cannot trigger extra runs.
+      if (this.batchIntervalMs > 0) {
+        const claimed = await this.queue.transaction((state) => {
+          const due = state.nextBatchAt ? Date.parse(state.nextBatchAt) : 0;
+          if (!Number.isFinite(due) || this.now().getTime() < due) return false;
+          state.nextBatchAt = new Date(this.now().getTime() + this.batchIntervalMs).toISOString();
+          return true;
+        });
+        if (!claimed) return;
+      }
       const state = await this.queue.read();
       for (const snapshot of Object.values(state.jobs)) {
         if (!this.publicationAllowed(this.now())) break;

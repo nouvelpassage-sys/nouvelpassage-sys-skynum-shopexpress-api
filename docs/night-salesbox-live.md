@@ -28,7 +28,7 @@ d3og57k1dk4307.cloudfront.net.
 - Persistent source-group queue and offset, atomic fsync/rename, heartbeat locks.
 - Exact group ID allowlist; unrelated groups ignored silently.
 - Captions/replies grouped by album; ambiguous or unlinked prices remain drafts.
-- Kyiv 23:00–07:00 worker, one saved AI preparation, no automatic paid retry after an uncertain/crashed preparation.
+- As authorized on 2026-11-28, the production worker processes a batch every seven hours at any time of day. Intake remains continuous and silent. The next batch timestamp is durably claimed before work and survives restart; the first run without a timestamp is immediate. One saved AI preparation, no automatic paid retry after an uncertain/crashed preparation.
 - Up to two source photos in one AI request; one audited overall photo uploaded.
 - Night-specific visible-composition description and substitution note; private prompt unchanged.
 - Photo fingerprint caching and conservative manual-product duplicate review.

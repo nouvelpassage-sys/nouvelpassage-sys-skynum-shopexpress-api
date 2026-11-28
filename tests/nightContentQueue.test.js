@@ -318,3 +318,28 @@ test('all-day worker publishes once during daytime and survives restart', async(
  await new NightContentWorker(opts).tick(); await new NightContentWorker(opts).tick();
  assert.equal(writes,1); assert.equal((await jobs(queue))[0].status,'published');
 });
+
+test('seven-hour batch persists across restart while new messages remain in durable intake', async (t) => {
+  const queue = await fixture(t);
+  const { publicationAllowed, CONTENT_BATCH_INTERVAL_MS } = await import('../src/productAssistant/nightRuntime.js');
+  let time = Date.parse('2026-11-28T10:00:00Z'), calls = 0;
+  const options = { queue, publicationAllowed, batchIntervalMs: CONTENT_BATCH_INTERVAL_MS, settleMs: 0, now: () => new Date(time), prepare: async () => { calls++; return { ready: false }; } };
+  await queue.ingest(photo(901));
+  await new NightContentWorker(options).tick();
+  assert.equal(calls, 1);
+  const due = (await queue.read()).nextBatchAt;
+  assert.equal(due, '2026-11-28T17:00:00.000Z');
+  await queue.ingest(photo(902));
+  time += CONTENT_BATCH_INTERVAL_MS - 1;
+  await new NightContentWorker(options).tick();
+  assert.equal(calls, 1);
+  assert.equal((await queue.read()).nextBatchAt, due);
+  assert.equal((await jobs(queue)).filter(j => j.status === 'queued').length, 1);
+  time++;
+  await new NightContentWorker(options).tick();
+  assert.equal(calls, 2);
+  time += CONTENT_BATCH_INTERVAL_MS * 3;
+  await new NightContentWorker(options).tick();
+  assert.equal(calls, 2);
+  assert.equal((await queue.read()).nextBatchAt, new Date(time + CONTENT_BATCH_INTERVAL_MS).toISOString());
+});
